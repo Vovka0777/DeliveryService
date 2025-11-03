@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QYevNDGfoKcvZ6Fsa2erixhedqTEVxxYsGXeQmyJMcY=",
+  "Hash": "z21hB4GvyUIb9kxtVeGbHK6T9479v6Nb8ut41NnfT0k=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -101,12 +101,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\homyak.jpg",
+      "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
       "SourceId": "DeliveryService_Belko",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\",
       "BasePath": "_content/DeliveryService_Belko",
-      "RelativePath": "images/homyak#[.{fingerprint}]?.jpg",
+      "RelativePath": "images/zxgwre#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -115,11 +115,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "hpcqwcwk2m",
-      "Integrity": "1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY=",
+      "Fingerprint": "l5wu1ru3fa",
+      "Integrity": "SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\homyak.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\zxgwre.jpg"
     },
     {
       "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\shared_script.js",
@@ -1670,8 +1670,8 @@
       ]
     },
     {
-      "Route": "images/homyak.hpcqwcwk2m.jpg",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\homyak.jpg",
+      "Route": "images/zxgwre.jpg",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1680,7 +1680,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4945"
+          "Value": "419681"
         },
         {
           "Name": "Content-Type",
@@ -1688,56 +1688,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY=\""
+          "Value": "\"SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "hpcqwcwk2m"
-        },
-        {
-          "Name": "label",
-          "Value": "images/homyak.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY="
-        }
-      ]
-    },
-    {
-      "Route": "images/homyak.jpg",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\homyak.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4945"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
+          "Value": "Mon, 03 Nov 2025 20:07:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1747,7 +1702,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY="
+          "Value": "sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8="
+        }
+      ]
+    },
+    {
+      "Route": "images/zxgwre.l5wu1ru3fa.jpg",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "419681"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 20:07:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l5wu1ru3fa"
+        },
+        {
+          "Name": "label",
+          "Value": "images/zxgwre.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8="
         }
       ]
     },
@@ -1774,7 +1774,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
+          "Value": "Mon, 03 Nov 2025 20:02:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1819,7 +1819,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
+          "Value": "Mon, 03 Nov 2025 20:02:26 GMT"
         },
         {
           "Name": "Cache-Control",

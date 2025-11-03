@@ -249,53 +249,8 @@
       ]
     },
     {
-      "Route": "images/homyak.hpcqwcwk2m.jpg",
-      "AssetFile": "images/homyak.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4945"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "hpcqwcwk2m"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY="
-        },
-        {
-          "Name": "label",
-          "Value": "images/homyak.jpg"
-        }
-      ]
-    },
-    {
-      "Route": "images/homyak.jpg",
-      "AssetFile": "images/homyak.jpg",
+      "Route": "images/zxgwre.jpg",
+      "AssetFile": "images/zxgwre.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -308,7 +263,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4945"
+          "Value": "419681"
         },
         {
           "Name": "Content-Type",
@@ -316,17 +271,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY=\""
+          "Value": "\"SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
+          "Value": "Mon, 03 Nov 2025 20:07:07 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1ZIPWIczXio6RjYQyZxUlQpC72iEY/ZWep0tCf4a6QY="
+          "Value": "sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8="
+        }
+      ]
+    },
+    {
+      "Route": "images/zxgwre.l5wu1ru3fa.jpg",
+      "AssetFile": "images/zxgwre.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "419681"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 20:07:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l5wu1ru3fa"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8="
+        },
+        {
+          "Name": "label",
+          "Value": "images/zxgwre.jpg"
         }
       ]
     },
@@ -357,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
+          "Value": "Mon, 03 Nov 2025 20:02:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -402,7 +402,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 03 Nov 2025 19:48:49 GMT"
+          "Value": "Mon, 03 Nov 2025 20:02:26 GMT"
         }
       ],
       "EndpointProperties": [

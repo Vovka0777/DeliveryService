@@ -109,7 +109,6 @@ body {
     box-shadow:5px 5px 10px rgba(0,0,0,0.4);
 }
 
-/* Основной стиль для секции "О нас" */
 .container-section {
     background: #f7f7f7;
     padding: 50px 20px;
@@ -119,7 +118,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Заголовок секции */
 .info-sections {
     font-size: 36px;
     font-weight: 700;
@@ -128,7 +126,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Вводный текст */
 .intro-text {
     font-size: 18px;
     color: #555;
@@ -136,14 +133,12 @@ body {
     margin-bottom: 40px;
 }
 
-/* Основной контент (разделение на блоки) */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 
-/* Каждый элемент в контенте */
 .about-item {
     background: #ffffff;
     border-radius: 10px;
@@ -157,14 +152,12 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
- /* Центрированный блок для "Профессиональная команда" */
 .about-item.centered {
-    grid-column: span 2; /* Это заставляет блок занять обе колонки */
-    text-align: center; /* Выравнивание текста по центру */
-    background: #e9f1f9; /* Можно сделать фон немного отличающимся */
+    grid-column: span 2; 
+    text-align: center;
+    background: #e9f1f9; 
 }
 
-/* Заголовки для каждого элемента */
 .feature-title {
     font-size: 24px;
     font-weight: 600;
@@ -172,14 +165,12 @@ body {
     margin-bottom: 15px;
 }
 
-/* Текст в каждом элементе */
 .about-item p {
     font-size: 16px;
     color: #666;
     line-height: 1.6;
 }
 
-/* Заключительный текст */
 .closing-text {
     font-size: 18px;
     color: #333;
@@ -188,13 +179,11 @@ body {
     font-weight: 400;
 }
 
-/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .about-content {
         grid-template-columns: 1fr;
     }
 
-    /* Для мобильных устройств также сделаем центровку блока */
     .about-item.centered {
         grid-column: 1 / -1;
     }
