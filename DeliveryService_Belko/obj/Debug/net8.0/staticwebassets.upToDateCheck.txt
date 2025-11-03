@@ -1,3 +1,4 @@
+wwwroot\css\shared.css
 wwwroot\favicon.ico
 wwwroot\images\homyak.jpg
 wwwroot\js\shared_script.js
@@ -58,4 +59,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\shared.css
