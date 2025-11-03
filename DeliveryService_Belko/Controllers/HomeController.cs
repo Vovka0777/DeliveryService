@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using DeliveryService_Belko.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliveryService_Belko.Controllers
@@ -23,10 +22,5 @@ namespace DeliveryService_Belko.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
