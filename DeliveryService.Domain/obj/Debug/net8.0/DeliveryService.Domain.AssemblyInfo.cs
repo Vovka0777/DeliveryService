@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("DeliveryService_Belko")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("DeliveryService.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f33e3cc4e3021b6f8b3eedfe6da4dd6de649e93")]
-[assembly: System.Reflection.AssemblyProductAttribute("DeliveryService_Belko")]
-[assembly: System.Reflection.AssemblyTitleAttribute("DeliveryService_Belko")]
+[assembly: System.Reflection.AssemblyProductAttribute("DeliveryService.Domain")]
+[assembly: System.Reflection.AssemblyTitleAttribute("DeliveryService.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
