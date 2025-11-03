@@ -5,33 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DeliveryService_Belko</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/shared.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DeliveryService_Belko.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <div id="header-top">
-        <div class="logo">Служба доставки "Брэд"</div>
-        <div class="button-header">
-            <button class="button">Войти</button>
-
+    <body>
+        <div id="header-top">
+            <div class="logo">Брэд</div>
+            <div class="button-header">
+                <button class="button">Войти</button>
+            </div>
         </div>
-    </div>
 
-    <img class="img-header" src="~/images/homyak.jpg" />
+        <img class="img-header" src="~/images/homyak.jpg" />
 
-    <div id="header-bottom">
-        <div class="menu">
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#contact">Контакты</a></li>
-                <li><a href="#countries">Страны</a></li>
-                <li><a href="#services">Услуги</a></li>
-            </ul>
+        <div id="header-bottom">
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#countries">Страны</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        @RenderBody()
-    </div>
-</body>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </body>
 </html>
