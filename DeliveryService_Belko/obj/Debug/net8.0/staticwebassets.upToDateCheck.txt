@@ -1,5 +1,8 @@
 wwwroot\css\shared.css
 wwwroot\favicon.ico
+wwwroot\images\icon-address.png
+wwwroot\images\icon-email.png
+wwwroot\images\icon-phone.png
 wwwroot\images\zxgwre.jpg
 wwwroot\js\shared_script.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
