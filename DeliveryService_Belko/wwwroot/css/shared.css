@@ -1,0 +1,25 @@
+﻿html {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    height: 10000px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.logo {
+    align-items:center;
+    display:inherit
+}

@@ -1,0 +1,66 @@
+# Ignore files created by Visual Studio
+.vscode/
+.vs2019/
+.vs/
+.vs
+# Ignore project configuration files
+*.user
+*.suo
+*.sln.docstates
+
+# Ignore bin and obj folders
+bin/
+obj/
+
+# Ignore NuGet packages folder
+packages/
+
+# Ignore Rider-specific files
+.idea/
+
+# Ignore debug files
+*.pdb
+
+# Ignore ReSharper cache
+_ReSharper*/
+
+# Ignore localization files
+*.pot
+*.po
+*.mo
+
+# Ignore IIS Express configuration files
+.vs2019/
+.vscode/
+
+# Ignore temporary files like .DS_Store (for macOS)
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore test environment files
+testResults/
+[Tt]est[Rr]esult*/
+*.trx
+
+# Ignore code coverage files
+*.opencover
+*.coverage
+*.dotCover
+
+# Ignore JetBrains code coverage files
+*.teamcity
+
+# Ignore log and coverage report files
+*.log
+*.swp
+*.swo
+cobertura-coverage.xml
+cobertura-merged.xml
+coverage.xml
+*.dat
+*.sdf
+/ForumFTI/wwwroot/ImageUser
+
+/ForumFTI/wwwroot/images
