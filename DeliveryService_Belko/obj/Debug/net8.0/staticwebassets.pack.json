@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DeliveryService_Belko.lgpfc27rah.bundle.scp.css"
     },
     {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
+      "PackagePath": "staticwebassets\\css\\login_and_registration.css"
+    },
+    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
       "PackagePath": "staticwebassets\\css\\shared.css"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
       "PackagePath": "staticwebassets\\images\\zxgwre.jpg"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
+      "PackagePath": "staticwebassets\\js\\login_and_registration_script.js"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\shared_script.js",

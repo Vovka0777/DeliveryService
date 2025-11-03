@@ -1,5 +1,17 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.bkzb6djj37.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bkzb6djj37"},{"Name":"integrity","Value":"sha256-NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/login_and_registration.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2753"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Nov 2025 22:53:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2753"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Nov 2025 22:53:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/shared.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -83,6 +95,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"l5wu1ru3fa"},{"Name":"integrity","Value":"sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H\u002BizK8="},{"Name":"label","Value":"_content/DeliveryService_Belko/images/zxgwre.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"419681"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H\u002BizK8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Nov 2025 20:07:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4PsgnpRhskqh3c\u002BLIRIfdxT9LMW/sqadg2dtXd2b18k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1110"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224PsgnpRhskqh3c\u002BLIRIfdxT9LMW/sqadg2dtXd2b18k=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Nov 2025 22:53:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.shm1oxasqu.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"shm1oxasqu"},{"Name":"integrity","Value":"sha256-4PsgnpRhskqh3c\u002BLIRIfdxT9LMW/sqadg2dtXd2b18k="},{"Name":"label","Value":"_content/DeliveryService_Belko/js/login_and_registration_script.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1110"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224PsgnpRhskqh3c\u002BLIRIfdxT9LMW/sqadg2dtXd2b18k=\u0022"},{"Name":"Last-Modified","Value":"Mon, 03 Nov 2025 22:53:59 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/shared_script.99tevarqgy.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\shared_script.js'))</AssetFile>

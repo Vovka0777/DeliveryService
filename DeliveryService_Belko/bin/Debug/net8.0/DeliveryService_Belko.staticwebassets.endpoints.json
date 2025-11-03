@@ -85,6 +85,88 @@
       ]
     },
     {
+      "Route": "css/login_and_registration.bkzb6djj37.css",
+      "AssetFile": "css/login_and_registration.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2753"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bkzb6djj37"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E="
+        },
+        {
+          "Name": "label",
+          "Value": "css/login_and_registration.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/login_and_registration.css",
+      "AssetFile": "css/login_and_registration.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2753"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E="
+        }
+      ]
+    },
+    {
       "Route": "css/shared.css",
       "AssetFile": "css/shared.css",
       "Selectors": [],
@@ -573,6 +655,88 @@
         {
           "Name": "label",
           "Value": "images/zxgwre.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "js/login_and_registration_script.js",
+      "AssetFile": "js/login_and_registration_script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1110"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k="
+        }
+      ]
+    },
+    {
+      "Route": "js/login_and_registration_script.shm1oxasqu.js",
+      "AssetFile": "js/login_and_registration_script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1110"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "shm1oxasqu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k="
+        },
+        {
+          "Name": "label",
+          "Value": "js/login_and_registration_script.js"
         }
       ]
     },

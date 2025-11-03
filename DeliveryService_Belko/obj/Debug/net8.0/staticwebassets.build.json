@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iPpbFS7tHildBfUtQsr3y0fO5193m8ykfcWXogtqf68=",
+  "Hash": "+F7dEL5Y+wZcgUrSEor4KjY194J1TzYojuFSthTnnwE=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DeliveryService_Belko.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
+      "SourceId": "DeliveryService_Belko",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\",
+      "BasePath": "_content/DeliveryService_Belko",
+      "RelativePath": "css/login_and_registration#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bkzb6djj37",
+      "Integrity": "NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login_and_registration.css"
     },
     {
       "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
@@ -183,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\zxgwre.jpg"
+    },
+    {
+      "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
+      "SourceId": "DeliveryService_Belko",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\",
+      "BasePath": "_content/DeliveryService_Belko",
+      "RelativePath": "js/login_and_registration_script#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "shm1oxasqu",
+      "Integrity": "4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login_and_registration_script.js"
     },
     {
       "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\shared_script.js",
@@ -1405,6 +1447,88 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/login_and_registration.bkzb6djj37.css",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2753"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bkzb6djj37"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login_and_registration.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E="
+        }
+      ]
+    },
+    {
+      "Route": "css/login_and_registration.css",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2753"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E="
+        }
+      ]
+    },
+    {
       "Route": "css/shared.css",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
       "Selectors": [],
@@ -2057,6 +2181,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H+izK8="
+        }
+      ]
+    },
+    {
+      "Route": "js/login_and_registration_script.js",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1110"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k="
+        }
+      ]
+    },
+    {
+      "Route": "js/login_and_registration_script.shm1oxasqu.js",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1110"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Nov 2025 22:53:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "shm1oxasqu"
+        },
+        {
+          "Name": "label",
+          "Value": "js/login_and_registration_script.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k="
         }
       ]
     },
