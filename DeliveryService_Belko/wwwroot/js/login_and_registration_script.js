@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoadedd', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
     function hiddenOpen_Closeclick() {
         let x = document.querySelector(".container-login-registration");
         if (x.style.display == "none") {

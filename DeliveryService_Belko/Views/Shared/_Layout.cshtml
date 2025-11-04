@@ -13,29 +13,12 @@
         <div id="header-top">
             <div class="logo">Брэгд</div>
             <div class="button-header">
-                <button class="button">Войти</button>
+            <button id="click-to-hide" class="button">Войти</button>
             </div>
         </div>
 
     <img class="img-header" src="~/images/zxgwre.jpg" />
-
-    <div class="container-login-registration">
-        <div class="block-container">
-            <div class="block">
-                <section class="block-item item-item">
-                    <h2 class="block-item-title">У вас уже есть аккаунт?</h2>
-                    <button class="block-item-btn signin-btn">Войти</button>
-                </section>
-
-                <section class="block-item block-item">
-                    <h2 class="block-item-title">У вас нет аккаунта?</h2>
-                    <button class="block-item-btn signup-btn">Зарегистрироваться</button>
-                </section>
-            </div>
-        </div>
-        <div class="overlay"></div>
-    </div>
-
+    @await Html.PartialAsync("_LoginRegistrationPartial")
         <div id="header-bottom">
             <div class="menu">
                 <ul>
@@ -49,9 +32,8 @@
 
         <div class="container">
             @RenderBody()
-		@await Html.PartialAsync("_LoginRegistrationPartial")
         </div>
         <script src="~/js/shared_script.js" asp-append-version="true"></script>
-        <script src="~/js/home_script.js" asp-append-version="true"></script>
+        <script src="~/js/login_and_registration_script.js" asp-append-version="true"></script>
     </body>
 </html>

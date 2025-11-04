@@ -1,43 +1,60 @@
-﻿<div class="form-box">
-	<form class="form form_signin">
-		<h3 class="form_title">Вход</h3>
+﻿<div class="container-login-registration" style="display: none">
+	<div class="block-container">
+		<div class="block">
+			<section class="block-item item-item">
+				<h2 class="block-item-title">У вас уже есть аккаунт?</h2>
+				<button class="block-item-btn signin-btn">Войти</button>
+			</section>
 
-		<label id="email">
-			<input type="text" />
-			<span>Почта</span>
-		</label>
+			<section class="block-item block-item">
+				<h2 class="block-item-title">У вас нет аккаунта?</h2>
+				<button class="block-item-btn signup-btn">Зарегистрироваться</button>
+			</section>
+		</div>
+		<div class="form-box">
+			<form class="form form_signin">
+				<h3 class="form_title">Вход</h3>
 
-		<label id="password">
-			<input type="password" />
-			<span>Пароль</span>
-		</label>
+				<label id="email">
+					<input type="text" />
+					<span>Почта</span>
+				</label>
 
-		<div class="form-btn">Войти</div>
-	</form>
+				<label id="password">
+					<input type="password" />
+					<span>Пароль</span>
+				</label>
 
-	<form class="form form_signup">
-		<h3 class="form_title">Регистрация</h3>
+				<div class="form-btn">Войти</div>
+			</form>
 
-		<label id="login">
-			<input type="text" />
-			<span>Логин</span>
-		</label>
+			<form class="form form_signup">
+				<h3 class="form_title">Регистрация</h3>
 
-		<label id="email">
-			<input type="text" />
-			<span>Почта</span>
-		</label>
+				<label id="login">
+					<input type="text" />
+					<span>Логин</span>
+				</label>
 
-		<label id="password">
-			<input type="password" />
-			<span>Пароль</span>
-		</label>
+				<label id="email">
+					<input type="text" />
+					<span>Почта</span>
+				</label>
 
-		<label id="confirm_password">
-			<input type="password" />
-			<span>Подтвердите пароль</span>
-		</label>
+				<label id="password">
+					<input type="password" />
+					<span>Пароль</span>
+				</label>
 
-		<div class="form-btn form_btn_signup">Зарегистрироваться</div>
-	</form>
+				<label id="confirm_password">
+					<input type="password" />
+					<span>Подтвердите пароль</span>
+				</label>
+
+				<div class="form-btn form_btn_signup">Зарегистрироваться</div>
+			</form>
+		</div>
+	</div>
+	<div class="overlay"></div>
 </div>
+
