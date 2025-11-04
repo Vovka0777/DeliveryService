@@ -213,3 +213,12 @@ input:not(:placeholder-shown) + span {
 .block-container:hover {
     box-shadow: 0 12px 70px rgba(0, 0, 0, 0.8);
 }
+
+#error-messages-signin {
+    margin-top: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+}

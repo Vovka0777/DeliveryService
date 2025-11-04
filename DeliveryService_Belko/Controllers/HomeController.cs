@@ -1,5 +1,6 @@
-using System.Diagnostics;
+using DeliveryService.Domain.ViewModels.LoginAndRegistration;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace DeliveryService_Belko.Controllers
 {
@@ -17,10 +18,18 @@ namespace DeliveryService_Belko.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Login([FromBody] LoginViewModel model)
         {
-            return View();
-        }
+            if (ModelState.IsValid)
+            {
+                return Ok(model);
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
 
+            return BadRequest(errors);
+        }
     }
 }

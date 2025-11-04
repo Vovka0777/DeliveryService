@@ -1,4 +1,4 @@
-﻿namespace DeliveryService.Domain
+﻿namespace LoginViewModel
 {
     public class Class1
     {
