@@ -31,5 +31,21 @@ namespace DeliveryService_Belko.Controllers
 
             return BadRequest(errors);
         }
+        [HttpPost]
+        public IActionResult Register([FromBody] RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return BadRequest(errors);
+            }
+
+            return Ok(model);
+            
+        }
     }
 }
