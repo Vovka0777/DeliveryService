@@ -27,4 +27,13 @@
             block.classList.remove('active');
         });
     }
+
+});
+const modal = document.getElementById('loginModal');
+const block = modal?.querySelector('.block-container');
+
+modal?.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
 });

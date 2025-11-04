@@ -1,9 +1,9 @@
 wwwroot\css\login_and_registration.css
-wwwroot\css\shared.css
 wwwroot\favicon.ico
 wwwroot\images\icon-address.png
 wwwroot\images\icon-email.png
 wwwroot\images\icon-phone.png
+wwwroot\images\service1.png
 wwwroot\images\zxgwre.jpg
 wwwroot\js\login_and_registration_script.js
 wwwroot\js\shared_script.js
@@ -64,3 +64,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\shared.css
