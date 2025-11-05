@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/login_and_registration.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DeliveryService_Belko.styles.css" asp-append-version="true" />
 </head>
+
     <body>
         <div id="header-top">
             <div class="logo">Брэгд</div>
@@ -21,6 +22,10 @@
 
     <img class="img-header" src="~/images/zxgwre.jpg" />
     @await Html.PartialAsync("_LoginRegistrationPartial")
+    <div class="container">
+        <h2>Отзывы</h2>
+        @await Html.PartialAsync("_ReviewsPartial")
+    </div>
         <div id="header-bottom">
 
             <div class="menu">
@@ -36,7 +41,7 @@
         <div class="container">
             @RenderBody()
         </div>
+    @await Html.PartialAsync("_FooterPartial")
         <script src="~/js/shared_script.js" asp-append-version="true"></script>
-        <script src="~/js/login_and_registration_script.js" asp-append-version="true"></script>
-    </body>
+        <script src="~/js/login_and_registration_script.js" asp-append-version="true"></script>    </body>
 </html>

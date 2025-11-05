@@ -116,3 +116,5 @@ D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\
 D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\DeliveryService.Domain.pdb
 D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\DeliveryService_Belko.csproj.AssemblyReference.cache
 D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\Delivery.9F92D4FE.Up2Date
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\scopedcss\Views\Shared\_ReviewsPartial.cshtml.rz.scp.css
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\scopedcss\Views\Shared\_FooterPartial.cshtml.rz.scp.css
