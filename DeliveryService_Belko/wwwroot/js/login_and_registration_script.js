@@ -139,7 +139,7 @@ if (form_btn_signup) {
         const errorContainer = document.getElementById('error-messages-signup');
 
         const form = {
-            login: document.getElementById("signup_login");
+            login: document.getElementById("signup_login")
             email: document.querySelector('#signin_email input'),
             password: document.querySelector('#signin_password input'),
             passwordConfirm: document.getElementById("signup_confirm_password"),
