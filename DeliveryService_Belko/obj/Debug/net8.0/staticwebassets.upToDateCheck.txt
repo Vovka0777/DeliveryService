@@ -1,4 +1,5 @@
 wwwroot\css\login_and_registration.css
+wwwroot\css\media_style.css
 wwwroot\css\shared.css
 wwwroot\favicon.ico
 wwwroot\images\icon-address.png

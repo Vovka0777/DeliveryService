@@ -702,3 +702,34 @@ p {
         gap: 8px;
     }
 }
+
+.icon {
+    display: none;
+}
+
+side-menu {
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:100%;
+    height:fit-content;
+    background-color:rgba(255,165,0,1);
+    box-shadow:2px 0 5px rgba(0,0,0,0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease;
+    z-index:200;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    display: grid;
+    justify-content:space-around;
+}
+
+.side-menu ul li {
+    margin: 10px 0;
+}
