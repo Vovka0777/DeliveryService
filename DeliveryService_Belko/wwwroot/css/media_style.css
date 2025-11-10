@@ -1,4 +1,7 @@
-﻿@media (max-width: 992px) {
+﻿
+
+
+@media (max-width: 992px) {
     .button-header {
         display:none;
     }
@@ -20,9 +23,7 @@
     #header-bottom {
         padding: 0px;
     }
-}
-
-.icon {
+    .icon {
     display: flex;
     margin: auto 0;
     color: #370b0b;
@@ -31,6 +32,18 @@
     border: 1px solid #370b0b;
     border-radius: 4px;
     font-size: 20px;
+    }
+}
+
+.side-menu {
+    position: fixed; 
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff; 
+    z-index: 9999;
+    transition: right 0.3s ease-in-out;
 }
 
 .side-menu.active {
@@ -41,10 +54,6 @@
     width: 100%;
     border: none;
     box-shadow: none;
-}
-
-.button-header {
-    display: none;
 }
 
 .info-sections {

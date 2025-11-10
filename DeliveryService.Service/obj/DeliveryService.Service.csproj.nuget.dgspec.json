@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj": {}
+    "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj": {}
   },
   "projects": {
-    "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj": {
+    "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj",
+        "projectUniqueName": "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj",
         "projectName": "DeliveryService.Service",
-        "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj",
-        "packagesPath": "D:\\Users\\tmu2.SERVER-ECONOM\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\obj\\",
+        "projectPath": "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj",
+        "packagesPath": "D:\\Users\\tmu12.SERVER-ECONOM\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\Users\\tmu2.SERVER-ECONOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\Users\\tmu12.SERVER-ECONOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

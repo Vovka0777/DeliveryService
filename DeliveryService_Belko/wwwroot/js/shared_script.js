@@ -1,48 +1,58 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
+    // -------------------------------------------------------------------
+    // 1. Плавное изменение фона шапки при скролле
+    // -------------------------------------------------------------------
     window.addEventListener('scroll', function () {
         var header = document.getElementById('header-top');
         var scrollY = window.scrollY;
         var maxScroll = 250;
-
         var opacity = Math.min(scrollY / maxScroll, 1);
-        header.style.backgroundColor = `rgba(255, 165, 0, ${opacity})`;
+        // Используем оригинальный оранжевый цвет #ff7a00 (255, 122, 0)
+        header.style.backgroundColor = `rgba(255, 122, 0, ${opacity * 0.6})`;
     });
-});
-document.addEventListener('DOMContentLoaded', function () {
+
+    // -------------------------------------------------------------------
+    // 2. Логика для слайдера отзывов (если он существует)
+    // -------------------------------------------------------------------
     const reviews = document.querySelector('.reviews-slider');
     const prevButton = document.getElementById('prevReview');
     const nextButton = document.getElementById('nextReview');
-    let currentIndex = 0;
+    const reviewsWrapper = document.querySelector('.reviews-wrapper');
 
-    const reviewsCount = document.querySelectorAll('.review-item').length;
+    if (reviews && prevButton && nextButton) {
+        let currentIndex = 0;
+        const reviewsCount = document.querySelectorAll('.review-item').length;
 
-    function showReview(index) {
-        reviews.style.transform = `translateX(-${index * 100}%)`;
+        function showReview(index) {
+            reviews.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', function () {
+            currentIndex = (currentIndex - 1 + reviewsCount) % reviewsCount;
+            showReview(currentIndex);
+        });
+
+        nextButton.addEventListener('click', function () {
+            currentIndex = (currentIndex + 1) % reviewsCount;
+            showReview(currentIndex);
+        });
     }
 
-    prevButton.addEventListener('click', function () {
-        currentIndex = (currentIndex - 1 + reviewsCount) % reviewsCount;
-        showReview(currentIndex);
-    });
+    // Пауза анимации отзывов при наведении
+    const reviewsContainer = document.getElementById('reviews-container');
+    if (reviewsContainer && reviewsWrapper) {
+        reviewsContainer.addEventListener('mouseenter', function () {
+            reviewsWrapper.style.animationPlayState = 'paused';
+        });
 
-    nextButton.addEventListener('click', function () {
-        currentIndex = (currentIndex + 1) % reviewsCount;
-        showReview(currentIndex);
-    });
-});
-document.getElementById('reviews-container').addEventListener('mouseenter', function () {
-    const reviewsWrapper = document.querySelector('.reviews-wrapper');
-    reviewsWrapper.style.animationPlayState = 'paused';
-});
+        reviewsContainer.addEventListener('mouseleave', function () {
+            reviewsWrapper.style.animationPlayState = 'running';
+        });
+    }
 
-document.getElementById('reviews-container').addEventListener('mouseleave', function () {
-    const reviewsWrapper = document.querySelector('.reviews-wrapper');
-    reviewsWrapper.style.animationPlayState = 'running';
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-
+    // -------------------------------------------------------------------
+    // 3. Логика для футера и подписки
+    // -------------------------------------------------------------------
     var yearEl = document.getElementById('currentYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -68,11 +78,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function toggleMenu() {
-        const sideMenu = document.getElementById('side-menu')
+    // -------------------------------------------------------------------
+    // 4. ЛОГИКА ГАМБУРГЕРА (КЛЮЧЕВОЙ БЛОК)
+    // -------------------------------------------------------------------
 
-        sideMenu.classList.toggle('active');
+    function toggleMenu() {
+        const sideMenu = document.getElementById('side-menu');
+        if (sideMenu) {
+            sideMenu.classList.toggle('active');
+            console.log('Меню переключено!'); // Проверка, что функция вызвана
+        }
     }
 
-    document.getElementById('hamburger').addEventListener('click',toggleMenu)
+    // Инициализация кнопки гамбургера
+    const hamburgerButton = document.getElementById('hamburger');
+
+    if (hamburgerButton) {
+        // Проверка: Кнопка найдена!
+        console.log('Кнопка гамбургера найдена.');
+        hamburgerButton.addEventListener('click', toggleMenu);
+    } else {
+        // Проверка: Кнопка НЕ найдена!
+        console.error('Ошибка: Элемент с ID "hamburger" не найден.');
+    }
+    // -------------------------------------------------------------------
 });

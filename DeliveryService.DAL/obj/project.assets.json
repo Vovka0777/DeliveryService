@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "D:\\Users\\tmu2.SERVER-ECONOM\\.nuget\\packages\\": {},
+    "D:\\Users\\tmu12.SERVER-ECONOM\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.DAL\\DeliveryService.DAL.csproj",
+      "projectUniqueName": "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.DAL\\DeliveryService.DAL.csproj",
       "projectName": "DeliveryService.DAL",
-      "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.DAL\\DeliveryService.DAL.csproj",
-      "packagesPath": "D:\\Users\\tmu2.SERVER-ECONOM\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.DAL\\obj\\",
+      "projectPath": "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.DAL\\DeliveryService.DAL.csproj",
+      "packagesPath": "D:\\Users\\tmu12.SERVER-ECONOM\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\tmu12.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\Users\\tmu2.SERVER-ECONOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "D:\\Users\\tmu12.SERVER-ECONOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
