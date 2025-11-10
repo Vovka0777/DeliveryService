@@ -1,5 +1,4 @@
-﻿/* --- Адаптация для мобильных устройств --- */
-@media (max-width: 992px) {
+﻿@media (max-width: 992px) {
     .block-container {
         width: 90%;
         height: auto;

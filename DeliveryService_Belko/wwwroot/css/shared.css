@@ -303,49 +303,6 @@ p {
     font-weight: 500;
 }
 
-/* ====== АДАПТИВ (ОБЩИЕ СТИЛИ) ====== */
-@media (max-width: 900px) {
-    #header-top {
-        padding: 15px 30px;
-    }
-
-    .img-header {
-        height: 250px;
-    }
-
-    .container {
-        padding: 30px 20px;
-    }
-
-    .menu ul {
-        gap: 20px;
-    }
-
-    .info-sections {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 600px) {
-    .logo {
-        font-size: 18px;
-    }
-
-    .button-header .button {
-        padding: 6px 15px;
-        font-size: 13px;
-    }
-
-    .about-item.centered {
-        grid-column: span 1;
-    }
-
-    .container-row {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 .block-message {
     max-width: 700px;
     margin: 5px auto 0;
@@ -416,17 +373,6 @@ p {
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(255,122,0,0.5);
         }
-
-@media (max-width: 768px) {
-    .block-message {
-        padding: 20px;
-    }
-
-    .message-button .button {
-        width: 100%;
-        padding: 12px;
-    }
-}
 
 .reviews-container {
     width: 100%;
@@ -682,125 +628,6 @@ p {
     white-space: nowrap;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .site-footer {
-        padding: 30px 20px;
-    }
-
-    .footer-top {
-        gap: 18px;
-    }
-
-    .footer-column {
-        flex: 1 1 100%;
-    }
-
-    .footer-subscribe {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-        .footer-subscribe input[type="email"] {
-            width: 100%;
-        }
-
-    .btn-subscribe {
-        width: 100%;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-}
-
-/* ====== СТИЛИ АДАПТАЦИИ (MOBILE) ====== */
-@media (max-width: 992px) {
-    /* Скрываем десктопные элементы, которые должны исчезать */
-    #header-bottom,
-    .menu {
-        display: none;
-    }
-
-    /* 🌟 ИСПРАВЛЕНИЕ 2: СКРЫВАЕМ КНОПКУ "ВОЙТИ" НА МОБИЛЬНЫХ 🌟 */
-    .button-header .button {
-        display: none; /* Скрываем саму кнопку "Войти" на мобильных */
-    }
-
-    /* Делаем контейнер button-header flex, чтобы гамбургер и кнопка Войти (если она тут) могли быть рядом */
-    .button-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    /* Делаем иконку гамбургера видимой */
-    .icon {
-        display: flex; /* Показываем иконку на мобильных */
-        margin: auto 0;
-        color: #370b0b;
-        padding: 5px 10px;
-        cursor: pointer;
-        border: 1px solid #370b0b;
-        border-radius: 4px;
-        font-size: 20px;
-    }
-
-    /* Настройки изображения */
-    .img-header {
-        width: 430px;
-        height: 200px;
-        margin-top: 40px;
-    }
-
-    #header-top {
-        padding: 7px 5px;
-    }
-
-    .container {
-        padding: 30px 20px;
-    }
-
-    /* Настройки контейнера входа/регистрации для мобильных */
-    .block-container {
-        width: 400px;
-        height: 650px;
-        padding: 0;
-    }
-
-    .block {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .form-box {
-        width: 100%;
-        height: 500px;
-        box-shadow: none;
-        top: 0;
-        left: 0; /* Устанавливаем слева для корректной работы 'active' */
-    }
-
-        .form-box.active {
-            top: 150px;
-            left: 0; /* Сдвигаем вниз, а не вправо */
-        }
-
-    .form_signup {
-        left: 100%;
-    }
-
-    .form-box.active .form_signin {
-        left: -100%;
-    }
-
-    .form-box.active .form_signup {
-        left: 0;
-    }
-}
 
 /* ====== СТИЛИ БОКОВОГО МЕНЮ ====== */
 .side-menu {
@@ -843,16 +670,3 @@ p {
         margin-top: auto; /* Прижимаем кнопку "Войти" к низу */
         width: 100%;
     }
-/* Другие мобильные стили... */
-@media (max-width: 992px) {
-    .container {
-        width: 100%;
-        border: none;
-        box-shadow: none;
-    }
-
-    .info-sections {
-        font-size: 34px;
-    }
-    /* ... остальные ваши мобильные стили ... */
-}
