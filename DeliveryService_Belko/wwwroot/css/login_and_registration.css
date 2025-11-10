@@ -1,84 +1,68 @@
-﻿@media (max-width: 768px) {
-    /* Основной контейнер модального окна */
+﻿/* --- Адаптация для мобильных устройств --- */
+@media (max-width: 992px) {
     .block-container {
-        width: 95%; /* Занимает почти всю ширину экрана */
-        height: auto; /* Высота подстраивается под контент */
+        width: 90%;
+        height: auto;
+        flex-direction: column;
         border-radius: 15px;
-        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
-        transform: scale(1); /* Убираем начальное уменьшение */
-        opacity: 1; /* Убираем начальную прозрачность */
-        animation: none; /* Отключаем анимацию для мобильных, чтобы избежать возможных проблем */
-        margin: 20px auto; /* Небольшой отступ сверху/снизу */
     }
 
-    /* Внутренний блок, который содержит формы и переключатели */
     .block {
-        flex-direction: column; /* Элементы идут друг за другом (сверху-вниз) */
-        justify-content: flex-start; /* Начинаем сверху */
+        flex-direction: column;
         height: auto;
+        justify-content: center;
+        padding: 20px 0;
     }
 
-    /* Контейнер форм (белая часть) */
-    .form-box {
-        position: static; /* Убираем абсолютное позиционирование */
-        width: 100%; /* Занимает всю ширину */
-        height: auto; /* Высота подстраивается под контент */
-        border-radius: 15px 15px 0 0; /* Скругление только сверху */
-        box-shadow: none;
-        order: -1; /* Помещаем форму выше переключателей */
-        align-items: stretch; /* Растягиваем контент формы */
-        padding-bottom: 20px;
-    }
-
-        /* Активация формы (для смены Вход/Регистрация) */
-        .form-box.active {
-            left: 0; /* Сброс смещения, т.к. используется 'position: static' */
-        }
-
-    /* Формы (вход / регистрация) */
-    .form {
-        padding: 20px; /* Уменьшаем отступы */
-        position: static; /* Убираем абсолютное позиционирование */
-        height: auto;
-    }
-
-    /* Блок с кнопками переключения (оранжевый/темный фон) */
     .block-item {
-        width: 100%; /* Занимает всю ширину */
-        padding: 15px 20px; /* Уменьшаем отступы */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .form-box {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 15px 15px;
+        box-shadow: none;
+    }
+
+    .form {
+        position: relative;
+        padding: 25px;
+    }
+
+    .form_title {
+        font-size: 1.3rem;
         text-align: center;
     }
 
-    .block-item-title {
-        font-size: 1.2rem; /* Немного уменьшаем шрифт */
-        margin-bottom: 10px;
+    .form-btn {
+        width: 100%;
     }
 
     .block-item-btn {
-        padding: 10px 20px; /* Уменьшаем размер кнопки */
-        font-size: 0.9rem;
+        width: 90%;
+        font-size: 0.95rem;
+        padding: 10px 20px;
     }
 
-    /* Скрываем/показываем формы, чтобы они не накладывались */
-    .form_signin,
-    .form_signup {
-        left: 0 !important; /* Сбрасываем все смещения */
-        display: none;
+    /* Чтобы не было горизонтальной прокрутки */
+    body, html {
+        overflow-x: hidden;
     }
 
-    /* Управляем видимостью активной формы */
-    .form-box .form_signin {
-        display: flex; /* Показываем Вход по умолчанию */
+    /* Анимация перехода без сдвига за экран */
+    .form-box.active {
+        left: 0;
     }
 
-    .form-box.active .form_signin {
-        display: none; /* Скрываем Вход при активации */
-    }
-
-    .form-box.active .form_signup {
-        display: flex; /* Показываем Регистрацию при активации */
+    .form_signin, .form_signup {
+        position: relative;
+        left: 0 !important;
     }
 }
+
 
 .container-login-registration {
     display: none;
