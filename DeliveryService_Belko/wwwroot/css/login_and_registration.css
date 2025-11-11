@@ -1,69 +1,4 @@
-﻿@media (max-width: 992px) {
-    .block-container {
-        width: 90%;
-        height: auto;
-        flex-direction: column;
-        border-radius: 15px;
-    }
-
-    .block {
-        flex-direction: column;
-        height: auto;
-        justify-content: center;
-        padding: 20px 0;
-    }
-
-    .block-item {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .form-box {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-radius: 0 0 15px 15px;
-        box-shadow: none;
-    }
-
-    .form {
-        position: relative;
-        padding: 25px;
-    }
-
-    .form_title {
-        font-size: 1.3rem;
-        text-align: center;
-    }
-
-    .form-btn {
-        width: 100%;
-    }
-
-    .block-item-btn {
-        width: 90%;
-        font-size: 0.95rem;
-        padding: 10px 20px;
-    }
-
-    /* Чтобы не было горизонтальной прокрутки */
-    body, html {
-        overflow-x: hidden;
-    }
-
-    /* Анимация перехода без сдвига за экран */
-    .form-box.active {
-        left: 0;
-    }
-
-    .form_signin, .form_signup {
-        position: relative;
-        left: 0 !important;
-    }
-}
-
-
-.container-login-registration {
+﻿.container-login-registration {
     display: none;
     position: fixed;
     inset: 0;
@@ -193,11 +128,13 @@
     font-weight: 700;
     color: #333;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 label {
     position: relative;
     margin-bottom: 20px;
+
 }
 
 input {
@@ -208,6 +145,7 @@ input {
     outline: none;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+
 }
 
     input:focus {
@@ -259,10 +197,12 @@ input:not(:placeholder-shown) + span {
 /* Смена форм (анимации смещения) */
 .form_signin {
     left: 0;
+    text-align: center;
 }
 
 .form_signup {
     left: 100%;
+    text-align: center;
 }
 
 .form-box.active .form_signin {

@@ -17,16 +17,19 @@
     const signUpBtn = document.querySelector('.signup-btn');
     const formBox = document.querySelector('.form-box');
     const block = document.querySelector('.block');
+    const blockContainer = document.querySelector('.block-container'); // <-- Добавляем эту строку
 
     if (signInBtn && signUpBtn) {
         signUpBtn.addEventListener('click', function () {
             formBox.classList.add('active');
             block.classList.add('active');
+            blockContainer.classList.remove('signin-active'); // <-- Удаляем класс для Входа
         });
 
         signInBtn.addEventListener('click', function () {
             formBox.classList.remove('active');
             block.classList.remove('active');
+            blockContainer.classList.add('signin-active'); // <-- Добавляем класс для Входа
         });
     }
 

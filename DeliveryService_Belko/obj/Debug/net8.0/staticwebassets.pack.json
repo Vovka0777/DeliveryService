@@ -2,11 +2,15 @@
   "Files": [
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DeliveryService_Belko.bundle.scp.css",
-      "PackagePath": "staticwebassets\\DeliveryService_Belko.lgpfc27rah.bundle.scp.css"
+      "PackagePath": "staticwebassets\\DeliveryService_Belko.rgz5gp2umj.bundle.scp.css"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
       "PackagePath": "staticwebassets\\css\\login_and_registration.css"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\media_style.css",
+      "PackagePath": "staticwebassets\\css\\media_style.css"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
@@ -27,6 +31,10 @@
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\icon-phone.png",
       "PackagePath": "staticwebassets\\images\\icon-phone.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\service1.png",
+      "PackagePath": "staticwebassets\\images\\service1.png"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",

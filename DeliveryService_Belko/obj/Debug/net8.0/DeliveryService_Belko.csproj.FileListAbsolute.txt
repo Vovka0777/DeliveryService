@@ -158,3 +158,9 @@ D:\Users\tmu12.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj
 D:\Users\tmu12.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\DeliveryService_Belko.pdb
 D:\Users\tmu12.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\DeliveryService_Belko.genruntimeconfig.cache
 D:\Users\tmu12.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\ref\DeliveryService_Belko.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\DeliveryService.Domain.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\DeliveryService.Domain.pdb
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\DeliveryService_Belko.csproj.AssemblyReference.cache
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\scopedcss\Views\Shared\_FooterPartial.cshtml.rz.scp.css
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\scopedcss\Views\Shared\_ReviewsPartial.cshtml.rz.scp.css
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\Delivery.9F92D4FE.Up2Date

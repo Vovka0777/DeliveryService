@@ -12,11 +12,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>bkzb6djj37</Fingerprint>
-      <Integrity>NW23EfZ2DW6wjHqfnmWpdV6TrGAzMHA7HfrdwndYR3E=</Integrity>
+      <Fingerprint>blfjvowlyj</Fingerprint>
+      <Integrity>r/QicXwAtpVkRrF8xC4td/lRli/OA5GsWZ4BWGRq9VM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\media_style.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>css/media_style.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>sk1gobox91</Fingerprint>
+      <Integrity>BLA75trOXkCnKAtqZqx9Jnc71afXLT+dGpcU9I/omho=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\media_style.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))">
       <SourceType>Package</SourceType>
@@ -30,29 +48,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hq7cok1i09</Fingerprint>
-      <Integrity>KSqIW/EZOnxp5g5q8QJTSmY3ndQtg2cLS/se0zv5yRE=</Integrity>
+      <Fingerprint>3qj3nhdhdh</Fingerprint>
+      <Integrity>m/FbXU846jZiPWQnwtg2CIoBoeSz3GPCRHV2wGMtKuM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.lgpfc27rah.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.rgz5gp2umj.bundle.scp.css'))">
       <SourceType>Package</SourceType>
       <SourceId>DeliveryService_Belko</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DeliveryService_Belko</BasePath>
-      <RelativePath>DeliveryService_Belko.lgpfc27rah.bundle.scp.css</RelativePath>
+      <RelativePath>DeliveryService_Belko.rgz5gp2umj.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>lgpfc27rah</Fingerprint>
-      <Integrity>W82zlnGP9xSDdbBZJuR2ZsVsxRsc+AlcnOlFDnAE0Cw=</Integrity>
+      <Fingerprint>rgz5gp2umj</Fingerprint>
+      <Integrity>NQlMBly87FveFUrNo7ZD4uPyz2Pcqpir+GY14dltcWk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.lgpfc27rah.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.rgz5gp2umj.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))">
       <SourceType>Package</SourceType>
@@ -126,6 +144,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\icon-phone.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\service1.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/service1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mq4yd94w7f</Fingerprint>
+      <Integrity>goKz8xcFxCmvcQKFK8E8bnp/l4Jmr5jrzKnp8K0MX7U=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\service1.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\zxgwre.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>DeliveryService_Belko</SourceId>
@@ -156,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>shm1oxasqu</Fingerprint>
-      <Integrity>4PsgnpRhskqh3c+LIRIfdxT9LMW/sqadg2dtXd2b18k=</Integrity>
+      <Fingerprint>36y2sm3krc</Fingerprint>
+      <Integrity>hQKx0dBi6CjYkyGMMmf3hpDAHjKwEA3CitydwCV1lss=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</OriginalItemSpec>
@@ -174,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>99tevarqgy</Fingerprint>
-      <Integrity>naJAQbBUyrZyxifRcZNM3dbQKwHeJ7gX/6/I98ENx7g=</Integrity>
+      <Fingerprint>so6bqce249</Fingerprint>
+      <Integrity>ZJ+mhuNadc2GBj/eUk/5ggeOg5PpU9PrtW6XsGO8B0E=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\shared_script.js'))</OriginalItemSpec>
