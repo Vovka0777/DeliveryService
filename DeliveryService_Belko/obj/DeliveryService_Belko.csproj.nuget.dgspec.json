@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj": {}
+    "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj": {}
   },
   "projects": {
-    "E:\\инфа\\praktika\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
+    "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj",
+        "projectUniqueName": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj",
         "projectName": "DeliveryService.Domain",
-        "projectPath": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj",
-        "packagesPath": "C:\\Users\\vovab\\.nuget\\packages\\",
-        "outputPath": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService.Domain\\obj\\",
+        "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj",
+        "packagesPath": "D:\\Users\\tmu2.SERVER-ECONOM\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vovab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\Users\\tmu2.SERVER-ECONOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -66,24 +65,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj": {
+    "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj",
+        "projectUniqueName": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj",
         "projectName": "DeliveryService_Belko",
-        "projectPath": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj",
-        "packagesPath": "C:\\Users\\vovab\\.nuget\\packages\\",
-        "outputPath": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\obj\\",
+        "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService_Belko\\DeliveryService_Belko.csproj",
+        "packagesPath": "D:\\Users\\tmu2.SERVER-ECONOM\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService_Belko\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vovab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\Users\\tmu2.SERVER-ECONOM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -92,15 +91,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\инфа\\praktika\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
-                "projectPath": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj"
+              "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
+                "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj"
               }
             }
           }
@@ -115,7 +113,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -139,7 +137,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
