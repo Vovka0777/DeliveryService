@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameWorkCore;
+using Microsoft.EntityFrameworkCore;
 using DeliveryService.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 string conntection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpqsql)(conntection);
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(conntection));
 
 var app = builder.Build();
 
