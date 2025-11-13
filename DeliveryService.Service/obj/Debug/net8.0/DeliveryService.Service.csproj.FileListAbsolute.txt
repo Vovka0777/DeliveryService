@@ -10,3 +10,4 @@ D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\ob
 D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\refint\DeliveryService.Service.dll
 D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\DeliveryService.Service.pdb
 D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\ref\DeliveryService.Service.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\DeliveryService.Service.csproj.AssemblyReference.cache

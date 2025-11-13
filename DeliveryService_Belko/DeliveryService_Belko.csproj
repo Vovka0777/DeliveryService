@@ -11,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DeliveryService.DAL\DeliveryService.DAL.csproj" />
     <ProjectReference Include="..\DeliveryService.Domain\DeliveryService.Domain.csproj" />
     <ProjectReference Include="..\DeliveryService.Service\DeliveryService.Service.csproj" />
