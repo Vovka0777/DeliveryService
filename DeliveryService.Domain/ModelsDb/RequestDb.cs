@@ -1,10 +1,12 @@
-﻿using DeliveryService.Domain.ModelsDb.DeliveryService.Domain.ModelsDb;
+﻿using DeliveryService.Domain.Models;
+using DeliveryService.Domain.ModelsDb;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeliveryService.Domain;
 using static DeliveryService.Domain.Enum.Enum;
 
 namespace DeliveryService.Domain.ModelsDb
@@ -32,6 +34,6 @@ namespace DeliveryService.Domain.ModelsDb
 
         // Навигационное свойство
         [ForeignKey("UserId")]
-        public UserDb User { get; set; }
+        public User User { get; set; }
     }
 }

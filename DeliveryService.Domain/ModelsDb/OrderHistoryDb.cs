@@ -1,36 +1,23 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static DeliveryService.Domain.Enum.Enum;
 
-namespace DeliveryService.Domain.ModelsDb
+namespace DeliveryService.Domain.Models
 {
     [Table("order_history")]
-    public class OrderHistoryDb
+    public class OrderHistory
     {
-        [Column("id")]
-        public Guid Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } // id uuid
 
-        [Column("id_order")]
-        public Guid OrderId { get; set; } // Внешний ключ к orders
+        // Связь с Заказом
+        public Guid IdOrder { get; set; } // id_order uuid
+        [ForeignKey("IdOrder")]
+        public Order Order { get; set; } = null!;
 
-        [Column("id_status")]
-        public Status StatusId { get; set; } // Используем Enum Status
+        public Guid IdStatus { get; set; } // id_status uuid (Внешний ключ к статусу)
 
-        [Column("description")]
-        public string Description { get; set; }
-
-        [Column("location")]
-        public string Location { get; set; } // Местоположение в момент смены статуса
-
-        [Column("createdAt", TypeName = "timestamp")]
-        public DateTime CreatedAt { get; set; }
-
-        // Навигационное свойство
-        [ForeignKey("OrderId")]
-        public OrderDb Order { get; set; }
+        public string? Description { get; set; } // description text
+        public string? Location { get; set; } // location text
+        public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
     }
 }

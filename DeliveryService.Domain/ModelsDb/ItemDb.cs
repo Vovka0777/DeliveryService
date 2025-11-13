@@ -1,30 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DeliveryService.Domain.ModelsDb
+namespace DeliveryService.Domain.Models
 {
     [Table("item")]
-    public class ItemDb
+    public class Item
     {
-        [Column("id")]
-        public Guid Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } // id uuid
 
-        [Column("id_order")]
-        public Guid OrderId { get; set; } // Внешний ключ к orders
+        // Связь с Заказом
+        public Guid IdOrder { get; set; } // id_order uuid
+        [ForeignKey("IdOrder")]
+        public Order Order { get; set; } = null!;
 
-        [Column("name")]
-        public string Name { get; set; }
-
-        [Column("path_img")]
-        public string PathImg { get; set; }
-
-        // Навигационное свойство
-        [ForeignKey("OrderId")]
-        public OrderDb Order { get; set; }
+        public string? Name { get; set; } // name text
+        public string? PathImg { get; set; } // path_img text
     }
 }

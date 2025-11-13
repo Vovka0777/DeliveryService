@@ -1,41 +1,40 @@
-﻿using DeliveryService.Domain.Enum;
-using System;
-using System.Collections.Generic;
+﻿using DeliveryService.Domain.ModelsDb;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static DeliveryService.Domain.Enum.Enum;
-
-namespace DeliveryService.Domain.ModelsDb
+namespace DeliveryService.Domain.Models
 {
-    namespace DeliveryService.Domain.ModelsDb
+    // Аналогично Рисунку 119
+    [Table("user")]
+    public class User
     {
-        [Table("user")]
-        public class UserDb
-        {
-            [Column("id")]
-            public Guid Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } // id uuid
 
-            [Column("login")]
-            public string Login { get; set; }
+        public string? Login { get; set; } // login text
+        public string? Password { get; set; } // password text
+        public string? Email { get; set; } // email text
 
-            [Column("password")]
-            public string Password { get; set; }
+        public int Role { get; set; } // role integer (для Role Enum)
+        public int? ProfileImg { get; set; } // profile_img integer (Сделаем nullable, если это id, которое может отсутствовать)
 
-            [Column("email")]
-            public string Email { get; set; }
+        public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
 
-            [Column("role")]
-            public Role Role { get; set; } // Используем Enum Role
+        // Навигационные свойства
+        [InverseProperty("Client")]
+        public ICollection<Order> ClientOrders { get; set; } = new List<Order>();
 
-            [Column("profile_img")]
-            public string ProfileImg { get; set; }
+        [InverseProperty("Courier")]
+        public ICollection<Order> CourierOrders { get; set; } = new List<Order>();
+    }
 
-            [Column("createdAt", TypeName = "timestamp")]
-            public DateTime CreatedAt { get; set; }
-
-            // Навигационные свойства для связей (связь "один ко многим")
-            public ICollection<OrderDb> Orders { get; set; } // Заказы, созданные пользователем
-            public ICollection<OrderDb> CourierOrders { get; set; } // Заказы, назначенные курьеру
-            public ICollection<RequestDb> Requests { get; set; } // Запросы, созданные пользователем
-        }
+    // Пример Enum'а для ролей (Аналогично Рисунку 120)
+    public enum Role
+    {
+        [Display(Name = "Пользователь")]
+        Client = 0,
+        [Display(Name = "Курьер")]
+        Courier = 1,
+        [Display(Name = "Админ")]
+        Admin = 2
     }
 }

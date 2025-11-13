@@ -1,43 +1,31 @@
-﻿using DeliveryService.Domain.ModelsDb.DeliveryService.Domain.ModelsDb;
-using System;
-using System.Collections.Generic;
+﻿using DeliveryService.Domain.ModelsDb;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DeliveryService.Domain.ModelsDb
+namespace DeliveryService.Domain.Models
 {
     [Table("orders")]
-    public class OrderDb
+    public class Order
     {
-        [Column("id")]
-        public Guid Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } // id uuid
 
-        [Column("id_user")]
-        public Guid UserId { get; set; } // Внешний ключ: Заказчик
+        // Связь с Клиентом (пользователь, сделавший заказ)
+        public Guid IdUser { get; set; } // id_user uuid
+        [ForeignKey("IdUser")]
+        public User Client { get; set; } = null!; // Навигационное свойство. null! используется для свойств, которые EF Core заполнит.
 
-        [Column("id_courier")]
-        public Guid? CourierId { get; set; } // Внешний ключ: Курьер (может быть NULL)
+        // Связь с Курьером (может быть NULL, пока не назначен)
+        public Guid? IdCourier { get; set; } // id_courier uuid
+        [ForeignKey("IdCourier")]
+        public User? Courier { get; set; }
 
-        [Column("name")]
-        public string Name { get; set; } // Название заказа/краткое описание
+        public string? Name { get; set; } // name text (Например, имя получателя)
+        public decimal Price { get; set; } // price numeric
+        public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
 
-        [Column("price")]
-        public decimal Price { get; set; }
-
-        [Column("createdAt", TypeName = "timestamp")]
-        public DateTime CreatedAt { get; set; }
-
-        // Навигационные свойства
-        [ForeignKey("UserId")]
-        public UserDb User { get; set; } // Заказчик
-
-        [ForeignKey("CourierId")]
-        public UserDb Courier { get; set; } // Курьер
-
-        public ICollection<ItemDb> Items { get; set; } // Товары в заказе
-        public ICollection<OrderHistoryDb> History { get; set; } // История статусов
+        // Навигационные свойства 1:М
+        public ICollection<Item> Items { get; set; } = new List<Item>();
+        public ICollection<OrderHistory> History { get; set; } = new List<OrderHistory>();
     }
 }
