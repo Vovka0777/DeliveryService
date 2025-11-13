@@ -288,6 +288,16 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "DeliveryService.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DeliveryService.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DeliveryService.Domain.dll": {}
+        }
       }
     }
   },
@@ -733,10 +743,16 @@
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "DeliveryService.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DeliveryService.Domain/DeliveryService.Domain.csproj",
+      "msbuildProject": "../DeliveryService.Domain/DeliveryService.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "DeliveryService.Domain >= 1.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4"
     ]
   },
@@ -771,7 +787,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
+              "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

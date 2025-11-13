@@ -31,7 +31,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
+                "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

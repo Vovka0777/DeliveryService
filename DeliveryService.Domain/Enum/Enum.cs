@@ -12,22 +12,53 @@ namespace DeliveryService.Domain.Enum
     {
         public enum Role
         {
-            [Display(Name = "Пользователь")]
+            [Display(Name = "Пользователь")] // User
             User = 0,
-            [Display(Name = "Модератор")]
-            Moderator = 1,
-            [Display(Name = "Админ")]
-            Admin = 2,
+
+            [Display(Name = "Курьер")] // Courier
+            Courier = 1,
+
+            [Display(Name = "Администратор")] // Administrator
+            Admin = 2
         }
 
+        // Перечисление для статуса заказа (order_history) и запроса (request.status)
         public enum Status
         {
-            [Description("Не рассмотрено")]
-            NotConsidered = 0,
-            [Description("Одобрено")]
-            Approved,
-            [Description("Отказано")]
-            Denied,
+            [Display(Name = "Ожидает рассмотрения")] // Pending Review
+            Pending = 0,
+
+            [Display(Name = "Принят")] // Accepted
+            Accepted = 1,
+
+            [Display(Name = "Отклонен")] // Rejected
+            Rejected = 2,
+
+            // Дополнительные статусы для заказа, если требуются:
+            [Display(Name = "В пути")] // In Transit
+            InTransit = 3,
+
+            [Display(Name = "Доставлен")] // Delivered
+            Delivered = 4,
+
+            [Display(Name = "Отменен")] // Canceled
+            Canceled = 5
+        }
+
+        // Перечисление для типа товара (item.type, если это нужно для категоризации) - Опционально
+        public enum ItemType
+        {
+            [Display(Name = "Еда")] // Food
+            Food = 0,
+
+            [Display(Name = "Напитки")] // Drinks
+            Drinks = 1,
+
+            [Display(Name = "Документы")] // Documents
+            Documents = 2,
+
+            [Display(Name = "Прочее")] // Other
+            Other = 3
         }
     }
 }

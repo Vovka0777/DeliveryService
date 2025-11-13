@@ -1,15 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using DeliveryService.Domain.Enum;
+﻿using DeliveryService.Domain.Enum;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using static DeliveryService.Domain.Enum.Enum;
 
 namespace DeliveryService.Domain.ModelsDb
 {
     namespace DeliveryService.Domain.ModelsDb
     {
-        [Table("user")] // Имя таблицы из вашей ER-диаграммы
+        [Table("user")]
         public class UserDb
         {
-            [Key]
-            [Column("id", TypeName = "uuid")] // Указываем тип UUID, если используется PostgreSQL
+            [Column("id")]
             public Guid Id { get; set; }
 
             [Column("login")]
@@ -22,16 +24,18 @@ namespace DeliveryService.Domain.ModelsDb
             public string Email { get; set; }
 
             [Column("role")]
-            public int Role { get; set; } // Или тип Enum Role, как в примере с агентством
+            public Role Role { get; set; } // Используем Enum Role
 
             [Column("profile_img")]
             public string ProfileImg { get; set; }
 
-            [Column("createdat", TypeName = "timestamp with time zone")]
+            [Column("createdAt", TypeName = "timestamp")]
             public DateTime CreatedAt { get; set; }
 
-            // Связи: Один-ко-многим (один пользователь может иметь много заказов)
-            public ICollection<OrderDb> Orders { get; set; } = new List<OrderDb>();
+            // Навигационные свойства для связей (связь "один ко многим")
+            public ICollection<OrderDb> Orders { get; set; } // Заказы, созданные пользователем
+            public ICollection<OrderDb> CourierOrders { get; set; } // Заказы, назначенные курьеру
+            public ICollection<RequestDb> Requests { get; set; } // Запросы, созданные пользователем
         }
     }
 }
