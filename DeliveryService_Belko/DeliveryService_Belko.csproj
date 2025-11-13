@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DeliveryService.DAL\DeliveryService.DAL.csproj" />
     <ProjectReference Include="..\DeliveryService.Domain\DeliveryService.Domain.csproj" />
+    <ProjectReference Include="..\DeliveryService.Service\DeliveryService.Service.csproj" />
   </ItemGroup>
 
 </Project>

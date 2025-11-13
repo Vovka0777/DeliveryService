@@ -12,7 +12,7 @@ namespace DeliveryService.DAL // Замените на ваш namespace
     {
         // DbSet'ы инициализированы, чтобы избежать предупреждений Nullability
 
-
+            
         public DbSet<UserDb> UsersDb { get; set; } = null!;
         public DbSet<OrderDb> OrdersDb { get; set; } = null!;
         public DbSet<ItemDb> ItemsDb { get; set; } = null!;

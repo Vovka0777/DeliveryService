@@ -312,6 +312,16 @@
         "runtime": {
           "bin/placeholder/DeliveryService.Domain.dll": {}
         }
+      },
+      "DeliveryService.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DeliveryService.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DeliveryService.Service.dll": {}
+        }
       }
     }
   },
@@ -767,12 +777,18 @@
       "type": "project",
       "path": "../DeliveryService.Domain/DeliveryService.Domain.csproj",
       "msbuildProject": "../DeliveryService.Domain/DeliveryService.Domain.csproj"
+    },
+    "DeliveryService.Service/1.0.0": {
+      "type": "project",
+      "path": "../DeliveryService.Service/DeliveryService.Service.csproj",
+      "msbuildProject": "../DeliveryService.Service/DeliveryService.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "DeliveryService.DAL >= 1.0.0",
-      "DeliveryService.Domain >= 1.0.0"
+      "DeliveryService.Domain >= 1.0.0",
+      "DeliveryService.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -812,6 +828,9 @@
             },
             "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj": {
               "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Domain\\DeliveryService.Domain.csproj"
+            },
+            "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj": {
+              "projectPath": "D:\\Users\\tmu2.SERVER-ECONOM\\Downloads\\DeliveryService\\DeliveryService.Service\\DeliveryService.Service.csproj"
             }
           }
         }
