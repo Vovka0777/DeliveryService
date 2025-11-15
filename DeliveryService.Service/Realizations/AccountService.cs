@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeliveryService.Service.Realizations
 {
-    internal class AccountService
+    public class AccountService
     {
     }
 }
