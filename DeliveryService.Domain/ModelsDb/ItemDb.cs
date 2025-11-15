@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DeliveryService.Domain.Models
 {
     [Table("item")]
-    public class Item
+    public class ItemsDb
     {
         [Key]
         public Guid Id { get; set; }

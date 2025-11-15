@@ -1,6 +1,6 @@
 ﻿namespace DeliveryService.Service
 {
-    public class Class1
+    public class AppMappingProfile
     {
 
     }
