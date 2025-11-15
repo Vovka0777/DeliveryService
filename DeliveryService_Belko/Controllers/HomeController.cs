@@ -36,16 +36,16 @@ namespace DeliveryService_Belko.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
+
                 var errors = ModelState.Values.SelectMany(v => v.Errors)
                 .Select(e => e.ErrorMessage)
                 .ToList();
 
-            return BadRequest(errors);
+                return BadRequest(errors);
             }
 
             return Ok(model);
-            
+
         }
     }
 }
