@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeliveryService.DAL
 {
-    internal interface IBaseStorage<T>
+    public interface IBaseStorage<T>
     {
         Task Add(T item);
         Task Delete(T item);
