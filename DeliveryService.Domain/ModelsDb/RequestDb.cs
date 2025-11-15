@@ -32,7 +32,6 @@ namespace DeliveryService.Domain.ModelsDb
         [Column("createdAt", TypeName = "timestamp")]
         public DateTime CreatedAt { get; set; }
 
-        // Навигационное свойство
         [ForeignKey("UserId")]
         public User User { get; set; }
     }

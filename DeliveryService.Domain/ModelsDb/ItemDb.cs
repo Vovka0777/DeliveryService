@@ -7,14 +7,13 @@ namespace DeliveryService.Domain.Models
     public class Item
     {
         [Key]
-        public Guid Id { get; set; } // id uuid
+        public Guid Id { get; set; }
 
-        // Связь с Заказом
-        public Guid IdOrder { get; set; } // id_order uuid
+        public Guid IdOrder { get; set; } 
         [ForeignKey("IdOrder")]
         public Order Order { get; set; } = null!;
 
-        public string? Name { get; set; } // name text
-        public string? PathImg { get; set; } // path_img text
+        public string? Name { get; set; }
+        public string? PathImg { get; set; }
     }
 }

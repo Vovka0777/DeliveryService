@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace DeliveryService.Domain.Models
 {
-    // Аналогично Рисунку 119
     [Table("user")]
     public class User
     {
@@ -19,15 +18,12 @@ namespace DeliveryService.Domain.Models
 
         public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
 
-        // Навигационные свойства
         [InverseProperty("Client")]
         public ICollection<Order> ClientOrders { get; set; } = new List<Order>();
 
         [InverseProperty("Courier")]
         public ICollection<Order> CourierOrders { get; set; } = new List<Order>();
     }
-
-    // Пример Enum'а для ролей (Аналогично Рисунку 120)
     public enum Role
     {
         [Display(Name = "Пользователь")]

@@ -10,12 +10,10 @@ namespace DeliveryService.Domain.Models
         [Key]
         public Guid Id { get; set; } // id uuid
 
-        // Связь с Клиентом (пользователь, сделавший заказ)
         public Guid IdUser { get; set; } // id_user uuid
         [ForeignKey("IdUser")]
         public User Client { get; set; } = null!; // Навигационное свойство. null! используется для свойств, которые EF Core заполнит.
 
-        // Связь с Курьером (может быть NULL, пока не назначен)
         public Guid? IdCourier { get; set; } // id_courier uuid
         [ForeignKey("IdCourier")]
         public User? Courier { get; set; }
@@ -24,7 +22,6 @@ namespace DeliveryService.Domain.Models
         public decimal Price { get; set; } // price numeric
         public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
 
-        // Навигационные свойства 1:М
         public ICollection<Item> Items { get; set; } = new List<Item>();
         public ICollection<OrderHistory> History { get; set; } = new List<OrderHistory>();
     }
