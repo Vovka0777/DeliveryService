@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeliveryService.DAL.Storage
 {
-    internal class OrderHistoryStorage : IBaseStorage<OrderHistory>
+    public class OrderHistoryStorage : IBaseStorage<OrderHistory>
     {
         private readonly ApplicationDbContext _context;
 

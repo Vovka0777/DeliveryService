@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeliveryService.DAL.Storage
 {
-    internal class UserStorage : IBaseStorage<User>
+    public class UserStorage : IBaseStorage<User>
     {
         private readonly ApplicationDbContext _context;
 
