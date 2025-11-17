@@ -7,7 +7,7 @@ namespace DeliveryService.DAL
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<UserDb> Users { get; set; } = null!;
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<OrderHistory> OrderHistories { get; set; } = null!;
         public DbSet<Item> Items { get; set; } = null!;

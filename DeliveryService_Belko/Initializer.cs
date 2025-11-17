@@ -10,7 +10,7 @@ namespace DeliveryService_Belko
     {
         public static void InitializeRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IBaseStorage<User>, UserStorage>();
+            services.AddScoped<IBaseStorage<UserDb>, UserStorage>();
         }
         public static void InitializeServices(this IServiceCollection services)
         {

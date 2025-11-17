@@ -14,10 +14,10 @@ namespace DeliveryService.Service.Realizations
 {
     public class AccountService : IAccountService
     {
-        private readonly IBaseStorage<User> _userStorage;
+        private readonly IBaseStorage<UserDb> _userStorage;
         private readonly IMapper _mapper;
 
-        public AccountService(IBaseStorage<User> userStorage, IMapper mapper)
+        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper)
         {
             _userStorage = userStorage;
             _mapper = mapper;
@@ -49,8 +49,9 @@ namespace DeliveryService.Service.Realizations
                     };
                 }
 
+                var user = _mapper.Map<User>(userDb);
                 // 1. Создаем ClaimsIdentity для аутентификации
-                var identity = AuthenticateUserHelper.Authenticate(userDb);
+                var identity = AuthenticateUserHelper.Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()
                 {
@@ -91,11 +92,12 @@ namespace DeliveryService.Service.Realizations
                 model.Role = (int)DeliveryService.Domain.Models.Role.Client;
 
                 // Маппинг и сохранение
-                var userDb = _mapper.Map<User>(model);
+                var userDb = _mapper.Map<UserDb>(model);
+
                 await _userStorage.Add(userDb);
 
                 // 2. Создаем ClaimsIdentity после успешной регистрации
-                var identity = AuthenticateUserHelper.Authenticate(userDb);
+                var identity = AuthenticateUserHelper.Authenticate(model);
 
                 return new BaseResponse<ClaimsIdentity>()
                 {

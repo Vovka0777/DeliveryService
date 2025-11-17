@@ -58,7 +58,7 @@ namespace DeliveryService_Belko.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
             if (ModelState.IsValid)
-            {
+            {   
                 var user = _mapper.Map<User>(model);
                 var response = await _accountService.Register(user);
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
