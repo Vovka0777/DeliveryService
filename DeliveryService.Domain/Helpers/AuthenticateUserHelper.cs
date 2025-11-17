@@ -1,5 +1,4 @@
 ﻿using DeliveryService.Domain.Models;
-using System.Collections.Generic;
 using System.Security.Claims;
 
 
@@ -14,15 +13,15 @@ namespace DeliveryService.Domain.Helpers
             {
                 new Claim(ClaimTypes.Email, user.Email!), 
                 new Claim(ClaimTypes.Name, user.Login!), 
-                new Claim(ClaimTypes.Role, user.Role.ToString()),
-                new Claim("ProfileImage", (user.ProfileImg ?? 0).ToString())
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString()),
+                new Claim("AvatarPath", user.PathImage)
             };
 
             return new ClaimsIdentity(
                 claims,
                 "ApplicationCookie",
-                ClaimTypes.Name,    
-                ClaimTypes.Role     
+                ClaimTypes.Email,
+                ClaimsIdentity.DefaultRoleClaimType
             );
         }
     }

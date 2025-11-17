@@ -11,15 +11,23 @@
     <link rel="stylesheet" href="~/css/media_style.css" asp-append-version="true" />
 </head>
 
-    <body>
+<body>
     <div id="header-top">
         <div class="logo">Брэгд</div>
         <div class="button-header">
-        <button id="click-to-hide" class="button">Войти</button>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button class="button" type="button" name="button" onclick="window.location.href ='@Url.Action("Logout", "Home")'">Выйти</button>
+            }
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <button class="button" id="click-to-hide" type="button" name="button">Войти</button>
+            }
         <div id="hamburger" class="icon">&#9776;</div>
         </div>
 
     </div>
+
 
     <img class="img-header" src="~/images/zxgwre.jpg" />
     @await Html.PartialAsync("_LoginRegistrationPartial")

@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using DeliveryService.DAL;
-using DeliveryService.Domain.Enum; 
-using DeliveryService.Domain.Models; 
+using DeliveryService.Domain.Enum;
+using DeliveryService.Domain.Models;
 using DeliveryService.Domain.Response;
 using DeliveryService.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks; 
-using System; 
+using System.Threading.Tasks;
+using System;
+using System.Security.Claims;
+using DeliveryService.Domain.Helpers; // ⬅️ Добавлен using для AuthenticateUserHelper
 
 namespace DeliveryService.Service.Realizations
 {
@@ -20,7 +22,8 @@ namespace DeliveryService.Service.Realizations
             _userStorage = userStorage;
             _mapper = mapper;
         }
-        public async Task<BaseResponse<User>> Login(User model)
+
+        public async Task<BaseResponse<ClaimsIdentity>> Login(User model)
         {
             try
             {
@@ -29,42 +32,44 @@ namespace DeliveryService.Service.Realizations
 
                 if (userDb == null)
                 {
-                    return new BaseResponse<User>()
+                    return new BaseResponse<ClaimsIdentity>()
                     {
                         Description = "Пользователь не найден",
-                        StatusCode = StatusCode.NotFound
+                        // Убедитесь, что вы используете enum Role, а не int, при обращении к Role.
+                        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                     };
                 }
 
                 if (userDb.Password != model.Password)
                 {
-                    return new BaseResponse<User>()
+                    return new BaseResponse<ClaimsIdentity>()
                     {
                         Description = "Неверный пароль или почта",
-                        StatusCode = StatusCode.BadRequest
+                        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                     };
                 }
 
-                var finalModel = _mapper.Map<User>(userDb);
+                // 1. Создаем ClaimsIdentity для аутентификации
+                var identity = AuthenticateUserHelper.Authenticate(userDb);
 
-                return new BaseResponse<User>()
+                return new BaseResponse<ClaimsIdentity>()
                 {
-                    Data = finalModel,
+                    Data = identity, // ⬅️ ИСПРАВЛЕНО: Возвращаем ClaimsIdentity
                     Description = "Вход выполнен успешно",
-                    StatusCode = StatusCode.OK
+                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                 };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<User>()
+                return new BaseResponse<ClaimsIdentity>()
                 {
                     Description = ex.Message,
-                    StatusCode = StatusCode.InternalServerError
+                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                 };
             }
         }
 
-        public async Task<BaseResponse<User>> Register(User model)
+        public async Task<BaseResponse<ClaimsIdentity>> Register(User model)
         {
             try
             {
@@ -73,31 +78,38 @@ namespace DeliveryService.Service.Realizations
 
                 if (existingUser != null)
                 {
-                    return new BaseResponse<User>()
+                    return new BaseResponse<ClaimsIdentity>()
                     {
                         Description = "Пользователь с такой почтой уже есть",
-                        StatusCode = StatusCode.BadRequest
+                        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                     };
                 }
+
+                // Назначаем стандартные значения
                 model.ProfileImg = 1;
                 model.CreatedAt = DateTime.Now;
-                model.Role = (int)Role.Client; // <-- ИСПРАВЛЕНО
-                var userDb = _mapper.Map<User>(model); // <-- ИСПРАВЛЕНО
+                model.Role = (int)DeliveryService.Domain.Models.Role.Client;
+
+                // Маппинг и сохранение
+                var userDb = _mapper.Map<User>(model);
                 await _userStorage.Add(userDb);
 
-                return new BaseResponse<User>()
+                // 2. Создаем ClaimsIdentity после успешной регистрации
+                var identity = AuthenticateUserHelper.Authenticate(userDb);
+
+                return new BaseResponse<ClaimsIdentity>()
                 {
-                    Data = model,
+                    Data = identity, // ⬅️ ИСПРАВЛЕНО: Возвращаем ClaimsIdentity
                     Description = "Пользователь зарегистрирован",
-                    StatusCode = StatusCode.OK
+                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                 };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<User>()
+                return new BaseResponse<ClaimsIdentity>()
                 {
                     Description = ex.Message,
-                    StatusCode = StatusCode.InternalServerError
+                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                 };
             }
         }
