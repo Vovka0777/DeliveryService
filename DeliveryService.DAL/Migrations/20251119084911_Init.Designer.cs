@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251113092558_Init")]
+    [Migration("20251119084911_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -37,20 +37,29 @@ namespace DeliveryService.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("PathImg")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdOrder");
+                    b.HasIndex("OrderId");
 
-                    b.ToTable("item");
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("DeliveryService.Domain.Models.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ClientId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CourierId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
@@ -70,11 +79,11 @@ namespace DeliveryService.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdCourier");
+                    b.HasIndex("ClientId");
 
-                    b.HasIndex("IdUser");
+                    b.HasIndex("CourierId");
 
-                    b.ToTable("orders");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("DeliveryService.Domain.Models.OrderHistory", b =>
@@ -98,14 +107,17 @@ namespace DeliveryService.DAL.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("IdOrder");
+                    b.HasIndex("OrderId");
 
-                    b.ToTable("order_history");
+                    b.ToTable("OrderHistories");
                 });
 
-            modelBuilder.Entity("DeliveryService.Domain.Models.User", b =>
+            modelBuilder.Entity("DeliveryService.Domain.Models.UserDb", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -131,14 +143,14 @@ namespace DeliveryService.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user");
+                    b.ToTable("userDb");
                 });
 
             modelBuilder.Entity("DeliveryService.Domain.Models.Item", b =>
                 {
                     b.HasOne("DeliveryService.Domain.Models.Order", "Order")
                         .WithMany("Items")
-                        .HasForeignKey("IdOrder")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -147,15 +159,15 @@ namespace DeliveryService.DAL.Migrations
 
             modelBuilder.Entity("DeliveryService.Domain.Models.Order", b =>
                 {
-                    b.HasOne("DeliveryService.Domain.Models.User", "Courier")
-                        .WithMany("CourierOrders")
-                        .HasForeignKey("IdCourier");
-
-                    b.HasOne("DeliveryService.Domain.Models.User", "Client")
+                    b.HasOne("DeliveryService.Domain.Models.UserDb", "Client")
                         .WithMany("ClientOrders")
-                        .HasForeignKey("IdUser")
+                        .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("DeliveryService.Domain.Models.UserDb", "Courier")
+                        .WithMany("CourierOrders")
+                        .HasForeignKey("CourierId");
 
                     b.Navigation("Client");
 
@@ -166,7 +178,7 @@ namespace DeliveryService.DAL.Migrations
                 {
                     b.HasOne("DeliveryService.Domain.Models.Order", "Order")
                         .WithMany("History")
-                        .HasForeignKey("IdOrder")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -180,7 +192,7 @@ namespace DeliveryService.DAL.Migrations
                     b.Navigation("Items");
                 });
 
-            modelBuilder.Entity("DeliveryService.Domain.Models.User", b =>
+            modelBuilder.Entity("DeliveryService.Domain.Models.UserDb", b =>
                 {
                     b.Navigation("ClientOrders");
 

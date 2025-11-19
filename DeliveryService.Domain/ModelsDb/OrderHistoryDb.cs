@@ -18,6 +18,8 @@ namespace DeliveryService.Domain.Models
 
         public string? Description { get; set; } // description text
         public string? Location { get; set; } // location text
+
+        [Column("createdAt", TypeName = "timestamp")]
         public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
     }
 }

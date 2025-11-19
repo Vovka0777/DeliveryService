@@ -20,6 +20,8 @@ namespace DeliveryService.Domain.Models
 
         public string? Name { get; set; } // name text (Например, имя получателя)
         public decimal Price { get; set; } // price numeric
+
+        [Column("createdAt", TypeName = "timestamp")]
         public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
 
         public ICollection<Item> Items { get; set; } = new List<Item>();
