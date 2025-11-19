@@ -157,5 +157,6 @@ form_btn_signup.addEventListener('click', function () {
                 displayErrors(err, errorContainer);
         });
 });
-    document.getElementById("side-menu-button-click-to-hide").addEventListener("click", hiddenOpen_Closeclick);
+    const sideMenuButton = document.getElementById("side-menu-button-click-to-hide");
+    if (sideMenuButton) sideMenuButton.addEventListener("click", hiddenOpen_Closeclick);
 });

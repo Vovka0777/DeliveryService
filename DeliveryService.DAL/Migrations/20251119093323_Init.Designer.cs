@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251119084911_Init")]
+    [Migration("20251119093323_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -124,7 +124,8 @@ namespace DeliveryService.DAL.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp")
+                        .HasColumnName("createdAt");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
