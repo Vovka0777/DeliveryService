@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251119093323_Init")]
+    [Migration("20251119215745_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -125,7 +125,7 @@ namespace DeliveryService.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("СreatedAt");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");

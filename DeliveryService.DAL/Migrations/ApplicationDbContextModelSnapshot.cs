@@ -122,7 +122,7 @@ namespace DeliveryService.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("СreatedAt");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
