@@ -66,7 +66,7 @@ if (form_btn_signin) {
                 console.log('Успешный ответ:', data);
 
                 // Перезагрузка страницы после успешного ответа
-                location.reload();
+                window.location.href = '/';
             })
             .catch(err => {
                 // Обработка ошибок

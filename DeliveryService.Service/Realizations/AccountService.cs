@@ -36,7 +36,7 @@ namespace DeliveryService.Service.Realizations
                     {
                         Description = "Пользователь не найден",
                         // Убедитесь, что вы используете enum Role, а не int, при обращении к Role.
-                        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                        StatusCode = (DeliveryService.Domain.Enum.StatusCode.NotFound)
                     };
                 }
 
@@ -45,7 +45,7 @@ namespace DeliveryService.Service.Realizations
                     return new BaseResponse<ClaimsIdentity>()
                     {
                         Description = "Неверный пароль или почта",
-                        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                        StatusCode = (DeliveryService.Domain.Enum.StatusCode.BadRequest)
                     };
                 }
 
@@ -57,7 +57,7 @@ namespace DeliveryService.Service.Realizations
                 {
                     Data = identity, // ⬅️ ИСПРАВЛЕНО: Возвращаем ClaimsIdentity
                     Description = "Вход выполнен успешно",
-                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                    StatusCode = (DeliveryService.Domain.Enum.StatusCode.OK)
                 };
             }
             catch (Exception ex)
@@ -65,7 +65,7 @@ namespace DeliveryService.Service.Realizations
                 return new BaseResponse<ClaimsIdentity>()
                 {
                     Description = ex.Message,
-                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                    StatusCode = (DeliveryService.Domain.Enum.StatusCode.InternalServerError)
                 };
             }
         }

@@ -21,16 +21,18 @@
             }
             @if (!User.Identity.IsAuthenticated)
             {
-                <button id="click-to-hide" class="button" type="button" name="button">Войти</button>
+                <button class="button" id="click-to-hide" type="button" name="button">Войти</button>
             }
-            <div id="hamburger" class="icon">&#9776;</div>
+        <div id="hamburger" class="icon">&#9776;</div>
         </div>
+
     </div>
+
 
     <img class="img-header" src="~/images/zxgwre.jpg" />
     @await Html.PartialAsync("_LoginRegistrationPartial")
-
-
+    
+    
     <div id="header-bottom">
         <div class="menu">
             <ul>
@@ -40,8 +42,8 @@
                 <li><a href="#services">Услуги</a></li>
             </ul>
         </div>
-    </div>
-    <div class="container">
+        </div>
+        <div class="container">
         <h2>Отзывы</h2>
         @await Html.PartialAsync("_ReviewsPartial")
     </div>
@@ -53,22 +55,14 @@
             <li><a href="#contacts">Контакты</a></li>
             <li><a href="#services">Услуги</a></li>
         </ul>
-
-        @if (User.Identity.IsAuthenticated)
-        {
-            <button class="button" type="button" name="button" onclick="window.location.href ='@Url.Action("Logout", "Home")'">Выйти</button>
-        }
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <button id="side-menu-button-click-to-hide" class="button">Войти</button>
-        }
+        <button id="side-menu-button-click-to-hide" class="button">Войти</button>
     </div>
-
+    
     <div class="container">
         @RenderBody()
     </div>
     @await Html.PartialAsync("_FooterPartial")
     <script src="~/js/shared_script.js" asp-append-version="true"></script>
-    <script src="~/js/login_and_registration_script.js" asp-append-version="true"></script>
+    <script src="~/js/login_and_registration_script.js" asp-append-version="true"></script>    
 </body>
 </html>
