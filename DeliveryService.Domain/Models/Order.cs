@@ -5,9 +5,9 @@ namespace DeliveryService.Domain.Models
     {
         public Guid Id { get; set; } // id uuid
         public Guid IdUser { get; set; } // id_user uuid
-        public User Client { get; set; } = null!; // Навигационное свойство. null! используется для свойств, которые EF Core заполнит.
+        public UserDb Client { get; set; } = null!; // Навигационное свойство. null! используется для свойств, которые EF Core заполнит.
         public Guid? IdCourier { get; set; } // id_courier uuid
-        public User? Courier { get; set; }
+        public UserDb? Courier { get; set; }
 
         public string? Name { get; set; } // name text (Например, имя получателя)
         public decimal Price { get; set; } // price numeric

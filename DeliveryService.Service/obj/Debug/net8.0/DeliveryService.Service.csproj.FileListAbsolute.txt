@@ -29,3 +29,8 @@ E:\инфа\praktika\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\De
 E:\инфа\praktika\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\refint\DeliveryService.Service.dll
 E:\инфа\praktika\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\DeliveryService.Service.pdb
 E:\инфа\praktika\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\ref\DeliveryService.Service.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\bin\Debug\net8.0\DeliveryService.DAL.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\bin\Debug\net8.0\DeliveryService.Domain.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\bin\Debug\net8.0\DeliveryService.DAL.pdb
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\bin\Debug\net8.0\DeliveryService.Domain.pdb
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService.Service\obj\Debug\net8.0\Delivery.1621C297.Up2Date

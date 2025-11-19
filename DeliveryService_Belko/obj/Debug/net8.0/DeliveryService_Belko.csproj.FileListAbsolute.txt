@@ -248,3 +248,8 @@ E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\refi
 E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\DeliveryService_Belko.pdb
 E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\DeliveryService_Belko.genruntimeconfig.cache
 E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\ref\DeliveryService_Belko.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\AutoMapper.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Users\tmu2.SERVER-ECONOM\Downloads\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
