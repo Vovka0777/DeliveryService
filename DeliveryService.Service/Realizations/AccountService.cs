@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
 using DeliveryService.DAL;
-using DeliveryService.Domain.Enum;
 using DeliveryService.Domain.Models;
 using DeliveryService.Domain.Response;
 using DeliveryService.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using System;
+using DeliveryService.Domain.Validator;
 using System.Security.Claims;
-using DeliveryService.Domain.Helpers; // ⬅️ Добавлен using для AuthenticateUserHelper
+using DeliveryService.Domain.Helpers;
+using System.ComponentModel.DataAnnotations;
+using FluentValidation;
+using DeliveryService.Domain.Enum;
 
 namespace DeliveryService.Service.Realizations
 {
@@ -16,17 +17,21 @@ namespace DeliveryService.Service.Realizations
     {
         private readonly IBaseStorage<UserDb> _userStorage;
         private readonly IMapper _mapper;
+        private readonly UserValidator _validationRules;
 
-        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper)
+        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper, UserValidator validationRules)
         {
             _userStorage = userStorage;
             _mapper = mapper;
+            _validationRules = validationRules;
         }
 
         public async Task<BaseResponse<ClaimsIdentity>> Login(User model)
         {
             try
             {
+                await _validationRules.ValidateAndThrowAsync(model);
+
                 var userDb = await _userStorage.GetAll()
                     .FirstOrDefaultAsync(x => x.Email == model.Email);
 
@@ -60,12 +65,13 @@ namespace DeliveryService.Service.Realizations
                     StatusCode = (DeliveryService.Domain.Enum.StatusCode.OK)
                 };
             }
-            catch (Exception ex)
+            catch (FluentValidation.ValidationException ex)
             {
+                var errorMessage = string.Join("; ", ex.Errors.Select(e => e.ErrorMessage));
                 return new BaseResponse<ClaimsIdentity>()
                 {
                     Description = ex.Message,
-                    StatusCode = (DeliveryService.Domain.Enum.StatusCode.InternalServerError)
+                    StatusCode = StatusCode.BadRequest
                 };
             }
         }
@@ -74,6 +80,8 @@ namespace DeliveryService.Service.Realizations
         {
             try
             {
+                await _validationRules.ValidateAndThrowAsync(model);
+
                 var existingUser = await _userStorage.GetAll()
                     .FirstOrDefaultAsync(x => x.Email == model.Email);
 
@@ -106,12 +114,13 @@ namespace DeliveryService.Service.Realizations
                     StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                 };
             }
-            catch (Exception ex)
+            catch (FluentValidation.ValidationException ex)
             {
+                var errorMessage = string.Join("; ", ex.Errors.Select(e => e.ErrorMessage));
                 return new BaseResponse<ClaimsIdentity>()
                 {
                     Description = ex.Message,
-                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                    StatusCode = StatusCode.BadRequest
                 };
             }
         }

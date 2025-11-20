@@ -6,6 +6,7 @@ using AutoMapper;
 using DeliveryService.Service.Interfaces;
 using DeliveryService.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using DeliveryService.Domain.Validator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,8 @@ builder.Services.AddAutoMapper(config =>
 //builder.Services.AddControllersWithViews()
 //.AddDataAnnotationsLocalization()
 //.AddViewLocalization();
+
+builder.Services.AddScoped<UserValidator>();
 
 builder.Services.InitializeRepositories();
 builder.Services.InitializeServices();

@@ -1,12 +1,7 @@
 ﻿using DeliveryService.Domain.Models;
-using DeliveryService.Domain.ModelsDb;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DeliveryService.Domain;
 using static DeliveryService.Domain.Enum.Enum;
 
 namespace DeliveryService.Domain.ModelsDb
@@ -14,6 +9,7 @@ namespace DeliveryService.Domain.ModelsDb
     [Table("request")]
     public class RequestDb
     {
+        [Key] // Добавлен атрибут Key
         [Column("id")]
         public Guid Id { get; set; }
 
@@ -21,10 +17,10 @@ namespace DeliveryService.Domain.ModelsDb
         public Guid UserId { get; set; } // Внешний ключ к user
 
         [Column("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty; // Инициализация для предотвращения null-предупреждений
 
         [Column("path_img")]
-        public string PathImg { get; set; }
+        public string PathImg { get; set; } = string.Empty;
 
         [Column("status")]
         public Status Status { get; set; } // Используем Enum Status
@@ -33,6 +29,6 @@ namespace DeliveryService.Domain.ModelsDb
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public UserDb User { get; set; } = null!; // Изменено на UserDb для согласованности с UserDb.cs
     }
 }

@@ -645,7 +645,7 @@ p {
     z-index: 9999;
 }
 
-    .side-menu.active {
+    .side-menu.active { 
         right: 0; /* Выдвигаем меню */
     }
 
