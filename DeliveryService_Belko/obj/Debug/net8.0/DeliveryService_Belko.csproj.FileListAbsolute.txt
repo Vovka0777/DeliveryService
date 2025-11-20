@@ -257,3 +257,8 @@ E:\инфа\praktika\DeliveryService\DeliveryService_Belko\obj\Debug\net8.0\Deli
 E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\FluentValidation.dll
 E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\MailKit.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\MimeKit.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\инфа\praktika\DeliveryService\DeliveryService_Belko\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

@@ -7,9 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using DeliveryService.Domain.Validator;
 using System.Security.Claims;
 using DeliveryService.Domain.Helpers;
-using System.ComponentModel.DataAnnotations;
 using FluentValidation;
 using DeliveryService.Domain.Enum;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace DeliveryService.Service.Realizations
 {
@@ -76,51 +77,187 @@ namespace DeliveryService.Service.Realizations
             }
         }
 
-        public async Task<BaseResponse<ClaimsIdentity>> Register(User model)
+        public async Task<BaseResponse<string>> Register(User model)
         {
             try
             {
-                await _validationRules.ValidateAndThrowAsync(model);
+                Random random = new Random();
+                string confirmationCode = $"{random.Next(10)}{random.Next(10)}{random.Next(10)}{random.Next(10)}";
 
-                var existingUser = await _userStorage.GetAll()
-                    .FirstOrDefaultAsync(x => x.Email == model.Email);
-
-                if (existingUser != null)
+                if (await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email) != null)
                 {
-                    return new BaseResponse<ClaimsIdentity>()
+                    return new BaseResponse<string>()
                     {
                         Description = "Пользователь с такой почтой уже есть",
-                        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
                     };
                 }
 
-                // Назначаем стандартные значения
-                model.ProfileImg = 1;
-                model.CreatedAt = DateTime.Now;
-                model.Role = (int)DeliveryService.Domain.Models.Role.Client;
+                await SendEmail(model.Email, confirmationCode);
 
-                // Маппинг и сохранение
-                var userDb = _mapper.Map<UserDb>(model);
-
-                await _userStorage.Add(userDb);
-
-                // 2. Создаем ClaimsIdentity после успешной регистрации
-                var identity = AuthenticateUserHelper.Authenticate(model);
-
-                return new BaseResponse<ClaimsIdentity>()
+                return  new BaseResponse<string>()
                 {
-                    Data = identity, // ⬅️ ИСПРАВЛЕНО: Возвращаем ClaimsIdentity
-                    Description = "Пользователь зарегистрирован",
-                    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                    Data = confirmationCode,
+                    Description = "Код подтверждения отправлен на почту",
+                    StatusCode = StatusCode.OK
                 };
+
+                //await _validationRules.ValidateAndThrowAsync(model);
+
+                //var existingUser = await _userStorage.GetAll()
+                //    .FirstOrDefaultAsync(x => x.Email == model.Email);
+
+                //if (existingUser != null)
+                //{
+                //    return new BaseResponse<string>()
+                //    {
+                //        Description = "Пользователь с такой почтой уже есть",
+                //        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                //    };
+                //}
+
+                //// Назначаем стандартные значения
+                //model.ProfileImg = 1;
+                //model.CreatedAt = DateTime.Now;
+                //model.Role = (int)DeliveryService.Domain.Models.Role.Client;
+
+                //// Маппинг и сохранение
+                //var userDb = _mapper.Map<UserDb>(model);
+
+                //await _userStorage.Add(userDb);
+
+                //// 2. Создаем ClaimsIdentity после успешной регистрации
+                //var identity = AuthenticateUserHelper.Authenticate(model);
+
+                //return new BaseResponse<string>()
+                //{
+                //    Data = identity,
+                //    Description = "Пользователь зарегистрирован",
+                //    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
+                //};
             }
+
+
             catch (FluentValidation.ValidationException ex)
             {
                 var errorMessage = string.Join("; ", ex.Errors.Select(e => e.ErrorMessage));
-                return new BaseResponse<ClaimsIdentity>()
+                return new BaseResponse<String>()
                 {
                     Description = ex.Message,
                     StatusCode = StatusCode.BadRequest
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<string>();
+            }
+        }
+
+    public async Task SendEmail(string email, string confirmationCode)
+    {
+        string path = @"C:\\Users\\VHI-TECH\\Desktop\\work\\practice\\materials\\passwordPractice.txt";
+        var emailMessage = new MimeMessage();
+
+        // Добавление отправителя
+        emailMessage.From.Add(new MailboxAddress("Администрация сайта", "turAgent@BK.ru"));
+
+        // Добавление получателя
+        emailMessage.To.Add(new MailboxAddress("", email));
+
+        // Тема письма
+        emailMessage.Subject = "Добро пожаловать!";
+
+        // Тело письма в формате HTML
+        var builder = new BodyBuilder();
+        builder.HtmlBody =
+            "<html>" +
+                "<head>" +
+                    "<style>" +
+                        "* { font-family: Arial, sans-serif; background-color: #f2f2f2; }" +
+                        ".container { max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0px 8px 10px rgba(0,0,0,0.1); }" +
+                        ".header { text-align: center; margin-bottom: 20px; }" +
+                        ".message { font-size: 16px; line-height: 1.6; }" +
+                        ".container-code { background-color: #f0f0f0; padding: 5px; border-radius: 5px; font-weight: bold; }" +
+                        ".code { text-align: center; }" +
+                    "</style>" +
+                "</head>" +
+                "<body>" +
+                    "<div class=\"container\">" +
+                        "<div class=\"header\"><h1>Добро пожаловать на сайт Туристического агентства!</h1></div>" +
+                        "<div class=\"message\">" +
+                            "<p>Пожалуйста, введите данный код на сайте, чтобы подтвердить ваш email и завершить регистрацию:</p>" +
+                        "</div>" +
+                        "<div class=\"container-code\"><p class=\"code\">" + confirmationCode + "</p></div>" +
+                    "</div>" +
+                "</body>" +
+            "</html>";
+
+        emailMessage.Body = builder.ToMessageBody();
+
+        // Чтение пароля из файла
+        string password;
+        using (StreamReader reader = new StreamReader(path))
+        {
+            password = await reader.ReadToEndAsync();
+        }
+
+        // Отправка письма
+        using (var client = new SmtpClient())
+        {
+            // Подключение к SMTP-серверу Gmail
+            await client.ConnectAsync("smtp.gmail.com", 465, true);
+
+            // Аутентификация
+            await client.AuthenticateAsync("tany.podsekina.02@gmail.com", password);
+
+            // Отправка
+            await client.SendAsync(emailMessage);
+
+            // Отключение
+            await client.DisconnectAsync(true);
+        }
+    }
+        public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(User model, string code, string confirmCode)
+        {
+            try
+            {
+                // Проверка кода подтверждения
+                if (code != confirmCode)
+                {
+                    throw new Exception("Неверный код! Регистрация не выполнена.");
+                }
+
+                // Инициализация полей модели
+                model.PathImage = "/images/user.png";
+                model.CreatedAt = DateTime.Now;
+                // Хеширование пароля
+                model.Password = HashPasswordHelper.HashPassword(model.Password);
+
+                // Применение правил валидации
+                await _validationRules.ValidateAndThrowAsync(model);
+
+                // Маппинг модели в модель базы данных
+                var userDb = _mapper.Map<UserDb>(model);
+
+                // Добавление пользователя в хранилище (базу данных)
+                await _userStorage.Add(userDb);
+
+                // Аутентификация пользователя
+                var result = AuthenticateUserHelper.Authenticate(model);
+
+                // Возврат успешного ответа
+                return new BaseResponse<ClaimsIdentity>()
+                {
+                    Data = result,
+                    Description = "Объект добавился", // Вероятно, здесь имелось в виду "Пользователь зарегистрирован"
+                    StatusCode = StatusCode.OK
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<ClaimsIdentity>()
+                {
+                    Description = ex.Message,
+                    StatusCode = StatusCode.InternalServerError
                 };
             }
         }

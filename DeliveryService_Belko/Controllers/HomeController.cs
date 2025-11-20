@@ -63,9 +63,6 @@ namespace DeliveryService_Belko.Controllers
                 var response = await _accountService.Register(user);
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                        new ClaimsPrincipal(response.Data));
-
                     return Ok(model);
                 }
                 ModelState.AddModelError("", response.Description);
