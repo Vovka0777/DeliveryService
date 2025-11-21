@@ -1,14 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-
-namespace DeliveryService.Domain.ViewModels.LoginAndRegistration;
-public class ConfirmEmailViewModel
+namespace DeliveryService.Domain.ViewModels.LoginAndRegistration
 {
-    [Required(ErrorMessage = "Введите код")]
-    public string CodeConfirm { get; set; }
-    public string GeneratedCode { get; set; }
-    public string Login { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public string PasswordConfirm { get; set; }
+    public class ConfirmEmailViewModel
+    {
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        public string Login { get; set; }
+
+        [Required]
+        public string Code { get; set; } 
+
+        [Required]
+        public string ConfirmCode { get; set; } 
+    }
 }

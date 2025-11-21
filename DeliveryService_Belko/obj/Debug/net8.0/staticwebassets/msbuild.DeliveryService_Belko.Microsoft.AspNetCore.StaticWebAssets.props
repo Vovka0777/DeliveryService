@@ -192,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qveo3wl129</Fingerprint>
-      <Integrity>VlSzNqdGhVtWYJMzsHILurOEiF33g8kX19K3jOnzWD0=</Integrity>
+      <Fingerprint>xvu2zv1a53</Fingerprint>
+      <Integrity>I4hkcE7DFKfu5/gsj4JPI5I6yLJohN6C2jbDuT4trGY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</OriginalItemSpec>

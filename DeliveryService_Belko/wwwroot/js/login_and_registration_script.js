@@ -125,38 +125,77 @@ function cleaningAndClosingForm(form, errorContainer) {
     hiddenOpen_Closeclick();
 }
 
-form_btn_signup.addEventListener('click', function () {
-    const requestURL = '/Home/Register';
-    const errorContainer = document.getElementById('error-messages-signup');
+    form_btn_signup.addEventListener('click', function () {
+        const requestURL = '/Home/Register';
+        const confirmURL = '/Home/ConfirmEmail'; // ⬅️ URL для подтверждения
+        const errorContainer = document.getElementById('error-messages-signup');
 
-    const form = {
-        login: document.querySelector('.form_signup #login input'),
-        email: document.querySelector('.form_signup #email input'),
-        password: document.querySelector('.form_signup #password input'),
-        passwordConfirm: document.querySelector('.form_signup #confirm_password input')
-    };
+        const form = {
+            login: document.querySelector('.form_signup #login input'),
+            email: document.querySelector('.form_signup #email input'),
+            password: document.querySelector('.form_signup #password input'),
+            passwordConfirm: document.querySelector('.form_signup #confirm_password input')
+        };
 
-    const body = {
-        login: form.login.value,
-        email: form.email.value,
-        password: form.password.value,
-        passwordConfirm: form.passwordConfirm.value,
-    };
+        // Собираем данные для первого этапа
+        const body = {
+            login: form.login.value,
+            email: form.email.value,
+            password: form.password.value,
+            passwordConfirm: form.passwordConfirm.value,
+        };
 
-    sendRequest('POST', requestURL, body)
-        .then(data => {
-            cleaningAndClosingForm(form, errorContainer);
-            console.log('Успешный ответ:', data);
-            location.reload();
-        })
-        .catch(err => {
-            console.log('Ошибка:', err);
-            if (err.errors && Array.isArray(err.errors))
-                displayErrors(err.errors, errorContainer);
-            else
-                displayErrors(err, errorContainer);
-        });
-});
+        // 1. Отправляем запрос на регистрацию (отправка письма)
+        sendRequest('POST', requestURL, body)
+            .then(data => {
+                console.log('Письмо отправлено, код получен (скрыто):', data);
+
+                // Очищаем ошибки, если были
+                errorContainer.innerHTML = '';
+
+                // 2. Просим пользователя ввести код
+                // Для простоты пока используем prompt. В будущем можно сделать красивое модальное окно.
+                const userCode = prompt("На ваш Email отправлен код подтверждения. Введите его сюда:");
+
+                if (!userCode) {
+                    throw ["Вы не ввели код подтверждения. Регистрация отменена."];
+                }
+
+                // 3. Формируем данные для ConfirmEmailViewModel
+                // Обратите внимание: data.data - это код, который вернул сервер в методе Register
+                const confirmBody = {
+                    email: body.email,
+                    login: body.login,
+                    password: body.password,
+                    code: userCode,          // Код, который ввел пользователь
+                    confirmCode: data.data   // Оригинальный код от сервера
+                };
+
+                // 4. Отправляем запрос на подтверждение и сохранение
+                return sendRequest('POST', confirmURL, confirmBody);
+            })
+            .then(finalResponse => {
+                // 5. Если всё прошло успешно
+                console.log('Регистрация завершена:', finalResponse);
+                alert("Регистрация прошла успешно! Вы вошли в систему.");
+
+                cleaningAndClosingForm(form, errorContainer);
+                window.location.href = '/'; // Переадресация на главную (уже авторизованным)
+            })
+            .catch(err => {
+                console.log('Ошибка:', err);
+                // Проверяем формат ошибки, так как она может прийти с разных этапов
+                if (Array.isArray(err)) {
+                    displayErrors(err, errorContainer);
+                } else if (err.description) {
+                    displayErrors([err.description], errorContainer);
+                } else if (err.errors && Array.isArray(err.errors)) {
+                    displayErrors(err.errors, errorContainer);
+                } else {
+                    displayErrors(['Произошла ошибка при регистрации'], errorContainer);
+                }
+            });
+    });
     const sideMenuButton = document.getElementById("side-menu-button-click-to-hide");
     if (sideMenuButton) sideMenuButton.addEventListener("click", hiddenOpen_Closeclick);
 });

@@ -123,14 +123,14 @@
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-VlSzNqdGhVtWYJMzsHILurOEiF33g8kX19K3jOnzWD0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6025"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022VlSzNqdGhVtWYJMzsHILurOEiF33g8kX19K3jOnzWD0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 10:55:26 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-I4hkcE7DFKfu5/gsj4JPI5I6yLJohN6C2jbDuT4trGY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"8860"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022I4hkcE7DFKfu5/gsj4JPI5I6yLJohN6C2jbDuT4trGY=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Nov 2025 12:12:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.qveo3wl129.js">
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.xvu2zv1a53.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qveo3wl129"},{"Name":"integrity","Value":"sha256-VlSzNqdGhVtWYJMzsHILurOEiF33g8kX19K3jOnzWD0="},{"Name":"label","Value":"_content/DeliveryService_Belko/js/login_and_registration_script.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6025"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022VlSzNqdGhVtWYJMzsHILurOEiF33g8kX19K3jOnzWD0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 10:55:26 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xvu2zv1a53"},{"Name":"integrity","Value":"sha256-I4hkcE7DFKfu5/gsj4JPI5I6yLJohN6C2jbDuT4trGY="},{"Name":"label","Value":"_content/DeliveryService_Belko/js/login_and_registration_script.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8860"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022I4hkcE7DFKfu5/gsj4JPI5I6yLJohN6C2jbDuT4trGY=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Nov 2025 12:12:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/shared_script.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\shared_script.js'))</AssetFile>

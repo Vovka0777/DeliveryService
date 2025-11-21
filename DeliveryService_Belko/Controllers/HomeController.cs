@@ -58,12 +58,13 @@ namespace DeliveryService_Belko.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
             if (ModelState.IsValid)
-            {   
+            {
                 var user = _mapper.Map<User>(model);
-                var response = await _accountService.Register(user);
+                var response = await _accountService.Register(user); 
+
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    return Ok(model);
+                    return Ok(response); 
                 }
                 ModelState.AddModelError("", response.Description);
             }
@@ -77,6 +78,45 @@ namespace DeliveryService_Belko.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("SiteInformation", "Home");
+        }
+        [HttpPost]
+        public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // 1. Создаем объект User из полученных данных
+                // Мы можем использовать AutoMapper, если настроен маппинг ConfirmEmailViewModel -> User,
+                // или создать объект вручную, так как тут всего 3 поля.
+                var user = new User
+                {
+                    Email = model.Email,
+                    Password = model.Password,
+                    Login = model.Login,
+                    Role = (int)DeliveryService.Domain.Models.Role.Client
+                    // Остальные поля заполнятся в сервисе (Id, CreatedAt, PathImage)
+                };
+
+                // 2. Вызываем сервис
+                var response = await _accountService.ConfirmEmail(user, model.Code, model.ConfirmCode);
+
+                if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
+                {
+                    // 3. Если успех - авторизуем пользователя (ставим куки)
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(response.Data));
+
+                    return Ok(response); // Возвращаем 200 OK
+                }
+
+                // Если ошибка в логике сервиса (неверный код и т.д.)
+                return BadRequest(new { description = response.Description });
+            }
+
+            // Если ошибка валидации модели (пустые поля)
+            var errors = ModelState.Values.SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+            return BadRequest(errors);
         }
     }
 }
