@@ -17,7 +17,7 @@ namespace DeliveryService.Domain.Models
         public int? ProfileImg { get; set; } // profile_img integer (Сделаем nullable, если это id, которое может отсутствовать)
 
         [Column("СreatedAt", TypeName = "timestamp")]
-        public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
+        public DateTime СreatedAt { get; set; } // createdAt timestamp without time zone
 
         [InverseProperty("Client")]
         public ICollection<Order> ClientOrders { get; set; } = new List<Order>();

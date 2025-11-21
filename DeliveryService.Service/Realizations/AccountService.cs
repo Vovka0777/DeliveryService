@@ -156,20 +156,20 @@ namespace DeliveryService.Service.Realizations
                 // 2. Валидация (до хеширования)
                 await _validationRules.ValidateAndThrowAsync(model);
 
-                // 3. Инициализация данных
-                // ❗ ВАЖНО: Генерируем ID
+                // 3. Инициализация данных (ПЕРЕМЕЩЕНО ВВЕРХ)
                 model.Id = Guid.NewGuid();
 
-                // ❗ ВАЖНО: PostgreSQL требует UTC время
+               
                 model.CreatedAt = DateTime.UtcNow;
 
                 model.PathImage = "/images/user.png";
                 model.Role = (int)Role.Client;
+                model.ProfileImg = 1; 
 
                 // 4. Хеширование пароля
                 model.Password = HashPasswordHelper.HashPassword(model.Password);
 
-                // 5. Маппинг
+                // 5. Маппинг (создаем userDb, который теперь содержит ProfileImg = 1)
                 var userDb = _mapper.Map<UserDb>(model);
 
                 // 6. Сохранение в БД
