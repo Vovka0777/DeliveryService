@@ -1,0 +1,22 @@
+﻿@model DeliveryService.Domain.ViewModels.LoginAndRegistration.ConfirmEmailViewModel
+
+<div class="confirm-email-container" style="display:none;">
+    <div class="overlay"></div>
+
+    <div class="confirm-email-form">
+        <div class="form_title">Регистрация</div>
+
+        <p>На указанную почту отправлено письмо с кодом подтверждения</p>
+
+        <input type="text" placeholder="" asp-for="CodeConfirm" id="code_confirm">
+        <span>Введите код подтверждения</span>
+
+        <div class="button_confirm_container">
+            <div class="button_confirm send_confirm">Отправить</div>
+
+            <div class="button_confirm red button_confirm_close">Закрыть</div>
+        </div>
+
+        <p class="warning">При закрытии данной формы Регистрация НЕ будет завершена</p>
+    </div>
+</div>

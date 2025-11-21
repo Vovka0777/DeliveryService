@@ -89,79 +89,51 @@ namespace DeliveryService.Service.Realizations
                     return new BaseResponse<string>()
                     {
                         Description = "Пользователь с такой почтой уже есть",
+                        StatusCode = StatusCode.BadRequest // Добавим корректный статус
                     };
                 }
 
                 await SendEmail(model.Email, confirmationCode);
 
-                return  new BaseResponse<string>()
+                return new BaseResponse<string>()
                 {
                     Data = confirmationCode,
-                    Description = "Код подтверждения отправлен на почту",
+                    Description = "Код подтверждения отправлен на почту. Проверьте ваш email.",
                     StatusCode = StatusCode.OK
                 };
-
-                //await _validationRules.ValidateAndThrowAsync(model);
-
-                //var existingUser = await _userStorage.GetAll()
-                //    .FirstOrDefaultAsync(x => x.Email == model.Email);
-
-                //if (existingUser != null)
-                //{
-                //    return new BaseResponse<string>()
-                //    {
-                //        Description = "Пользователь с такой почтой уже есть",
-                //        StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
-                //    };
-                //}
-
-                //// Назначаем стандартные значения
-                //model.ProfileImg = 1;
-                //model.CreatedAt = DateTime.Now;
-                //model.Role = (int)DeliveryService.Domain.Models.Role.Client;
-
-                //// Маппинг и сохранение
-                //var userDb = _mapper.Map<UserDb>(model);
-
-                //await _userStorage.Add(userDb);
-
-                //// 2. Создаем ClaimsIdentity после успешной регистрации
-                //var identity = AuthenticateUserHelper.Authenticate(model);
-
-                //return new BaseResponse<string>()
-                //{
-                //    Data = identity,
-                //    Description = "Пользователь зарегистрирован",
-                //    StatusCode = (DeliveryService.Domain.Enum.StatusCode)DeliveryService.Domain.Models.Role.Client
-                //};
             }
-
-
             catch (FluentValidation.ValidationException ex)
             {
                 var errorMessage = string.Join("; ", ex.Errors.Select(e => e.ErrorMessage));
                 return new BaseResponse<String>()
                 {
-                    Description = ex.Message,
+                    Description = errorMessage, // Используем список ошибок валидации
                     StatusCode = StatusCode.BadRequest
                 };
             }
-            catch (Exception ex)
+            catch (Exception ex) // ⬅️ Общий блок для обработки ошибок, включая SendEmail
             {
-                return new BaseResponse<string>();
+                // Логирование ошибки здесь было бы очень полезно!
+                Console.WriteLine($"Ошибка при регистрации или отправке почты: {ex.Message}");
+                // Возвращаем информативный ответ с ошибкой
+                return new BaseResponse<string>()
+                {
+                    Description = $"Произошла внутренняя ошибка сервера: {ex.Message}",
+                    StatusCode = StatusCode.InternalServerError // 500
+                };
             }
         }
 
-    public async Task SendEmail(string email, string confirmationCode)
+        public async Task SendEmail(string email, string confirmationCode)
     {
-        string path = @"C:\\Users\\VHI-TECH\\Desktop\\work\\practice\\materials\\passwordPractice.txt";
+        string path = @"E:\инфа\praktika\DeliveryService\DeliveryService_Belko\wwwroot\TXT\password.txt";
         var emailMessage = new MimeMessage();
 
-        // Добавление отправителя
-        emailMessage.From.Add(new MailboxAddress("Администрация сайта", "turAgent@BK.ru"));
+            // Добавление отправителя
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "vovabelko07@mail.ru"));
 
-        // Добавление получателя
-        emailMessage.To.Add(new MailboxAddress("", email));
+            // Добавление получателя
+            emailMessage.To.Add(new MailboxAddress("", email));
 
         // Тема письма
         emailMessage.Subject = "Добро пожаловать!";
@@ -182,7 +154,7 @@ namespace DeliveryService.Service.Realizations
                 "</head>" +
                 "<body>" +
                     "<div class=\"container\">" +
-                        "<div class=\"header\"><h1>Добро пожаловать на сайт Туристического агентства!</h1></div>" +
+                        "<div class=\"header\"><h1>Добро пожаловать на сайт Службы доставки Брэгд!</h1></div>" +
                         "<div class=\"message\">" +
                             "<p>Пожалуйста, введите данный код на сайте, чтобы подтвердить ваш email и завершить регистрацию:</p>" +
                         "</div>" +
@@ -204,10 +176,10 @@ namespace DeliveryService.Service.Realizations
         using (var client = new SmtpClient())
         {
             // Подключение к SMTP-серверу Gmail
-            await client.ConnectAsync("smtp.gmail.com", 465, true);
+            await client.ConnectAsync("smtp.mail.ru", 465, true);
 
             // Аутентификация
-            await client.AuthenticateAsync("tany.podsekina.02@gmail.com", password);
+            await client.AuthenticateAsync("vovabelko07@mail.ru", password);
 
             // Отправка
             await client.SendAsync(emailMessage);
