@@ -1,4 +1,4 @@
-using DeliveryService.Domain.ViewModels.LoginAndRegistration;
+ï»¿using DeliveryService.Domain.ViewModels.LoginAndRegistration;
 using Microsoft.AspNetCore.Mvc;
 using DeliveryService.Domain.Models;
 using System.Threading.Tasks;
@@ -84,35 +84,43 @@ namespace DeliveryService_Belko.Controllers
         {
             if (ModelState.IsValid)
             {
-                // 1. Ñîçäàåì îáúåêò User èç ïîëó÷åííûõ äàííûõ
-                // Ìû ìîæåì èñïîëüçîâàòü AutoMapper, åñëè íàñòðîåí ìàïïèíã ConfirmEmailViewModel -> User,
-                // èëè ñîçäàòü îáúåêò âðó÷íóþ, òàê êàê òóò âñåãî 3 ïîëÿ.
+                // 1. Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð¾Ð±ÑŠÐµÐºÑ‚ User Ð¸Ð· Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ñ‹Ñ… Ð´Ð°Ð½Ð½Ñ‹Ñ…
+                // ÐœÑ‹ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ AutoMapper, ÐµÑÐ»Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐ½ Ð¼Ð°Ð¿Ð¿Ð¸Ð½Ð³ ConfirmEmailViewModel -> User,
+                // Ð¸Ð»Ð¸ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ Ð¾Ð±ÑŠÐµÐºÑ‚ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ, Ñ‚Ð°Ðº ÐºÐ°Ðº Ñ‚ÑƒÑ‚ Ð²ÑÐµÐ³Ð¾ 3 Ð¿Ð¾Ð»Ñ.
                 var user = new User
                 {
                     Email = model.Email,
                     Password = model.Password,
                     Login = model.Login,
                     Role = (int)DeliveryService.Domain.Models.Role.Client
-                    // Îñòàëüíûå ïîëÿ çàïîëíÿòñÿ â ñåðâèñå (Id, CreatedAt, PathImage)
+                    // ÐžÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ñ Ð·Ð°Ð¿Ð¾Ð»Ð½ÑÑ‚ÑÑ Ð² ÑÐµÑ€Ð²Ð¸ÑÐµ (Id, CreatedAt, PathImage)
                 };
 
-                // 2. Âûçûâàåì ñåðâèñ
+                // 2. Ð’Ñ‹Ð·Ñ‹Ð²Ð°ÐµÐ¼ ÑÐµÑ€Ð²Ð¸Ñ
                 var response = await _accountService.ConfirmEmail(user, model.Code, model.ConfirmCode);
 
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    // 3. Åñëè óñïåõ - àâòîðèçóåì ïîëüçîâàòåëÿ (ñòàâèì êóêè)
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                        new ClaimsPrincipal(response.Data));
+                    try
+                    {
+                        var principal = new ClaimsPrincipal(response.Data);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    return Ok(response); // Âîçâðàùàåì 200 OK
+                        // âœ… Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ ÐŸÐ ÐžÐ¡Ð¢ÐžÐ™ JSON Ð±ÐµÐ· ClaimsIdentity!
+                        return Ok(new { success = true, message = "ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð·Ð°Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ð½" });
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÐµ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¿Ð¾ÑÐ»Ðµ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸.");
+                        return StatusCode(500, new { success = false, description = $"ÐšÑ€Ð¸Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸: {ex.Message}" });
+                    }
                 }
 
-                // Åñëè îøèáêà â ëîãèêå ñåðâèñà (íåâåðíûé êîä è ò.ä.)
+                // Ð•ÑÐ»Ð¸ Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð² Ð»Ð¾Ð³Ð¸ÐºÐµ ÑÐµÑ€Ð²Ð¸ÑÐ° (Ð½ÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ ÐºÐ¾Ð´ Ð¸ Ñ‚.Ð´.)
                 return BadRequest(new { description = response.Description });
             }
 
-            // Åñëè îøèáêà âàëèäàöèè ìîäåëè (ïóñòûå ïîëÿ)
+            // Ð•ÑÐ»Ð¸ Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸Ð¸ Ð¼Ð¾Ð´ÐµÐ»Ð¸ (Ð¿ÑƒÑÑ‚Ñ‹Ðµ Ð¿Ð¾Ð»Ñ)
             var errors = ModelState.Values.SelectMany(v => v.Errors)
                 .Select(e => e.ErrorMessage)
                 .ToList();
