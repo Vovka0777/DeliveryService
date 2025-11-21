@@ -11,6 +11,12 @@ using FluentValidation;
 using DeliveryService.Domain.Enum;
 using MimeKit;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Hosting; // Добавлено
+using System.Net.Http; // Добавлено
+using System.IO; // Добавлено
+using System;
+using System.Linq;
 
 namespace DeliveryService.Service.Realizations
 {
@@ -19,13 +25,17 @@ namespace DeliveryService.Service.Realizations
         private readonly IBaseStorage<UserDb> _userStorage;
         private readonly IMapper _mapper;
         private readonly UserValidator _validationRules;
+        private readonly IWebHostEnvironment _appEnvironment; // Добавлено
 
-        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper, UserValidator validationRules)
+        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper, UserValidator validationRules, IWebHostEnvironment appEnvironment) // Добавлено IWebHostEnvironment
         {
             _userStorage = userStorage;
             _mapper = mapper;
             _validationRules = validationRules;
+            _appEnvironment = appEnvironment; // Инициализация
         }
+
+        // ... (Login, Register, SendEmail, ConfirmEmail, IsCreatedAccount - методы без изменений)
 
         public async Task<BaseResponse<ClaimsIdentity>> Login(User model)
         {
@@ -112,7 +122,6 @@ namespace DeliveryService.Service.Realizations
 
         public async Task SendEmail(string email, string confirmationCode)
         {
-            // Убедитесь, что путь верный!
             string path = @"E:\инфа\praktika\DeliveryService\DeliveryService_Belko\wwwroot\TXT\password.txt";
             var emailMessage = new MimeMessage();
 
@@ -143,7 +152,6 @@ namespace DeliveryService.Service.Realizations
         {
             try
             {
-                // 1. Проверка кода
                 if (code != confirmCode)
                 {
                     return new BaseResponse<ClaimsIdentity>()
@@ -153,29 +161,21 @@ namespace DeliveryService.Service.Realizations
                     };
                 }
 
-                // 2. Валидация (до хеширования)
                 await _validationRules.ValidateAndThrowAsync(model);
 
-                // 3. Инициализация данных (ПЕРЕМЕЩЕНО ВВЕРХ)
                 model.Id = Guid.NewGuid();
-
-               
                 model.CreatedAt = DateTime.UtcNow;
 
                 model.PathImage = "/images/user.png";
                 model.Role = (int)Role.Client;
-                model.ProfileImg = 1; 
+                model.ProfileImg = 1;
 
-                // 4. Хеширование пароля
                 model.Password = HashPasswordHelper.HashPassword(model.Password);
 
-                // 5. Маппинг (создаем userDb, который теперь содержит ProfileImg = 1)
                 var userDb = _mapper.Map<UserDb>(model);
 
-                // 6. Сохранение в БД
                 await _userStorage.Add(userDb);
 
-                // 7. Авторизация
                 var result = AuthenticateUserHelper.Authenticate(model);
 
                 return new BaseResponse<ClaimsIdentity>()
@@ -196,7 +196,6 @@ namespace DeliveryService.Service.Realizations
             }
             catch (Exception ex)
             {
-                // ❗ ВАЖНО: Показываем Внутреннюю ошибку (InnerException)
                 var fullError = ex.Message;
                 if (ex.InnerException != null)
                 {
@@ -209,6 +208,64 @@ namespace DeliveryService.Service.Realizations
                     StatusCode = StatusCode.InternalServerError
                 };
             }
+        }
+
+        public async Task<BaseResponse<ClaimsIdentity>> IsCreatedAccount(User model)
+        {
+            try
+            {
+                var userDb = new UserDb();
+                if ((await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email)) == null)
+                {
+                    model.Password = "google";
+                    model.CreatedAt = DateTime.Now;
+
+                    userDb = _mapper.Map<UserDb>(model);
+
+                    await _userStorage.Add(userDb);
+
+                    var resultRegister = AuthenticateUserHelper.Authenticate(model);
+                    return new BaseResponse<ClaimsIdentity>()
+                    {
+                        Data = resultRegister,
+                        Description = "Объект добавился",
+                        StatusCode = StatusCode.OK
+                    };
+                }
+
+                var resultLogin = AuthenticateUserHelper.Authenticate(model);
+                return new BaseResponse<ClaimsIdentity>()
+                {
+                    Data = resultLogin,
+                    Description = "Объект уже был создан",
+                    StatusCode = StatusCode.OK
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<ClaimsIdentity>()
+                {
+                    Description = ex.Message,
+                    StatusCode = StatusCode.InternalServerError
+                };
+            }
+        }
+
+        public async Task<string> SaveImageInImageUser(string imageUrl, AuthenticateResult result)
+        {
+            string filePath = "";
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    filePath = Path.Combine("ImageUser", $"{result.Principal.FindFirst(ClaimTypes.Email)?.Value}-avatar.jpg");
+
+                    var imageBytes = await httpClient.GetByteArrayAsync(imageUrl);
+
+                    await System.IO.File.WriteAllBytesAsync(Path.Combine(_appEnvironment.WebRootPath, filePath), imageBytes);
+                }
+            }
+            return filePath;
         }
     }
 }

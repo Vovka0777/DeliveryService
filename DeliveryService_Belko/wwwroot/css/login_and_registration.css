@@ -181,7 +181,7 @@ input:not(:placeholder-shown) + span {
     font-weight: 600;
     font-size: 1rem;
     align-self: center;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
@@ -227,3 +227,15 @@ input:not(:placeholder-shown) + span {
     font-size: 13px;
 }
 
+.google-img {
+    width:20%;
+}
+
+.form-btn-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-btn-container a {
+    display: contents;
+}

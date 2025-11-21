@@ -198,4 +198,14 @@ function cleaningAndClosingForm(form, errorContainer) {
     });
     const sideMenuButton = document.getElementById("side-menu-button-click-to-hide");
     if (sideMenuButton) sideMenuButton.addEventListener("click", hiddenOpen_Closeclick);
+
+    const google = document.querySelectorAll('.google');
+
+    if (google) {
+        google.forEach(btn => {
+            btn.addEventListener('click', function () {
+                window.location.href = `/Home/AuthenticationGoogle?ReturnUrl=${encodeURIComponent(window.location.href)}`;
+            });
+        });
+    }
 });

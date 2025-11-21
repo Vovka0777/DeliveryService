@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\icon-phone.png"
     },
     {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\photo_google.png",
+      "PackagePath": "staticwebassets\\images\\photo_google.png"
+    },
+    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\service1.png",
       "PackagePath": "staticwebassets\\images\\service1.png"
     },

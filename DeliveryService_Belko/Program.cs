@@ -7,6 +7,8 @@ using DeliveryService.Service.Interfaces;
 using DeliveryService.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DeliveryService.Domain.Validator;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +23,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
   {
       options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Home/Login");
       options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Home/Logout");
-  });
+  })
+
+.AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
+{
+    options.ClientId = builder.Configuration.GetSection("GoogleKeys:ClientId").Value;
+    options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
+    options.Scope.Add("profile");
+
+    options.ClaimActions.MapJsonKey("picture", "picture");
+});
 
 builder.Services.AddAutoMapper(config =>
 {

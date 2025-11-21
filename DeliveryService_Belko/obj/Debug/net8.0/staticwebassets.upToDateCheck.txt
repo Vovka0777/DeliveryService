@@ -5,6 +5,7 @@ wwwroot\favicon.ico
 wwwroot\images\icon-address.png
 wwwroot\images\icon-email.png
 wwwroot\images\icon-phone.png
+wwwroot\images\photo_google.png
 wwwroot\images\service1.png
 wwwroot\images\zxgwre.jpg
 wwwroot\js\login_and_registration_script.js
