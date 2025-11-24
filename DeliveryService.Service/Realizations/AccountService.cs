@@ -214,14 +214,39 @@ namespace DeliveryService.Service.Realizations
         {
             try
             {
-                var userDb = new UserDb();
-                if ((await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email)) == null)
+                // Сначала ищем пользователя
+                var existingUser = await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email);
+
+                if (existingUser == null)
                 {
+                    // === ЗАПОЛНЯЕМ ВСЕ ОБЯЗАТЕЛЬНЫЕ ПОЛЯ, КАК ПРИ ОБЫЧНОЙ РЕГИСТРАЦИИ ===
+
+                    // 1. Генерация ID (если база не создает его сама, скорее всего это Guid)
+                    model.Id = Guid.NewGuid();
+
+                    // 2. Пароль заглушка
                     model.Password = "google";
-                    model.CreatedAt = DateTime.Now;
 
-                    userDb = _mapper.Map<UserDb>(model);
+                    // 3. Дата создания
+                    model.CreatedAt = DateTime.UtcNow;
 
+                    // 4. Роль (обязательно!)
+                    model.Role = (int)Role.Client;
+
+                    // 5. Картинка профиля (если есть такая логика в базе, например FK)
+                    // В ConfirmEmail у вас стоит: model.ProfileImg = 1;
+                    model.ProfileImg = 1;
+
+                    // Если путь к картинке пустой, ставим заглушку
+                    if (string.IsNullOrEmpty(model.PathImage))
+                    {
+                        model.PathImage = "/images/user.png";
+                    }
+
+                    // Маппинг в сущность БД
+                    var userDb = _mapper.Map<UserDb>(model);
+
+                    // Сохранение
                     await _userStorage.Add(userDb);
 
                     var resultRegister = AuthenticateUserHelper.Authenticate(model);
@@ -233,7 +258,13 @@ namespace DeliveryService.Service.Realizations
                     };
                 }
 
-                var resultLogin = AuthenticateUserHelper.Authenticate(model);
+                // Если пользователь уже есть, просто авторизуем его
+                // Важно: нужно авторизовать using existingUser (данные из БД), а не model (данные из Google)
+                // чтобы подтянулись корректные Role и Id
+                var userForAuth = _mapper.Map<User>(existingUser);
+
+                var resultLogin = AuthenticateUserHelper.Authenticate(userForAuth);
+
                 return new BaseResponse<ClaimsIdentity>()
                 {
                     Data = resultLogin,
@@ -243,29 +274,16 @@ namespace DeliveryService.Service.Realizations
             }
             catch (Exception ex)
             {
+                // ЧТОБЫ УВИДЕТЬ РЕАЛЬНУЮ ПРИЧИНУ ОШИБКИ:
+                // База данных прячет ошибку внутри InnerException. Достаем её:
+                var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+
                 return new BaseResponse<ClaimsIdentity>()
                 {
-                    Description = ex.Message,
+                    Description = $"Ошибка сохранения: {message}",
                     StatusCode = StatusCode.InternalServerError
                 };
             }
-        }
-
-        public async Task<string> SaveImageInImageUser(string imageUrl, AuthenticateResult result)
-        {
-            string filePath = "";
-            if (!string.IsNullOrEmpty(imageUrl))
-            {
-                using (var httpClient = new HttpClient())
-                {
-                    filePath = Path.Combine("ImageUser", $"{result.Principal.FindFirst(ClaimTypes.Email)?.Value}-avatar.jpg");
-
-                    var imageBytes = await httpClient.GetByteArrayAsync(imageUrl);
-
-                    await System.IO.File.WriteAllBytesAsync(Path.Combine(_appEnvironment.WebRootPath, filePath), imageBytes);
-                }
-            }
-            return filePath;
         }
     }
 }

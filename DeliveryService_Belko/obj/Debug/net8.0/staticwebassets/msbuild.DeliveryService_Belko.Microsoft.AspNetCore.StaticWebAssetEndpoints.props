@@ -1,16 +1,16 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.4wp52mkr9z.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4wp52mkr9z"},{"Name":"integrity","Value":"sha256-rJPLC3p6dNTCJ7F/G2iK/9yqm15ykuG4dVgrzdMIvt8="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/login_and_registration.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4542"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rJPLC3p6dNTCJ7F/G2iK/9yqm15ykuG4dVgrzdMIvt8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Nov 2025 08:41:43 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-siql5NZByP2Ie8Z4Fxk90Xtc3\u002B3MnxN9w0PB0jHm008="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4519"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022siql5NZByP2Ie8Z4Fxk90Xtc3\u002B3MnxN9w0PB0jHm008=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Nov 2025 16:19:38 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.ql0l7ifsw2.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ql0l7ifsw2"},{"Name":"integrity","Value":"sha256-siql5NZByP2Ie8Z4Fxk90Xtc3\u002B3MnxN9w0PB0jHm008="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/login_and_registration.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4519"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022siql5NZByP2Ie8Z4Fxk90Xtc3\u002B3MnxN9w0PB0jHm008=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Nov 2025 16:19:38 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rJPLC3p6dNTCJ7F/G2iK/9yqm15ykuG4dVgrzdMIvt8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4542"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rJPLC3p6dNTCJ7F/G2iK/9yqm15ykuG4dVgrzdMIvt8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Nov 2025 08:41:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/media_style.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\media_style.css'))</AssetFile>
@@ -131,6 +131,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"l5wu1ru3fa"},{"Name":"integrity","Value":"sha256-SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H\u002BizK8="},{"Name":"label","Value":"_content/DeliveryService_Belko/images/zxgwre.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"419681"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022SYsU8USFgu8KvvUm/PjKu6aWx8fCtW/yEKuW6H\u002BizK8=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 10:55:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/ImageUser/vovabelko07@gmail.com-avatar.ag9doikiet.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ImageUser\vovabelko07@gmail.com-avatar.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ag9doikiet"},{"Name":"integrity","Value":"sha256-5i7gyEyyb16hXDDxn5NoEQosu0h8RkeB5/t\u002BP2vB8GM="},{"Name":"label","Value":"_content/DeliveryService_Belko/ImageUser/vovabelko07@gmail.com-avatar.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"991"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00225i7gyEyyb16hXDDxn5NoEQosu0h8RkeB5/t\u002BP2vB8GM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Nov 2025 09:22:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/ImageUser/vovabelko07@gmail.com-avatar.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ImageUser\vovabelko07@gmail.com-avatar.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5i7gyEyyb16hXDDxn5NoEQosu0h8RkeB5/t\u002BP2vB8GM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"991"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00225i7gyEyyb16hXDDxn5NoEQosu0h8RkeB5/t\u002BP2vB8GM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Nov 2025 09:22:13 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>

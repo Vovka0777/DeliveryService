@@ -8,6 +8,7 @@ wwwroot\images\icon-phone.png
 wwwroot\images\photo_google.png
 wwwroot\images\service1.png
 wwwroot\images\zxgwre.jpg
+wwwroot\ImageUser\vovabelko07@gmail.com-avatar.jpg
 wwwroot\js\login_and_registration_script.js
 wwwroot\js\shared_script.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
