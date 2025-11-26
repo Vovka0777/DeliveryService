@@ -133,3 +133,96 @@
         width: 100%;
     }
 }
+
+.product-detail-img-container {
+    width: 100%;
+    height: 500px; /* Фиксированная высота для картинки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 15px;
+}
+
+.product-detail-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+    .product-detail-img:hover {
+        transform: scale(1.02);
+    }
+
+.leading-relaxed {
+    line-height: 1.8;
+}
+
+.transition-hover {
+    transition: all 0.3s ease;
+}
+
+    .transition-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3) !important;
+    }
+.search-box {
+    position: relative;
+    /* Убираем max-width, чтобы search-box занимал всю ширину контейнера */
+    margin: 0;
+    padding: 0 10px; /* Небольшие отступы, если нужно */
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 50px 15px 15px; /* Увеличили отступы для более крупного вида */
+    font-size: 1.2rem;
+    /* Новые стили: убираем радиус, делаем акцент на нижней границе */
+    border: none;
+    border-bottom: 3px solid #ccc; /* Светлая нижняя граница */
+    border-radius: 0;
+    background-color: #f8f9fa; /* Светлый фон */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    /* Эффект при фокусе */
+    .search-input:focus {
+        border-color: #ffa500; /* Используем акцентный оранжевый цвет */
+        box-shadow: 0 5px 0px -3px #ffa50030; /* Мягкая тень для выделения */
+        outline: none;
+    }
+
+/* Иконка поиска */
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1.2rem;
+    pointer-events: none; /* Чтобы можно было кликнуть через иконку */
+}
+
+/* Корректируем расположение иконки после изменения padding input */
+.search-input {
+    padding-left: 50px; /* Дополнительный отступ для иконки */
+}
+
+
+/* Кнопка "Очистить" */
+.clear-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    display: none;
+}
+
+    .clear-search:hover {
+        color: #dc3545; /* Красный при наведении */
+    }

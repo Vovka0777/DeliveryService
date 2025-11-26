@@ -1,18 +1,20 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-
+    
     const priceRange = document.getElementById('priceRange');
     const priceValue = document.getElementById('priceValue');
     const applyFiltersBtn = document.getElementById('applyFilters');
     const sortOrderSelect = document.getElementById('sortOrder');
+    const searchInput = document.getElementById('elasticSearch'); // Наше поле поиска
+    const clearBtn = document.getElementById('clearSearch');
 
-    // 1. Обновление цифры цены при движении ползунка
+    // Обновление цифры цены
     if (priceRange) {
         priceRange.addEventListener('input', function () {
             priceValue.textContent = this.value;
         });
     }
 
-    // 2. Обработка кнопки "Применить" (Фильтры)
+    // Кнопка "Применить"
     if (applyFiltersBtn) {
         applyFiltersBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -20,34 +22,60 @@
         });
     }
 
-    // 3. Обработка изменения сортировки
+    // Сортировка
     if (sortOrderSelect) {
         sortOrderSelect.addEventListener('change', function () {
             filterItems();
         });
     }
 
-    // Основная функция фильтрации
+    // === НОВАЯ ЛОГИКА ПОИСКА ===
+    let debounceTimer;
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            // Показываем/скрываем крестик
+            if (this.value.trim() !== '') {
+                clearBtn.style.display = 'block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+
+            // Задержка (debounce), чтобы не бомбить сервер запросами при каждой букве
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                filterItems();
+            }, 500); // Запрос уйдет через 0.5 сек после окончания ввода
+        });
+    }
+
+    // Очистка поиска
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            searchInput.value = '';
+            this.style.display = 'none';
+            filterItems(); // Сбрасываем фильтр
+        });
+    }
+
+    // Основная функция фильтрации (ТЕПЕРЬ ВКЛЮЧАЕТ ПОИСК)
     function filterItems() {
-        // Собираем данные с элементов управления
         const maxPrice = document.getElementById('priceRange').value;
         const sortOrder = document.getElementById('sortOrder').value;
-
-        // Собираем ID выбранных категорий
+        const searchText = document.getElementById('elasticSearch').value; // Берем текст поиска
+        
         let selectedCategories = [];
         const checkboxes = document.querySelectorAll('.form-check-input:checked');
         checkboxes.forEach((checkbox) => {
             selectedCategories.push(parseInt(checkbox.value));
         });
 
-        // Создаем объект фильтра (соответствует C# классу ItemFilter)
         const filterData = {
             maxPrice: parseFloat(maxPrice),
             categories: selectedCategories,
-            ordering: sortOrder
+            ordering: sortOrder,
+            name: searchText // Отправляем имя на сервер
         };
 
-        // Отправляем запрос на сервер
         fetch('/Catalog/GetItemsByFilter', {
             method: 'POST',
             headers: {
@@ -55,22 +83,20 @@
             },
             body: JSON.stringify(filterData)
         })
-            .then(response => response.json())
-            .then(result => {
-                // Если статус OK (код 200), перерисовываем каталог
-                if (result.statusCode === 200) {
-                    renderCatalog(result.data);
-                } else {
-                    console.error('Ошибка фильтрации:', result.description);
-                }
-            })
-            .catch(error => console.error('Ошибка сети:', error));
+        .then(response => response.json())
+        .then(result => {
+            if (result.statusCode === 200) {
+                renderCatalog(result.data);
+            } else {
+                console.error('Ошибка фильтрации:', result.description);
+            }
+        })
+        .catch(error => console.error('Ошибка сети:', error));
     }
 
-    // Функция перерисовки HTML карточек
     function renderCatalog(items) {
         const container = document.getElementById('productsList');
-        container.innerHTML = ''; // Очищаем текущие товары
+        container.innerHTML = '';
 
         if (!items || items.length === 0) {
             container.innerHTML = '<p class="text-center">Товары не найдены.</p>';
@@ -78,8 +104,6 @@
         }
 
         items.forEach(item => {
-            // Генерируем HTML для одной карточки
-            // Важно: поля объекта item приходят в camelCase (name, price, pathImg)
             const cardHtml = `
                 <div class="product-card">
                     <div class="card-img-container">
@@ -98,8 +122,6 @@
                     </div>
                 </div>
             `;
-
-            // Вставляем карточку в контейнер
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = cardHtml;
             container.appendChild(tempDiv.firstElementChild);

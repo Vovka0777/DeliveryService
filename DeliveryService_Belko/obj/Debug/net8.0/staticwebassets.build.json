@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aqQWaMtpT2lBZFymi3+Y6gBRlOqjCr7Rq5CV1OgM6oc=",
+  "Hash": "APwLmj40IA12D91e8M4XsdxHkP3h3F+P83Vb07EbyaU=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "71q8u3tf6m",
-      "Integrity": "y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=",
+      "Fingerprint": "hms2lhfjsr",
+      "Integrity": "lznGp5o1dZ/yvlAhV3XGchBS7ukf/Siee/2pp5RV5NE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\catalog.css"
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "n6hmyecyv5",
-      "Integrity": "f5o4bdgGiOU3oyqf949+ViyHI4pdR82MhfEEHcYYU40=",
+      "Fingerprint": "wj55jw1lmt",
+      "Integrity": "XG6Dr0YtmW88rMsMTayM/tU82rcFAFe2KW4kuVXFUyw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\brushes.png"
@@ -535,8 +535,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "mldc3rnvdq",
-      "Integrity": "JtHBfyk2bUmSgdSY19cM4l8G+mOswDbEpF5twOkxhY8=",
+      "Fingerprint": "7h7mpgj2uv",
+      "Integrity": "pYfQIbO+6iCiwnh4eCKh/Rnl0rv3x0oLFU8VGC5/adU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\catalog.js"
@@ -1804,51 +1804,6 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/catalog.71q8u3tf6m.css",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3247"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Nov 2025 17:31:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "71q8u3tf6m"
-        },
-        {
-          "Name": "label",
-          "Value": "css/catalog.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg="
-        }
-      ]
-    },
-    {
       "Route": "css/catalog.css",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
       "Selectors": [],
@@ -1859,7 +1814,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3247"
+          "Value": "6033"
         },
         {
           "Name": "Content-Type",
@@ -1867,11 +1822,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=\""
+          "Value": "\"lznGp5o1dZ/yvlAhV3XGchBS7ukf/Siee/2pp5RV5NE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Nov 2025 17:31:38 GMT"
+          "Value": "Wed, 26 Nov 2025 22:02:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1881,7 +1836,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg="
+          "Value": "sha256-lznGp5o1dZ/yvlAhV3XGchBS7ukf/Siee/2pp5RV5NE="
+        }
+      ]
+    },
+    {
+      "Route": "css/catalog.hms2lhfjsr.css",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6033"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lznGp5o1dZ/yvlAhV3XGchBS7ukf/Siee/2pp5RV5NE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 22:02:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hms2lhfjsr"
+        },
+        {
+          "Name": "label",
+          "Value": "css/catalog.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lznGp5o1dZ/yvlAhV3XGchBS7ukf/Siee/2pp5RV5NE="
         }
       ]
     },
@@ -2296,51 +2296,6 @@
       ]
     },
     {
-      "Route": "images/brushes.n6hmyecyv5.png",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\brushes.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1485470"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"f5o4bdgGiOU3oyqf949+ViyHI4pdR82MhfEEHcYYU40=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Nov 2025 18:11:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "n6hmyecyv5"
-        },
-        {
-          "Name": "label",
-          "Value": "images/brushes.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-f5o4bdgGiOU3oyqf949+ViyHI4pdR82MhfEEHcYYU40="
-        }
-      ]
-    },
-    {
       "Route": "images/brushes.png",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\brushes.png",
       "Selectors": [],
@@ -2351,7 +2306,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1485470"
+          "Value": "852119"
         },
         {
           "Name": "Content-Type",
@@ -2359,11 +2314,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"f5o4bdgGiOU3oyqf949+ViyHI4pdR82MhfEEHcYYU40=\""
+          "Value": "\"XG6Dr0YtmW88rMsMTayM/tU82rcFAFe2KW4kuVXFUyw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Nov 2025 18:11:02 GMT"
+          "Value": "Wed, 26 Nov 2025 20:57:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2373,7 +2328,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-f5o4bdgGiOU3oyqf949+ViyHI4pdR82MhfEEHcYYU40="
+          "Value": "sha256-XG6Dr0YtmW88rMsMTayM/tU82rcFAFe2KW4kuVXFUyw="
+        }
+      ]
+    },
+    {
+      "Route": "images/brushes.wj55jw1lmt.png",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\brushes.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "852119"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XG6Dr0YtmW88rMsMTayM/tU82rcFAFe2KW4kuVXFUyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 20:57:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wj55jw1lmt"
+        },
+        {
+          "Name": "label",
+          "Value": "images/brushes.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XG6Dr0YtmW88rMsMTayM/tU82rcFAFe2KW4kuVXFUyw="
         }
       ]
     },
@@ -3772,6 +3772,51 @@
       ]
     },
     {
+      "Route": "js/catalog.7h7mpgj2uv.js",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\catalog.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pYfQIbO+6iCiwnh4eCKh/Rnl0rv3x0oLFU8VGC5/adU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 22:02:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7h7mpgj2uv"
+        },
+        {
+          "Name": "label",
+          "Value": "js/catalog.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pYfQIbO+6iCiwnh4eCKh/Rnl0rv3x0oLFU8VGC5/adU="
+        }
+      ]
+    },
+    {
       "Route": "js/catalog.js",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\catalog.js",
       "Selectors": [],
@@ -3782,7 +3827,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4650"
+          "Value": "5184"
         },
         {
           "Name": "Content-Type",
@@ -3790,11 +3835,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JtHBfyk2bUmSgdSY19cM4l8G+mOswDbEpF5twOkxhY8=\""
+          "Value": "\"pYfQIbO+6iCiwnh4eCKh/Rnl0rv3x0oLFU8VGC5/adU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Nov 2025 20:55:34 GMT"
+          "Value": "Wed, 26 Nov 2025 22:02:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3804,52 +3849,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JtHBfyk2bUmSgdSY19cM4l8G+mOswDbEpF5twOkxhY8="
-        }
-      ]
-    },
-    {
-      "Route": "js/catalog.mldc3rnvdq.js",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\catalog.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4650"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JtHBfyk2bUmSgdSY19cM4l8G+mOswDbEpF5twOkxhY8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Nov 2025 20:55:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "mldc3rnvdq"
-        },
-        {
-          "Name": "label",
-          "Value": "js/catalog.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JtHBfyk2bUmSgdSY19cM4l8G+mOswDbEpF5twOkxhY8="
+          "Value": "sha256-pYfQIbO+6iCiwnh4eCKh/Rnl0rv3x0oLFU8VGC5/adU="
         }
       ]
     },
