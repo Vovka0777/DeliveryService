@@ -7,19 +7,19 @@ namespace DeliveryService.Domain.Validator
     {
         public ItemValidator()
         {
-            // Правило: Идентификатор заказа (IdOrder) обязателен
-            RuleFor(item => item.IdOrder)
-                .NotEqual(Guid.Empty).WithMessage("Идентификатор заказа (IdOrder) обязателен");
 
-            // Правило: Имя товара (Name) не должно быть пустым
+            // Правило: Имя товара обязательно
             RuleFor(item => item.Name)
-                .NotEmpty().WithMessage("Имя товара обязательно");
+                .NotEmpty().WithMessage("Имя товара обязательно")
+                .MaximumLength(100).WithMessage("Имя слишком длинное");
 
-            // Если PathImg является обязательным, добавьте:
-            /*
-            RuleFor(item => item.PathImg)
-                .NotEmpty().WithMessage("Путь к изображению товара обязателен");
-            */
+            // Правило: Цена должна быть больше 0
+            RuleFor(item => item.Price)
+                .GreaterThan(0).WithMessage("Цена должна быть больше 0");
+
+            // Описание обязательно
+            RuleFor(item => item.Description)
+                .NotEmpty().WithMessage("Описание не может быть пустым");
         }
     }
 }

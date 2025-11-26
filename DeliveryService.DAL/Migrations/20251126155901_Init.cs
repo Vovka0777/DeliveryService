@@ -11,6 +11,7 @@ namespace DeliveryService.DAL.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+           
         }
 
         /// <inheritdoc />

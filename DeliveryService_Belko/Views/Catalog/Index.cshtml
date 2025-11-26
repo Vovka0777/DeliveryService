@@ -1,83 +1,99 @@
-﻿@model List<DeliveryService.Domain.ViewModels.Item.ItemViewModel>
+﻿@model IEnumerable<DeliveryService.Domain.ViewModels.Item.ItemViewModel>
 
 @{
     ViewData["Title"] = "Каталог товаров";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-    }
+<div class="text-center mb-4">
+    <h1 class="display-4">Каталог</h1>
+</div>
 
-    .card {
-        width: 300px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+<div class="catalog-wrapper">
 
-    .card:hover {
-        transform: translateY(-5px);
-    }
+    <div class="filters-sidebar">
+        <h4 class="mb-3">Фильтры</h4>
 
-    .card-img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
+        <div class="filter-group">
+            <label class="form-label">Максимальная цена: <span id="priceValue">5000</span> ₽</label>
+            <input type="range" class="form-range" min="0" max="5000" step="50" value="5000" id="priceRange">
+        </div>
 
-    .card-body {
-        padding: 15px;
-        text-align: center;
-    }
+        <div class="filter-group">
+            <h5 class="mt-3">Категория</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="0" id="catFood">
+                <label class="form-check-label" for="catFood">Еда</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="catStationery">
+                <label class="form-check-label" for="catStationery">Канцелярия</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="2" id="catBuild">
+                <label class="form-check-label" for="catBuild">Стройматериалы</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="3" id="catClothes">
+                <label class="form-check-label" for="catClothes">Одежда</label>
+            </div>
+        </div>
 
-    .card-title {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        color: #333;
-    }
+        <button id="applyFilters" class="btn btn-primary w-100 mt-3">Применить</button>
+    </div>
 
-    /* Стили для заголовка страницы */
-    .page-header {
-        text-align: center;
-        margin-top: 20px;
-        font-family: 'Montserrat', sans-serif;
-        color: #333;
-    }
-</style>
+    <div class="products-content">
 
-<div class="container">
-    <h2 class="page-header">Наше Меню</h2>
+        <div class="sort-bar mb-3">
+            <label for="sortOrder" class="me-2">Сортировка:</label>
+            <select id="sortOrder" class="form-select d-inline-block w-auto">
+                <option value="default">По умолчанию</option>
+                <option value="price_asc">Сначала дешевые</option>
+                <option value="price_desc">Сначала дорогие</option>
+                <option value="name_asc">По названию (А-Я)</option>
+            </select>
+        </div>
 
-    <div class="card-container">
-        @if (Model != null && Model.Count > 0)
-        {
-            foreach (var item in Model)
+        <div class="catalog-container" id="productsList">
+            @if (Model == null || !Model.Any())
             {
-                <div class="card">
-                    <img src="@(string.IsNullOrEmpty(item.PathImg) ? "/images/default-food.jpg" : item.PathImg)"
-                         alt="@item.Name" class="card-img" />
-
-                    <div class="card-body">
-                        <h3 class="card-title">@item.Name</h3>
-                    </div>
-                </div>
+                <p class="text-center">Товары не найдены.</p>
             }
-        }
-        else
-        {
-            <p style="text-align:center; width:100%;">Товары пока не добавлены.</p>
-        }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="product-card">
+                        <div class="card-img-container">
+                            <img src="@item.PathImg" alt="@item.Name" class="product-img" />
+                        </div>
+
+                        <div class="card-body">
+                            <h3 class="card-title">@item.Name</h3>
+                            <span class="badge bg-secondary mb-2">Категория: @item.Category</span>
+                            <p class="card-text">@item.Description</p>
+
+                            <div class="card-footer-custom">
+                                <span class="price-tag">@item.Price ₽</span>
+                                <a asp-controller="Catalog" asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
+                                    Купить
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
     </div>
 </div>
+
+<script>
+    const priceRange = document.getElementById('priceRange');
+    const priceValue = document.getElementById('priceValue');
+
+    if(priceRange) {
+        priceRange.addEventListener('input', function() {
+            priceValue.textContent = this.value;
+        });
+    }
+</script>

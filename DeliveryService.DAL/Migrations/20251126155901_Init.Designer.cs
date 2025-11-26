@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251121122939_Init")]
+    [Migration("20251126155901_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -31,17 +31,29 @@ namespace DeliveryService.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("IdOrder")
-                        .HasColumnType("uuid");
+                    b.Property<int>("Category")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("OrderId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("PathImg")
+                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -123,10 +135,6 @@ namespace DeliveryService.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("CreatedAt");
-
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
@@ -142,6 +150,10 @@ namespace DeliveryService.DAL.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("СreatedAt")
+                        .HasColumnType("timestamp")
+                        .HasColumnName("СreatedAt");
+
                     b.HasKey("Id");
 
                     b.ToTable("userDb");
@@ -149,13 +161,9 @@ namespace DeliveryService.DAL.Migrations
 
             modelBuilder.Entity("DeliveryService.Domain.Models.Item", b =>
                 {
-                    b.HasOne("DeliveryService.Domain.Models.Order", "Order")
+                    b.HasOne("DeliveryService.Domain.Models.Order", null)
                         .WithMany("Items")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
+                        .HasForeignKey("OrderId");
                 });
 
             modelBuilder.Entity("DeliveryService.Domain.Models.Order", b =>

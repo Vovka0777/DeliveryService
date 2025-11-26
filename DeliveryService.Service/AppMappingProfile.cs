@@ -1,17 +1,33 @@
 ﻿using AutoMapper;
 using DeliveryService.Domain.Models;
+using DeliveryService.Domain.ModelsDb;
 using DeliveryService.Domain.ViewModels.Item;
-using DeliveryService.Domain.ViewModels.LoginAndRegistration;
+
 namespace DeliveryService.Service
 {
     public class AppMappingProfile : Profile
     {
         public AppMappingProfile()
         {
-            CreateMap<User, UserDb>().ReverseMap();
-            CreateMap<User, LoginViewModel>().ReverseMap();
-            CreateMap<User, RegisterViewModel>().ReverseMap();
-            CreateMap<Item, ItemViewModel>().ReverseMap();
+            // Маппинг из БД в Доменную модель и обратно
+            CreateMap<ItemDb, Item>().ReverseMap();
+
+            // Маппинг из Доменной модели во View (для сайта)
+            CreateMap<Item, ItemViewModel>()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => GetCategoryName(src.Category))); // Превращаем число в текст
+        }
+
+        // Вспомогательный метод для получения названия категории
+        private string GetCategoryName(int categoryId)
+        {
+            return categoryId switch
+            {
+                0 => "Еда",
+                1 => "Канцелярия",
+                2 => "Стройматериалы",
+                3 => "Одежда",
+                _ => "Разное"
+            };
         }
     }
 }
