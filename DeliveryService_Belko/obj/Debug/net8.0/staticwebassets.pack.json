@@ -33,6 +33,22 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\brushes.png",
+      "PackagePath": "staticwebassets\\images\\brushes.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\cap.png",
+      "PackagePath": "staticwebassets\\images\\cap.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\glue.png",
+      "PackagePath": "staticwebassets\\images\\glue.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\hudi.png",
+      "PackagePath": "staticwebassets\\images\\hudi.png"
+    },
+    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\icon-address.png",
       "PackagePath": "staticwebassets\\images\\icon-address.png"
     },
@@ -45,12 +61,40 @@
       "PackagePath": "staticwebassets\\images\\icon-phone.png"
     },
     {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\jince.png",
+      "PackagePath": "staticwebassets\\images\\jince.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\kraska.png",
+      "PackagePath": "staticwebassets\\images\\kraska.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\limonade.png",
+      "PackagePath": "staticwebassets\\images\\limonade.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\markers.png",
+      "PackagePath": "staticwebassets\\images\\markers.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\paper.png",
+      "PackagePath": "staticwebassets\\images\\paper.png"
+    },
+    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\photo_google.png",
       "PackagePath": "staticwebassets\\images\\photo_google.png"
     },
     {
-      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\service1.png",
-      "PackagePath": "staticwebassets\\images\\service1.png"
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\salat.png",
+      "PackagePath": "staticwebassets\\images\\salat.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\stepler.png",
+      "PackagePath": "staticwebassets\\images\\stepler.png"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\sushi.png",
+      "PackagePath": "staticwebassets\\images\\sushi.png"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",

@@ -46,7 +46,7 @@ builder.Services.AddControllersWithViews()
 
 builder.Services.AddScoped<UserValidator>();
 
-builder.Services.InitializeRepositories();
+builder.Services.InitializeRepositories();  
 builder.Services.InitializeServices();
 
 var app = builder.Build();
