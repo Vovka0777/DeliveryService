@@ -1,5 +1,5 @@
 ﻿using DeliveryService.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+using DeliveryService.Domain.ModelsDb;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,7 +35,16 @@ namespace DeliveryService.DAL.Storage
 
         public IQueryable<Item> GetAll()
         {
-            return _context.Items.AsQueryable();
+            return _context.Items.Select(x => new Item
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                Price = x.Price,
+                Category = x.Category,
+                PathImg = x.PathImg,
+                CreatedAt = x.CreatedAt
+            });
         }
 
         public async Task<Item> Update(Item item)

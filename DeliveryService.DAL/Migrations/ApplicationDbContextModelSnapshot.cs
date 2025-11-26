@@ -147,9 +147,9 @@ namespace DeliveryService.DAL.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("СreatedAt")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp")
-                        .HasColumnName("СreatedAt");
+                        .HasColumnName("CreatedAt");
 
                     b.HasKey("Id");
 

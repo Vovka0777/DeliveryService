@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251126155901_Init")]
+    [Migration("20251126163549_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -150,9 +150,9 @@ namespace DeliveryService.DAL.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("СreatedAt")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp")
-                        .HasColumnName("СreatedAt");
+                        .HasColumnName("CreatedAt");
 
                     b.HasKey("Id");
 

@@ -15,16 +15,15 @@ namespace DeliveryService_Belko.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            // Получаем список товаров из сервиса
             var response = await _itemService.GetItems();
 
             if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
             {
-                // Передаем список (Data) в представление
                 return View(response.Data);
             }
 
-            return RedirectToAction("Error");
+            // ИСПРАВЛЕНИЕ: Перенаправляем на Error в HomeController
+            return RedirectToAction("Error", "Home");
         }
     }
 }
