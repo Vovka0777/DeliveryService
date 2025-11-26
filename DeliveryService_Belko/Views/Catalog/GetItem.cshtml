@@ -1,0 +1,49 @@
+﻿@model DeliveryService.Domain.ViewModels.Item.ItemViewModel
+
+@{
+    // Устанавливаем заголовок страницы как название товара
+    ViewData["Title"] = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <div class="row">
+
+        <div class="col-lg-6 mb-4">
+            <div class="product-detail-img-container shadow-sm">
+                <img src="@Model.PathImg" alt="@Model.Name" class="product-detail-img" />
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <h1 class="display-4 mb-3">@Model.Name</h1>
+
+            <p class="h3 price-tag text-success mb-4">
+                @Model.Price.ToString("N2") ₽
+            </p>
+
+            <div class="mb-3">
+                <span class="badge bg-primary fs-6">Категория: @Model.Category</span>
+            </div>
+
+            <h4 class="mt-4 mb-2">Описание товара</h4>
+            <p class="lead leading-relaxed text-secondary">
+                @Model.Description
+            </p>
+
+            <div class="mt-5 d-grid gap-2">
+
+                <button type="button" class="btn btn-warning btn-lg transition-hover">
+                    <i class="bi bi-cart-plus-fill me-2"></i>
+                    Добавить в корзину
+                </button>
+
+                <a asp-controller="Catalog" asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                    <i class="bi bi-arrow-left me-2"></i>
+                    Назад к каталогу
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
