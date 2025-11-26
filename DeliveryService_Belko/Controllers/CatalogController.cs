@@ -1,5 +1,8 @@
-﻿using DeliveryService.Service.Interfaces;
+﻿using DeliveryService.Domain.Filters; // Подключаем фильтры
+using DeliveryService.Domain.ViewModels.Catalog;
+using DeliveryService.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace DeliveryService_Belko.Controllers
 {
@@ -16,14 +19,28 @@ namespace DeliveryService_Belko.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _itemService.GetItems();
-
             if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
             {
-                return View(response.Data);
+                var model = new CatalogViewModel() { Items = response.Data };
+                return View(model);
             }
+            return View("Error", $"{response.Description}");
+        }
 
-            // ВРЕМЕННО: Выводим текст ошибки на экран, чтобы прочитать его
-            return Content($"Ошибка: {response.Description} (Статус: {response.StatusCode})");
+        // === НОВЫЙ МЕТОД (для AJAX запроса) ===
+        [HttpPost]
+        public async Task<IActionResult> GetItemsByFilter([FromBody] ItemFilter filter)
+        {
+            var response = await _itemService.GetItemsByFilter(filter);
+
+            // Возвращаем результат в формате JSON, чтобы JS мог его прочитать
+            return Json(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetItem(Guid id)
+        {
+            return View();
         }
     }
 }

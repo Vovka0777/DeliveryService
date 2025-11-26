@@ -2,7 +2,6 @@ wwwroot\css\catalog.css
 wwwroot\css\login_and_registration.css
 wwwroot\css\media_style.css
 wwwroot\css\shared.css
-wwwroot\favicon.ico
 wwwroot\images\brushes.png
 wwwroot\images\cap.png
 wwwroot\images\glue.png
@@ -21,6 +20,7 @@ wwwroot\images\stepler.png
 wwwroot\images\sushi.png
 wwwroot\images\zxgwre.jpg
 wwwroot\ImageUser\vovabelko07@gmail.com-avatar.jpg
+wwwroot\js\catalog.js
 wwwroot\js\login_and_registration_script.js
 wwwroot\js\shared_script.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

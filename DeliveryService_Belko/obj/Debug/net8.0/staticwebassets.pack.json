@@ -29,10 +29,6 @@
       "PackagePath": "staticwebassets\\css\\shared.css"
     },
     {
-      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\brushes.png",
       "PackagePath": "staticwebassets\\images\\brushes.png"
     },
@@ -99,6 +95,10 @@
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
       "PackagePath": "staticwebassets\\images\\zxgwre.jpg"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\catalog.js",
+      "PackagePath": "staticwebassets\\js\\catalog.js"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",

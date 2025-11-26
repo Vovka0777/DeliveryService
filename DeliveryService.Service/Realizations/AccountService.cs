@@ -35,8 +35,6 @@ namespace DeliveryService.Service.Realizations
             _appEnvironment = appEnvironment; // Инициализация
         }
 
-        // ... (Login, Register, SendEmail, ConfirmEmail, IsCreatedAccount - методы без изменений)
-
         public async Task<BaseResponse<ClaimsIdentity>> Login(User model)
         {
             try

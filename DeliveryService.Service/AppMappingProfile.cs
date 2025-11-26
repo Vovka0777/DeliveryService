@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using DeliveryService.Domain.Models;
 using DeliveryService.Domain.ModelsDb;
-using DeliveryService.Domain.ViewModels.Item;
+using DeliveryService.Domain.ViewModels.Catalog; // Если нужно
+using DeliveryService.Domain.ViewModels.Item;    // Важно!
 using DeliveryService.Domain.ViewModels.LoginAndRegistration;
 
 namespace DeliveryService.Service
@@ -10,20 +11,17 @@ namespace DeliveryService.Service
     {
         public AppMappingProfile()
         {
-            // === 1. Маппинг БД <-> Доменная модель ===
+            // 1. Маппинг БД <-> Доменная модель
             CreateMap<ItemDb, Item>().ReverseMap();
-
-            // ДОБАВИТЬ ЭТУ СТРОКУ (для UserDb <-> User):
             CreateMap<UserDb, User>().ReverseMap();
 
-            // === 2. Маппинг Доменная модель -> View (сайт) ===
+            // 2. ИСПРАВЛЕНО: Маппинг Item -> ItemViewModel (а не CatalogViewModel)
             CreateMap<Item, ItemViewModel>()
                 .ForMember(dest => dest.Category, opt => opt.MapFrom(src => GetCategoryName(src.Category)));
 
-            // === 3. Маппинг ViewModels -> Доменная модель ===
+            // 3. Остальные маппинги
             CreateMap<LoginViewModel, User>();
             CreateMap<RegisterViewModel, User>();
-            CreateMap<Item, ItemViewModel>().ReverseMap();
         }
 
         private string GetCategoryName(int categoryId)
