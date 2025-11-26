@@ -55,7 +55,7 @@ namespace DeliveryService.Service.Realizations
                     };
                 }
 
-                if (userDb.Password != model.Password)
+                if (userDb.Password != HashPasswordHelper.HashPassword(model.Password))
                 {
                     return new BaseResponse<ClaimsIdentity>()
                     {
