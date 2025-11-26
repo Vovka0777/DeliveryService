@@ -23,6 +23,7 @@ namespace DeliveryService.Service
             // === 3. Маппинг ViewModels -> Доменная модель ===
             CreateMap<LoginViewModel, User>();
             CreateMap<RegisterViewModel, User>();
+            CreateMap<Item, ItemViewModel>().ReverseMap();
         }
 
         private string GetCategoryName(int categoryId)

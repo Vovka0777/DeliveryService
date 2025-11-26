@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\TXT\\password.txt"
     },
     {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
+      "PackagePath": "staticwebassets\\css\\catalog.css"
+    },
+    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
       "PackagePath": "staticwebassets\\css\\login_and_registration.css"
     },

@@ -1,3 +1,4 @@
+wwwroot\css\catalog.css
 wwwroot\css\login_and_registration.css
 wwwroot\css\media_style.css
 wwwroot\css\shared.css

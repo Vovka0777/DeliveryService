@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TuyYNPGllhia4EG6bPBQnXFxRZwo2akrx0GTN8v2glw=",
+  "Hash": "CqBlSb9ncxKaVxTzxgTwMyryLHUUGSr9Q5w2HNR4KF8=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DeliveryService_Belko.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
+      "SourceId": "DeliveryService_Belko",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\",
+      "BasePath": "_content/DeliveryService_Belko",
+      "RelativePath": "css/catalog#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "71q8u3tf6m",
+      "Integrity": "y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\catalog.css"
     },
     {
       "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",
@@ -1551,6 +1572,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/catalog.71q8u3tf6m.css",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 17:31:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "71q8u3tf6m"
+        },
+        {
+          "Name": "label",
+          "Value": "css/catalog.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg="
+        }
+      ]
+    },
+    {
+      "Route": "css/catalog.css",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\catalog.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 17:31:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg="
+        }
+      ]
+    },
     {
       "Route": "css/login_and_registration.4wp52mkr9z.css",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\login_and_registration.css",

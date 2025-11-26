@@ -249,6 +249,88 @@
       ]
     },
     {
+      "Route": "css/catalog.71q8u3tf6m.css",
+      "AssetFile": "css/catalog.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 17:31:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "71q8u3tf6m"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg="
+        },
+        {
+          "Name": "label",
+          "Value": "css/catalog.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/catalog.css",
+      "AssetFile": "css/catalog.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Nov 2025 17:31:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y48/FHkyPJkW43dwyHNoTAL+yCAVVUu9wsS5P1uzABg="
+        }
+      ]
+    },
+    {
       "Route": "css/login_and_registration.4wp52mkr9z.css",
       "AssetFile": "css/login_and_registration.css",
       "Selectors": [],

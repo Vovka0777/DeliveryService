@@ -1,5 +1,17 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/catalog.71q8u3tf6m.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\catalog.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"71q8u3tf6m"},{"Name":"integrity","Value":"sha256-y48/FHkyPJkW43dwyHNoTAL\u002ByCAVVUu9wsS5P1uzABg="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/catalog.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3247"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022y48/FHkyPJkW43dwyHNoTAL\u002ByCAVVUu9wsS5P1uzABg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Nov 2025 17:31:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/catalog.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\catalog.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-y48/FHkyPJkW43dwyHNoTAL\u002ByCAVVUu9wsS5P1uzABg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3247"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022y48/FHkyPJkW43dwyHNoTAL\u002ByCAVVUu9wsS5P1uzABg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Nov 2025 17:31:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.4wp52mkr9z.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
