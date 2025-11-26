@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DeliveryService.Domain.Models;
+using DeliveryService.Domain.ViewModels.Item;
 using DeliveryService.Domain.ViewModels.LoginAndRegistration;
 namespace DeliveryService.Service
 {
@@ -10,6 +11,7 @@ namespace DeliveryService.Service
             CreateMap<User, UserDb>().ReverseMap();
             CreateMap<User, LoginViewModel>().ReverseMap();
             CreateMap<User, RegisterViewModel>().ReverseMap();
+            CreateMap<Item, ItemViewModel>().ReverseMap();
         }
     }
 }
