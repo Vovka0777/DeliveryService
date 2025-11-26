@@ -40,9 +40,9 @@ builder.Services.AddAutoMapper(config =>
 });
 
 
-//builder.Services.AddControllersWithViews()
-//.AddDataAnnotationsLocalization()
-//.AddViewLocalization();
+builder.Services.AddControllersWithViews()
+.AddDataAnnotationsLocalization()
+.AddViewLocalization();
 
 builder.Services.AddScoped<UserValidator>();
 

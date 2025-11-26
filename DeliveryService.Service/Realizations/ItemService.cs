@@ -30,7 +30,7 @@ namespace DeliveryService.Service.Realizations
                 // Преобразуем (маппим) модели БД в модели представления
                 var result = _mapper.Map<List<ItemViewModel>>(items);
 
-                return new BaseResponse<List<ItemViewModel>>()
+                return new BaseResponse<List<ItemViewModel>>()  
                 {
                     Data = result,
                     StatusCode = StatusCode.OK

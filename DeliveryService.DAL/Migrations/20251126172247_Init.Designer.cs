@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeliveryService.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251126163549_Init")]
+    [Migration("20251126172247_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -135,6 +135,10 @@ namespace DeliveryService.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp")
+                        .HasColumnName("CreatedAt");
+
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
@@ -149,10 +153,6 @@ namespace DeliveryService.DAL.Migrations
 
                     b.Property<int>("Role")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp")
-                        .HasColumnName("CreatedAt");
 
                     b.HasKey("Id");
 

@@ -22,8 +22,8 @@ namespace DeliveryService_Belko.Controllers
                 return View(response.Data);
             }
 
-            // ИСПРАВЛЕНИЕ: Перенаправляем на Error в HomeController
-            return RedirectToAction("Error", "Home");
+            // ВРЕМЕННО: Выводим текст ошибки на экран, чтобы прочитать его
+            return Content($"Ошибка: {response.Description} (Статус: {response.StatusCode})");
         }
     }
 }
