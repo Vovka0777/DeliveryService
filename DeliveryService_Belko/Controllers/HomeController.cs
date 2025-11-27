@@ -63,15 +63,13 @@ namespace DeliveryService_Belko.Controllers
         {
             if (ModelState.IsValid)
             {
-                // 1. Преобразуем RegisterViewModel в User с помощью AutoMapper
                 var user = _mapper.Map<User>(model);
-
-                // 2. Передаем уже преобразованный объект user в сервис
                 var response = await _accountService.Register(user);
 
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    return Json(new { description = response.Description });
+                    // FIX: Add 'data = response.Data' so the JavaScript can read it
+                    return Json(new { description = response.Description, data = response.Data });
                 }
             }
             return BadRequest(ModelState);

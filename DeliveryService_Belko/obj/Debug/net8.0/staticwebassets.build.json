@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NT0A451oygxCZoDnF9dQI3V8GE88NBE0i2Bzw2RruWk=",
+  "Hash": "xZchAg/HFcD46lZKh1Hy78FQAYGz2F915JwbOSTckNY=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -577,8 +577,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "004untur7l",
-      "Integrity": "wBonE7LdIXNE2o/q+wH8KTwVWNArbmjFFyJ2w7kfgJA=",
+      "Fingerprint": "b145xyv2dx",
+      "Integrity": "UWM0Q0MIVS2btFFfqscxumiyoZIr8d13/+mWClYHwy4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login_and_registration_script.js"
@@ -3957,7 +3957,7 @@
       ]
     },
     {
-      "Route": "js/login_and_registration_script.004untur7l.js",
+      "Route": "js/login_and_registration_script.b145xyv2dx.js",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3967,7 +3967,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9774"
+          "Value": "9749"
         },
         {
           "Name": "Content-Type",
@@ -3975,11 +3975,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wBonE7LdIXNE2o/q+wH8KTwVWNArbmjFFyJ2w7kfgJA=\""
+          "Value": "\"UWM0Q0MIVS2btFFfqscxumiyoZIr8d13/+mWClYHwy4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Nov 2025 11:31:27 GMT"
+          "Value": "Thu, 27 Nov 2025 12:25:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3989,7 +3989,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "004untur7l"
+          "Value": "b145xyv2dx"
         },
         {
           "Name": "label",
@@ -3997,7 +3997,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wBonE7LdIXNE2o/q+wH8KTwVWNArbmjFFyJ2w7kfgJA="
+          "Value": "sha256-UWM0Q0MIVS2btFFfqscxumiyoZIr8d13/+mWClYHwy4="
         }
       ]
     },
@@ -4012,7 +4012,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9774"
+          "Value": "9749"
         },
         {
           "Name": "Content-Type",
@@ -4020,11 +4020,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wBonE7LdIXNE2o/q+wH8KTwVWNArbmjFFyJ2w7kfgJA=\""
+          "Value": "\"UWM0Q0MIVS2btFFfqscxumiyoZIr8d13/+mWClYHwy4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Nov 2025 11:31:27 GMT"
+          "Value": "Thu, 27 Nov 2025 12:25:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4034,7 +4034,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wBonE7LdIXNE2o/q+wH8KTwVWNArbmjFFyJ2w7kfgJA="
+          "Value": "sha256-UWM0Q0MIVS2btFFfqscxumiyoZIr8d13/+mWClYHwy4="
         }
       ]
     },

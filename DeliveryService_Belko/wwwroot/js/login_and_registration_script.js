@@ -112,7 +112,7 @@
         form_btn_signup.addEventListener('click', function (e) {
             e.preventDefault();
 
-            const loginInput = document.querySelector('.form_signup input[placeholder="Name"]'); // Или по ID
+            const loginInput = document.querySelector('.form_signup input[type="text"]');
             const emailInput = document.querySelector('.form_signup input[type="email"]');
             const passInput = document.querySelector('.form_signup input[type="password"]');
             const passConfInput = document.querySelectorAll('.form_signup input[type="password"]')[1];
