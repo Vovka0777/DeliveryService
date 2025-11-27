@@ -7,8 +7,9 @@
         var scrollY = window.scrollY;
         var maxScroll = 250;
         var opacity = Math.min(scrollY / maxScroll, 1);
-        // Используем оригинальный оранжевый цвет #ff7a00 (255, 122, 0)
-        header.style.backgroundColor = `rgba(255, 122, 0, ${opacity * 0.6})`;
+        
+        // 🌟 ИЗМЕНЕНИЕ: Используем наш новый синий цвет (RGB: 37, 99, 235)
+        header.style.backgroundColor = `rgba(37, 99, 235, ${opacity * 0.85})`; // Чуть повысил непрозрачность для читаемости
     });
 
     // -------------------------------------------------------------------
@@ -79,27 +80,19 @@
     }
 
     // -------------------------------------------------------------------
-    // 4. ЛОГИКА ГАМБУРГЕРА (КЛЮЧЕВОЙ БЛОК)
+    // 4. ЛОГИКА ГАМБУРГЕРА
     // -------------------------------------------------------------------
 
     function toggleMenu() {
         const sideMenu = document.getElementById('side-menu');
         if (sideMenu) {
             sideMenu.classList.toggle('active');
-            console.log('Меню переключено!'); // Проверка, что функция вызвана
         }
     }
 
-    // Инициализация кнопки гамбургера
     const hamburgerButton = document.getElementById('hamburger');
 
     if (hamburgerButton) {
-        // Проверка: Кнопка найдена!
-        console.log('Кнопка гамбургера найдена.');
         hamburgerButton.addEventListener('click', toggleMenu);
-    } else {
-        // Проверка: Кнопка НЕ найдена!
-        console.error('Ошибка: Элемент с ID "hamburger" не найден.');
     }
-    // -------------------------------------------------------------------
 });

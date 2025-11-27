@@ -1,35 +1,29 @@
-﻿
-
-/* ---------------- АДАПТИВНОЕ МЕНЮ (<= 992px) ---------------- */
+﻿/* ---------------- АДАПТИВНОЕ МЕНЮ (<= 992px) ---------------- */
 @media (max-width: 992px) {
     .form {
-        transition: 0.835s ease-in-out; /* <-- Текущая скорость */
+        transition: 0.835s ease-in-out;
     }
 
     .form_signin {
-        /* left: 0; */ /* Убираем или комментируем */
-        top: 0; /* НАЧАЛЬНАЯ ПОЗИЦИЯ: Верх */
-        left: 0; /* Фиксируем по горизонтали */
+        top: 0;
+        left: 0;
         text-align: center;
     }
 
     .form_signup {
-        /* left: 100%; */ /* Убираем или комментируем */
-        top: 100%; /* НАЧАЛЬНАЯ ПОЗИЦИЯ: Снизу */
-        left: 0; /* Фиксируем по горизонтали */
+        top: 100%;
+        left: 0;
         text-align: center;
     }
 
     .form-box.active .form_signin {
-        /* left: -100%; */ /* Убираем или комментируем */
-        top: -100%; /* АКТИВНОЕ СОСТОЯНИЕ: Сдвигаем вверх */
-        left: 0; /* Фиксируем по горизонтали */
+        top: -100%;
+        left: 0;
     }
 
     .form-box.active .form_signup {
-        /* left: 0; */ /* Убираем или комментируем */
-        top: 0; /* АКТИВНОЕ СОСТОЯНИЕ: Поднимаем наверх */
-        left: 0; /* Фиксируем по горизонтали */
+        top: 0;
+        left: 0;
     }
 
     /* Скрываем обычные элементы в шапке */
@@ -41,61 +35,57 @@
         display: flex !important;
     }
 
-    /* Иконка-бургер (Теперь в стиле вашего оранжевого акцента) */
+    /* Иконка-бургер (Синяя) */
     .icon {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #ff6600;
-        border: 1px solid #ff6600;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
         border-radius: 8px;
         padding: 6px 15px;
         font-size: 22px;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
         .icon:hover {
-            background-color: #ff6600;
+            background-color: var(--primary-color);
             color: #fff;
             transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 102, 0, 0.35);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
         }
 
-    /* Боковое меню (выдвигающееся) */
+    /* Боковое меню */
     .side-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 90%; 
+        width: 90%;
         max-width: 360px;
         height: 100vh;
-        /* Легкий, почти белый фон, чтобы соответствовать современному стилю */
-        background-color: rgba(255, 255, 255, 0.98); 
-        backdrop-filter: blur(8px); 
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         box-shadow: -6px 0 24px rgba(0, 0, 0, 0.12);
-        padding: 80px 24px 32px; 
+        padding: 80px 24px 32px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow-y: auto; 
-        overscroll-behavior: contain; 
-        /* Используем вашу новую, более плавную анимацию */
-        transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); 
-        z-index: 999; 
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        z-index: 999;
         box-sizing: border-box;
     }
 
-        /* Активация бокового меню */
         .side-menu.active {
             right: 0;
             transform: translateX(0);
-            z-index:999;
+            z-index: 999;
         }
 
-        /* Ссылки внутри бокового меню */
         .side-menu ul {
             list-style-type: none;
             padding: 0;
@@ -107,16 +97,15 @@
         }
 
             .side-menu ul li a {
-                /* Стиль для активных ссылок меню */
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 10px;
                 background-color: transparent;
-                padding: 12px 24px; 
-                min-width: 200px; 
+                padding: 12px 24px;
+                min-width: 200px;
                 border-radius: 16px;
-                color: #370b0b; /* Темный цвет для текста */
+                color: #370b0b;
                 font-size: 17px;
                 font-weight: 600;
                 text-decoration: none;
@@ -126,55 +115,49 @@
 
                 .side-menu ul li a:hover {
                     color: #fff;
-                    background-color: #ff6600; /* Оранжевый при наведении */
+                    background-color: var(--primary-color);
                     transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+                    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
                 }
 
-    /* Стили для кнопки "Войти" / "Регистрация" (если она находится в меню) */
-    #open-login-side, .side-menu .button {
-        /* Применяем стили как для ссылок меню, но с акцентом */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        border: 2px solid #ff6600;
-        background-color: transparent;
-        padding: 12px 24px;
-        margin-bottom: 25px;
-        margin-top: 15px; /* Отступ от ссылок меню */
-        min-width: 200px;
-        border-radius: 16px;
-        color: #ff6600;
-        font-size: 17px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(255, 102, 0, 0.15), 0 1px 3px rgba(255, 102, 0, 0.08);
-        transition: all 0.3s ease;
-    }
-
-        #open-login-side:hover, .side-menu .button:hover {
-            color: #fff;
-            background-color: #ff6600;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+        /* Стили для кнопки "Войти" / "Регистрация" в меню */
+        #open-login-side, .side-menu .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 2px solid var(--primary-color);
+            background-color: transparent;
+            padding: 12px 24px;
+            margin-bottom: 25px;
+            margin-top: 15px;
+            min-width: 200px;
+            border-radius: 16px;
+            color: var(--primary-color);
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15), 0 1px 3px rgba(37, 99, 235, 0.08);
+            transition: all 0.3s ease;
         }
 
-    /* Удаляем специфический ID, который выглядит как кнопка закрытия */
+            #open-login-side:hover, .side-menu .button:hover {
+                color: #fff;
+                background-color: var(--primary-color);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            }
+
     #side-menu-button-click-to-hide {
-        /* Это правило не нужно, лучше использовать иконку "X" в шапке меню, 
-           или просто оставить кнопку "Войти" внизу, как логический призыв */
-        display: none; 
+        display: none;
     }
 
-    /* Картинка в шапке — уменьшаем при маленьком экране */
     .img-header {
         width: 90%;
         height: auto;
         margin-top: 40px;
     }
 
-    /* --- КОНТЕЙНЕРЫ (Оставляем как было, но убираем лишнее) --- */
     .container-section {
         margin: 27px 10px;
     }
@@ -185,21 +168,17 @@
         box-shadow: none;
     }
 
-    /* Заголовки секций */
     .info-sections {
         font-size: 34px;
     }
 
-    /* Текст "О нас" */
     .text {
         margin: 0;
         font-size: 18px;
     }
 
-    /* Услуги */
     .card p {
-        /* Показываем текст, который был скрыт */
-        display: block; 
+        display: block;
         font-size: 15px;
         line-height: 1.6;
         color: #555;
@@ -211,7 +190,6 @@
         height: 186px;
     }
 
-    /* Контакты */
     .item-img {
         width: 53px;
         margin: 0;
@@ -225,12 +203,10 @@
         font-size: 13px;
     }
 
-    /* Сообщение (форма обратной связи) */
     .block-message {
         width: 100%;
     }
 
-    /* Подвал */
     footer {
         padding: 60px 10px;
         margin-top: 80px;
@@ -242,7 +218,6 @@
             gap: 20px;
         }
 
-    /* --- Вход / регистрация (ваши последние корректировки) --- */
     .block-container {
         width: 450px;
         height: 750px;
@@ -251,7 +226,7 @@
     }
 
         .block-container.signin-active {
-            height: 550px; /* <-- Установите здесь меньшее значение, например, 550px */
+            height: 550px;
         }
 
     .block {
@@ -263,11 +238,10 @@
     .block-item {
         width: 45%;
         padding: 20px;
-        /* Добавляем Flexbox для идеального центрирования содержимого */
         display: flex;
-        flex-direction: column; /* Размещаем элементы вертикально: заголовок, затем кнопка */
-        align-items: center; /* Центрирует элементы по горизонтали */
-        justify-content: center; /* Центрирует элементы по вертикали (если нужно) */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .form-box {
@@ -281,12 +255,11 @@
     }
 
     .block-container.signin-active .form-box {
-        height: 400px; /* <-- Установите здесь меньшее значение, например, 400px */
+        height: 400px;
     }
 
     .form-box.active {
         top: 150px;
-
         left: 0;
     }
 
@@ -304,9 +277,7 @@
         display: flex !important;
     }
 
-        .button-header .icon {
-            display: flex; /* а бургер показываем */
-        }
-
-
+    .button-header .icon {
+        display: flex;
+    }
 }

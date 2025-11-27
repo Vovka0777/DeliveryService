@@ -13,10 +13,11 @@
 .filters-sidebar {
     flex: 0 0 250px; /* Фиксированная ширина */
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #fff; /* Сделали белым для чистоты */
     border-radius: 8px;
     border: 1px solid #e9ecef;
     height: fit-content; /* Высота по содержимому */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 /* Основная область с товарами */
@@ -45,7 +46,7 @@
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -54,7 +55,7 @@
     .product-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        border-color: #ffa500; /* Оранжевая рамка при наведении */
+        border-color: var(--primary-color); /* Синяя рамка при наведении */
     }
 
 /* Контейнер изображения */
@@ -123,7 +124,7 @@
     color: #2c3e50;
 }
 
-/* Адаптивность для мобильных (убираем сайдбар наверх или вниз) */
+/* Адаптивность для мобильных */
 @media (max-width: 768px) {
     .catalog-wrapper {
         flex-direction: column;
@@ -136,12 +137,13 @@
 
 .product-detail-img-container {
     width: 100%;
-    height: 500px; /* Фиксированная высота для картинки */
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #fff;
     border-radius: 15px;
+    border: 1px solid #eee; /* Легкая рамка */
 }
 
 .product-detail-img {
@@ -166,31 +168,30 @@
 
     .transition-hover:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3) !important;
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3) !important; /* Синяя тень */
     }
+
 .search-box {
     position: relative;
-    /* Убираем max-width, чтобы search-box занимал всю ширину контейнера */
     margin: 0;
-    padding: 0 10px; /* Небольшие отступы, если нужно */
+    padding: 0 10px;
 }
 
 .search-input {
     width: 100%;
-    padding: 15px 50px 15px 15px; /* Увеличили отступы для более крупного вида */
+    padding: 15px 50px 15px 15px;
     font-size: 1.2rem;
-    /* Новые стили: убираем радиус, делаем акцент на нижней границе */
     border: none;
-    border-bottom: 3px solid #ccc; /* Светлая нижняя граница */
+    border-bottom: 3px solid #ccc;
     border-radius: 0;
-    background-color: #f8f9fa; /* Светлый фон */
+    background-color: #f8f9fa;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
     /* Эффект при фокусе */
     .search-input:focus {
-        border-color: #ffa500; /* Используем акцентный оранжевый цвет */
-        box-shadow: 0 5px 0px -3px #ffa50030; /* Мягкая тень для выделения */
+        border-color: var(--primary-color); /* Синий акцент */
+        box-shadow: 0 5px 0px -3px rgba(37, 99, 235, 0.2); /* Синяя тень */
         outline: none;
     }
 
@@ -202,14 +203,13 @@
     transform: translateY(-50%);
     color: #6c757d;
     font-size: 1.2rem;
-    pointer-events: none; /* Чтобы можно было кликнуть через иконку */
+    pointer-events: none;
 }
 
 /* Корректируем расположение иконки после изменения padding input */
 .search-input {
-    padding-left: 50px; /* Дополнительный отступ для иконки */
+    padding-left: 50px;
 }
-
 
 /* Кнопка "Очистить" */
 .clear-search {
