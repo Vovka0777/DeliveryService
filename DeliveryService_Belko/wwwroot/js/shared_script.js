@@ -1,5 +1,47 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     // -------------------------------------------------------------------
+    // 0. Dark Mode Logic
+    // -------------------------------------------------------------------
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+    const htmlElement = document.documentElement;
+
+    // Функция обновления иконки
+    function updateThemeIcon(isDark) {
+        [themeToggleBtn, themeToggleMobileBtn].forEach(btn => {
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+            if (isDark) {
+                icon.classList.remove('bi-moon');
+                icon.classList.add('bi-sun');
+            } else {
+                icon.classList.remove('bi-sun');
+                icon.classList.add('bi-moon');
+            }
+        });
+    }
+
+    // Инициализация темы при загрузке
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        htmlElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon(true);
+    }
+
+    // Обработчик клика
+    function toggleTheme() {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme === 'dark');
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+    // -------------------------------------------------------------------
     // 1. Плавное изменение фона шапки при скролле
     // -------------------------------------------------------------------
     const header = document.getElementById('header-top');
@@ -8,29 +50,28 @@
         if (!header) return;
         const scrollY = window.scrollY;
         const maxScroll = 200;
-        const opacity = Math.min(scrollY / maxScroll, 1);
+        // const opacity = Math.min(scrollY / maxScroll, 1); 
+        // В темной теме прозрачность обрабатывается через CSS var(--bg-header) и классы
+        // Для простоты оставим логику CSS backdrop-filter, но фон пусть берется из CSS
 
-        // RGB: 255, 255, 255 (белый) с прозрачностью, либо легкий синий оттенок
-        // Для Glassmorphism лучше использовать белый полупрозрачный фон
         if (scrollY > 10) {
-            header.style.background = `rgba(255, 255, 255, ${0.8 + (opacity * 0.15)})`;
-            header.style.boxShadow = `0 4px 20px rgba(0,0,0, ${opacity * 0.05})`;
+            header.style.boxShadow = `0 4px 20px rgba(0,0,0, 0.1)`;
             header.style.backdropFilter = "blur(15px)";
+            // Фон задается в CSS через var(--bg-header) с прозрачностью
         } else {
-            header.style.background = "rgba(255, 255, 255, 0.6)";
             header.style.boxShadow = "none";
             header.style.backdropFilter = "blur(5px)";
         }
     }
 
     window.addEventListener('scroll', updateHeader);
-    updateHeader(); // Init check
+    updateHeader();
 
     // -------------------------------------------------------------------
     // 2. Анимация появления элементов при скролле (Scroll Reveal)
     // -------------------------------------------------------------------
     const observerOptions = {
-        threshold: 0.15, // Срабатывает, когда 15% элемента видно
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
 
@@ -44,11 +85,9 @@
         });
     }, observerOptions);
 
-    // Применяем к элементам, которые хотим анимировать
     const elementsToAnimate = document.querySelectorAll('.row-item, .about-item, .product-card, .info-sections, .map');
 
     elementsToAnimate.forEach(el => {
-        // Начальное состояние (скрыто)
         el.style.opacity = "0";
         el.style.transform = "translateY(30px)";
         el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
@@ -63,14 +102,12 @@
     const nextButton = document.getElementById('nextReview');
     const reviewsWrapper = document.querySelector('.reviews-wrapper');
 
-    // Если есть кнопки (ручной слайдер)
     if (reviews && prevButton && nextButton) {
         let currentIndex = 0;
         const items = document.querySelectorAll('.review-item');
         const reviewsCount = items.length;
 
         function showReview(index) {
-            // Для простого слайдера сдвигаем
             reviews.style.transform = `translateX(-${index * 100}%)`;
         }
 
@@ -85,7 +122,6 @@
         });
     }
 
-    // Пауза бесконечной анимации при наведении
     const reviewsContainer = document.querySelector('.reviews-container');
     if (reviewsContainer && reviewsWrapper) {
         reviewsContainer.addEventListener('mouseenter', function () {
@@ -116,15 +152,15 @@
             }
 
             const originalText = btn.textContent;
-            btn.style.width = btn.offsetWidth + 'px'; // Фиксируем ширину
+            btn.style.width = btn.offsetWidth + 'px';
             btn.disabled = true;
             btn.textContent = '✓';
-            btn.style.background = '#10b981'; // Зеленый
+            btn.style.background = '#10b981';
 
             setTimeout(function () {
                 btn.disabled = false;
                 btn.textContent = originalText;
-                btn.style.background = ''; // Сброс цвета
+                btn.style.background = '';
                 btn.style.width = '';
                 subForm.reset();
             }, 2000);
@@ -136,7 +172,6 @@
     // -------------------------------------------------------------------
     const hamburgerButton = document.getElementById('hamburger');
     const sideMenu = document.getElementById('side-menu');
-    const closeMenuBtn = document.getElementById('side-menu-close'); // Если добавишь крестик
     const body = document.body;
 
     function toggleMenu() {
@@ -144,7 +179,6 @@
 
         const isActive = sideMenu.classList.toggle('active');
 
-        // Блокируем скролл фона при открытом меню
         if (isActive) {
             body.style.overflow = 'hidden';
         } else {
@@ -159,12 +193,12 @@
         });
     }
 
-    // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {
         if (sideMenu && sideMenu.classList.contains('active')) {
+            // Клик не по меню, не по гамбургеру и не по кнопке смены темы внутри меню
             if (!sideMenu.contains(e.target) && !hamburgerButton.contains(e.target)) {
                 toggleMenu();
             }
         }
     });
-}); 
+});

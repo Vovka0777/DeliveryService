@@ -1,6 +1,6 @@
 ﻿/* ====== ОБЩИЕ НАСТРОЙКИ И ПЕРЕМЕННЫЕ ====== */
 :root {
-    /* Основные цвета: Deep Blue & Vibrant Blue */
+    /* --- LIGHT THEME (Default) --- */
     --primary-color: #3b82f6;
     --primary-hover: #2563eb;
     --primary-gradient: linear-gradient(135deg, #60a5fa, #3b82f6);
@@ -10,11 +10,15 @@
     /* Фоны */
     --bg-body: #f3f4f6;
     --bg-white: #ffffff;
-    --bg-glass: rgba(255, 255, 255, 0.7); /* Эффект стекла */
-    /* Акцентные фоны */
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    --bg-header: rgba(255, 255, 255, 0.8);
+    --bg-input: #ffffff;
+    /* Карточки */
+    --bg-gradient-card: radial-gradient(circle at center, #ffffff 0%, #f3f4f6 100%);
+    /* Акцентные */
     --accent-bg-light: #eff6ff;
     --accent-border: #dbeafe;
-    /* Тени и скругления */
+    /* Тени */
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -22,6 +26,27 @@
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-full: 9999px;
+}
+
+/* --- DARK THEME OVERRIDES --- */
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --primary-hover: #3b82f6;
+    --primary-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+    --text-dark: #f3f4f6;
+    --text-grey: #d1d5db;
+    --text-light: #9ca3af;
+    --bg-body: #111827;
+    --bg-white: #1f2937;
+    --bg-glass: rgba(31, 41, 55, 0.8);
+    --bg-header: rgba(31, 41, 55, 0.85);
+    --bg-input: #374151;
+    --bg-gradient-card: radial-gradient(circle at center, #374151 0%, #1f2937 100%);
+    --accent-bg-light: #374151;
+    --accent-border: #4b5563;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
 }
 
 html {
@@ -42,10 +67,17 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: var(--bg-body);
+    /* Паттерн для темной темы сделаем чуть прозрачнее */
     background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
     background-attachment: fixed;
     color: var(--text-dark);
     line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Класс для текста, который должен менять цвет */
+.text-color {
+    color: var(--text-dark) !important;
 }
 
 /* АНИМАЦИИ */
@@ -81,11 +113,11 @@ body {
     top: 0;
     width: 100%;
     padding: 15px 5%;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--bg-header);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -110,6 +142,7 @@ body {
 
 .icon {
     display: none;
+    color: var(--text-dark); /* Цвет иконки гамбургера */
 }
 
 /* 🌟 СТИЛИ ДЛЯ КНОПОК 🌟 */
@@ -135,16 +168,39 @@ body {
         transform: translateY(-2px);
     }
 
+/* Кнопка смены темы */
+.btn-theme {
+    background: transparent;
+    border: 2px solid var(--accent-border);
+    color: var(--text-dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+    .btn-theme:hover {
+        background: var(--accent-bg-light);
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
 /* ====== МЕНЮ ====== */
 #header-bottom {
     position: sticky;
     top: 70px;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-header);
     backdrop-filter: blur(8px);
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--accent-border);
     z-index: 998;
+    transition: background 0.3s ease;
 }
 
 .menu ul {
@@ -205,10 +261,11 @@ body {
     border-radius: var(--radius-lg);
     padding: 60px;
     box-shadow: var(--shadow-md);
-    margin-top: -60px; /* Наезд на картинку */
+    margin-top: -60px;
     position: relative;
     z-index: 10;
     animation: fadeInUp 1s ease-out 0.3s backwards;
+    transition: background 0.3s ease;
 }
 
 /* ====== СЕКЦИИ ====== */
@@ -218,7 +275,7 @@ body {
     padding: 60px 40px;
     margin-bottom: 60px;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .info-sections {
@@ -256,7 +313,7 @@ body {
     border-radius: var(--radius-md);
     padding: 30px 20px;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Эффект пружины */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: var(--shadow-sm);
     border: 1px solid transparent;
 }
@@ -312,11 +369,12 @@ body {
 .about-item-fullwidth {
     width: 100%;
     padding: 40px;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    background: linear-gradient(135deg, var(--accent-bg-light) 0%, var(--bg-white) 100%);
     margin: 30px 0;
     text-align: center;
     border-radius: var(--radius-lg);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6), var(--shadow-sm);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), var(--shadow-sm);
+    border: 1px solid var(--accent-border);
 }
 
     .about-item-fullwidth .feature-title {
@@ -338,14 +396,14 @@ body {
     padding: 30px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0,0,0,0.03);
+    border: 1px solid var(--accent-border);
     transition: all 0.3s ease;
 }
 
     .about-item:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-md);
-        border-color: var(--accent-border);
+        border-color: var(--primary-color);
     }
 
     .about-item.centered {
@@ -366,7 +424,6 @@ body {
     gap: 10px;
 }
 
-    /* Добавляем декоративную точку перед заголовком */
     .feature-title::before {
         content: '';
         display: inline-block;
@@ -391,7 +448,7 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow-md);
     margin-top: 60px;
-    border: 5px solid #fff;
+    border: 5px solid var(--bg-white);
 }
 
 /* ====== FOOTER TEXT & MESSAGES ====== */
@@ -413,7 +470,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--accent-border);
+    transition: background 0.3s ease;
 }
 
     .block-message p {
@@ -440,8 +498,9 @@ body {
         resize: vertical;
         padding: 18px;
         border-radius: var(--radius-md);
-        border: 2px solid #e5e7eb;
-        background: #f9fafb;
+        border: 2px solid var(--accent-border);
+        background: var(--bg-input);
+        color: var(--text-dark);
         font-size: 16px;
         font-family: inherit;
         min-height: 140px;
@@ -451,7 +510,7 @@ body {
         .message-text textarea.text:focus {
             outline: none;
             border-color: var(--primary-color);
-            background: #fff;
+            background: var(--bg-white);
             box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         }
 
@@ -481,19 +540,18 @@ body {
 .reviews-container {
     width: 100%;
     overflow: hidden;
-    height: 180px; /* Чуть увеличили */
+    height: 180px;
     background: transparent;
     margin-top: 60px;
     padding: 10px 0;
     position: relative;
-    /* Маска для плавного исчезновения краев */
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .reviews-wrapper {
     display: flex;
-    animation: scroll-reviews 35s linear infinite; /* Медленнее и плавнее */
+    animation: scroll-reviews 35s linear infinite;
     gap: 30px;
 }
 
@@ -508,17 +566,17 @@ body {
     background-color: var(--bg-white);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
     font-size: 15px;
     color: var(--text-grey);
-    border: 1px solid rgba(0,0,0,0.03);
+    border: 1px solid var(--accent-border);
 }
 
     .review-item:hover {
         transform: scale(1.03);
         box-shadow: var(--shadow-md);
         z-index: 10;
-        background: #fff;
+        background: var(--bg-white);
     }
 
 .review-text {
@@ -556,9 +614,10 @@ body {
     color: var(--text-dark);
     padding: 60px 8%;
     margin-top: 80px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid var(--accent-border);
     box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
     border-radius: 40px 40px 0 0;
+    transition: background 0.3s ease;
 }
 
 .footer-top {
@@ -642,7 +701,7 @@ body {
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    background: #f3f4f6;
+    background: var(--accent-bg-light);
     color: var(--text-dark);
     box-shadow: var(--shadow-sm);
     text-decoration: none;
@@ -665,17 +724,18 @@ body {
     .footer-subscribe input[type="email"] {
         padding: 12px 16px;
         border-radius: var(--radius-md);
-        border: 1px solid #e5e7eb;
+        border: 1px solid var(--accent-border);
         font-size: 14px;
         outline: none;
         flex-grow: 1;
-        background: #f9fafb;
+        background: var(--bg-input);
+        color: var(--text-dark);
         transition: all 0.2s;
     }
 
         .footer-subscribe input[type="email"]:focus {
             border-color: var(--primary-color);
-            background: #fff;
+            background: var(--bg-white);
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
@@ -701,7 +761,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 50px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid var(--accent-border);
     padding-top: 25px;
     font-size: 14px;
     color: var(--text-light);
@@ -725,7 +785,7 @@ body {
     right: -320px;
     width: 320px;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--bg-header); /* Адаптивный фон */
     backdrop-filter: blur(15px);
     box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     padding: 60px 30px;
@@ -747,14 +807,13 @@ body {
 
         .side-menu ul li {
             margin: 20px 0;
-            border-bottom: 1px solid #f3f4f6;
+            border-bottom: 1px solid var(--accent-border);
             padding-bottom: 15px;
             opacity: 0;
             transform: translateX(20px);
             transition: all 0.4s ease;
         }
 
-    /* Каскадная анимация пунктов меню */
     .side-menu.active ul li:nth-child(1) {
         transition-delay: 0.1s;
         opacity: 1;
@@ -773,7 +832,29 @@ body {
         transform: translateX(0);
     }
 
-/* Остальной CSS для Catalog Container перенесен в catalog.css или адаптирован ниже для совместимости */
+    .side-menu.active ul li:nth-child(4) {
+        transition-delay: 0.4s;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+/* --- GLOBAL DARK MODE FORM STYLES --- */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .search-input {
+    background-color: var(--bg-white) !important;
+    border-color: var(--accent-border) !important;
+    color: var(--text-dark) !important;
+}
+
+    [data-theme="dark"] .form-control:focus,
+    [data-theme="dark"] .form-select:focus,
+    [data-theme="dark"] .search-input:focus {
+        background-color: var(--bg-white) !important;
+        color: var(--text-dark) !important;
+        border-color: var(--primary-color) !important;
+    }
+
 /* Accessibility helper */
 .visually-hidden {
     position: absolute !important;
@@ -805,7 +886,7 @@ body {
     }
 
     .button-header {
-        display: none;
+        display: none; /* Desktop btns hidden on mobile */
     }
 
     .icon {

@@ -26,14 +26,14 @@
 .filters-sidebar {
     flex: 0 0 280px;
     padding: 25px;
-    background-color: #fff;
+    background-color: var(--bg-white); /* Используем переменную */
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(0,0,0,0.03);
+    border: 1px solid var(--accent-border);
     height: fit-content;
     box-shadow: var(--shadow-sm);
-    position: sticky; /* Липкий сайдбар */
+    position: sticky;
     top: 100px;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
     .filters-sidebar:hover {
@@ -44,7 +44,7 @@
     margin-bottom: 30px;
 }
 
-    .filter-group h4 { /* Предполагая, что есть заголовки */
+    .filter-group h4 {
         font-size: 16px;
         font-weight: 700;
         margin-bottom: 15px;
@@ -73,8 +73,8 @@
 
 /* Карточка товара */
 .product-card {
-    background-color: #fff;
-    border: none;
+    background-color: var(--bg-white); /* Используем переменную */
+    border: 1px solid var(--accent-border); /* Добавил бордер для четкости в темной теме */
     border-radius: 20px;
     overflow: hidden;
     position: relative;
@@ -88,12 +88,13 @@
     .product-card:hover {
         transform: translateY(-8px);
         box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
     }
 
 /* Контейнер изображения */
 .card-img-container {
     height: 240px;
-    background: radial-gradient(circle at center, #ffffff 0%, #f3f4f6 100%);
+    background: var(--bg-gradient-card); /* Адаптивный градиент */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +121,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: #fff;
+    background: var(--bg-white);
     z-index: 1;
 }
 
@@ -151,7 +152,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 15px;
-    border-top: 1px dashed #e5e7eb;
+    border-top: 1px dashed var(--accent-border);
 }
 
 .price-tag {
@@ -160,7 +161,6 @@
     color: var(--primary-color);
 }
 
-/* Кнопка в карточке (если она там есть, стилизуем на всякий случай) */
 .card-footer-custom .btn, .product-card .button {
     background: var(--primary-color);
     color: white;
@@ -189,9 +189,10 @@
     width: 100%;
     padding: 18px 50px 18px 25px;
     font-size: 1.1rem;
-    border: none;
+    border: 1px solid var(--accent-border);
     border-radius: 15px;
-    background-color: #fff;
+    background-color: var(--bg-input); /* Переменная */
+    color: var(--text-dark);
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
 }
@@ -204,7 +205,7 @@
 
 .search-icon {
     position: absolute;
-    right: 20px; /* Переместил вправо для красоты */
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--primary-color);
@@ -224,7 +225,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
+    background: var(--bg-white);
     border-radius: 25px;
     box-shadow: var(--shadow-md);
     padding: 40px;
