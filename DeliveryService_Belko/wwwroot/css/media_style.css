@@ -193,7 +193,6 @@
             height: 520px;
         }
 
-    /* --- ИЗМЕНЕНИЯ ДЛЯ АНИМАЦИИ (НАЧАЛО) --- */
     .block {
         flex-direction: column;
         justify-content: flex-start;
@@ -209,29 +208,33 @@
             transform: translateY(0);
         }
 
+    /* --- ИЗМЕНЕНИЯ ДЛЯ ЦЕНТРИРОВАНИЯ (НАЧАЛО) --- */
     .block-item {
         width: 100%;
         height: 140px; /* Фиксированная высота */
         padding: 10px 15px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        /* Ставим элементы (текст и кнопку) вертикально */
+        flex-direction: column;
+        /* Центрируем и по вертикали, и по горизонтали */
+        justify-content: center;
         align-items: center;
+        gap: 10px; /* Добавляем небольшой отступ между текстом и кнопкой */
     }
-
-        .block-item p {
-            display: none; /* Скрываем текст описания для экономии места */
-        }
-    /* --- ИЗМЕНЕНИЯ ДЛЯ АНИМАЦИИ (КОНЕЦ) --- */
 
     .block-item-title {
         font-size: 1.2rem;
         margin: 0;
-        text-align: left;
+        text-align: center; /* Центрируем сам текст заголовка */
+    }
+    /* --- ИЗМЕНЕНИЯ ДЛЯ ЦЕНТРИРОВАНИЯ (КОНЕЦ) --- */
+
+    .block-item p {
+        display: none; /* Скрываем текст описания для экономии места */
     }
 
     .block-item-btn {
-        padding: 8px 16px;
+        padding: 8px 25px; /* Чуть увеличим ширину кнопки */
         font-size: 0.9rem;
         white-space: nowrap;
     }
