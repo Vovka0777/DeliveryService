@@ -300,17 +300,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kWfrjvaPgEp8w2q5s6ZeDRpqhkif31zYqGNAKediD1w="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5843"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022kWfrjvaPgEp8w2q5s6ZeDRpqhkif31zYqGNAKediD1w=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Nov 2025 19:53:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.1jjak1d6sq.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1jjak1d6sq"},{"Name":"integrity","Value":"sha256-XQkgw3Gi9sFNtxKFR5/xMm\u002Bq8Qy5wxL31YxIptzwFgM="},{"Name":"label","Value":"_content/DeliveryService_Belko/js/login_and_registration_script.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10556"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022XQkgw3Gi9sFNtxKFR5/xMm\u002Bq8Qy5wxL31YxIptzwFgM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Nov 2025 20:06:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-lzNkenPQkzp04\u002BZ/KVnnbIRy2yWViRRCYoPqW\u002BKbCdw="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"8842"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022lzNkenPQkzp04\u002BZ/KVnnbIRy2yWViRRCYoPqW\u002BKbCdw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Nov 2025 19:59:51 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/login_and_registration_script.rz9cmwa2go.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rz9cmwa2go"},{"Name":"integrity","Value":"sha256-lzNkenPQkzp04\u002BZ/KVnnbIRy2yWViRRCYoPqW\u002BKbCdw="},{"Name":"label","Value":"_content/DeliveryService_Belko/js/login_and_registration_script.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8842"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022lzNkenPQkzp04\u002BZ/KVnnbIRy2yWViRRCYoPqW\u002BKbCdw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Nov 2025 19:59:51 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XQkgw3Gi9sFNtxKFR5/xMm\u002Bq8Qy5wxL31YxIptzwFgM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10556"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022XQkgw3Gi9sFNtxKFR5/xMm\u002Bq8Qy5wxL31YxIptzwFgM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Nov 2025 20:06:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/js/shared_script.fmd6mx1kmk.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\shared_script.js'))</AssetFile>

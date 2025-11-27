@@ -7,7 +7,8 @@
         const isHidden = container.style.display === "none" || container.style.display === "";
 
         if (isHidden) {
-            container.style.display = "flex"; 
+            container.style.display = "flex"; // Flex для центрирования
+            // Блокируем скролл страницы
             document.body.style.overflow = "hidden";
         } else {
             container.style.display = "none";
@@ -16,12 +17,26 @@
     }
 
     const clickShowBtns = document.querySelectorAll("#click-to-hide, #open-login-side");
+
     clickShowBtns.forEach(btn => btn.addEventListener("click", (e) => {
         e.preventDefault();
+
+        // === НОВОЕ: Сброс состояния на "Вход" при каждом открытии ===
+        const formBox = document.querySelector('.form-box');
+        const block = document.querySelector('.block');
+        const blockContainer = document.querySelector('.block-container');
+
+        // Убираем класс active, который отвечает за показ регистрации
+        if (formBox) formBox.classList.remove('active');
+        if (block) block.classList.remove('active');
+        if (blockContainer) blockContainer.classList.add('signin-active');
+        // ============================================================
+
         toggleModal();
     }));
 
     const overlay = document.querySelector(".container-login-registration");
+    // Закрытие при клике на темный фон
     if (overlay) {
         overlay.addEventListener("click", function (e) {
             if (e.target === overlay) {
@@ -30,7 +45,7 @@
         });
     }
 
-    // === Переключение между Вход / Регистрация ===
+    // === Переключение между Вход / Регистрация (Десктоп) ===
     const signInBtn = document.querySelector('.signin-btn');
     const signUpBtn = document.querySelector('.signup-btn');
     const formBox = document.querySelector('.form-box');
@@ -51,22 +66,42 @@
         });
     }
 
+    // === Логика для МОБИЛЬНЫХ (Переключатели внутри формы) ===
+    const mobileSignUpBtn = document.getElementById('mobile-signup-btn');
+    const mobileSignInBtn = document.getElementById('mobile-signin-btn');
+
+    if (mobileSignUpBtn && formBox) {
+        mobileSignUpBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            formBox.classList.add('active');
+            if (block) block.classList.add('active');
+        });
+    }
+
+    if (mobileSignInBtn && formBox) {
+        mobileSignInBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            formBox.classList.remove('active');
+            if (block) block.classList.remove('active');
+        });
+    }
+
     // === AJAX Вход ===
-    const form_btn_signin = document.querySelector('.form-btn'); 
+    const form_btn_signin = document.querySelector('.form-btn');
     const errorContainerSignIn = document.getElementById('error-messages-signin');
 
     if (form_btn_signin) {
         form_btn_signin.addEventListener('click', function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
 
-            // ИЗМЕНЕНО: Ищем по ID, так как тип теперь text
+            // Ищем по ID (тип text)
             const loginInput = document.getElementById('loginInput');
             const passInput = document.getElementById('passwordInput');
 
             if (!loginInput || !passInput) return;
 
             const requestURL = '/Home/Login';
-            
+
             const body = {
                 login: loginInput.value,
                 password: passInput.value
@@ -101,9 +136,9 @@
         });
     }
 
-    // === AJAX Регистрация (без изменений) ===
-    const form_btn_signup = document.querySelector('.form_btn_signup'); 
-    const errorContainerSignUp = document.getElementById('error-messages-signup'); 
+    // === AJAX Регистрация ===
+    const form_btn_signup = document.querySelector('.form_btn_signup');
+    const errorContainerSignUp = document.getElementById('error-messages-signup');
 
     if (form_btn_signup) {
         form_btn_signup.addEventListener('click', function (e) {
@@ -146,7 +181,7 @@
                         login: body.login,
                         password: body.password,
                         code: userCode,
-                        confirmCode: data.data 
+                        confirmCode: data.data
                     };
 
                     return sendRequest('POST', confirmURL, confirmBody);
@@ -171,6 +206,7 @@
         });
     }
 
+    // --- Helpers ---
     function sendRequest(method, url, body = null) {
         const headers = { 'Content-Type': 'application/json' };
         return fetch(url, {
@@ -190,21 +226,23 @@
         container.innerHTML = '';
         errors.forEach(error => {
             const div = document.createElement('div');
-            div.className = 'error'; 
+            div.className = 'error';
             div.textContent = error;
             container.appendChild(div);
         });
     }
 
+    // Google Auth Buttons
     const googleBtns = document.querySelectorAll('.google');
     googleBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
             window.location.href = `/Home/AuthenticationGoogle?ReturnUrl=${encodeURIComponent(window.location.href)}`;
         });
     });
 });
 
+// Добавляем CSS анимацию "тряски" программно
 const styleSheet = document.createElement("style");
 styleSheet.innerText = `
 @keyframes shake {
@@ -215,4 +253,4 @@ styleSheet.innerText = `
 .shake {
   animation: shake 0.5s;
 }`;
-document.head.appendChild(styleSheet);д
+document.head.appendChild(styleSheet);

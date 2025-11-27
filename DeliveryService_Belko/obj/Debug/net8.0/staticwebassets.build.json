@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4Gn0+w87SDurCWKuMRBj6o+bAmK3f6imrHB0zzV8uwE=",
+  "Hash": "QmJaB6NTEWpnuiZvX5MaQrzin+/2IQgZVjWFUvGT9pk=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -577,8 +577,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "rz9cmwa2go",
-      "Integrity": "lzNkenPQkzp04+Z/KVnnbIRy2yWViRRCYoPqW+KbCdw=",
+      "Fingerprint": "1jjak1d6sq",
+      "Integrity": "XQkgw3Gi9sFNtxKFR5/xMm+q8Qy5wxL31YxIptzwFgM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login_and_registration_script.js"
@@ -3957,6 +3957,51 @@
       ]
     },
     {
+      "Route": "js/login_and_registration_script.1jjak1d6sq.js",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XQkgw3Gi9sFNtxKFR5/xMm+q8Qy5wxL31YxIptzwFgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Nov 2025 20:06:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1jjak1d6sq"
+        },
+        {
+          "Name": "label",
+          "Value": "js/login_and_registration_script.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XQkgw3Gi9sFNtxKFR5/xMm+q8Qy5wxL31YxIptzwFgM="
+        }
+      ]
+    },
+    {
       "Route": "js/login_and_registration_script.js",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
       "Selectors": [],
@@ -3967,7 +4012,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8842"
+          "Value": "10556"
         },
         {
           "Name": "Content-Type",
@@ -3975,11 +4020,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"lzNkenPQkzp04+Z/KVnnbIRy2yWViRRCYoPqW+KbCdw=\""
+          "Value": "\"XQkgw3Gi9sFNtxKFR5/xMm+q8Qy5wxL31YxIptzwFgM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Nov 2025 19:59:51 GMT"
+          "Value": "Thu, 27 Nov 2025 20:06:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3989,52 +4034,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-lzNkenPQkzp04+Z/KVnnbIRy2yWViRRCYoPqW+KbCdw="
-        }
-      ]
-    },
-    {
-      "Route": "js/login_and_registration_script.rz9cmwa2go.js",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\login_and_registration_script.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8842"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"lzNkenPQkzp04+Z/KVnnbIRy2yWViRRCYoPqW+KbCdw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 27 Nov 2025 19:59:51 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "rz9cmwa2go"
-        },
-        {
-          "Name": "label",
-          "Value": "js/login_and_registration_script.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-lzNkenPQkzp04+Z/KVnnbIRy2yWViRRCYoPqW+KbCdw="
+          "Value": "sha256-XQkgw3Gi9sFNtxKFR5/xMm+q8Qy5wxL31YxIptzwFgM="
         }
       ]
     },
