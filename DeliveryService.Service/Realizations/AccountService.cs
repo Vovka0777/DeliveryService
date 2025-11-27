@@ -12,9 +12,7 @@ using DeliveryService.Domain.Enum;
 using MimeKit;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Hosting; // Добавлено
-using System.Net.Http; // Добавлено
-using System.IO; // Добавлено
+using Microsoft.AspNetCore.Hosting; 
 using System;
 using System.Linq;
 
