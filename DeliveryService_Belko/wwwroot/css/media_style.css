@@ -289,4 +289,19 @@
         font-size: 1.5rem;
         margin-bottom: 20px;
     }
+
+    .container-row {
+        justify-content: center !important; /* Принудительно центрируем */
+        align-items: center !important;
+        text-align: center; /* На случай, если текст внутри уезжает */
+    }
+
+    /* Если сами карточки (row-item) имеют фиксированные отступы, сбрасываем их */
+    .row-item {
+        margin-left: auto;
+        margin-right: auto;
+        /* Убедимся, что ширина не ломает центровку */
+        max-width: 320px;
+        width: 100%;
+    }
 }
