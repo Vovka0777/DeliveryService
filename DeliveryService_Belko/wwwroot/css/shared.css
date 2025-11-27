@@ -67,7 +67,6 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: var(--bg-body);
-    /* Паттерн для темной темы сделаем чуть прозрачнее */
     background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
     background-attachment: fixed;
     color: var(--text-dark);
@@ -137,12 +136,16 @@ body {
 
 /* ПК стили по умолчанию */
 .button-header {
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .icon {
     display: none;
-    color: var(--text-dark); /* Цвет иконки гамбургера */
+    color: var(--text-dark);
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 /* 🌟 СТИЛИ ДЛЯ КНОПОК 🌟 */
@@ -450,6 +453,11 @@ body {
     margin-top: 60px;
     border: 5px solid var(--bg-white);
 }
+/* Инверсия карты в темном режиме */
+[data-theme="dark"] .map iframe {
+    filter: invert(90%) hue-rotate(180deg) contrast(90%);
+}
+
 
 /* ====== FOOTER TEXT & MESSAGES ====== */
 .closing-text {
@@ -865,6 +873,7 @@ body {
     white-space: nowrap;
 }
 
+/* ====== MEDIA QUERIES (RESPONSIVE) ====== */
 @media (max-width: 768px) {
     .container {
         width: 100%;
@@ -885,14 +894,32 @@ body {
         padding: 15px 20px;
     }
 
+    /* !!! СКРЫВАЕМ ВЕСЬ БЛОК КНОПОК В ШАПКЕ НА МОБИЛКЕ !!! */
+    /* Это скроет и кнопку "Войти", и кнопку темы */
     .button-header {
-        display: none; /* Desktop btns hidden on mobile */
+        display: none !important;
     }
 
     .icon {
         display: block;
-        font-size: 24px;
-        cursor: pointer;
-        color: var(--primary-color);
+        font-size: 28px; /* Чуть увеличим для удобства */
     }
+}
+[data-theme="dark"] .side-menu {
+    background-color: #1f2937 !important; /* Темно-серый фон */
+    border-left: 1px solid #374151;
+}
+
+    [data-theme="dark"] .side-menu a {
+        color: #f3f4f6 !important; /* Светлый текст */
+    }
+
+        [data-theme="dark"] .side-menu a:hover {
+            background-color: #374151 !important; /* Подсветка при наведении */
+            color: var(--primary-color) !important;
+        }
+
+/* Иконка гамбургера в темной теме */
+[data-theme="dark"] .icon {
+    color: #f3f4f6 !important;
 }

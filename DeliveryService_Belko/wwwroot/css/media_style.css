@@ -1,307 +1,121 @@
 ﻿/* wwwroot/css/media_style.css */
 
-/* ---------------- АДАПТИВНОЕ МЕНЮ (<= 992px) ---------------- */
+/* Адаптация для планшетов и мобильных */
 @media (max-width: 992px) {
-    /* Логика переключения форм на мобильном */
-    .form {
-        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .form_signin {
-        top: 0;
-        left: 0;
-        text-align: center;
-        opacity: 1;
-    }
-
-    .form_signup {
-        top: 100%;
-        left: 0;
-        text-align: center;
-        opacity: 0;
-    }
-
-    .form-box.active .form_signin {
-        top: -100%;
-        left: 0;
-        opacity: 0;
-    }
-
-    .form-box.active .form_signup {
-        top: 0;
-        left: 0;
-        opacity: 1;
-    }
-
-    /* Скрываем ПК элементы */
-    .button-header, .menu {
+    /* Скрываем обычное меню */
+    .menu {
         display: none;
     }
 
-    #open-login-side {
-        display: flex !important;
-    }
-
-    /* Иконка-бургер (Современный стиль) */
+    /* Показываем иконку гамбургера */
     .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-color);
-        background: rgba(59, 130, 246, 0.1); /* Легкий фон */
-        border: none;
-        border-radius: 12px;
-        padding: 8px 12px;
-        font-size: 24px;
+        display: block;
+        font-size: 30px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        color: var(--text-dark); /* Адаптивный цвет иконки */
+        transition: color 0.3s ease;
     }
 
         .icon:hover {
-            background-color: var(--primary-color);
-            color: #fff;
-            transform: rotate(90deg); /* Эффект поворота при нажатии */
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            color: var(--primary-color);
         }
 
-    /* Боковое меню (Glassmorphism) */
+    /* Настройки бокового меню */
     .side-menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 85%;
-        max-width: 320px;
+        right: -100%; /* Полностью скрыто справа */
+        width: 300px;
         height: 100vh;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-        padding: 90px 30px 40px;
+        background-color: var(--bg-white); /* <--- ВАЖНО: Адаптивный фон */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
-        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999;
-    }
-
-    .block {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 0; /* Убираем отступ, чтобы корректно считать высоту */
-        background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
-        /* ДОБАВЛЕНО: Анимация смещения фона */
-        transition: transform 0.6s ease-in-out;
-        /* По умолчанию (форма входа) сдвигаем блок вверх на 140px, 
-           чтобы показать ВТОРОЙ элемент (предложение зарегистрироваться) */
-        transform: translateY(-140px);
-    }
-
-        /* ДОБАВЛЕНО: Состояние Active (форма регистрации) 
-       Возвращаем блок на место, чтобы показать ПЕРВЫЙ элемент (предложение войти) */
-        .block.active {
-            transform: translateY(0);
-        }
-
-    .block-item {
-        width: 100%;
-        /* Фиксируем высоту под верхнюю плашку, не перекрытую формой */
-        height: 140px;
-        padding: 10px 15px;
-        display: flex;
-        flex-direction: row; /* Располагаем текст и кнопку в ряд */
-        justify-content: space-between; /* Разносим по краям */
-        align-items: center;
-    }
-
-    .block-item-title {
-        font-size: 1.2rem;
-        margin: 0;
-        text-align: left;
-    }
-
-    /* Скрываем описание на мобильном, чтобы сэкономить место в узкой шапке */
-    .block-item p {
-        display: none;
-    }
-
-    .block-item-btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-        white-space: nowrap; /* Чтобы текст кнопки не переносился */
+        padding: 20px;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Плавный выезд */
+        border-left: 1px solid var(--accent-border); /* Граница для темной темы */
     }
 
         .side-menu.active {
-            right: 0;
+            right: 0; /* Выезжает */
         }
 
+        /* Ссылки в боковом меню */
         .side-menu ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin-top: 40px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
 
-            .side-menu ul li a {
-                display: flex;
-                align-items: center;
-                justify-content: center; /* Центрируем текст */
-                background-color: #f8fafc;
-                padding: 14px 20px;
+            .side-menu ul li {
+                margin: 20px 0;
                 width: 100%;
-                border-radius: 15px;
-                color: #334155;
-                font-size: 16px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                border: 1px solid transparent;
             }
 
-                .side-menu ul li a:hover {
-                    color: #fff;
-                    background: var(--primary-gradient);
-                    box-shadow: 0 8px 20px -5px rgba(59, 130, 246, 0.5);
-                    transform: translateY(-3px);
-                    border-color: transparent;
+                .side-menu ul li a {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: var(--text-dark); /* <--- ВАЖНО: Адаптивный цвет текста */
+                    text-decoration: none;
+                    display: block;
+                    padding: 10px;
+                    border-radius: 10px;
+                    transition: all 0.3s ease;
                 }
 
-        /* Кнопки входа/регистрации в меню */
-        #open-login-side, .side-menu .button {
+                    .side-menu ul li a:hover {
+                        color: var(--primary-color);
+                        background-color: var(--accent-bg-light); /* Легкая подсветка при наведении */
+                        transform: translateX(10px); /* Небольшой сдвиг вправо */
+                    }
+
+                    .side-menu ul li a i {
+                        margin-right: 15px;
+                        font-size: 20px;
+                        color: var(--primary-color);
+                    }
+
+        /* Кнопки внизу бокового меню */
+        .side-menu .button {
+            margin-top: auto;
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--primary-color);
-            background-color: transparent;
+            text-align: center;
             padding: 12px;
-            margin-top: auto; /* Прижимаем к низу если есть место */
-            border-radius: 50px;
-            color: var(--primary-color);
+            border-radius: 12px;
+            background: var(--primary-gradient);
+            color: #fff;
+            border: none;
+            font-weight: 600;
             font-size: 16px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-blue);
         }
 
-            #open-login-side:hover, .side-menu .button:hover {
-                color: #fff;
-                background: var(--primary-color);
-                box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-                transform: scale(1.02);
-            }
+        /* Заголовок/Логотип внутри меню */
+        .side-menu .logo {
+            font-size: 28px;
+            margin-bottom: 0;
+        }
+}
 
-    #side-menu-button-click-to-hide {
-        display: none;
-    }
-
-    /* Адаптация заголовка и контейнера */
-    .img-header {
-        width: 100%;
-        height: 300px;
-        margin-top: 70px;
-        border-radius: 0 0 20px 20px; /* Скругление только снизу */
-    }
-
+/* Мобильные телефоны */
+@media (max-width: 768px) {
+    /* Дополнительные корректировки для маленьких экранов */
     .container {
-        width: 100%;
-        padding: 40px 20px;
-        border-radius: 0;
-        box-shadow: none;
-        background: transparent; /* Убираем белый фон контейнера на мобилках */
-    }
-
-    .container-section {
-        padding: 30px 20px;
-        margin-bottom: 30px;
-        border-radius: 20px;
+        padding: 20px;
     }
 
     .info-sections {
-        font-size: 26px;
+        font-size: 24px;
     }
 
-    /* Адаптация модального окна (Pop-up) */
-    .block-container {
-        width: 90%;
-        max-width: 400px;
-        height: 700px; /* Увеличили высоту для мобильного вида */
-        padding: 0;
-        transition: height 0.5s ease;
-        border-radius: 20px;
-    }
-
-        /* Когда активен вход, уменьшаем высоту */
-        .block-container.signin-active {
-            height: 520px;
-        }
-
-    .block {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 20px;
-        background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
-    }
-
-    .block-item {
-        width: 100%;
-        padding: 15px;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .block-item-title {
-        font-size: 1.2rem;
-        margin: 0;
-    }
-
-    .block-item-btn {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-    }
-
-    /* Плавающий бокс с формой */
-    .form-box {
-        width: 100%;
-        height: calc(100% - 140px); /* Вычисляем высоту, оставляя место для шапки */
-        border-radius: 30px 30px 20px 20px; /* Скругление сверху */
-        top: 140px; /* Опускаем ниже шапки */
-        left: 0;
-        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        box-shadow: 0 -10px 20px rgba(0,0,0,0.1);
-    }
-
-        /* Скрываем/показываем нужную форму сдвигом */
-        .form-box.active {
-            top: 140px; /* Позиция та же, меняется контент внутри */
-            left: 0;
-        }
-
-    .form {
-        padding: 30px 20px;
-    }
-
-    .form_title {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-
-    .container-row {
-        justify-content: center !important; /* Принудительно центрируем */
-        align-items: center !important;
-        text-align: center; /* На случай, если текст внутри уезжает */
-    }
-
-    /* Если сами карточки (row-item) имеют фиксированные отступы, сбрасываем их */
     .row-item {
-        margin-left: auto;
-        margin-right: auto;
-        /* Убедимся, что ширина не ломает центровку */
-        max-width: 320px;
-        width: 100%;
+        width: 100%; /* Карточки на всю ширину */
+    }
+
+    /* Корректировка заголовка */
+    #header-top {
+        padding: 15px;
     }
 }
