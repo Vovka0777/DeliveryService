@@ -37,10 +37,9 @@ namespace DeliveryService.Service.Realizations
         {
             try
             {
-                await _validationRules.ValidateAndThrowAsync(model);
-
+                // Ищем пользователя, у которого введенный текст совпадает либо с Email, либо с Login
                 var userDb = await _userStorage.GetAll()
-                    .FirstOrDefaultAsync(x => x.Email == model.Email);
+                    .FirstOrDefaultAsync(x => x.Email == model.Login || x.Login == model.Login);
 
                 if (userDb == null)
                 {
@@ -55,7 +54,7 @@ namespace DeliveryService.Service.Realizations
                 {
                     return new BaseResponse<ClaimsIdentity>()
                     {
-                        Description = "Неверный пароль или почта",
+                        Description = "Неверный пароль",
                         StatusCode = StatusCode.BadRequest
                     };
                 }
@@ -70,13 +69,12 @@ namespace DeliveryService.Service.Realizations
                     StatusCode = StatusCode.OK
                 };
             }
-            catch (FluentValidation.ValidationException ex)
+            catch (Exception ex)
             {
-                var errorMessage = string.Join("; ", ex.Errors.Select(e => e.ErrorMessage));
                 return new BaseResponse<ClaimsIdentity>()
                 {
                     Description = ex.Message,
-                    StatusCode = StatusCode.BadRequest
+                    StatusCode = StatusCode.InternalServerError
                 };
             }
         }

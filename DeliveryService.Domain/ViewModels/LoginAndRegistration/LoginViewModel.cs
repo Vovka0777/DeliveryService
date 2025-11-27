@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DeliveryService.Domain.ViewModels.LoginAndRegistration
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Введите почту")]
-        [EmailAddress(ErrorMessage = "Некорректный email")]
+        [Required(ErrorMessage = "Введите логин или почту")]
+        public string Login { get; set; }
 
-        public string Email { get; set; }
         [Required(ErrorMessage = "Введите пароль")]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
         public string Password { get; set; }
     }
 }

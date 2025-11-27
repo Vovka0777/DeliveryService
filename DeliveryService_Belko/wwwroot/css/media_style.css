@@ -85,6 +85,52 @@
         z-index: 999;
     }
 
+    .block {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0; /* Убираем отступ, чтобы корректно считать высоту */
+        background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+        /* ДОБАВЛЕНО: Анимация смещения фона */
+        transition: transform 0.6s ease-in-out;
+        /* По умолчанию (форма входа) сдвигаем блок вверх на 140px, 
+           чтобы показать ВТОРОЙ элемент (предложение зарегистрироваться) */
+        transform: translateY(-140px);
+    }
+
+        /* ДОБАВЛЕНО: Состояние Active (форма регистрации) 
+       Возвращаем блок на место, чтобы показать ПЕРВЫЙ элемент (предложение войти) */
+        .block.active {
+            transform: translateY(0);
+        }
+
+    .block-item {
+        width: 100%;
+        /* Фиксируем высоту под верхнюю плашку, не перекрытую формой */
+        height: 140px;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: row; /* Располагаем текст и кнопку в ряд */
+        justify-content: space-between; /* Разносим по краям */
+        align-items: center;
+    }
+
+    .block-item-title {
+        font-size: 1.2rem;
+        margin: 0;
+        text-align: left;
+    }
+
+    /* Скрываем описание на мобильном, чтобы сэкономить место в узкой шапке */
+    .block-item p {
+        display: none;
+    }
+
+    .block-item-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        white-space: nowrap; /* Чтобы текст кнопки не переносился */
+    }
+
         .side-menu.active {
             right: 0;
         }

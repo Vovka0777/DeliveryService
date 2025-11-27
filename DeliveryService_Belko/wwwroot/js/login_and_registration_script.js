@@ -7,8 +7,7 @@
         const isHidden = container.style.display === "none" || container.style.display === "";
 
         if (isHidden) {
-            container.style.display = "flex"; // Flex для центрирования
-            // Блокируем скролл страницы
+            container.style.display = "flex"; 
             document.body.style.overflow = "hidden";
         } else {
             container.style.display = "none";
@@ -23,7 +22,6 @@
     }));
 
     const overlay = document.querySelector(".container-login-registration");
-    // Закрытие при клике на темный фон
     if (overlay) {
         overlay.addEventListener("click", function (e) {
             if (e.target === overlay) {
@@ -54,25 +52,26 @@
     }
 
     // === AJAX Вход ===
-    const form_btn_signin = document.querySelector('.form-btn'); // Кнопка "Войти" внутри формы
+    const form_btn_signin = document.querySelector('.form-btn'); 
     const errorContainerSignIn = document.getElementById('error-messages-signin');
 
     if (form_btn_signin) {
         form_btn_signin.addEventListener('click', function (e) {
-            e.preventDefault(); // Важно предотвратить стандартный сабмит
+            e.preventDefault(); 
 
-            const emailInput = document.querySelector('.form_signin input[type="email"]');
-            const passInput = document.querySelector('.form_signin input[type="password"]');
+            // ИЗМЕНЕНО: Ищем по ID, так как тип теперь text
+            const loginInput = document.getElementById('loginInput');
+            const passInput = document.getElementById('passwordInput');
 
-            if (!emailInput || !passInput) return;
+            if (!loginInput || !passInput) return;
 
             const requestURL = '/Home/Login';
+            
             const body = {
-                email: emailInput.value,
+                login: loginInput.value,
                 password: passInput.value
             };
 
-            // Визуальная индикация загрузки
             const originalText = form_btn_signin.textContent;
             form_btn_signin.textContent = "Вход...";
             form_btn_signin.disabled = true;
@@ -80,7 +79,6 @@
             sendRequest('POST', requestURL, body)
                 .then(data => {
                     console.log('Успешный вход:', data);
-                    // Перезагрузка
                     window.location.href = '/';
                 })
                 .catch(err => {
@@ -88,15 +86,14 @@
                     form_btn_signin.textContent = originalText;
                     form_btn_signin.disabled = false;
 
-                    // Анимация ошибки
                     const formBox = document.querySelector('.form-box');
                     formBox.classList.add('shake');
                     setTimeout(() => formBox.classList.remove('shake'), 500);
 
-                    // Отображение текста ошибки
                     let errors = [];
                     if (err.description) errors.push(err.description);
                     else if (Array.isArray(err)) errors = err;
+                    else if (typeof err === 'string') errors.push(err);
                     else errors.push("Неверный логин или пароль");
 
                     displayErrors(errors, errorContainerSignIn);
@@ -104,9 +101,9 @@
         });
     }
 
-    // === AJAX Регистрация ===
-    const form_btn_signup = document.querySelector('.form_btn_signup'); // Кнопка "Зарегистрироваться"
-    const errorContainerSignUp = document.getElementById('error-messages-signup'); // Нужно добавить этот ID в HTML, если его нет
+    // === AJAX Регистрация (без изменений) ===
+    const form_btn_signup = document.querySelector('.form_btn_signup'); 
+    const errorContainerSignUp = document.getElementById('error-messages-signup'); 
 
     if (form_btn_signup) {
         form_btn_signup.addEventListener('click', function (e) {
@@ -114,8 +111,9 @@
 
             const loginInput = document.querySelector('.form_signup input[type="text"]');
             const emailInput = document.querySelector('.form_signup input[type="email"]');
-            const passInput = document.querySelector('.form_signup input[type="password"]');
-            const passConfInput = document.querySelectorAll('.form_signup input[type="password"]')[1];
+            const passInputs = document.querySelectorAll('.form_signup input[type="password"]');
+            const passInput = passInputs[0];
+            const passConfInput = passInputs[1];
 
             const requestURL = '/Home/Register';
             const confirmURL = '/Home/ConfirmEmail';
@@ -127,7 +125,6 @@
                 passwordConfirm: passConfInput?.value,
             };
 
-            // Валидация на клиенте (минимум)
             if (body.password !== body.passwordConfirm) {
                 displayErrors(["Пароли не совпадают"], errorContainerSignUp);
                 return;
@@ -141,7 +138,6 @@
                     form_btn_signup.textContent = "Зарегистрироваться";
                     form_btn_signup.disabled = false;
 
-                    // Код отправлен
                     const userCode = prompt("Код подтверждения отправлен на почту " + body.email + ". Введите код:");
                     if (!userCode) throw ["Отмена подтверждения"];
 
@@ -150,7 +146,7 @@
                         login: body.login,
                         password: body.password,
                         code: userCode,
-                        confirmCode: data.data // Код от сервера
+                        confirmCode: data.data 
                     };
 
                     return sendRequest('POST', confirmURL, confirmBody);
@@ -175,7 +171,6 @@
         });
     }
 
-    // --- Helpers ---
     function sendRequest(method, url, body = null) {
         const headers = { 'Content-Type': 'application/json' };
         return fetch(url, {
@@ -195,23 +190,21 @@
         container.innerHTML = '';
         errors.forEach(error => {
             const div = document.createElement('div');
-            div.className = 'error'; // Стилизован в CSS
+            div.className = 'error'; 
             div.textContent = error;
             container.appendChild(div);
         });
     }
 
-    // Google Auth Buttons
     const googleBtns = document.querySelectorAll('.google');
     googleBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
-            e.preventDefault(); // Если кнопка внутри формы
+            e.preventDefault(); 
             window.location.href = `/Home/AuthenticationGoogle?ReturnUrl=${encodeURIComponent(window.location.href)}`;
         });
     });
 });
 
-// Добавляем CSS анимацию "тряски" программно, если её нет в CSS
 const styleSheet = document.createElement("style");
 styleSheet.innerText = `
 @keyframes shake {
@@ -222,4 +215,4 @@ styleSheet.innerText = `
 .shake {
   animation: shake 0.5s;
 }`;
-document.head.appendChild(styleSheet);
+document.head.appendChild(styleSheet);д
