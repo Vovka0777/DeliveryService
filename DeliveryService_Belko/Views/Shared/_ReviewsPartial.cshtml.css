@@ -1,11 +1,15 @@
 ﻿/* Стили для отзывов */
 .btn-primary {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #2563eb;
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    border-radius: 30px; /* Круглые кнопки */
+    padding: 8px 20px;
+    font-weight: 600;
 }
 
     .btn-primary:hover {
-        background-color: #1d4ed8;
-        border-color: #1e40af;
+        background-color: #2563eb;
+        border-color: #2563eb;
+        transform: scale(1.05);
     }

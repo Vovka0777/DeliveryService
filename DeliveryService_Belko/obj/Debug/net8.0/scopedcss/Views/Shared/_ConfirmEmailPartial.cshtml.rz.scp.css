@@ -1,15 +1,24 @@
 /* Стили для подтверждения email */
 .btn-primary[b-35yicm0hen] {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #2563eb;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
     .btn-primary:hover[b-35yicm0hen] {
-        background-color: #1d4ed8;
-        border-color: #1e40af;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
 
 a[b-35yicm0hen] {
-    color: #2563eb;
+    color: #3b82f6;
+    font-weight: 500;
 }
+
+    a:hover[b-35yicm0hen] {
+        color: #1d4ed8;
+        text-decoration: underline;
+    }

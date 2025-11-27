@@ -63,20 +63,21 @@ namespace DeliveryService_Belko.Controllers
         {
             if (ModelState.IsValid)
             {
+                // 1. Преобразуем RegisterViewModel в User с помощью AutoMapper
                 var user = _mapper.Map<User>(model);
-                var response = await _accountService.Register(user); 
+
+                // 2. Передаем уже преобразованный объект user в сервис
+                var response = await _accountService.Register(user);
 
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
-                {   
-                    return Ok(response); 
+                {
+                    return Json(new { description = response.Description });
                 }
-                ModelState.AddModelError("", response.Description);
             }
-            var errors = ModelState.Values.SelectMany(v => v.Errors)
-              .Select(e => e.ErrorMessage)
-              .ToList();
-            return BadRequest(errors);
+            return BadRequest(ModelState);
         }
+
+
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Logout()
         {

@@ -1,211 +1,225 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-    function hiddenOpen_Closeclick() {
-        let x = document.querySelector(".container-login-registration");
-        if (x.style.display == "none") {
-            x.style.display = "grid";
+    // === Логика открытия/закрытия модального окна ===
+    function toggleModal() {
+        const container = document.querySelector(".container-login-registration");
+        if (!container) return;
+
+        const isHidden = container.style.display === "none" || container.style.display === "";
+
+        if (isHidden) {
+            container.style.display = "flex"; // Flex для центрирования
+            // Блокируем скролл страницы
+            document.body.style.overflow = "hidden";
         } else {
-            x.style.display = "none";
+            container.style.display = "none";
+            document.body.style.overflow = "";
         }
     }
 
-    const clickHide = document.getElementById("click-to-hide");
-    if (clickHide) clickHide.addEventListener("click", hiddenOpen_Closeclick);
-    const overlay = document.querySelector(".overlay");
-    if (overlay) overlay.addEventListener("click", hiddenOpen_Closeclick);
+    const clickShowBtns = document.querySelectorAll("#click-to-hide, #open-login-side");
+    clickShowBtns.forEach(btn => btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleModal();
+    }));
 
+    const overlay = document.querySelector(".container-login-registration");
+    // Закрытие при клике на темный фон
+    if (overlay) {
+        overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) {
+                toggleModal();
+            }
+        });
+    }
+
+    // === Переключение между Вход / Регистрация ===
     const signInBtn = document.querySelector('.signin-btn');
     const signUpBtn = document.querySelector('.signup-btn');
     const formBox = document.querySelector('.form-box');
     const block = document.querySelector('.block');
-    const blockContainer = document.querySelector('.block-container'); // <-- Добавляем эту строку
+    const blockContainer = document.querySelector('.block-container');
 
-    if (signInBtn && signUpBtn) {
+    if (signInBtn && signUpBtn && formBox) {
         signUpBtn.addEventListener('click', function () {
             formBox.classList.add('active');
             block.classList.add('active');
-            blockContainer.classList.remove('signin-active'); // <-- Удаляем класс для Входа
+            if (blockContainer) blockContainer.classList.remove('signin-active');
         });
 
         signInBtn.addEventListener('click', function () {
             formBox.classList.remove('active');
             block.classList.remove('active');
-            blockContainer.classList.add('signin-active'); // <-- Добавляем класс для Входа
+            if (blockContainer) blockContainer.classList.add('signin-active');
         });
     }
 
-const modal = document.getElementById('loginModal');
+    // === AJAX Вход ===
+    const form_btn_signin = document.querySelector('.form-btn'); // Кнопка "Войти" внутри формы
+    const errorContainerSignIn = document.getElementById('error-messages-signin');
 
-modal?.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        modal.style.display = 'none';
+    if (form_btn_signin) {
+        form_btn_signin.addEventListener('click', function (e) {
+            e.preventDefault(); // Важно предотвратить стандартный сабмит
+
+            const emailInput = document.querySelector('.form_signin input[type="email"]');
+            const passInput = document.querySelector('.form_signin input[type="password"]');
+
+            if (!emailInput || !passInput) return;
+
+            const requestURL = '/Home/Login';
+            const body = {
+                email: emailInput.value,
+                password: passInput.value
+            };
+
+            // Визуальная индикация загрузки
+            const originalText = form_btn_signin.textContent;
+            form_btn_signin.textContent = "Вход...";
+            form_btn_signin.disabled = true;
+
+            sendRequest('POST', requestURL, body)
+                .then(data => {
+                    console.log('Успешный вход:', data);
+                    // Перезагрузка
+                    window.location.href = '/';
+                })
+                .catch(err => {
+                    console.error('Ошибка входа:', err);
+                    form_btn_signin.textContent = originalText;
+                    form_btn_signin.disabled = false;
+
+                    // Анимация ошибки
+                    const formBox = document.querySelector('.form-box');
+                    formBox.classList.add('shake');
+                    setTimeout(() => formBox.classList.remove('shake'), 500);
+
+                    // Отображение текста ошибки
+                    let errors = [];
+                    if (err.description) errors.push(err.description);
+                    else if (Array.isArray(err)) errors = err;
+                    else errors.push("Неверный логин или пароль");
+
+                    displayErrors(errors, errorContainerSignIn);
+                });
+        });
     }
-});
 
-const form_btn_signin = document.querySelector('.form-btn');
-const form_btn_signup = document.querySelector('.form_btn_signup');
+    // === AJAX Регистрация ===
+    const form_btn_signup = document.querySelector('.form_btn_signup'); // Кнопка "Зарегистрироваться"
+    const errorContainerSignUp = document.getElementById('error-messages-signup'); // Нужно добавить этот ID в HTML, если его нет
 
-if (form_btn_signin) {
-    form_btn_signin.addEventListener('click', function () {
-        const requestURL = '/Home/Login';  // Должен быть правильный URL для логина
+    if (form_btn_signup) {
+        form_btn_signup.addEventListener('click', function (e) {
+            e.preventDefault();
 
+            const loginInput = document.querySelector('.form_signup input[placeholder="Name"]'); // Или по ID
+            const emailInput = document.querySelector('.form_signup input[type="email"]');
+            const passInput = document.querySelector('.form_signup input[type="password"]');
+            const passConfInput = document.querySelectorAll('.form_signup input[type="password"]')[1];
 
-        const form = {
-            email: document.querySelector('.form_signin #email input'),
-            password: document.querySelector('.form_signin #password input')
-        };
+            const requestURL = '/Home/Register';
+            const confirmURL = '/Home/ConfirmEmail';
 
-        const body = {
-            email: form.email.value,
-            password: form.password.value
-        };
+            const body = {
+                login: loginInput?.value,
+                email: emailInput?.value,
+                password: passInput?.value,
+                passwordConfirm: passConfInput?.value,
+            };
 
-        sendRequest('POST', requestURL, body)
-            .then(data => {
-                // Очистка формы и закрытие ошибок
-                cleaningAndClosingForm(form, errorContainer);
-                console.log('Успешный ответ:', data);
+            // Валидация на клиенте (минимум)
+            if (body.password !== body.passwordConfirm) {
+                displayErrors(["Пароли не совпадают"], errorContainerSignUp);
+                return;
+            }
 
-                // Перезагрузка страницы после успешного ответа
-                window.location.href = '/';
-            })
-            .catch(err => {
-                // Обработка ошибок
-                console.log('Ошибка:', err);
-                displayErrors(err, errorContainer);
-            });
-    });
-}
+            form_btn_signup.textContent = "Отправка...";
+            form_btn_signup.disabled = true;
 
-function sendRequest(method, url, body = null) {
-    const headers = {
-        'Content-Type': 'application/json'
-    };
+            sendRequest('POST', requestURL, body)
+                .then(data => {
+                    form_btn_signup.textContent = "Зарегистрироваться";
+                    form_btn_signup.disabled = false;
 
-    return fetch(url, {
-        method: method,
-        body: JSON.stringify(body),
-        headers: headers
-    }).then(response => {
-        if (!response.ok) {
-            return response.json().then(errorData => {
-                throw errorData;
-            });
-        }
-        return response.json();
-    });
-}
+                    // Код отправлен
+                    const userCode = prompt("Код подтверждения отправлен на почту " + body.email + ". Введите код:");
+                    if (!userCode) throw ["Отмена подтверждения"];
 
-// Функция для отображения ошибок
-function displayErrors(errors, errorContainer) {
-    errorContainer.innerHTML = '';  // Очистить контейнер ошибок
-    if (Array.isArray(errors)) {
+                    const confirmBody = {
+                        email: body.email,
+                        login: body.login,
+                        password: body.password,
+                        code: userCode,
+                        confirmCode: data.data // Код от сервера
+                    };
+
+                    return sendRequest('POST', confirmURL, confirmBody);
+                })
+                .then(finalResponse => {
+                    alert("Регистрация успешна! Добро пожаловать.");
+                    window.location.href = '/';
+                })
+                .catch(err => {
+                    form_btn_signup.textContent = "Зарегистрироваться";
+                    form_btn_signup.disabled = false;
+
+                    let errors = [];
+                    if (Array.isArray(err)) errors = err;
+                    else if (err.description) errors.push(err.description);
+                    else if (err.errors) errors = Object.values(err.errors).flat();
+                    else errors.push("Ошибка регистрации");
+
+                    if (errorContainerSignUp) displayErrors(errors, errorContainerSignUp);
+                    else alert(errors.join('\n'));
+                });
+        });
+    }
+
+    // --- Helpers ---
+    function sendRequest(method, url, body = null) {
+        const headers = { 'Content-Type': 'application/json' };
+        return fetch(url, {
+            method: method,
+            body: JSON.stringify(body),
+            headers: headers
+        }).then(response => {
+            if (!response.ok) {
+                return response.json().then(errorData => { throw errorData; });
+            }
+            return response.json();
+        });
+    }
+
+    function displayErrors(errors, container) {
+        if (!container) return;
+        container.innerHTML = '';
         errors.forEach(error => {
-            const errorMessage = document.createElement('div');
-            errorMessage.classList.add('error');
-            errorMessage.textContent = error;
-            errorContainer.appendChild(errorMessage);
+            const div = document.createElement('div');
+            div.className = 'error'; // Стилизован в CSS
+            div.textContent = error;
+            container.appendChild(div);
         });
-    } else {
-        const errorMessage = document.createElement('div');
-        errorMessage.classList.add('error');
-        errorMessage.textContent = 'Произошла ошибка';
-        errorContainer.appendChild(errorMessage);
     }
-}
 
-const errorContainer = document.getElementById('error-messages-signin');
-
-function cleaningAndClosingForm(form, errorContainer) {
-    errorContainer.innerHTML = '';
-    for (const key in form) {
-        if (form.hasOwnProperty(key)) {
-            form[key].value = '';
-        }
-    }
-    hiddenOpen_Closeclick();
-}
-
-    form_btn_signup.addEventListener('click', function () {
-        const requestURL = '/Home/Register';
-        const confirmURL = '/Home/ConfirmEmail'; // ⬅️ URL для подтверждения
-        const errorContainer = document.getElementById('error-messages-signup');
-
-        const form = {
-            login: document.querySelector('.form_signup #login input'),
-            email: document.querySelector('.form_signup #email input'),
-            password: document.querySelector('.form_signup #password input'),
-            passwordConfirm: document.querySelector('.form_signup #confirm_password input')
-        };
-
-        // Собираем данные для первого этапа
-        const body = {
-            login: form.login.value,
-            email: form.email.value,
-            password: form.password.value,
-            passwordConfirm: form.passwordConfirm.value,
-        };
-
-        // 1. Отправляем запрос на регистрацию (отправка письма)
-        sendRequest('POST', requestURL, body)
-            .then(data => {
-                console.log('Письмо отправлено, код получен (скрыто):', data);
-
-                // Очищаем ошибки, если были
-                errorContainer.innerHTML = '';
-
-                // 2. Просим пользователя ввести код
-                // Для простоты пока используем prompt. В будущем можно сделать красивое модальное окно.
-                const userCode = prompt("На ваш Email отправлен код подтверждения. Введите его сюда:");
-
-                if (!userCode) {
-                    throw ["Вы не ввели код подтверждения. Регистрация отменена."];
-                }
-
-                // 3. Формируем данные для ConfirmEmailViewModel
-                // Обратите внимание: data.data - это код, который вернул сервер в методе Register
-                const confirmBody = {
-                    email: body.email,
-                    login: body.login,
-                    password: body.password,
-                    code: userCode,          // Код, который ввел пользователь
-                    confirmCode: data.data   // Оригинальный код от сервера
-                };
-
-                // 4. Отправляем запрос на подтверждение и сохранение
-                return sendRequest('POST', confirmURL, confirmBody);
-            })
-            .then(finalResponse => {
-                // 5. Если всё прошло успешно
-                console.log('Регистрация завершена:', finalResponse);
-                alert("Регистрация прошла успешно! Вы вошли в систему.");
-
-                cleaningAndClosingForm(form, errorContainer);
-                window.location.href = '/'; // Переадресация на главную (уже авторизованным)
-            })
-            .catch(err => {
-                console.log('Ошибка:', err);
-                // Проверяем формат ошибки, так как она может прийти с разных этапов
-                if (Array.isArray(err)) {
-                    displayErrors(err, errorContainer);
-                } else if (err.description) {
-                    displayErrors([err.description], errorContainer);
-                } else if (err.errors && Array.isArray(err.errors)) {
-                    displayErrors(err.errors, errorContainer);
-                } else {
-                    displayErrors(['Произошла ошибка при регистрации'], errorContainer);
-                }
-            });
+    // Google Auth Buttons
+    const googleBtns = document.querySelectorAll('.google');
+    googleBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault(); // Если кнопка внутри формы
+            window.location.href = `/Home/AuthenticationGoogle?ReturnUrl=${encodeURIComponent(window.location.href)}`;
+        });
     });
-    const sideMenuButton = document.getElementById("side-menu-button-click-to-hide");
-    if (sideMenuButton) sideMenuButton.addEventListener("click", hiddenOpen_Closeclick);
-
-    const google = document.querySelectorAll('.google');
-
-    if (google) {
-        google.forEach(btn => {
-            btn.addEventListener('click', function () {
-                window.location.href = `/Home/AuthenticationGoogle?ReturnUrl=${encodeURIComponent(window.location.href)}`;
-            });
-        });
-    }
 });
+
+// Добавляем CSS анимацию "тряски" программно, если её нет в CSS
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+.shake {
+  animation: shake 0.5s;
+}`;
+document.head.appendChild(styleSheet);

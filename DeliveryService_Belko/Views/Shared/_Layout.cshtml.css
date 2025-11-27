@@ -5,52 +5,58 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+/* Обновленные ссылки */
 a {
-    color: #2563eb; /* Основной синий */
+    color: #3b82f6; /* Новый primary-color */
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
     a:hover {
-        color: #1d4ed8; /* Темно-синий при наведении */
+        color: #2563eb; /* Новый primary-hover */
     }
 
-/* Переопределение стандартной кнопки */
+/* Кнопки */
 .btn-primary {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #2563eb;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    border: none;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
     transition: all 0.3s ease;
 }
 
     .btn-primary:hover {
-        background-color: #1d4ed8;
-        border-color: #1e40af;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
     }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #1861ac;
+    background-color: #3b82f6;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 }
 
 .border-top {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e7eb;
 }
 
 .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
+    border-radius: 8px;
 }
 
+/* Footer fix */
 .footer {
     position: absolute;
     bottom: 0;

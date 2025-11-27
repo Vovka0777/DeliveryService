@@ -19,6 +19,7 @@ wwwroot\images\salat.png
 wwwroot\images\stepler.png
 wwwroot\images\sushi.png
 wwwroot\images\zxgwre.jpg
+wwwroot\ImageUser\aabobovic59@gmail.com-avatar.jpg
 wwwroot\ImageUser\vovabelko07@gmail.com-avatar.jpg
 wwwroot\js\catalog.js
 wwwroot\js\login_and_registration_script.js

@@ -1,6 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Политика конфиденциальности";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-5 pt-5 mb-5">
+    <div class="container-section shadow-sm p-5">
+        <h1 class="display-5 fw-bold mb-4">@ViewData["Title"]</h1>
+
+        <div class="lead text-secondary">
+            <p>Ваша конфиденциальность очень важна для нас. В этом документе описано, как мы собираем, используем и защищаем вашу личную информацию.</p>
+
+            <h3 class="h5 fw-bold text-dark mt-4">1. Сбор информации</h3>
+            <p>Мы собираем информацию, которую вы предоставляете нам напрямую (например, при регистрации аккаунта или оформлении заказа).</p>
+
+            <h3 class="h5 fw-bold text-dark mt-4">2. Использование данных</h3>
+            <p>Мы используем ваши данные исключительно для обработки заказов и улучшения качества нашего сервиса.</p>
+
+            <h3 class="h5 fw-bold text-dark mt-4">3. Безопасность</h3>
+            <p>Мы принимаем все необходимые меры для защиты ваших данных от несанкционированного доступа.</p>
+        </div>
+    </div>
+</div>

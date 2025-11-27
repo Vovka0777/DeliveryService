@@ -1,49 +1,63 @@
 ﻿@model DeliveryService.Domain.ViewModels.Item.ItemViewModel
 
 @{
-    // Устанавливаем заголовок страницы как название товара
     ViewData["Title"] = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container py-5">
-    <div class="row">
+<div class="container py-5 mt-4">
+    <div class="row g-5 align-items-center">
 
-        <div class="col-lg-6 mb-4">
-            <div class="product-detail-img-container shadow-sm">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="product-detail-img-container" style="animation: fadeInUp 0.8s ease;">
                 <img src="@Model.PathImg" alt="@Model.Name" class="product-detail-img" />
             </div>
         </div>
 
-        <div class="col-lg-6">
-            <h1 class="display-4 mb-3">@Model.Name</h1>
-
-            <p class="h3 price-tag text-success mb-4">
-                @Model.Price.ToString("N2") ₽
-            </p>
-
-            <div class="mb-3">
-                <span class="badge bg-primary fs-6">Категория: @Model.Category</span>
+        <div class="col-lg-6" style="animation: fadeInUp 0.8s ease 0.2s backwards;">
+            <div class="mb-2">
+                <span class="badge rounded-pill bg-light text-primary border border-primary px-3 py-2">
+                    @Model.Category
+                </span>
             </div>
 
-            <h4 class="mt-4 mb-2">Описание товара</h4>
-            <p class="lead leading-relaxed text-secondary">
+            <h1 class="display-4 fw-bold mb-3">@Model.Name</h1>
+
+            <div class="d-flex align-items-center mb-4">
+                <span class="display-6 fw-bold text-primary me-3">@Model.Price.ToString("N0") ₽</span>
+                @* <span class="text-decoration-line-through text-muted fs-5">@(Model.Price * 1.2) ₽</span> *@
+            </div>
+
+            <h5 class="fw-bold text-dark mb-3">Описание</h5>
+            <p class="lead fs-6 text-secondary lh-lg mb-5">
                 @Model.Description
             </p>
 
-            <div class="mt-5 d-grid gap-2">
-
-                <button type="button" class="btn btn-warning btn-lg transition-hover">
-                    <i class="bi bi-cart-plus-fill me-2"></i>
-                    Добавить в корзину
+            <div class="d-flex gap-3 flex-wrap">
+                <button type="button" class="btn btn-primary btn-lg rounded-pill px-5 shadow-lg transition-hover">
+                    <i class="bi bi-bag-plus me-2"></i> В корзину
                 </button>
 
-                <a asp-controller="Catalog" asp-action="Index" class="btn btn-outline-secondary btn-lg">
-                    <i class="bi bi-arrow-left me-2"></i>
-                    Назад к каталогу
+                <a asp-controller="Catalog" asp-action="Index" class="btn btn-outline-secondary btn-lg rounded-pill px-4">
+                    Назад
                 </a>
-
             </div>
+
+            <div class="row mt-5 pt-4 border-top">
+                <div class="col-6 mb-3">
+                    <div class="d-flex align-items-center text-muted">
+                        <i class="bi bi-truck fs-4 me-3 text-primary"></i>
+                        <small>Быстрая доставка <br>от 30 минут</small>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="d-flex align-items-center text-muted">
+                        <i class="bi bi-shield-check fs-4 me-3 text-primary"></i>
+                        <small>Гарантия качества <br>и возврата</small>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

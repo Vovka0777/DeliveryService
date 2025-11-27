@@ -2,7 +2,11 @@
   "Files": [
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DeliveryService_Belko.bundle.scp.css",
-      "PackagePath": "staticwebassets\\DeliveryService_Belko.jhgzproik5.bundle.scp.css"
+      "PackagePath": "staticwebassets\\DeliveryService_Belko.qn15hc5gpt.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\ImageUser\\aabobovic59@gmail.com-avatar.jpg",
+      "PackagePath": "staticwebassets\\ImageUser\\aabobovic59@gmail.com-avatar.jpg"
     },
     {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\ImageUser\\vovabelko07@gmail.com-avatar.jpg",

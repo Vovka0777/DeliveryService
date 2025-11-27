@@ -1,62 +1,74 @@
-﻿<div class="container-login-registration" id="loginModal" style="display: none;">
-	<div class="block-container">
-		<div class="block">
-			<section class="block-item item-item">
-				<h2 class="block-item-title">У вас уже есть аккаунт?</h2>
-				<button class="block-item-btn signin-btn">Войти</button>
-			</section>
-			<section class="block-item block-item">
-				<h2 class="block-item-title">У вас нет аккаунта?</h2>
-				<button class="block-item-btn signup-btn">Зарегистрироваться</button>
-			</section>
-		</div>
-		<div class="form-box">
-			<form class="form form_signin">
-				<h3 class="form_title">Вход</h3>
+﻿<div class="container-login-registration">
+    <div class="block-container">
 
-				<label id="email">
-					<input type="text" />
-					<span>Почта</span>
-				</label>
+        <div class="block">
+            <section class="block-item">
+                <h2 class="block-item-title">С возвращением!</h2>
+                <p class="mb-4 text-white-50">Если у вас уже есть аккаунт, войдите здесь.</p>
+                <button class="block-item-btn signin-btn">Войти</button>
+            </section>
+            <section class="block-item">
+                <h2 class="block-item-title">Привет, друг!</h2>
+                <p class="mb-4 text-white-50">Введите свои данные и начните путешествие с нами.</p>
+                <button class="block-item-btn signup-btn">Зарегистрироваться</button>
+            </section>
+        </div>
 
-				<label id="password">
-					<input type="password" />
-					<span>Пароль</span>
-				</label>
+        <div class="form-box">
 
-				<div class="form-btn">Войти</div>
-				<a class="google"><img src="~/images/photo_google.png" class="google-img" /></a>
-				<div id="error-messages-signin"></div>
-			</form>
+            <form class="form form_signin">
+                <h3 class="form_title">Вход</h3>
 
-			<form class="form form_signup">
-				<h3 class="form_title">Регистрация</h3>
+                <label id="email-label">
+                    <input type="email" placeholder=" " required />
+                    <span><i class="bi bi-envelope"></i> Почта</span>
+                </label>
 
-				<label id="login">
-					<input type="text" />
-					<span>Логин</span>
-				</label>
+                <label id="password-label">
+                    <input type="password" placeholder=" " required />
+                    <span><i class="bi bi-lock"></i> Пароль</span>
+                </label>
 
-				<label id="email">
-					<input type="text" />
-					<span>Почта</span>
-				</label>
+                <button type="button" class="form-btn">Войти</button>
 
-				<label id="password">
-					<input type="password" />
-					<span>Пароль</span>
-				</label>
+                <div class="form-btn-container">
+                    <a class="google" href="#">
+                        <button type="button">
+                            <img src="~/images/photo_google.png" class="google-img" alt="Google" />
+                            Войти через Google
+                        </button>
+                    </a>
+                </div>
 
-				<label id="confirm_password">
-					<input type="password" />
-					<span>Подтвердите пароль</span>
-				</label>
-				<div id="error-messages-signup"></div>
+                <div id="error-messages-signin"></div>
+            </form>
 
-				<div class="form-btn form_btn_signup">Зарегистрироваться</div>
-			</form>
-		</div>
-	</div>
-	<div class="overlay"></div>
+            <form class="form form_signup">
+                <h3 class="form_title">Создать аккаунт</h3>
+
+                <label id="login-reg">
+                    <input type="text" placeholder=" " required />
+                    <span><i class="bi bi-person"></i> Логин</span>
+                </label>
+
+                <label id="email-reg">
+                    <input type="email" placeholder=" " required />
+                    <span><i class="bi bi-envelope"></i> Почта</span>
+                </label>
+
+                <label id="pass-reg">
+                    <input type="password" placeholder=" " required />
+                    <span><i class="bi bi-lock"></i> Пароль</span>
+                </label>
+
+                <label id="pass-conf-reg">
+                    <input type="password" placeholder=" " required />
+                    <span><i class="bi bi-check2-circle"></i> Подтвердите пароль</span>
+                </label>
+
+                <button type="button" class="form-btn form_btn_signup">Зарегистрироваться</button>
+                <div id="error-messages-signup"></div>
+            </form>
+        </div>
+    </div>
 </div>
-

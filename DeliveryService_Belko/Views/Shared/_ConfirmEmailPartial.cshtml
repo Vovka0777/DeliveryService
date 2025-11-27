@@ -1,22 +1,54 @@
-﻿    @model DeliveryService.Domain.ViewModels.LoginAndRegistration.ConfirmEmailViewModel
+﻿@model DeliveryService.Domain.ViewModels.LoginAndRegistration.ConfirmEmailViewModel
 
-<div class="confirm-email-container" style="display:none;">
-    <div class="overlay"></div>
+<div class="container-login-registration" id="confirmEmailModal" style="display:none;">
 
-    <div class="confirm-email-form">
-        <div class="form_title">Регистрация</div>
+    <div class="block-container" style="height: auto; min-height: 400px; width: 100%; max-width: 500px; overflow:visible;">
 
-        <p>На указанную почту отправлено письмо с кодом подтверждения</p>
+        <div class="form-box active" style="width: 100%; height: 100%; position: relative; border-radius: 20px; left:0;">
 
-        <input type="text" placeholder="" asp-for="ConfirmCode" id="code_confirm">
-        <span>Введите код подтверждения</span>
+            <form class="form d-flex flex-column h-100 justify-content-center">
+                <div class="text-center mb-4">
+                    <i class="bi bi-envelope-check text-primary" style="font-size: 3rem;"></i>
+                    <h3 class="form_title mt-3 mb-2">Подтверждение</h3>
+                    <p class="text-muted small px-3">
+                        Мы отправили код подтверждения на ваш Email. Введите его ниже.
+                    </p>
+                </div>
 
-        <div class="button_confirm_container">
-            <div class="button_confirm send_confirm">Отправить</div>
+                <label class="mb-4">
+                    <input type="text" asp-for="ConfirmCode" id="code_confirm" class="text-center fw-bold fs-4" placeholder=" " style="letter-spacing: 5px;" />
+                    <span>Код из письма</span>
+                </label>
 
-            <div class="button_confirm red button_confirm_close">Закрыть</div>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-primary btn-lg rounded-pill shadow-sm send_confirm">
+                        Подтвердить
+                    </button>
+                    <button type="button" class="btn btn-outline-danger btn-lg rounded-pill border-0 button_confirm_close">
+                        Отмена
+                    </button>
+                </div>
+
+                <p class="warning mt-4 text-center text-danger small bg-light p-2 rounded">
+                    <i class="bi bi-exclamation-circle me-1"></i> Если закрыть это окно, регистрация не завершится.
+                </p>
+            </form>
         </div>
-
-        <p class="warning">При закрытии данной формы Регистрация НЕ будет завершена</p>
     </div>
+
+    <div class="overlay button_confirm_close"></div>
 </div>
+
+<script>
+    // Небольшой скрипт для локальной логики закрытия этого конкретного модального окна
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('confirmEmailModal');
+        const closeBtns = modal?.querySelectorAll('.button_confirm_close');
+
+        if(modal && closeBtns) {
+            closeBtns.forEach(btn => btn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            }));
+        }
+    });
+</script>

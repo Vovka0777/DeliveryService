@@ -11,6 +11,9 @@ namespace DeliveryService.Domain.Validator
                 .MinimumLength(6).WithMessage("Пароль должен содержать минимум 6 символов");
             RuleFor(user => user.Email).NotEmpty().WithMessage("Email обязателен")
                 .EmailAddress().WithMessage("Некорректный формат email");
+            RuleFor(x => x.Login)
+    .NotEmpty().WithMessage("Логин обязателен")
+    .MinimumLength(3).WithMessage("Логин должен быть больше 3 символов");
         }
     }
 }

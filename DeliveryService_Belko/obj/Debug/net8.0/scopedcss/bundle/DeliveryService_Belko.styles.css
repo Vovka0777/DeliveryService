@@ -2,26 +2,37 @@
 /* Стили для подтверждения email */
 .btn-primary[b-35yicm0hen] {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #2563eb;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
     .btn-primary:hover[b-35yicm0hen] {
-        background-color: #1d4ed8;
-        border-color: #1e40af;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
 
 a[b-35yicm0hen] {
-    color: #2563eb;
+    color: #3b82f6;
+    font-weight: 500;
 }
+
+    a:hover[b-35yicm0hen] {
+        color: #1d4ed8;
+        text-decoration: underline;
+    }
 /* _content/DeliveryService_Belko/Views/Shared/_FooterPartial.cshtml.rz.scp.css */
 /* Стили для футера */
 a[b-ge8mquqbat] {
-    color: #2563eb;
+    color: #6b7280; /* Серый по умолчанию */
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
     a:hover[b-ge8mquqbat] {
-        color: #1d4ed8;
+        color: #3b82f6; /* Яркий синий при наведении */
     }
 
 .footer[b-ge8mquqbat] {
@@ -30,6 +41,8 @@ a[b-ge8mquqbat] {
     width: 100%;
     white-space: nowrap;
     line-height: 60px;
+    background-color: #ffffff;
+    border-top: 1px solid #f3f4f6;
 }
 /* _content/DeliveryService_Belko/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Основные стили Layout */
@@ -39,52 +52,58 @@ a.navbar-brand[b-atd0m6w4pz] {
     word-break: break-all;
 }
 
+/* Обновленные ссылки */
 a[b-atd0m6w4pz] {
-    color: #2563eb; /* Основной синий */
+    color: #3b82f6; /* Новый primary-color */
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
     a:hover[b-atd0m6w4pz] {
-        color: #1d4ed8; /* Темно-синий при наведении */
+        color: #2563eb; /* Новый primary-hover */
     }
 
-/* Переопределение стандартной кнопки */
+/* Кнопки */
 .btn-primary[b-atd0m6w4pz] {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #2563eb;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    border: none;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
     transition: all 0.3s ease;
 }
 
     .btn-primary:hover[b-atd0m6w4pz] {
-        background-color: #1d4ed8;
-        border-color: #1e40af;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
     }
 
 .nav-pills .nav-link.active[b-atd0m6w4pz], .nav-pills .show > .nav-link[b-atd0m6w4pz] {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #1861ac;
+    background-color: #3b82f6;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 }
 
 .border-top[b-atd0m6w4pz] {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e7eb;
 }
 
 .border-bottom[b-atd0m6w4pz] {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .box-shadow[b-atd0m6w4pz] {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy[b-atd0m6w4pz] {
     font-size: 1rem;
     line-height: inherit;
+    border-radius: 8px;
 }
 
+/* Footer fix */
 .footer[b-atd0m6w4pz] {
     position: absolute;
     bottom: 0;
@@ -96,11 +115,15 @@ button.accept-policy[b-atd0m6w4pz] {
 /* Стили для отзывов */
 .btn-primary[b-3pp1itmz91] {
     color: #fff;
-    background-color: #2563eb;
-    border-color: #2563eb;
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    border-radius: 30px; /* Круглые кнопки */
+    padding: 8px 20px;
+    font-weight: 600;
 }
 
     .btn-primary:hover[b-3pp1itmz91] {
-        background-color: #1d4ed8;
-        border-color: #1e40af;
+        background-color: #2563eb;
+        border-color: #2563eb;
+        transform: scale(1.05);
     }

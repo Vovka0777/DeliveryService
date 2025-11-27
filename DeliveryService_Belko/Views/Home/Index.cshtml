@@ -1,8 +1,105 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<img src="~/images/zxgwre.jpg" alt="Delivery Header" class="img-header" />
+
+<div class="container">
+    <div class="info-sections">Почему мы?</div>
+
+    <div class="container-row">
+        <div class="row-item">
+            <img src="~/images/icon-address.png" alt="Быстро" class="item-img" />
+            <h2>Быстрая доставка</h2>
+            <p>Мы доставляем заказы в рекордные сроки благодаря оптимизированной логистике.</p>
+        </div>
+
+        <div class="row-item">
+            <img src="~/images/icon-email.png" alt="Поддержка" class="item-img" />
+            <h2>Поддержка 24/7</h2>
+            <p>Наши операторы всегда на связи, чтобы помочь вам с любым вопросом.</p>
+        </div>
+
+        <div class="row-item">
+            <img src="~/images/icon-phone.png" alt="Удобно" class="item-img" />
+            <h2>Удобный заказ</h2>
+            <p>Заказывайте через сайт или приложение всего в пару кликов.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-section">
+    <div class="info-sections">О сервисе</div>
+    <div class="intro-text">
+        DeliveryService — это современная платформа для доставки товаров. Мы объединяем лучшие магазины и курьеров, чтобы вы получали свои покупки быстро и с комфортом.
+    </div>
+
+    <div class="about-content">
+        <div class="about-item">
+            <div class="feature-title">Надежность</div>
+            <p>Все посылки застрахованы, а курьеры проходят строгий отбор.</p>
+        </div>
+        <div class="about-item">
+            <div class="feature-title">Технологии</div>
+            <p>Используем AI для построения оптимальных маршрутов.</p>
+        </div>
+        <div class="about-item centered">
+            <div class="feature-title">Экология</div>
+            <p>Мы внедряем электротранспорт и эко-упаковку для сохранения природы.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="info-sections">Зона покрытия</div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d157556.8876403213!2d28.7236!3d47.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3628b769a1%3A0x37d1d6305749dd3c!2sChisinau!5e0!3m2!1sen!2smd!4v1700000000000"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+
+<div class="container-section" style="background: transparent; box-shadow: none;">
+    <div class="info-sections">Отзывы клиентов</div>
+    <div class="reviews-container" id="reviews-container">
+        <div class="reviews-wrapper">
+            <div class="review-item">
+                <div class="review-text">"Отличный сервис! Привезли горячую пиццу за 20 минут."</div>
+                <div class="review-author">Алексей П.</div>
+            </div>
+            <div class="review-item">
+                <div class="review-text">"Удобное приложение и вежливые курьеры. Рекомендую!"</div>
+                <div class="review-author">Марина С.</div>
+            </div>
+            <div class="review-item">
+                <div class="review-text">"Спасли мой праздник, доставив подарки вовремя."</div>
+                <div class="review-author">Игорь В.</div>
+            </div>
+            <div class="review-item">
+                <div class="review-text">"Пользуюсь каждый день для доставки обедов в офис."</div>
+                <div class="review-author">Елена К.</div>
+            </div>
+            <div class="review-item">
+                <div class="review-text">"Отличный сервис! Привезли горячую пиццу за 20 минут."</div>
+                <div class="review-author">Алексей П.</div>
+            </div>
+            <div class="review-item">
+                <div class="review-text">"Удобное приложение и вежливые курьеры. Рекомендую!"</div>
+                <div class="review-author">Марина С.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-bottom: 80px;">
+    <div class="info-sections">Напишите нам</div>
+    <div class="block-message">
+        <p>Есть вопросы или предложения? Заполните форму ниже.</p>
+        <form class="message-text">
+            <label>Ваше сообщение</label>
+            <textarea class="text" placeholder="Введите текст..."></textarea>
+        </form>
+        <div class="message-button">
+            <button class="button">Отправить</button>
+        </div>
+    </div>
 </div>

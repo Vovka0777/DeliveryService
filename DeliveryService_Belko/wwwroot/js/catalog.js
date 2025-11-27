@@ -1,10 +1,10 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-    
+
     const priceRange = document.getElementById('priceRange');
     const priceValue = document.getElementById('priceValue');
     const applyFiltersBtn = document.getElementById('applyFilters');
     const sortOrderSelect = document.getElementById('sortOrder');
-    const searchInput = document.getElementById('elasticSearch'); // Наше поле поиска
+    const searchInput = document.getElementById('elasticSearch');
     const clearBtn = document.getElementById('clearSearch');
 
     // Обновление цифры цены
@@ -14,7 +14,7 @@
         });
     }
 
-    // Кнопка "Применить"
+    // Обработчики событий
     if (applyFiltersBtn) {
         applyFiltersBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -22,47 +22,41 @@
         });
     }
 
-    // Сортировка
     if (sortOrderSelect) {
-        sortOrderSelect.addEventListener('change', function () {
+        sortOrderSelect.addEventListener('change', () => filterItems());
+    }
+
+    // Живой поиск с debounce
+    let debounceTimer;
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const hasText = this.value.trim() !== '';
+            if (clearBtn) clearBtn.style.display = hasText ? 'block' : 'none';
+
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                filterItems();
+            }, 400);
+        });
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            if (searchInput) searchInput.value = '';
+            this.style.display = 'none';
             filterItems();
         });
     }
 
-    // === НОВАЯ ЛОГИКА ПОИСКА ===
-    let debounceTimer;
-    if (searchInput) {
-        searchInput.addEventListener('input', function () {
-            // Показываем/скрываем крестик
-            if (this.value.trim() !== '') {
-                clearBtn.style.display = 'block';
-            } else {
-                clearBtn.style.display = 'none';
-            }
-
-            // Задержка (debounce), чтобы не бомбить сервер запросами при каждой букве
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-                filterItems();
-            }, 500); // Запрос уйдет через 0.5 сек после окончания ввода
-        });
-    }
-
-    // Очистка поиска
-    if (clearBtn) {
-        clearBtn.addEventListener('click', function () {
-            searchInput.value = '';
-            this.style.display = 'none';
-            filterItems(); // Сбрасываем фильтр
-        });
-    }
-
-    // Основная функция фильтрации (ТЕПЕРЬ ВКЛЮЧАЕТ ПОИСК)
     function filterItems() {
-        const maxPrice = document.getElementById('priceRange').value;
-        const sortOrder = document.getElementById('sortOrder').value;
-        const searchText = document.getElementById('elasticSearch').value; // Берем текст поиска
-        
+        const productsContainer = document.getElementById('productsList');
+        // Добавляем эффект загрузки (прозрачность)
+        productsContainer.style.opacity = '0.5';
+
+        const maxPrice = priceRange ? priceRange.value : 100000;
+        const sortOrder = sortOrderSelect ? sortOrderSelect.value : "name_asc";
+        const searchText = searchInput ? searchInput.value : "";
+
         let selectedCategories = [];
         const checkboxes = document.querySelectorAll('.form-check-input:checked');
         checkboxes.forEach((checkbox) => {
@@ -73,25 +67,31 @@
             maxPrice: parseFloat(maxPrice),
             categories: selectedCategories,
             ordering: sortOrder,
-            name: searchText // Отправляем имя на сервер
+            name: searchText
         };
 
         fetch('/Catalog/GetItemsByFilter', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(filterData)
         })
-        .then(response => response.json())
-        .then(result => {
-            if (result.statusCode === 200) {
-                renderCatalog(result.data);
-            } else {
-                console.error('Ошибка фильтрации:', result.description);
-            }
-        })
-        .catch(error => console.error('Ошибка сети:', error));
+            .then(response => response.json())
+            .then(result => {
+                if (result.statusCode === 200) {
+                    renderCatalog(result.data);
+                } else {
+                    console.error('Ошибка:', result.description);
+                    productsContainer.innerHTML = `<p class="text-danger text-center">Ошибка: ${result.description}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка сети:', error);
+                productsContainer.innerHTML = '<p class="text-center">Ошибка соединения.</p>';
+            })
+            .finally(() => {
+                // Возвращаем непрозрачность
+                productsContainer.style.opacity = '1';
+            });
     }
 
     function renderCatalog(items) {
@@ -99,32 +99,42 @@
         container.innerHTML = '';
 
         if (!items || items.length === 0) {
-            container.innerHTML = '<p class="text-center">Товары не найдены.</p>';
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <h4 class="text-muted">Ничего не найдено 😔</h4>
+                    <p>Попробуйте изменить параметры поиска</p>
+                </div>`;
             return;
         }
 
-        items.forEach(item => {
+        items.forEach((item, index) => {
+            // Создаем элемент
+            const wrapper = document.createElement('div');
+            // Если используете Bootstrap grid в контейнере, классы могут быть не нужны на обертке, 
+            // так как grid задан в родительском .catalog-container css.
+            // Но для анимации нам нужен элемент.
+
+            // Генерация HTML, соответствующего catalog.css
             const cardHtml = `
-                <div class="product-card">
+                <div class="product-card" style="animation: fadeInUp 0.5s ease forwards; animation-delay: ${index * 0.05}s; opacity: 0; transform: translateY(20px);">
                     <div class="card-img-container">
-                        <img src="${item.pathImg}" alt="${item.name}" class="product-img" />
+                        <img src="${item.pathImg}" alt="${item.name}" class="product-img" loading="lazy" />
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">${item.name}</h3>
-                        <span class="badge bg-secondary mb-2">Категория: ${item.category}</span>
                         <p class="card-text">${item.description}</p>
                         <div class="card-footer-custom">
                             <span class="price-tag">${item.price} ₽</span>
                             <a href="/Catalog/GetItem/${item.id}" class="btn btn-primary btn-sm">
-                                Купить
+                                Подробнее
                             </a>
                         </div>
                     </div>
                 </div>
             `;
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = cardHtml;
-            container.appendChild(tempDiv.firstElementChild);
+
+            wrapper.innerHTML = cardHtml;
+            container.appendChild(wrapper.firstElementChild);
         });
     }
 });

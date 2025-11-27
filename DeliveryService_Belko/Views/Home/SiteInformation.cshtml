@@ -1,80 +1,103 @@
-﻿<div class="container-section">
-    <h2 class="info-sections">Контакты</h2>
-    <div class="container-row">
-        <div class="row-item">
-            <img class="item-img" src="~/images/icon-email.png" alt="" />
-            <h2>Email</h2>
-            <p>
-                DeliveryServ@mail.ru
-            </p>
-        </div>
-        <div class="row-item">
-            <img class="item-img" src="~/images/icon-phone.png" alt="" />
-            <h2>Телефон</h2>
-            <p>
-                + (373) 534-623-954
-            </p>
-        </div>
-        <div class="row-item">
-            <img class="item-img" src="~/images/icon-address.png" alt="" />
-            <h2>Адрес</h2>
-            <p>
-                г. Тирасполь | ул.Старого дом 2 | 1 этаж
-            </p>
-        </div>
-    </div>
-    <h2 class="info-sections">О нас</h2>
-    <p class="intro-text">Мы — служба доставки, которая заботится о каждом заказе и делает вашу жизнь проще. Наши услуги предназначены для тех, кто ценит скорость, надежность и безупречное качество.</p>
+﻿@{
+    ViewData["Title"] = "Информация о нас";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    <div class="about-content">
-        <div class="about-item">
-            <h3 class="feature-title">Широкий спектр услуг</h3>
-            <p>Наша служба предлагает доставку товаров любого типа: от документов и посылок до продуктов питания и крупногабаритных товаров. Мы всегда готовы удовлетворить ваши потребности.</p>
-        </div>
+<div class="container mt-5 pt-3">
 
-        <div class="about-item">
-            <h3 class="feature-title">Быстрота и надежность</h3>
-            <p>Мы гарантируем доставку точно в срок. Наши курьеры работают оперативно и надежно, обеспечивая безопасность ваших посылок на протяжении всего пути.</p>
-        </div>
+    <div class="text-center mb-5" style="animation: fadeInUp 0.8s ease;">
+        <h2 class="display-5 fw-bold mb-4">Наши контакты</h2>
+        <div class="row justify-content-center g-4">
 
-        <div class="about-item">
-            <h3 class="feature-title">Современные технологии</h3>
-            <p>Система отслеживания заказов позволяет в любое время следить за маршрутом доставки, обеспечивая вам полную прозрачность и уверенность.</p>
-        </div>
+            <div class="col-md-4">
+                <div class="row-item h-100 py-4">
+                    <i class="bi bi-envelope-at text-primary display-4 mb-3 d-block"></i>
+                    <h3 class="h5 fw-bold">Email</h3>
+                    <p class="text-muted">DeliveryServ@mail.ru</p>
+                </div>
+            </div>
 
-        
+            <div class="col-md-4">
+                <div class="row-item h-100 py-4">
+                    <i class="bi bi-telephone text-primary display-4 mb-3 d-block"></i>
+                    <h3 class="h5 fw-bold">Телефон</h3>
+                    <p class="text-muted">+ (373) 534-623-954</p>
+                </div>
+            </div>
 
-        
-    </div>
-    <div class="about-item">
-        <h3 class="feature-title">Гибкие тарифы</h3>
-        <p>Наши тарифные планы адаптированы под разные потребности — от разовых доставок до долгосрочного сотрудничества с бизнесом.</p>
-    </div>
-    <div class="about-item centered">
-        <h3 class="feature-title">Профессиональная команда</h3>
-        <p>Мы гордимся нашей командой — опытные курьеры и внимательные менеджеры всегда готовы обеспечить безупречный сервис и помочь с любыми вопросами.</p>
-        <div class="map">
-            <script type="text/javascript"
-                    charset="utf-8"
-                    async
-                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6901c3237fc5cf4423a0207fce0c657578f7fbab4d0a6b1c3c92c01041d3fbd0&amp;width=100%25&amp;height=427&amp;lang=ru_RU&amp;scroll=true">
-            </script>
+            <div class="col-md-4">
+                <div class="row-item h-100 py-4">
+                    <i class="bi bi-geo-alt text-primary display-4 mb-3 d-block"></i>
+                    <h3 class="h5 fw-bold">Адрес</h3>
+                    <p class="text-muted">г. Тирасполь, ул. Старого 2<br>1 этаж</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <p class="closing-text">С нами ваши посылки всегда в надежных руках, а каждый заказ — это шаг к вашему комфорту!</p>
-    <h2 class="info-sections">Написать сообщение</h2>
+    <hr class="my-5 opacity-10">
 
-    <div class="block-message">
-        <p>Вы можете написать нам на почту здесь </p>
-        <div class="message-text">
-            <label>Сообщение:</label>
-            <span></span>
-            <textarea class="text"></textarea>
-        </div>
-        <div class="message-button">
-            <button class="button" type="submit">Отправить</button>
+    <div class="container-section" style="animation: fadeInUp 0.8s ease 0.2s backwards;">
+        <h2 class="info-sections">О компании</h2>
+        <p class="intro-text fs-5">
+            Мы — служба доставки, которая заботится о каждом заказе. Скорость, надежность и безупречное качество — наши главные приоритеты.
+        </p>
+
+        <div class="row g-4 mt-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="about-item h-100">
+                    <i class="bi bi-box-seam text-primary fs-2 mb-3"></i>
+                    <h3 class="feature-title h5">Все виды грузов</h3>
+                    <p class="small text-muted">Доставляем всё: от документов до крупногабаритных грузов.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="about-item h-100">
+                    <i class="bi bi-lightning-charge text-primary fs-2 mb-3"></i>
+                    <h3 class="feature-title h5">Молниеносно</h3>
+                    <p class="small text-muted">Гарантируем доставку точно в срок благодаря умной логистике.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="about-item h-100">
+                    <i class="bi bi-phone text-primary fs-2 mb-3"></i>
+                    <h3 class="feature-title h5">Отслеживание</h3>
+                    <p class="small text-muted">Следите за курьером на карте в реальном времени через приложение.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="about-item h-100">
+                    <i class="bi bi-people text-primary fs-2 mb-3"></i>
+                    <h3 class="feature-title h5">Команда профи</h3>
+                    <p class="small text-muted">Вежливые курьеры и заботливая поддержка 24/7.</p>
+                </div>
+            </div>
         </div>
 
+        <div class="about-item centered mt-5 p-0 overflow-hidden shadow-sm" style="border: 4px solid #fff;">
+            <div class="map position-relative" style="height: 450px; margin: 0; width: 100%;">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6901c3237fc5cf4423a0207fce0c657578f7fbab4d0a6b1c3c92c01041d3fbd0&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+        </div>
     </div>
+
+    <div class="container my-5 pb-5">
+        <h2 class="info-sections">Напишите нам</h2>
+        <div class="block-message">
+            <p class="text-muted">Есть вопрос или предложение? Заполните форму ниже.</p>
+            <form class="message-text w-100">
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Ваше сообщение" id="floatingTextarea2" style="height: 150px; border-radius: 15px; border: 2px solid #eef2f6;"></textarea>
+                    <label for="floatingTextarea2">Ваше сообщение</label>
+                </div>
+                <div class="message-button">
+                    <button class="button" type="submit">Отправить сообщение</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
