@@ -26,7 +26,7 @@
 .filters-sidebar {
     flex: 0 0 280px;
     padding: 25px;
-    background-color: var(--bg-white); /* Используем переменную */
+    background-color: var(--bg-white);
     border-radius: var(--radius-lg);
     border: 1px solid var(--accent-border);
     height: fit-content;
@@ -67,14 +67,14 @@
 /* Сетка товаров (Grid) */
 .catalog-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 /* Карточка товара */
 .product-card {
-    background-color: var(--bg-white); /* Используем переменную */
-    border: 1px solid var(--accent-border); /* Добавил бордер для четкости в темной теме */
+    background-color: var(--bg-white);
+    border: 1px solid var(--accent-border);
     border-radius: 20px;
     overflow: hidden;
     position: relative;
@@ -94,7 +94,7 @@
 /* Контейнер изображения */
 .card-img-container {
     height: 240px;
-    background: var(--bg-gradient-card); /* Адаптивный градиент */
+    background: var(--bg-gradient-card);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,7 +156,7 @@
 }
 
 .price-tag {
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--primary-color);
 }
@@ -191,7 +191,7 @@
     font-size: 1.1rem;
     border: 1px solid var(--accent-border);
     border-radius: 15px;
-    background-color: var(--bg-input); /* Переменная */
+    background-color: var(--bg-input);
     color: var(--text-dark);
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
@@ -254,30 +254,30 @@
     transition: all 0.3s ease;
 }
 
-/* Адаптивность для мобильных */
+/* --- Адаптивность для мобильных (Исправлено) --- */
 @media (max-width: 768px) {
-    /* 1. Выстраиваем блоки вертикально: сначала фильтры, потом товары */
+    /* Вертикальное расположение блоков */
     .catalog-wrapper {
         flex-direction: column;
     }
 
-    /* 2. Исправляем панель фильтров: отключаем "липкость" и фиксированную высоту */
+    /* Исправление панели фильтров (убран sticky и фикс высоты, поднят z-index) */
     .filters-sidebar {
         width: 100%;
-        position: relative; /* Важно: отключаем sticky */
+        position: relative;
         top: 0;
-        flex: initial; /* Важно: убираем ограничение высоты (280px), которое было на ПК */
+        flex: initial;
         margin-bottom: 25px;
-        z-index: 5; /* Поднимаем слой, чтобы ничего случайно не наехало */
+        z-index: 5;
     }
 
-    /* 3. Настраиваем сетку товаров: 2 колонки */
+    /* Сетка товаров: 2 колонки */
     .catalog-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
-    /* 4. Адаптируем карточки товаров под маленький размер */
+    /* Компактные стили карточек */
     .card-img-container {
         height: 150px;
         padding: 10px;
@@ -290,7 +290,6 @@
     .card-title {
         font-size: 1rem;
         margin-bottom: 5px;
-        /* Ограничиваем заголовок 2 строками */
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -300,7 +299,6 @@
     .card-text {
         font-size: 0.8rem;
         margin-bottom: 10px;
-        /* Ограничиваем описание 2 строками или скрываем, если нужно */
         -webkit-line-clamp: 2;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -325,3 +323,109 @@
         font-size: 0.9rem;
     }
 }
+
+/* --- Исправление неровностей в фильтрах --- */
+
+/* 1. Блок категорий (Чекбоксы) */
+.filters-sidebar .form-check {
+    display: flex; /* Включаем гибкий контейнер */
+    align-items: center; /* Центрируем строго по вертикали */
+    padding-left: 0; /* Убираем стандартный отступ Bootstrap */
+    margin-bottom: 12px;
+    min-height: 24px;
+}
+
+.filters-sidebar .form-check-input {
+    float: none;
+    margin: 0 12px 0 0; /* Отступ только справа */
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--accent-border);
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    top: 0;
+    transition: all 0.2s ease;
+}
+
+    .filters-sidebar .form-check-input:checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    }
+
+.filters-sidebar .form-check-label {
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding-top: 2px; /* Оптическая коррекция */
+    color: var(--text-dark);
+    user-select: none;
+}
+
+/* 2. Ползунок цены (Range) */
+.filters-sidebar .filter-group label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.filters-sidebar .form-range {
+    height: 4px;
+    padding: 0;
+    margin-top: 5px;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+    /* Дорожка (Track) */
+    .filters-sidebar .form-range::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background-color: var(--accent-border);
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .filters-sidebar .form-range::-moz-range-track {
+        width: 100%;
+        height: 4px;
+        background-color: var(--accent-border);
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    /* Бегунок (Thumb) */
+    .filters-sidebar .form-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        margin-top: -8px; /* Центрирование */
+        cursor: pointer;
+        transition: transform 0.1s;
+    }
+
+        .filters-sidebar .form-range::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+    .filters-sidebar .form-range::-moz-range-thumb {
+        height: 20px;
+        width: 20px;
+        border: none;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: transform 0.1s;
+    }

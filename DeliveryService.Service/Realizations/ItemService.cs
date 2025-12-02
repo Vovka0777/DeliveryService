@@ -25,7 +25,6 @@ namespace DeliveryService.Service.Realizations
             _mapper = mapper;
         }
 
-        // Метод для получения всех товаров (используется в Index по умолчанию)
         public async Task<BaseResponse<List<ItemViewModel>>> GetItems()
         {
             try
