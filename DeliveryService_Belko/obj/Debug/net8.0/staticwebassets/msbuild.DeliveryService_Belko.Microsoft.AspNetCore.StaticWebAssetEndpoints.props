@@ -1,16 +1,16 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/catalog.ay7ie5ec1a.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\catalog.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ay7ie5ec1a"},{"Name":"integrity","Value":"sha256-wtpfA5vjD8Z4z4bs4\u002BFlemJjdG3qzKoKwJawhgnVttc="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/catalog.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10745"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wtpfA5vjD8Z4z4bs4\u002BFlemJjdG3qzKoKwJawhgnVttc=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 21:56:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/catalog.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\catalog.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ew3u1PMpCvaVkC0AcGyzjPwvFxUKoAF9m8C8GNVbaNI="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10770"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ew3u1PMpCvaVkC0AcGyzjPwvFxUKoAF9m8C8GNVbaNI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 21:14:41 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/catalog.p7z1efmvxl.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\catalog.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"p7z1efmvxl"},{"Name":"integrity","Value":"sha256-ew3u1PMpCvaVkC0AcGyzjPwvFxUKoAF9m8C8GNVbaNI="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/catalog.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10770"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ew3u1PMpCvaVkC0AcGyzjPwvFxUKoAF9m8C8GNVbaNI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 21:14:41 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-wtpfA5vjD8Z4z4bs4\u002BFlemJjdG3qzKoKwJawhgnVttc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10745"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wtpfA5vjD8Z4z4bs4\u002BFlemJjdG3qzKoKwJawhgnVttc=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 21:56:46 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/login_and_registration.26qgandqu8.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\login_and_registration.css'))</AssetFile>

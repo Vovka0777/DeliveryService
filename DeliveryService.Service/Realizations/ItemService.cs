@@ -55,26 +55,21 @@ namespace DeliveryService.Service.Realizations
             {
                 var items = await _itemStorage.GetAll().ToListAsync();
 
-                // 1. Фильтрация по Цене
                 if (filter.MaxPrice > 0)
                 {
                     items = items.Where(x => x.Price <= filter.MaxPrice).ToList();
                 }
 
-                // 2. Фильтрация по Категориям
                 if (filter.Categories != null && filter.Categories.Any())
                 {
                     items = items.Where(x => filter.Categories.Contains((int)x.Category)).ToList();
                 }
 
-                // 3. НОВОЕ: Фильтрация по Названию (Поиск)
                 if (!string.IsNullOrEmpty(filter.Name))
                 {
-                    // Приводим к нижнему регистру для поиска без учета регистра
                     items = items.Where(x => x.Name.ToLower().Contains(filter.Name.ToLower())).ToList();
                 }
 
-                // 4. Сортировка (без изменений)
                 if (!string.IsNullOrEmpty(filter.Ordering))
                 {
                     switch (filter.Ordering)

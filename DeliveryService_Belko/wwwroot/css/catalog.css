@@ -67,8 +67,8 @@
 /* Сетка товаров (Grid) */
 .catalog-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
 /* Карточка товара */
@@ -126,7 +126,7 @@
 }
 
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     margin-bottom: 8px;
     color: var(--text-dark);
@@ -156,7 +156,7 @@
 }
 
 .price-tag {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: var(--primary-color);
 }
