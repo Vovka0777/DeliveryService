@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeliveryService_Belko")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d566364a5d2906e52cbbefb85d25a669088342fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a55b375c7431219b7f25bea2a014bc1b19e620f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeliveryService_Belko")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeliveryService_Belko")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

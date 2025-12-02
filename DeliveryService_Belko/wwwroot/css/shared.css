@@ -11,7 +11,7 @@
     --bg-body: #f3f4f6;
     --bg-white: #ffffff;
     --bg-glass: rgba(255, 255, 255, 0.7);
-    --bg-header: rgba(255, 255, 255, 0.8);
+    --bg-header: rgba(255, 255, 255, 0.85);
     --bg-input: #ffffff;
     /* Карточки */
     --bg-gradient-card: radial-gradient(circle at center, #ffffff 0%, #f3f4f6 100%);
@@ -39,7 +39,7 @@
     --bg-body: #111827;
     --bg-white: #1f2937;
     --bg-glass: rgba(31, 41, 55, 0.8);
-    --bg-header: rgba(31, 41, 55, 0.85);
+    --bg-header: rgba(31, 41, 55, 0.9);
     --bg-input: #374151;
     --bg-gradient-card: radial-gradient(circle at center, #374151 0%, #1f2937 100%);
     --accent-bg-light: #374151;
@@ -53,6 +53,8 @@ html {
     box-sizing: border-box;
     font-family: "Poppins", "Montserrat", system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
+    /* ВАЖНО: Это предотвращает перекрытие заголовков при переходе по якорям */
+    scroll-padding-top: 100px;
 }
 
 *, *::before, *::after {
@@ -72,9 +74,10 @@ body {
     color: var(--text-dark);
     line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* ВАЖНО: Компенсируем высоту фиксированной шапки (80px) */
+    padding-top: 80px;
 }
 
-/* Класс для текста, который должен менять цвет */
 .text-color {
     color: var(--text-dark) !important;
 }
@@ -106,21 +109,22 @@ body {
     }
 }
 
-/* ====== HEADER ====== */
+/* ====== HEADER (ЕДИНАЯ ПАНЕЛЬ) ====== */
 #header-top {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px 5%;
+    height: 80px; /* Фиксированная высота */
+    padding: 0 5%;
     background: var(--bg-header);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--accent-border);
     box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 1020; /* Повысили z-index, чтобы точно был поверх всего */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -132,12 +136,60 @@ body {
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px;
     position: relative;
+    flex-shrink: 0;
 }
 
-/* ПК стили по умолчанию */
+/* СТИЛИ МЕНЮ */
+.menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+    .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu a {
+        color: var(--text-dark);
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 15px;
+        position: relative;
+        transition: color 0.3s;
+        padding: 5px 0;
+    }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu a:hover {
+            color: var(--primary-color);
+        }
+
+            .menu a:hover::after {
+                width: 100%;
+            }
+
+/* ПРАВАЯ ЧАСТЬ */
 .button-header {
     display: flex;
     align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
 }
 
 .icon {
@@ -148,7 +200,7 @@ body {
     transition: color 0.3s ease;
 }
 
-/* 🌟 СТИЛИ ДЛЯ КНОПОК 🌟 */
+/* КНОПКИ */
 .button-header .button, .side-menu .button {
     position: relative;
     border: none;
@@ -171,7 +223,6 @@ body {
         transform: translateY(-2px);
     }
 
-/* Кнопка смены темы */
 .btn-theme {
     background: transparent;
     border: 2px solid var(--accent-border);
@@ -193,57 +244,6 @@ body {
         border-color: var(--primary-color);
     }
 
-/* ====== МЕНЮ ====== */
-#header-bottom {
-    position: sticky;
-    top: 70px;
-    background: var(--bg-header);
-    backdrop-filter: blur(8px);
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid var(--accent-border);
-    z-index: 998;
-    transition: background 0.3s ease;
-}
-
-.menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 12px 0;
-}
-
-/* ССЫЛКИ В МЕНЮ */
-.menu a, .side-menu a {
-    color: var(--text-dark);
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 15px;
-    position: relative;
-    transition: color 0.3s;
-}
-
-    .menu a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background-color: var(--primary-color);
-        transition: width 0.3s ease;
-        border-radius: 2px;
-    }
-
-    .menu a:hover, .side-menu a:hover {
-        color: var(--primary-color);
-    }
-
-        .menu a:hover::after {
-            width: 100%;
-        }
-
 /* ====== HEADER IMAGE ====== */
 .img-header {
     width: 95%;
@@ -251,7 +251,8 @@ body {
     height: 450px;
     object-fit: cover;
     border-radius: var(--radius-lg);
-    margin-top: 100px;
+    /* ВАЖНО: Уменьшили отступ, так как у body теперь есть padding-top: 80px */
+    margin-top: 30px;
     box-shadow: var(--shadow-lg);
     animation: fadeInUp 1s ease-out;
 }
@@ -271,7 +272,7 @@ body {
     transition: background 0.3s ease;
 }
 
-/* ====== СЕКЦИИ ====== */
+/* СЕКЦИИ */
 .container-section {
     background: var(--bg-white);
     border-radius: var(--radius-lg);
@@ -301,7 +302,6 @@ body {
         border-radius: 4px;
     }
 
-/* ====== КОНТАКТЫ (Иконки) ====== */
 .container-row {
     display: flex;
     flex-wrap: wrap;
@@ -353,7 +353,6 @@ body {
     line-height: 1.6;
 }
 
-/* ====== ABOUT ====== */
 .intro-text {
     font-size: 18px;
     text-align: center;
@@ -443,7 +442,6 @@ body {
     text-align: center;
 }
 
-/* ====== MAP ====== */
 .map {
     width: 100%;
     height: 450px;
@@ -453,13 +451,11 @@ body {
     margin-top: 60px;
     border: 5px solid var(--bg-white);
 }
-/* Инверсия карты в темном режиме */
+
 [data-theme="dark"] .map iframe {
     filter: invert(90%) hue-rotate(180deg) contrast(90%);
 }
 
-
-/* ====== FOOTER TEXT & MESSAGES ====== */
 .closing-text {
     font-size: 24px;
     text-align: center;
@@ -544,7 +540,6 @@ body {
             box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
         }
 
-/* ====== REVIEWS ====== */
 .reviews-container {
     width: 100%;
     overflow: hidden;
@@ -615,7 +610,6 @@ body {
     }
 }
 
-/* ====== FOOTER ====== */
 .site-footer {
     width: 100%;
     background: var(--bg-white);
@@ -666,8 +660,7 @@ body {
     gap: 8px;
 }
 
-.footer-links h4,
-.footer-social h4 {
+.footer-links h4, .footer-social h4 {
     font-size: 18px;
     font-weight: 700;
     color: var(--text-dark);
@@ -763,7 +756,6 @@ body {
         transform: scale(1.05);
     }
 
-/* Bottom row */
 .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -786,14 +778,14 @@ body {
             color: var(--primary-color);
         }
 
-/* ====== СТИЛИ БОКОВОГО МЕНЮ ====== */
+/* SIDE MENU (базовая структура) */
 .side-menu {
     position: fixed;
     top: 0;
     right: -320px;
     width: 320px;
     height: 100vh;
-    background: var(--bg-header); /* Адаптивный фон */
+    background: var(--bg-header);
     backdrop-filter: blur(15px);
     box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     padding: 60px 30px;
@@ -846,24 +838,18 @@ body {
         transform: translateX(0);
     }
 
-/* --- GLOBAL DARK MODE FORM STYLES --- */
-[data-theme="dark"] .form-control,
-[data-theme="dark"] .form-select,
-[data-theme="dark"] .search-input {
+[data-theme="dark"] .form-control, [data-theme="dark"] .form-select, [data-theme="dark"] .search-input {
     background-color: var(--bg-white) !important;
     border-color: var(--accent-border) !important;
     color: var(--text-dark) !important;
 }
 
-    [data-theme="dark"] .form-control:focus,
-    [data-theme="dark"] .form-select:focus,
-    [data-theme="dark"] .search-input:focus {
+    [data-theme="dark"] .form-control:focus, [data-theme="dark"] .form-select:focus, [data-theme="dark"] .search-input:focus {
         background-color: var(--bg-white) !important;
         color: var(--text-dark) !important;
         border-color: var(--primary-color) !important;
     }
 
-/* Accessibility helper */
 .visually-hidden {
     position: absolute !important;
     height: 1px;
@@ -873,7 +859,6 @@ body {
     white-space: nowrap;
 }
 
-/* ====== MEDIA QUERIES (RESPONSIVE) ====== */
 @media (max-width: 768px) {
     .container {
         width: 100%;
@@ -894,32 +879,34 @@ body {
         padding: 15px 20px;
     }
 
-    /* !!! СКРЫВАЕМ ВЕСЬ БЛОК КНОПОК В ШАПКЕ НА МОБИЛКЕ !!! */
-    /* Это скроет и кнопку "Войти", и кнопку темы */
     .button-header {
         display: none !important;
     }
 
     .icon {
         display: block;
-        font-size: 28px; /* Чуть увеличим для удобства */
+        font-size: 28px;
+    }
+
+    .menu {
+        display: none;
     }
 }
+
 [data-theme="dark"] .side-menu {
-    background-color: #1f2937 !important; /* Темно-серый фон */
+    background-color: #1f2937 !important;
     border-left: 1px solid #374151;
 }
 
     [data-theme="dark"] .side-menu a {
-        color: #f3f4f6 !important; /* Светлый текст */
+        color: #f3f4f6 !important;
     }
 
         [data-theme="dark"] .side-menu a:hover {
-            background-color: #374151 !important; /* Подсветка при наведении */
+            background-color: #374151 !important;
             color: var(--primary-color) !important;
         }
 
-/* Иконка гамбургера в темной теме */
 [data-theme="dark"] .icon {
     color: #f3f4f6 !important;
 }

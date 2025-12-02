@@ -21,6 +21,15 @@
             Брэгд<span style="color:var(--primary-color)">.</span>
         </a>
 
+        <div class="menu">
+            <ul>
+                <li><a href="/#home">Главная</a></li>
+                <li><a href="/#services">Услуги</a></li>
+                <li><a href="/#contacts">Контакты</a></li>
+                <li><a asp-controller="Catalog" asp-action="Index">Каталог</a></li>
+            </ul>
+        </div>
+
         <div class="button-header d-flex align-items-center">
             <button id="theme-toggle" class="btn-theme me-3" type="button" title="Переключить тему">
                 <i class="bi bi-moon"></i>
@@ -48,41 +57,42 @@
 
     @await Html.PartialAsync("_LoginRegistrationPartial")
 
-    <div id="header-bottom">
-        <div class="menu">
-            <ul>
-                <li><a href="/#home">Главная</a></li>
-                <li><a href="/#services">Услуги</a></li>
-                <li><a href="/#contacts">Контакты</a></li>
-                <li><a asp-controller="Catalog" asp-action="Index">Каталог</a></li>
-            </ul>
-        </div>
-    </div>
-
+    <div id="menu-overlay" class="menu-overlay"></div>
     <div id="side-menu" class="side-menu">
-        <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="side-menu-header">
             <div class="logo">Брэгд.</div>
-
-            <button id="theme-toggle-mobile" class="btn-theme" type="button" title="Переключить тему">
-                <i class="bi bi-moon"></i>
+            <button id="close-menu-btn" class="close-btn">
+                <i class="bi bi-x-lg"></i>
             </button>
         </div>
-
-        <ul>
-            <li><a href="/"><i class="bi bi-house-door"></i> Главная</a></li>
-            <li><a asp-controller="Catalog" asp-action="Index"><i class="bi bi-shop"></i> Каталог</a></li>
-            <li><a href="/#services"><i class="bi bi-lightning"></i> Услуги</a></li>
-            <li><a href="/#contacts"><i class="bi bi-telephone"></i> Контакты</a></li>
-        </ul>
-
-        @if (User.Identity.IsAuthenticated)
-        {
-            <button class="button mt-auto" onclick="window.location.href ='@Url.Action("Logout", "Home")'">Выйти</button>
-        }
-        else
-        {
-            <button id="open-login-side" class="button mt-auto">Войти / Регистрация</button>
-        }
+        <div class="side-menu-content">
+            <ul class="nav-list">
+                <li><a href="/"><i class="bi bi-house-door"></i> Главная</a></li>
+                <li><a asp-controller="Catalog" asp-action="Index"><i class="bi bi-shop"></i> Каталог</a></li>
+                <li><a href="/#services"><i class="bi bi-lightning"></i> Услуги</a></li>
+                <li><a href="/#contacts"><i class="bi bi-telephone"></i> Контакты</a></li>
+            </ul>
+            <div class="side-menu-footer">
+                <div class="theme-switch-wrapper">
+                    <span>Тема:</span>
+                    <button id="theme-toggle-mobile" class="btn-theme-mobile" type="button">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button class="button w-100 mt-3" onclick="window.location.href ='@Url.Action("Logout", "Home")'">
+                        <i class="bi bi-box-arrow-right"></i> Выйти
+                    </button>
+                }
+                else
+                {
+                    <button id="open-login-side" class="button w-100 mt-3">
+                        <i class="bi bi-person"></i> Войти / Регистрация
+                    </button>
+                }
+            </div>
+        </div>
     </div>
 
     <main role="main" class="pb-3">

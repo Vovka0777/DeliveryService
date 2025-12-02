@@ -324,3 +324,6 @@ input:not(:placeholder-shown) + span {
 [data-theme="dark"] .map iframe {
     filter: invert(90%) hue-rotate(180deg) contrast(90%);
 }
+a.google {
+    text-decoration: none;
+}

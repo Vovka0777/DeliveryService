@@ -6,7 +6,6 @@
     const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
     const htmlElement = document.documentElement;
 
-    // Функция обновления иконки
     function updateThemeIcon(isDark) {
         [themeToggleBtn, themeToggleMobileBtn].forEach(btn => {
             if (!btn) return;
@@ -21,18 +20,15 @@
         });
     }
 
-    // Инициализация темы при загрузке
     const savedTheme = localStorage.getItem('theme') || 'light';
     if (savedTheme === 'dark') {
         htmlElement.setAttribute('data-theme', 'dark');
         updateThemeIcon(true);
     }
 
-    // Обработчик клика
     function toggleTheme() {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme === 'dark');
@@ -42,39 +38,27 @@
     if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
 
     // -------------------------------------------------------------------
-    // 1. Плавное изменение фона шапки при скролле
+    // 1. Хедер при скролле
     // -------------------------------------------------------------------
     const header = document.getElementById('header-top');
-
     function updateHeader() {
         if (!header) return;
         const scrollY = window.scrollY;
-        const maxScroll = 200;
-        // const opacity = Math.min(scrollY / maxScroll, 1); 
-        // В темной теме прозрачность обрабатывается через CSS var(--bg-header) и классы
-        // Для простоты оставим логику CSS backdrop-filter, но фон пусть берется из CSS
-
         if (scrollY > 10) {
             header.style.boxShadow = `0 4px 20px rgba(0,0,0, 0.1)`;
             header.style.backdropFilter = "blur(15px)";
-            // Фон задается в CSS через var(--bg-header) с прозрачностью
         } else {
             header.style.boxShadow = "none";
             header.style.backdropFilter = "blur(5px)";
         }
     }
-
     window.addEventListener('scroll', updateHeader);
     updateHeader();
 
     // -------------------------------------------------------------------
-    // 2. Анимация появления элементов при скролле (Scroll Reveal)
+    // 2. Анимация появления
     // -------------------------------------------------------------------
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
+    const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -86,7 +70,6 @@
     }, observerOptions);
 
     const elementsToAnimate = document.querySelectorAll('.row-item, .about-item, .product-card, .info-sections, .map');
-
     elementsToAnimate.forEach(el => {
         el.style.opacity = "0";
         el.style.transform = "translateY(30px)";
@@ -95,46 +78,30 @@
     });
 
     // -------------------------------------------------------------------
-    // 3. Логика для слайдера отзывов
+    // 3. Отзывы (оставляем старый код)
     // -------------------------------------------------------------------
     const reviews = document.querySelector('.reviews-slider');
     const prevButton = document.getElementById('prevReview');
     const nextButton = document.getElementById('nextReview');
-    const reviewsWrapper = document.querySelector('.reviews-wrapper');
-
     if (reviews && prevButton && nextButton) {
         let currentIndex = 0;
         const items = document.querySelectorAll('.review-item');
         const reviewsCount = items.length;
-
         function showReview(index) {
             reviews.style.transform = `translateX(-${index * 100}%)`;
         }
-
         prevButton.addEventListener('click', function () {
             currentIndex = (currentIndex - 1 + reviewsCount) % reviewsCount;
             showReview(currentIndex);
         });
-
         nextButton.addEventListener('click', function () {
             currentIndex = (currentIndex + 1) % reviewsCount;
             showReview(currentIndex);
         });
     }
 
-    const reviewsContainer = document.querySelector('.reviews-container');
-    if (reviewsContainer && reviewsWrapper) {
-        reviewsContainer.addEventListener('mouseenter', function () {
-            reviewsWrapper.style.animationPlayState = 'paused';
-        });
-
-        reviewsContainer.addEventListener('mouseleave', function () {
-            reviewsWrapper.style.animationPlayState = 'running';
-        });
-    }
-
     // -------------------------------------------------------------------
-    // 4. Футер и подписка
+    // 4. Футер
     // -------------------------------------------------------------------
     const yearEl = document.getElementById('currentYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -145,18 +112,15 @@
             e.preventDefault();
             const emailInput = subForm.querySelector('input[name="email"]');
             const btn = subForm.querySelector('.btn-subscribe');
-
             if (!emailInput || !emailInput.value.trim()) {
                 emailInput?.focus();
                 return;
             }
-
             const originalText = btn.textContent;
             btn.style.width = btn.offsetWidth + 'px';
             btn.disabled = true;
             btn.textContent = '✓';
             btn.style.background = '#10b981';
-
             setTimeout(function () {
                 btn.disabled = false;
                 btn.textContent = originalText;
@@ -168,37 +132,44 @@
     }
 
     // -------------------------------------------------------------------
-    // 5. Мобильное меню (Гамбургер)
+    // 5. МОБИЛЬНОЕ МЕНЮ (ОБНОВЛЕННАЯ ЛОГИКА)
     // -------------------------------------------------------------------
     const hamburgerButton = document.getElementById('hamburger');
+    const closeMenuButton = document.getElementById('close-menu-btn');
     const sideMenu = document.getElementById('side-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuLinks = document.querySelectorAll('.nav-list a');
     const body = document.body;
 
-    function toggleMenu() {
-        if (!sideMenu) return;
+    function openMenu() {
+        if (sideMenu) sideMenu.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        body.style.overflow = 'hidden';
+    }
 
-        const isActive = sideMenu.classList.toggle('active');
-
-        if (isActive) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = '';
-        }
+    function closeMenu() {
+        if (sideMenu) sideMenu.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        body.style.overflow = '';
     }
 
     if (hamburgerButton) {
         hamburgerButton.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleMenu();
+            openMenu();
         });
     }
 
-    document.addEventListener('click', (e) => {
-        if (sideMenu && sideMenu.classList.contains('active')) {
-            // Клик не по меню, не по гамбургеру и не по кнопке смены темы внутри меню
-            if (!sideMenu.contains(e.target) && !hamburgerButton.contains(e.target)) {
-                toggleMenu();
-            }
-        }
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMenu);
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+    }
+
+    // Закрываем при клике на ссылку
+    menuLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
     });
 });
