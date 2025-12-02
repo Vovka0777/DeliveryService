@@ -67,8 +67,8 @@
 /* Сетка товаров (Grid) */
 .catalog-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
 /* Карточка товара */
@@ -156,7 +156,7 @@
 }
 
 .price-tag {
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--primary-color);
 }
@@ -256,13 +256,72 @@
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
+    /* 1. Выстраиваем блоки вертикально: сначала фильтры, потом товары */
     .catalog-wrapper {
         flex-direction: column;
     }
 
+    /* 2. Исправляем панель фильтров: отключаем "липкость" и фиксированную высоту */
     .filters-sidebar {
         width: 100%;
-        position: relative;
+        position: relative; /* Важно: отключаем sticky */
         top: 0;
+        flex: initial; /* Важно: убираем ограничение высоты (280px), которое было на ПК */
+        margin-bottom: 25px;
+        z-index: 5; /* Поднимаем слой, чтобы ничего случайно не наехало */
+    }
+
+    /* 3. Настраиваем сетку товаров: 2 колонки */
+    .catalog-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* 4. Адаптируем карточки товаров под маленький размер */
+    .card-img-container {
+        height: 150px;
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        /* Ограничиваем заголовок 2 строками */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .card-text {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        /* Ограничиваем описание 2 строками или скрываем, если нужно */
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .card-footer-custom {
+        padding-top: 10px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .price-tag {
+        font-size: 1.1rem;
+    }
+
+    .card-footer-custom .btn {
+        width: 100%;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 0.9rem;
     }
 }
