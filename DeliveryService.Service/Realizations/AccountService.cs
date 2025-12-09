@@ -116,21 +116,46 @@ namespace DeliveryService.Service.Realizations
 
         public async Task SendEmail(string email, string confirmationCode)
         {
-            string path = @"E:\инфа\praktika\DeliveryService\DeliveryService_Belko\wwwroot\TXT\password.txt";
-            var emailMessage = new MimeMessage();
+            string path = Path.Combine(_appEnvironment.WebRootPath, "TXT", "password.txt");
 
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "vovabelko07@mail.ru"));
+            var emailMessage = new MimeMessage();
+            emailMessage.From.Add(new MailboxAddress("Delivery Service", "vovabelko07@mail.ru"));
             emailMessage.To.Add(new MailboxAddress("", email));
-            emailMessage.Subject = "Добро пожаловать!";
+            emailMessage.Subject = "Ваш код подтверждения";
 
             var builder = new BodyBuilder();
-            builder.HtmlBody = "<html><body><h1>Ваш код: " + confirmationCode + "</h1></body></html>";
+
+            builder.HtmlBody = $@"
+    <div style=""font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;"">
+        <div style=""max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"">
+            
+            <div style=""background-color: #2c3e50; padding: 20px; text-align: center;"">
+                <h1 style=""color: #ffffff; margin: 0; font-size: 24px;"">Delivery Service</h1>
+            </div>
+
+            <div style=""padding: 30px; color: #333333;"">
+                <h2 style=""margin-top: 0; color: #2c3e50;"">Добро пожаловать!</h2>
+                <p style=""font-size: 16px; line-height: 1.5;"">Спасибо за регистрацию. Чтобы подтвердить свой аккаунт, введите этот код в приложении:</p>
+                
+                <div style=""background-color: #e8f0fe; border: 1px dashed #4a90e2; padding: 15px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #2c3e50; margin: 25px 0; border-radius: 8px;"">
+                    {confirmationCode}
+                </div>
+
+                <p style=""font-size: 14px; color: #7f8c8d;"">Если вы не запрашивали этот код, просто проигнорируйте это письмо.</p>
+            </div>
+
+            <div style=""background-color: #ecf0f1; padding: 15px; text-align: center; font-size: 12px; color: #7f8c8d;"">
+                &copy; 2025 Delivery Service Belko. Все права защищены.
+            </div>
+        </div>
+    </div>";
+
             emailMessage.Body = builder.ToMessageBody();
 
             string password;
             using (StreamReader reader = new StreamReader(path))
             {
-                password = await reader.ReadToEndAsync();
+                password = (await reader.ReadToEndAsync()).Trim();
             }
 
             using (var client = new SmtpClient())
@@ -141,7 +166,6 @@ namespace DeliveryService.Service.Realizations
                 await client.DisconnectAsync(true);
             }
         }
-
         public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(User model, string code, string confirmCode)
         {
             try
