@@ -14,7 +14,8 @@ namespace DeliveryService.Domain.Models
         public string? Email { get; set; } // email text
 
         public int Role { get; set; } // role integer (для Role Enum)
-        public int? ProfileImg { get; set; } // profile_img integer (Сделаем nullable, если это id, которое может отсутствовать)
+        public int? ProfileImg { get; set; }
+        public string? PathImage { get; set; }
 
         [Column("CreatedAt", TypeName = "timestamp")]
         public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone

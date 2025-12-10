@@ -60,6 +60,12 @@ namespace DeliveryService.Service.Realizations
                 }
 
                 var user = _mapper.Map<User>(userDb);
+
+                if (string.IsNullOrEmpty(user.PathImage))
+                {
+                    user.PathImage = "/images/user.png";
+                }
+
                 var identity = AuthenticateUserHelper.Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()

@@ -113,10 +113,6 @@
       "PackagePath": "staticwebassets\\images\\user.png"
     },
     {
-      "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
-      "PackagePath": "staticwebassets\\images\\zxgwre.jpg"
-    },
-    {
       "Id": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\js\\catalog.js",
       "PackagePath": "staticwebassets\\js\\catalog.js"
     },
