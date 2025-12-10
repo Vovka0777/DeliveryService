@@ -18,6 +18,7 @@ wwwroot\images\photo_google.png
 wwwroot\images\salat.png
 wwwroot\images\stepler.png
 wwwroot\images\sushi.png
+wwwroot\images\user.png
 wwwroot\images\zxgwre.jpg
 wwwroot\ImageUser\aabobovic59@gmail.com-avatar.jpg
 wwwroot\ImageUser\contact.zhaba228@gmail.com-avatar.jpg

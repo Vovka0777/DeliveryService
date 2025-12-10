@@ -128,7 +128,6 @@ namespace DeliveryService.Service.Realizations
             builder.HtmlBody = $@"
     <div style=""font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;"">
         <div style=""max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"">
-            S
             <div style=""background-color: #2c3e50; padding: 20px; text-align: center;"">
                 <h1 style=""color: #ffffff; margin: 0; font-size: 24px;"">Delivery Service</h1>
             </div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/0adwevh8GcvypS6zj0hrrWml3Cxy8sAX4RN7ZIGBz8=",
+  "Hash": "fH04scODRh5x/d0fkBPEAPlA/k83QSOFReOuF3iKdSI=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -477,6 +477,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\sushi.png"
+    },
+    {
+      "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\user.png",
+      "SourceId": "DeliveryService_Belko",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\",
+      "BasePath": "_content/DeliveryService_Belko",
+      "RelativePath": "images/user#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8wjs9m6p69",
+      "Integrity": "SEvyhxRM6tywp+w51XKICQBJTOxdD1NdeQxEYXpWrc4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user.png"
     },
     {
       "Identity": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
@@ -3692,6 +3713,88 @@
       ]
     },
     {
+      "Route": "images/user.8wjs9m6p69.png",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\user.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "36210"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SEvyhxRM6tywp+w51XKICQBJTOxdD1NdeQxEYXpWrc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Dec 2025 21:52:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8wjs9m6p69"
+        },
+        {
+          "Name": "label",
+          "Value": "images/user.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SEvyhxRM6tywp+w51XKICQBJTOxdD1NdeQxEYXpWrc4="
+        }
+      ]
+    },
+    {
+      "Route": "images/user.png",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\user.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "36210"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SEvyhxRM6tywp+w51XKICQBJTOxdD1NdeQxEYXpWrc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Dec 2025 21:52:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SEvyhxRM6tywp+w51XKICQBJTOxdD1NdeQxEYXpWrc4="
+        }
+      ]
+    },
+    {
       "Route": "images/zxgwre.jpg",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\images\\zxgwre.jpg",
       "Selectors": [],
@@ -4124,7 +4227,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 10 Dec 2025 21:47:34 GMT"
+          "Value": "Wed, 10 Dec 2025 21:53:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4169,7 +4272,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 10 Dec 2025 21:47:34 GMT"
+          "Value": "Wed, 10 Dec 2025 21:53:40 GMT"
         },
         {
           "Name": "Cache-Control",
