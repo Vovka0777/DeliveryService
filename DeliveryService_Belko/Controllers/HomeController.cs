@@ -70,8 +70,15 @@ namespace DeliveryService_Belko.Controllers
                 {
                     return Json(new { description = response.Description, data = response.Data });
                 }
+
+                ModelState.AddModelError("", response.Description);
             }
-            return BadRequest(ModelState);
+
+            var errors = ModelState.Values.SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+
+            return BadRequest(errors);
         }
 
 
@@ -157,7 +164,7 @@ namespace DeliveryService_Belko.Controllers
                 {
                     User model = new User
                     {
-                        Login = result.Principal.FindFirst(ClaimTypes.Name)?.Value,
+                        Login = result.Principal.FindFirst(ClaimTypes.Name)?.Value ?? result.Principal.FindFirst(ClaimTypes.Email)?.Value,
                         Email = result.Principal.FindFirst(ClaimTypes.Email)?.Value,
                         // Добавляем сохранение картинки
                         PathImage = "/" + await SaveImageInImageUser(result.Principal.FindFirst("picture")?.Value, result)
@@ -169,8 +176,6 @@ namespace DeliveryService_Belko.Controllers
                         model.PathImage = "/images/user.png";
                     }
 
-                    // ВАЖНО: При создании через Google нужно явно указать роль, 
-                    // иначе в IsCreatedAccount она может записаться как 0 (если в модели default(int))
                     model.Role = (int)DeliveryService.Domain.Models.Role.Client;
 
                     var response = await _accountService.IsCreatedAccount(model);
