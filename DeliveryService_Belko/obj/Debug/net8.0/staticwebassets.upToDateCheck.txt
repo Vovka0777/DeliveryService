@@ -21,6 +21,7 @@ wwwroot\images\sushi.png
 wwwroot\images\zxgwre.jpg
 wwwroot\ImageUser\aabobovic59@gmail.com-avatar.jpg
 wwwroot\ImageUser\contact.zhaba228@gmail.com-avatar.jpg
+wwwroot\ImageUser\jjj123321ttt@gmail.com-avatar.jpg
 wwwroot\ImageUser\vova_sinok2007@mail.ru-avatar.jpg
 wwwroot\ImageUser\vovabelko07@gmail.com-avatar.jpg
 wwwroot\js\catalog.js
