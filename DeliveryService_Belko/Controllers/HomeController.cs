@@ -68,7 +68,6 @@ namespace DeliveryService_Belko.Controllers
 
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    // FIX: Add 'data = response.Data' so the JavaScript can read it
                     return Json(new { description = response.Description, data = response.Data });
                 }
             }
@@ -93,10 +92,8 @@ namespace DeliveryService_Belko.Controllers
                     Password = model.Password,
                     Login = model.Login,
                     Role = (int)DeliveryService.Domain.Models.Role.Client
-                    // Остальные поля заполнятся в сервисе (Id, CreatedAt, PathImage)
                 };
 
-                // 2. Вызываем сервис
                 var response = await _accountService.ConfirmEmail(user, model.Code, model.ConfirmCode);
 
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
@@ -106,7 +103,6 @@ namespace DeliveryService_Belko.Controllers
                         var principal = new ClaimsPrincipal(response.Data);
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                        // ✅ Возвращаем ПРОСТОЙ JSON без ClaimsIdentity!
                         return Ok(new { success = true, message = "Пользователь успешно зарегистрирован" });
                     }
                     catch (Exception ex)
@@ -116,11 +112,9 @@ namespace DeliveryService_Belko.Controllers
                     }
                 }
 
-                // Если ошибка в логике сервиса (неверный код и т.д.)
                 return BadRequest(new { description = response.Description });
             }
 
-            // Если ошибка валидации модели (пустые поля)
             var errors = ModelState.Values.SelectMany(v => v.Errors)
                 .Select(e => e.ErrorMessage)
                 .ToList();

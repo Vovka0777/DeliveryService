@@ -128,7 +128,7 @@ namespace DeliveryService.Service.Realizations
             builder.HtmlBody = $@"
     <div style=""font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;"">
         <div style=""max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"">
-            
+            S
             <div style=""background-color: #2c3e50; padding: 20px; text-align: center;"">
                 <h1 style=""color: #ffffff; margin: 0; font-size: 24px;"">Delivery Service</h1>
             </div>
@@ -232,39 +232,28 @@ namespace DeliveryService.Service.Realizations
         {
             try
             {
-                // Сначала ищем пользователя
                 var existingUser = await _userStorage.GetAll().FirstOrDefaultAsync(x => x.Email == model.Email);
 
                 if (existingUser == null)
                 {
-                    // === ЗАПОЛНЯЕМ ВСЕ ОБЯЗАТЕЛЬНЫЕ ПОЛЯ, КАК ПРИ ОБЫЧНОЙ РЕГИСТРАЦИИ ===
 
-                    // 1. Генерация ID (если база не создает его сама, скорее всего это Guid)
                     model.Id = Guid.NewGuid();
 
-                    // 2. Пароль заглушка
                     model.Password = "google";
 
-                    // 3. Дата создания
                     model.CreatedAt = DateTime.UtcNow;
 
-                    // 4. Роль (обязательно!)
                     model.Role = (int)Role.Client;
 
-                    // 5. Картинка профиля (если есть такая логика в базе, например FK)
-                    // В ConfirmEmail у вас стоит: model.ProfileImg = 1;
                     model.ProfileImg = 1;
 
-                    // Если путь к картинке пустой, ставим заглушку
                     if (string.IsNullOrEmpty(model.PathImage))
                     {
                         model.PathImage = "/images/user.png";
                     }
 
-                    // Маппинг в сущность БД
                     var userDb = _mapper.Map<UserDb>(model);
 
-                    // Сохранение
                     await _userStorage.Add(userDb);
 
                     var resultRegister = AuthenticateUserHelper.Authenticate(model);
@@ -276,9 +265,6 @@ namespace DeliveryService.Service.Realizations
                     };
                 }
 
-                // Если пользователь уже есть, просто авторизуем его
-                // Важно: нужно авторизовать using existingUser (данные из БД), а не model (данные из Google)
-                // чтобы подтянулись корректные Role и Id
                 var userForAuth = _mapper.Map<User>(existingUser);
 
                 var resultLogin = AuthenticateUserHelper.Authenticate(userForAuth);

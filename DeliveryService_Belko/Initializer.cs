@@ -21,7 +21,6 @@ namespace DeliveryService_Belko
         {
             services.AddScoped<IAccountService, AccountService>();
 
-            // Убедитесь, что ItemService тоже зарегистрирован (вы это делали на предыдущих шагах)
             services.AddScoped<IItemService, ItemService>();
 
             services.AddControllersWithViews()

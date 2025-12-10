@@ -37,6 +37,11 @@
 
             @if (User.Identity.IsAuthenticated)
             {
+                <img src="@User.FindFirst("AvatarPath")?.Value"
+                     alt="Avatar"
+                     class="rounded-circle me-2"
+                     style="width: 35px; height: 35px; object-fit: cover;">
+
                 <span class="me-3 fw-bold text-color">Привет, @User.Identity.Name</span>
                 <button class="button" type="button" onclick="window.location.href ='@Url.Action("Logout", "Home")'">
                     <i class="bi bi-box-arrow-right"></i> Выйти
