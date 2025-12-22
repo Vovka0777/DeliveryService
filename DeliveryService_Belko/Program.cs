@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using DeliveryService.Domain.Validator;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication;
-using DeliveryService.Service.Realizations;
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
@@ -51,7 +50,6 @@ builder.Services.AddScoped<UserValidator>();
 
 builder.Services.InitializeRepositories();  
 builder.Services.InitializeServices();
-builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 

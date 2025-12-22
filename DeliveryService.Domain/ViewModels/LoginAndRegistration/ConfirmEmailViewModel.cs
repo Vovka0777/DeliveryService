@@ -4,19 +4,19 @@ namespace DeliveryService.Domain.ViewModels.LoginAndRegistration
 {
     public class ConfirmEmailViewModel
     {
-        [Required(ErrorMessage = "Введите Email")]
-        [DataType(DataType.EmailAddress)]
+        [Required]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Введите код")]
-        public int Code { get; set; }
+        [Required]
+        public string Password { get; set; }
 
-        [Required(ErrorMessage = "Подтвердите код")]
-        public int ConfirmCode { get; set; }
-
+        [Required]
         public string Login { get; set; }
 
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [Required]
+        public string Code { get; set; } 
+
+        [Required]
+        public string ConfirmCode { get; set; } 
     }
 }

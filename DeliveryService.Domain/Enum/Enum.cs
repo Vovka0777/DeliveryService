@@ -1,63 +1,64 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DeliveryService.Domain.Enum
 {
-    // Вынесли Role из класса Enum прямо в namespace
-    public enum Role
+    public class Enum
     {
-        [Display(Name = "Пользователь")]
-        User = 0,
+        public enum Role
+        {
+            [Display(Name = "Пользователь")] // User
+            User = 0,
 
-        [Display(Name = "Курьер")]
-        Courier = 1,
+            [Display(Name = "Курьер")] // Courier
+            Courier = 1,
 
-        [Display(Name = "Администратор")]
-        Admin = 2
-    }
+            [Display(Name = "Администратор")] // Administrator
+            Admin = 2
+        }
 
-    // Переименовали Status -> StatusOrder и добавили Cart/Created
-    public enum StatusOrder
-    {
-        [Display(Name = "Корзина")]
-        Cart = 0, // Важно: статус для товаров в корзине
+        // Перечисление для статуса заказа (order_history) и запроса (request.status)
+        public enum Status
+        {
+            [Display(Name = "Ожидает рассмотрения")] // Pending Review
+            Pending = 0,
 
-        [Display(Name = "Создан")]
-        Created = 1, // Заказ оформлен пользователем
+            [Display(Name = "Принят")] // Accepted
+            Accepted = 1,
 
-        [Display(Name = "Ожидает рассмотрения")]
-        Pending = 2,
+            [Display(Name = "Отклонен")] // Rejected
+            Rejected = 2,
 
-        [Display(Name = "В обработке")]
-        Processing = 3,
+            // Дополнительные статусы для заказа, если требуются:
+            [Display(Name = "В пути")] // In Transit
+            InTransit = 3,
 
-        [Display(Name = "Принят")]
-        Accepted = 4,
+            [Display(Name = "Доставлен")] // Delivered
+            Delivered = 4,
 
-        [Display(Name = "Отклонен")]
-        Rejected = 5,
+            [Display(Name = "Отменен")] // Canceled
+            Canceled = 5
+        }
 
-        [Display(Name = "В пути")]
-        InTransit = 6,
+        // Перечисление для типа товара (item.type, если это нужно для категоризации) - Опционально
+        public enum ItemType
+        {
+            [Display(Name = "Еда")] // Food
+            Food = 0,
 
-        [Display(Name = "Доставлен")]
-        Delivered = 7,
+            [Display(Name = "Напитки")] // Drinks
+            Drinks = 1,
 
-        [Display(Name = "Отменен")]
-        Canceled = 8
-    }
+            [Display(Name = "Документы")] // Documents
+            Documents = 2,
 
-    public enum ItemType
-    {
-        [Display(Name = "Еда")]
-        Food = 0,
-
-        [Display(Name = "Напитки")]
-        Drinks = 1,
-
-        [Display(Name = "Документы")]
-        Documents = 2,
-
-        [Display(Name = "Прочее")]
-        Other = 3
+            [Display(Name = "Прочее")] // Other
+            Other = 3
+        }
     }
 }

@@ -172,37 +172,4 @@
     menuLinks.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
-    // -------------------------------------------------------------------
-    // 6. LOGIC FOR USER DROPDOWN MENU
-    // -------------------------------------------------------------------
-    const userTrigger = document.getElementById('userMenuTrigger');
-    const userDropdown = document.getElementById('userDropdown');
-
-    if (userTrigger && userDropdown) {
-        userTrigger.addEventListener('click', function (e) {
-            e.stopPropagation();
-            userDropdown.classList.toggle('active');
-        });
-
-        // Закрыть при клике вне меню
-        document.addEventListener('click', function (e) {
-            if (!userDropdown.contains(e.target) && !userTrigger.contains(e.target)) {
-                userDropdown.classList.remove('active');
-            }
-        });
-    }
 });
-function addToCart(itemId) {
-    $.ajax({
-        type: 'POST',
-        url: '/Order/AddToCart',
-        data: { id: itemId },
-        success: function (response) {
-            // Можно добавить красивое уведомление (Toast)
-            alert(response.description);
-        },
-        error: function () {
-            alert('Ошибка при добавлении в корзину');
-        }
-    });
-}

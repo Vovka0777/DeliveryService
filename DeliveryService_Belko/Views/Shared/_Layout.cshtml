@@ -37,45 +37,15 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="user-menu-container position-relative">
-                    <div class="d-flex align-items-center cursor-pointer user-menu-trigger" id="userMenuTrigger">
-                        <img src="@(User.FindFirst("AvatarPath")?.Value ?? "/images/user.png")"
-                             alt="Avatar"
-                             class="rounded-circle me-2"
-                             style="width: 35px; height: 35px; object-fit: cover;">
+                <img src="@User.FindFirst("AvatarPath")?.Value"
+                     alt="Avatar"
+                     class="rounded-circle me-2"
+                     style="width: 35px; height: 35px; object-fit: cover;">
 
-                        <span class="fw-bold text-color me-1">@User.Identity.Name</span>
-                        <i class="bi bi-chevron-down text-color small"></i>
-                    </div>
-
-                    <div class="user-dropdown shadow-lg" id="userDropdown">
-                        <div class="dropdown-header-user">
-                            <span class="d-block fw-bold">@User.Identity.Name</span>
-                            <small class="text-muted">@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value</small>
-                        </div>
-                        <div class="dropdown-divider"></div>
-
-                        <a asp-controller="Profile" asp-action="Index" class="dropdown-item">
-                            <i class="bi bi-person me-2"></i> Профиль
-                        </a>
-                        <a asp-controller="Order" asp-action="Cart" class="dropdown-item">
-                            <i class="bi bi-basket me-2"></i> Корзина
-                        </a>
-
-                        @* Пример проверки роли для админки. Убедитесь, что ClaimTypes.Role корректно заполняется *@
-                        @if (User.IsInRole("Admin") || User.FindFirst("Role")?.Value == "Admin" || User.FindFirst("Role")?.Value == "2")
-                        {
-                            <a asp-controller="Admin" asp-action="Index" class="dropdown-item">
-                                <i class="bi bi-speedometer2 me-2"></i> Админ панель
-                            </a>
-                        }
-
-                        <div class="dropdown-divider"></div>
-                        <a href="@Url.Action("Logout", "Home")" class="dropdown-item text-danger">
-                            <i class="bi bi-box-arrow-right me-2"></i> Выйти
-                        </a>
-                    </div>
-                </div>
+                <span class="me-3 fw-bold text-color">Привет, @User.Identity.Name</span>
+                <button class="button" type="button" onclick="window.location.href ='@Url.Action("Logout", "Home")'">
+                    <i class="bi bi-box-arrow-right"></i> Выйти
+                </button>
             }
             else
             {
@@ -104,11 +74,6 @@
             <ul class="nav-list">
                 <li><a href="/"><i class="bi bi-house-door"></i> Главная</a></li>
                 <li><a asp-controller="Catalog" asp-action="Index"><i class="bi bi-shop"></i> Каталог</a></li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li><a asp-controller="Profile" asp-action="Index"><i class="bi bi-person"></i> Профиль</a></li>
-                    <li><a asp-controller="Order" asp-action="Cart"><i class="bi bi-basket"></i> Корзина</a></li>
-                }
                 <li><a href="/#services"><i class="bi bi-lightning"></i> Услуги</a></li>
                 <li><a href="/#contacts"><i class="bi bi-telephone"></i> Контакты</a></li>
             </ul>

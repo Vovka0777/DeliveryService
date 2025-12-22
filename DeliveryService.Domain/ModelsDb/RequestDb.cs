@@ -1,34 +1,34 @@
-﻿using System;
+﻿using DeliveryService.Domain.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DeliveryService.Domain.Enum;
-using DeliveryService.Domain.Models;
+using static DeliveryService.Domain.Enum.Enum;
 
 namespace DeliveryService.Domain.ModelsDb
 {
     [Table("request")]
     public class RequestDb
     {
-        [Key]
+        [Key] // Добавлен атрибут Key
         [Column("id")]
         public Guid Id { get; set; }
 
         [Column("id_user")]
-        public Guid UserId { get; set; }
+        public Guid UserId { get; set; } // Внешний ключ к user
 
         [Column("description")]
-        public string Description { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty; // Инициализация для предотвращения null-предупреждений
 
         [Column("path_img")]
         public string PathImg { get; set; } = string.Empty;
 
         [Column("status")]
-        public StatusOrder Status { get; set; } // Исправлено: Status -> StatusOrder
+        public Status Status { get; set; } // Используем Enum Status
 
         [Column("createdAt", TypeName = "timestamp")]
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey("UserId")]
-        public UserDb User { get; set; } = null!;
+        public UserDb User { get; set; } = null!; // Изменено на UserDb для согласованности с UserDb.cs
     }
 }
