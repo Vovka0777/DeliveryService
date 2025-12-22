@@ -22,6 +22,47 @@ namespace DeliveryService.DAL.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("DeliveryService.Domain.Models.Basket", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("DeliveryService.Domain.Models.BasketItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BasketId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ItemId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("DeliveryService.Domain.Models.Item", b =>
                 {
                     b.Property<Guid>("Id")
@@ -32,7 +73,7 @@ namespace DeliveryService.DAL.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -72,7 +113,7 @@ namespace DeliveryService.DAL.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid?>("IdCourier")
                         .HasColumnType("uuid");
@@ -102,7 +143,7 @@ namespace DeliveryService.DAL.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -126,11 +167,14 @@ namespace DeliveryService.DAL.Migrations
                     b.ToTable("OrderHistories");
                 });
 
-            modelBuilder.Entity("DeliveryService.Domain.Models.UserDb", b =>
+            modelBuilder.Entity("DeliveryService.Domain.ModelsDb.UserDb", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp")
@@ -145,6 +189,12 @@ namespace DeliveryService.DAL.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
+                    b.Property<string>("PathImage")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("text");
+
                     b.Property<int?>("ProfileImg")
                         .HasColumnType("integer");
 
@@ -156,6 +206,36 @@ namespace DeliveryService.DAL.Migrations
                     b.ToTable("userDb");
                 });
 
+            modelBuilder.Entity("DeliveryService.Domain.Models.Basket", b =>
+                {
+                    b.HasOne("DeliveryService.Domain.ModelsDb.UserDb", "User")
+                        .WithOne("Basket")
+                        .HasForeignKey("DeliveryService.Domain.Models.Basket", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DeliveryService.Domain.Models.BasketItem", b =>
+                {
+                    b.HasOne("DeliveryService.Domain.Models.Basket", "Basket")
+                        .WithMany("Items")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DeliveryService.Domain.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+
+                    b.Navigation("Item");
+                });
+
             modelBuilder.Entity("DeliveryService.Domain.Models.Item", b =>
                 {
                     b.HasOne("DeliveryService.Domain.Models.Order", null)
@@ -165,13 +245,13 @@ namespace DeliveryService.DAL.Migrations
 
             modelBuilder.Entity("DeliveryService.Domain.Models.Order", b =>
                 {
-                    b.HasOne("DeliveryService.Domain.Models.UserDb", "Client")
+                    b.HasOne("DeliveryService.Domain.ModelsDb.UserDb", "Client")
                         .WithMany("ClientOrders")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DeliveryService.Domain.Models.UserDb", "Courier")
+                    b.HasOne("DeliveryService.Domain.ModelsDb.UserDb", "Courier")
                         .WithMany("CourierOrders")
                         .HasForeignKey("CourierId");
 
@@ -191,6 +271,11 @@ namespace DeliveryService.DAL.Migrations
                     b.Navigation("Order");
                 });
 
+            modelBuilder.Entity("DeliveryService.Domain.Models.Basket", b =>
+                {
+                    b.Navigation("Items");
+                });
+
             modelBuilder.Entity("DeliveryService.Domain.Models.Order", b =>
                 {
                     b.Navigation("History");
@@ -198,8 +283,10 @@ namespace DeliveryService.DAL.Migrations
                     b.Navigation("Items");
                 });
 
-            modelBuilder.Entity("DeliveryService.Domain.Models.UserDb", b =>
+            modelBuilder.Entity("DeliveryService.Domain.ModelsDb.UserDb", b =>
                 {
+                    b.Navigation("Basket");
+
                     b.Navigation("ClientOrders");
 
                     b.Navigation("CourierOrders");

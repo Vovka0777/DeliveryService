@@ -1,6 +1,7 @@
 ﻿    using AutoMapper;
 using DeliveryService.DAL;
 using DeliveryService.Domain.Models;
+using DeliveryService.Domain.ModelsDb;
 using DeliveryService.Domain.Response;
 using DeliveryService.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -283,8 +284,6 @@ namespace DeliveryService.Service.Realizations
             }
             catch (Exception ex)
             {
-                // ЧТОБЫ УВИДЕТЬ РЕАЛЬНУЮ ПРИЧИНУ ОШИБКИ:
-                // База данных прячет ошибку внутри InnerException. Достаем её:
                 var message = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
 
                 return new BaseResponse<ClaimsIdentity>()

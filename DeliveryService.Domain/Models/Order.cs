@@ -1,4 +1,6 @@
-﻿
+﻿using DeliveryService.Domain.ModelsDb;
+
+
 namespace DeliveryService.Domain.Models
 {
     public class Order

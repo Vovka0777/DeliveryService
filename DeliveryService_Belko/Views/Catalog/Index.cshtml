@@ -93,11 +93,19 @@
                                 <h3 class="card-title">@item.Name</h3>
                                 <p class="card-text">@item.Description</p>
 
-                                <div class="card-footer-custom">
+                                <div class="card-footer-custom d-flex justify-content-between align-items-center">
                                     <span class="price-tag">@item.Price ₽</span>
-                                    <a asp-controller="Catalog" asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">
-                                        Подробнее
-                                    </a>
+                                    <div>
+                                        <a asp-controller="Catalog" asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">
+                                            Подробнее
+                                        </a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm rounded-pill px-3 ms-1" title="Добавить в корзину">
+                                                <i class="bi bi-cart-plus"></i>
+                                            </a>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>

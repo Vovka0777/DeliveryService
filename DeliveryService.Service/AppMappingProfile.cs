@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using DeliveryService.Domain.Models;
 using DeliveryService.Domain.ModelsDb;
-using DeliveryService.Domain.ViewModels.Catalog; // Если нужно
-using DeliveryService.Domain.ViewModels.Item;    // Важно!
+using DeliveryService.Domain.ViewModels.Catalog; 
+using DeliveryService.Domain.ViewModels.Item;  
 using DeliveryService.Domain.ViewModels.LoginAndRegistration;
 
 namespace DeliveryService.Service
@@ -22,6 +22,10 @@ namespace DeliveryService.Service
             // 3. Остальные маппинги
             CreateMap<LoginViewModel, User>();
             CreateMap<RegisterViewModel, User>();
+
+            CreateMap<UserDb, User>()
+            .ForMember(dest => dest.Basket, opt => opt.MapFrom(src => src.Basket))
+            .MaxDepth(1); // <--- ЭТО ВАЖНО
         }
 
         private string GetCategoryName(int categoryId)

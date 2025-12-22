@@ -37,15 +37,32 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <img src="@User.FindFirst("AvatarPath")?.Value"
-                     alt="Avatar"
-                     class="rounded-circle me-2"
-                     style="width: 35px; height: 35px; object-fit: cover;">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUserMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="@User.FindFirst("AvatarPath")?.Value" asp-append-version="true"
+                             alt="Avatar"
+                             class="rounded-circle me-2"
+                             style="width: 35px; height: 35px; object-fit: cover;">
+                        <span class="fw-bold text-color me-2">@User.Identity.Name</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="dropdownUserMenu" style="border-radius: 12px; border: none; overflow: hidden;">
+                        <li><a class="dropdown-item py-2" asp-controller="Profile" asp-action="Index"><i class="bi bi-person me-2"></i> Профиль</a></li>
+                        <li><a class="dropdown-item py-2" asp-controller="Cart" asp-action="Index"><i class="bi bi-cart me-2"></i> Корзина</a></li>
 
-                <span class="me-3 fw-bold text-color">Привет, @User.Identity.Name</span>
-                <button class="button" type="button" onclick="window.location.href ='@Url.Action("Logout", "Home")'">
-                    <i class="bi bi-box-arrow-right"></i> Выйти
-                </button>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2" asp-controller="Admin" asp-action="Index"><i class="bi bi-speedometer2 me-2"></i> Админ панель</a></li>
+                        }
+
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <button class="dropdown-item py-2 text-danger" type="button" onclick="window.location.href ='@Url.Action("Logout", "Home")'">
+                                <i class="bi bi-box-arrow-right me-2"></i> Выйти
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             }
             else
             {
@@ -74,6 +91,11 @@
             <ul class="nav-list">
                 <li><a href="/"><i class="bi bi-house-door"></i> Главная</a></li>
                 <li><a asp-controller="Catalog" asp-action="Index"><i class="bi bi-shop"></i> Каталог</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-controller="Cart" asp-action="Index"><i class="bi bi-cart"></i> Корзина</a></li>
+                    <li><a asp-controller="Profile" asp-action="Index"><i class="bi bi-person-badge"></i> Профиль</a></li>
+                }
                 <li><a href="/#services"><i class="bi bi-lightning"></i> Услуги</a></li>
                 <li><a href="/#contacts"><i class="bi bi-telephone"></i> Контакты</a></li>
             </ul>

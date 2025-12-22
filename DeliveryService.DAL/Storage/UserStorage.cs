@@ -1,4 +1,4 @@
-﻿using DeliveryService.Domain.Models;
+﻿using DeliveryService.Domain.ModelsDb;
 
 using Microsoft.EntityFrameworkCore;
 using System;

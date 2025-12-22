@@ -1,24 +1,34 @@
-﻿using DeliveryService.Domain.ModelsDb;
+﻿using DeliveryService.Domain.Models; // Для Basket
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace DeliveryService.Domain.Models
+
+namespace DeliveryService.Domain.ModelsDb // Обрати внимание на namespace
 {
     [Table("userDb")]
     public class UserDb
     {
         [Key]
-        public Guid Id { get; set; } // id uuid
+        public Guid Id { get; set; }
 
-        public string? Login { get; set; } // login text
-        public string? Password { get; set; } // password text
-        public string? Email { get; set; } // email text
+        public string? Login { get; set; }
+        public string? Password { get; set; }
+        public string? Email { get; set; }
 
-        public int Role { get; set; } // role integer (для Role Enum)
+        public int Role { get; set; }
         public int? ProfileImg { get; set; }
-        public string? PathImage { get; set; }
+
+        // --- НОВЫЕ ПОЛЯ (ОБЯЗАТЕЛЬНО ДОБАВИТЬ) ---
+        public string? PathImage { get; set; } = string.Empty;
+        public string? Address { get; set; }
+        public string? Phone { get; set; }
+        // -----------------------------------------
 
         [Column("CreatedAt", TypeName = "timestamp")]
-        public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
+        public DateTime CreatedAt { get; set; }
+
+        // --- СВЯЗЬ С КОРЗИНОЙ ---
+        public Basket? Basket { get; set; }
+        // ------------------------
 
         [InverseProperty("Client")]
         public ICollection<Order> ClientOrders { get; set; } = new List<Order>();
@@ -26,6 +36,7 @@ namespace DeliveryService.Domain.Models
         [InverseProperty("Courier")]
         public ICollection<Order> CourierOrders { get; set; } = new List<Order>();
     }
+
     public enum RoleDb
     {
         [Display(Name = "Пользователь")]

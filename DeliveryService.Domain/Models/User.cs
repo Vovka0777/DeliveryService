@@ -10,15 +10,18 @@ namespace DeliveryService.Domain.Models
         public string? Password { get; set; } // password text
         public string? Email { get; set; } // email text
         public int Role { get; set; } // role integer (для Role Enum)
-        public int? ProfileImg { get; set; } // profile_img integer (Сделаем nullable, если это id, которое может отсутствовать)
+        public int? ProfileImg { get; set; }
         public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
 
-        // ⬅️ ДОБАВЛЕНО: Свойство PathImage (путь к аватару) для использования в Claim
         public string PathImage { get; set; } = string.Empty;
+
+        // Связь с корзиной
+        public Basket? Basket { get; set; }
 
         public ICollection<Order> ClientOrders { get; set; } = new List<Order>();
         public ICollection<Order> CourierOrders { get; set; } = new List<Order>();
     }
+
     public enum Role
     {
         [Display(Name = "Пользователь")]
