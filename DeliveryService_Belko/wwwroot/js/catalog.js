@@ -108,30 +108,38 @@
         }
 
         items.forEach((item, index) => {
-            // Создаем элемент
             const wrapper = document.createElement('div');
-            // Если используете Bootstrap grid в контейнере, классы могут быть не нужны на обертке, 
-            // так как grid задан в родительском .catalog-container css.
-            // Но для анимации нам нужен элемент.
 
-            // Генерация HTML, соответствующего catalog.css
+            const isAuth = container.getAttribute('data-is-auth') === 'true';
+
+            let cartButtonHtml = '';
+            if (isAuth) {
+                cartButtonHtml = `
+                <a href="/Cart/Add/${item.id}" class="btn btn-outline-success btn-sm rounded-pill px-3 ms-1" title="Добавить в корзину">
+                    <i class="bi bi-cart-plus"></i>
+                </a>`;
+            }
+
             const cardHtml = `
-                <div class="product-card" style="animation: fadeInUp 0.5s ease forwards; animation-delay: ${index * 0.05}s; opacity: 0; transform: translateY(20px);">
-                    <div class="card-img-container">
-                        <img src="${item.pathImg}" alt="${item.name}" class="product-img" loading="lazy" />
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">${item.name}</h3>
-                        <p class="card-text">${item.description}</p>
-                        <div class="card-footer-custom">
-                            <span class="price-tag">${item.price} ₽</span>
-                            <a href="/Catalog/GetItem/${item.id}" class="btn btn-primary btn-sm">
+            <div class="product-card" style="animation: fadeInUp 0.5s ease forwards; animation-delay: ${index * 0.05}s; opacity: 0; transform: translateY(20px);">
+                <div class="card-img-container">
+                    <img src="${item.pathImg}" alt="${item.name}" class="product-img" loading="lazy" />
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">${item.name}</h3>
+                    <p class="card-text">${item.description}</p>
+                    <div class="card-footer-custom d-flex justify-content-between align-items-center">
+                        <span class="price-tag">${item.price} ₽</span>
+                        <div>
+                            <a href="/Catalog/GetItem/${item.id}" class="btn btn-primary btn-sm rounded-pill px-3">
                                 Подробнее
                             </a>
+                            ${cartButtonHtml}
                         </div>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
 
             wrapper.innerHTML = cardHtml;
             container.appendChild(wrapper.firstElementChild);

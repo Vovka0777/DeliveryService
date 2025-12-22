@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="catalog-container" id="productsList">
+            <div class="catalog-container" id="productsList" data-is-auth="@User.Identity.IsAuthenticated.ToString().ToLower()">
                 @if (Model.Items == null || !Model.Items.Any())
                 {
                     <div class="col-12 text-center py-5">
