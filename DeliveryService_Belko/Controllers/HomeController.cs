@@ -11,6 +11,7 @@ using System.Security.Claims;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Hosting;
+using DeliveryService.Domain.ViewModels.Profile;
 
 namespace DeliveryService_Belko.Controllers
 {
@@ -89,7 +90,7 @@ namespace DeliveryService_Belko.Controllers
             return RedirectToAction("SiteInformation", "Home");
         }
         [HttpPost]
-        public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailViewModel model)
+        public async Task<IActionResult> ConfirmEmail([FromBody] ProfileViewModel model)
         {
             if (ModelState.IsValid)
             {

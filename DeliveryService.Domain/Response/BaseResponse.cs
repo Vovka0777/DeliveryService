@@ -2,9 +2,11 @@
 
 namespace DeliveryService.Domain.Response
 {
-    internal interface IBaseResponse<T>
+    public interface IBaseResponse<T>
     {
-        T Data { get; }
+        string Description { get; set; }
+        StatusCode StatusCode { get; set; }
+        T Data { get; set; }
     }
 
     public class BaseResponse<T> : IBaseResponse<T>

@@ -1,18 +1,21 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using DeliveryService.Domain.Enum; // Важно для StatusOrder
+
 namespace DeliveryService.Domain.Models
 {
     public class Order
     {
-        public Guid Id { get; set; } // id uuid
-        public Guid IdUser { get; set; } // id_user uuid
-        public UserDb Client { get; set; } = null!; // Навигационное свойство. null! используется для свойств, которые EF Core заполнит.
-        public Guid? IdCourier { get; set; } // id_courier uuid
-        public UserDb? Courier { get; set; }
+        public Guid Id { get; set; }
 
-        public string? Name { get; set; } // name text (Например, имя получателя)
-        public decimal Price { get; set; } // price numeric
-        public DateTime CreatedAt { get; set; } // createdAt timestamp without time zone
-        public ICollection<Item> Items { get; set; } = new List<Item>();
-        public ICollection<OrderHistory> History { get; set; } = new List<OrderHistory>();
+        public Guid UserId { get; set; } // Было пропущено
+        public User User { get; set; }
+
+        public DateTime DateCreated { get; set; } // Было пропущено
+
+        public StatusOrder Status { get; set; } // Было пропущено
+
+        // Оставляем только ОДНО определение Items
+        public virtual List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 }
