@@ -343,4 +343,7 @@
         font-size: 1.5rem;
         margin-bottom: 20px;
     }
+    .sticky-summary {
+        margin-top: 15px;
+    }
 }

@@ -808,7 +808,6 @@ body {
     }
 
         .side-menu ul li {
-            margin: 20px 0;
             border-bottom: 1px solid var(--accent-border);
             padding-bottom: 15px;
             opacity: 0;
@@ -1032,3 +1031,41 @@ form h5 + .row.bg-light {
         background-color: #ef4444;
         color: #fff;
     }
+.sticky-summary {
+    position: sticky; /* Делаем элемент липким */
+    top: 100px; /* Высота шапки (80px) + отступ (20px) */
+    z-index: 900; /* На всякий случай, чтобы не перекрывал модальные окна */
+    border: none;
+}
+/* ====== DROPDOWN (ВЫПАДАЮЩЕЕ МЕНЮ) DARK THEME ====== */
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--bg-white);
+    border: 1px solid var(--accent-border) !important; /* !important нужен, чтобы перебить inline-стиль border: none */
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+    [data-theme="dark"] .dropdown-item:hover,
+    [data-theme="dark"] .dropdown-item:focus {
+        background-color: var(--accent-bg-light);
+        color: var(--primary-color);
+    }
+
+[data-theme="dark"] .dropdown-divider {
+    border-top-color: var(--accent-border);
+}
+
+/* Цвет иконок внутри дропдауна */
+[data-theme="dark"] .dropdown-item i {
+    color: var(--primary-color);
+}
+
+/* Цвет кнопки "Выйти" (красный) при наведении в темной теме */
+[data-theme="dark"] .dropdown-item.text-danger:hover {
+    background-color: rgba(220, 38, 38, 0.1); /* Легкий красный фон */
+    color: #ef4444 !important;
+}

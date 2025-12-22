@@ -71,37 +71,42 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="card border-0 shadow-lg rounded-4 position-sticky top-0 summary-card" style="top: 100px; z-index: 10;">
-                    <div class="card-body p-4">
-                        <h4 class="fw-bold text-color mb-4">Сумма заказа</h4>
+            <div class="col-md-4">
+                <div class="card sticky-summary">
+                    <div class="card-body">
+                        <div class="card border-0 shadow-lg rounded-4 position-sticky top-0 summary-card" style="top: 100px; z-index: 10;">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold text-color mb-4">Сумма заказа</h4>
 
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="text-muted">Товары (@Model.Count)</span>
-                            <span class="fw-bold text-color">@totalSum ₽</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="text-muted">Доставка</span>
-                            <span class="text-success fw-bold">Бесплатно</span>
-                        </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span class="text-muted">Товары (@Model.Count)</span>
+                                    <span class="fw-bold text-color">@totalSum ₽</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span class="text-muted">Доставка</span>
+                                    <span class="text-success fw-bold">Бесплатно</span>
+                                </div>
 
-                        <hr class="my-3 opacity-25">
+                                <hr class="my-3 opacity-25">
 
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <span class="fs-5 fw-bold text-color">Итого</span>
-                            <span class="fs-4 fw-bolder text-primary">@totalSum ₽</span>
-                        </div>
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <span class="fs-5 fw-bold text-color">Итого</span>
+                                    <span class="fs-4 fw-bolder text-primary">@totalSum ₽</span>
+                                </div>
 
-                        <a asp-controller="Order" asp-action="CreateOrder" class="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow-blue pulse-btn">
-                            Перейти к оформлению
-                        </a>
+                                <a asp-controller="Order" asp-action="CreateOrder" class="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow-blue pulse-btn">
+                                    Перейти к оформлению
+                                </a>
 
-                        <div class="text-center mt-3">
-                            <small class="text-muted"><i class="bi bi-shield-lock me-1"></i>Безопасная оплата</small>
+                                <div class="text-center mt-3">
+                                    <small class="text-muted"><i class="bi bi-shield-lock me-1"></i>Безопасная оплата</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        
         }
     </div>
 </div>

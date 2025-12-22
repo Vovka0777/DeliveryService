@@ -95,13 +95,17 @@
 
                                 <div class="card-footer-custom d-flex justify-content-between align-items-center">
                                     <span class="price-tag">@item.Price ₽</span>
-                                    <div>
-                                        <a asp-controller="Catalog" asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">
+
+                                    <div class="d-flex align-items-center">
+                                        <a asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">
                                             Подробнее
                                         </a>
+
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm rounded-pill px-3 ms-1" title="Добавить в корзину">
+                                            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id"
+                                               class="btn btn-outline-success btn-sm rounded-pill px-3 ms-2"
+                                               title="Добавить в корзину">
                                                 <i class="bi bi-cart-plus"></i>
                                             </a>
                                         }

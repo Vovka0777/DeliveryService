@@ -107,19 +107,25 @@
             return;
         }
 
+        // Считываем статус авторизации из атрибута data-is-auth
+        // Убедись, что в Index.cshtml у div#productsList есть атрибут data-is-auth="@User.Identity.IsAuthenticated..."
+        const isAuth = container.getAttribute('data-is-auth') === 'true';
+
         items.forEach((item, index) => {
             const wrapper = document.createElement('div');
 
-            const isAuth = container.getAttribute('data-is-auth') === 'true';
-
+            // Формируем HTML кнопки корзины (только если юзер авторизован)
             let cartButtonHtml = '';
             if (isAuth) {
                 cartButtonHtml = `
-                <a href="/Cart/Add/${item.id}" class="btn btn-outline-success btn-sm rounded-pill px-3 ms-1" title="Добавить в корзину">
-                    <i class="bi bi-cart-plus"></i>
-                </a>`;
+                    <a href="/Cart/Add/${item.id}" 
+                       class="btn btn-outline-success btn-sm rounded-pill px-3" 
+                       title="Добавить в корзину">
+                        <i class="bi bi-cart-plus"></i>
+                    </a>`;
             }
 
+            // Генерируем карточку
             const cardHtml = `
             <div class="product-card" style="animation: fadeInUp 0.5s ease forwards; animation-delay: ${index * 0.05}s; opacity: 0; transform: translateY(20px);">
                 <div class="card-img-container">
@@ -128,9 +134,11 @@
                 <div class="card-body">
                     <h3 class="card-title">${item.name}</h3>
                     <p class="card-text">${item.description}</p>
+                    
                     <div class="card-footer-custom d-flex justify-content-between align-items-center">
                         <span class="price-tag">${item.price} ₽</span>
-                        <div>
+                        
+                        <div class="d-flex align-items-center gap-2">
                             <a href="/Catalog/GetItem/${item.id}" class="btn btn-primary btn-sm rounded-pill px-3">
                                 Подробнее
                             </a>
