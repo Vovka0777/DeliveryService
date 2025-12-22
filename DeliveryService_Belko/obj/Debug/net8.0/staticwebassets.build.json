@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AmcJQ1cR5dPbma84aCV3w++N45l3XIVC/sD/MyCGEqA=",
+  "Hash": "uSLEkQ8BjMv3mYYiNXzkyA5RXM36O1eHAEaLTXPPdGo=",
   "Source": "DeliveryService_Belko",
   "BasePath": "_content/DeliveryService_Belko",
   "Mode": "Default",
@@ -136,8 +136,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vups2xcab2",
-      "Integrity": "GehS5Vs8JbOITci+R4ctMztnf6VXd7NMhgkqZuyvAok=",
+      "Fingerprint": "66d3aaprzx",
+      "Integrity": "kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\shared.css"
@@ -2239,6 +2239,51 @@
       ]
     },
     {
+      "Route": "css/shared.66d3aaprzx.css",
+      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25339"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 13:34:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "66d3aaprzx"
+        },
+        {
+          "Name": "label",
+          "Value": "css/shared.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0="
+        }
+      ]
+    },
+    {
       "Route": "css/shared.css",
       "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
       "Selectors": [],
@@ -2249,7 +2294,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23610"
+          "Value": "25339"
         },
         {
           "Name": "Content-Type",
@@ -2257,11 +2302,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GehS5Vs8JbOITci+R4ctMztnf6VXd7NMhgkqZuyvAok=\""
+          "Value": "\"kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Dec 2025 13:31:38 GMT"
+          "Value": "Mon, 22 Dec 2025 13:34:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2271,52 +2316,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GehS5Vs8JbOITci+R4ctMztnf6VXd7NMhgkqZuyvAok="
-        }
-      ]
-    },
-    {
-      "Route": "css/shared.vups2xcab2.css",
-      "AssetFile": "E:\\инфа\\praktika\\DeliveryService\\DeliveryService_Belko\\wwwroot\\css\\shared.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "23610"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GehS5Vs8JbOITci+R4ctMztnf6VXd7NMhgkqZuyvAok=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 22 Dec 2025 13:31:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vups2xcab2"
-        },
-        {
-          "Name": "label",
-          "Value": "css/shared.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-GehS5Vs8JbOITci+R4ctMztnf6VXd7NMhgkqZuyvAok="
+          "Value": "sha256-kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0="
         }
       ]
     },

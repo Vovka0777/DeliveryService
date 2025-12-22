@@ -36,17 +36,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mbwk0jjyht"},{"Name":"integrity","Value":"sha256-orxgymiHKdMIv2zTgZnqtfHtCbSc98iDuSPcGvoEUiE="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/media_style.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7954"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022orxgymiHKdMIv2zTgZnqtfHtCbSc98iDuSPcGvoEUiE=\u0022"},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 10:51:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/shared.66d3aaprzx.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"66d3aaprzx"},{"Name":"integrity","Value":"sha256-kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/shared.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"25339"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0=\u0022"},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 13:34:49 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/shared.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-GehS5Vs8JbOITci\u002BR4ctMztnf6VXd7NMhgkqZuyvAok="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"23610"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022GehS5Vs8JbOITci\u002BR4ctMztnf6VXd7NMhgkqZuyvAok=\u0022"},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 13:31:38 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/css/shared.vups2xcab2.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vups2xcab2"},{"Name":"integrity","Value":"sha256-GehS5Vs8JbOITci\u002BR4ctMztnf6VXd7NMhgkqZuyvAok="},{"Name":"label","Value":"_content/DeliveryService_Belko/css/shared.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"23610"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022GehS5Vs8JbOITci\u002BR4ctMztnf6VXd7NMhgkqZuyvAok=\u0022"},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 13:31:38 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"25339"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022kpjiW5b8R2qLXNvVhtkHkRJvcDnSRmrjj88J6RkU2I0=\u0022"},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 13:34:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DeliveryService_Belko/DeliveryService_Belko.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.qn15hc5gpt.bundle.scp.css'))</AssetFile>

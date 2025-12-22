@@ -971,3 +971,64 @@ body {
 form h5 + .row.bg-light {
     margin-top: 30px !important;
 }
+/* ====== СТИЛИ КОРЗИНЫ (CART) ====== */
+
+/* Карточка товара */
+.cart-item-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bg-white); /* Используем переменную темы */
+}
+
+    .cart-item-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md) !important;
+    }
+
+/* Обёртка для картинки товара */
+.img-wrapper {
+    background-color: #f8f9fa; /* Светлый фон по умолчанию */
+    overflow: hidden;
+}
+
+/* Карточка сводки (справа) */
+.summary-card {
+    background: var(--bg-white);
+    border: 1px solid var(--accent-border);
+}
+
+/* Анимация кнопки оформления */
+.pulse-btn {
+    animation: pulseGlow 3s infinite;
+}
+
+/* --- АДАПТАЦИЯ КОРЗИНЫ ПОД ТЁМНУЮ ТЕМУ --- */
+
+[data-theme="dark"] .cart-item-card,
+[data-theme="dark"] .summary-card {
+    background-color: var(--bg-white) !important;
+    color: var(--text-dark);
+    border-color: var(--accent-border);
+}
+
+/* Фон под картинкой в тёмной теме */
+[data-theme="dark"] .img-wrapper {
+    background-color: var(--bg-input) !important;
+}
+
+/* Бейджик с категорией */
+[data-theme="dark"] .badge.bg-light {
+    background-color: var(--bg-input) !important;
+    color: var(--text-grey) !important;
+    border-color: var(--accent-border) !important;
+}
+
+/* Кнопка "Удалить" в тёмной теме */
+[data-theme="dark"] .btn-outline-danger {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+    [data-theme="dark"] .btn-outline-danger:hover {
+        background-color: #ef4444;
+        color: #fff;
+    }
