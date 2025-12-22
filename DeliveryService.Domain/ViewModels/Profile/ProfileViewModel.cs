@@ -8,6 +8,9 @@ namespace DeliveryService.Domain.ViewModels.Profile
         public Guid Id { get; set; }
 
         [Display(Name = "Логин")]
+        [Required(ErrorMessage = "Укажите логин")]
+        [MinLength(3, ErrorMessage = "Логин должен быть длиннее 3 символов")]
+        [MaxLength(20, ErrorMessage = "Логин должен быть меньше 20 символов")]
         public string Login { get; set; }
 
         [Display(Name = "Email")]
@@ -25,5 +28,21 @@ namespace DeliveryService.Domain.ViewModels.Profile
 
         [Display(Name = "Загрузить фото")]
         public IFormFile? AvatarFile { get; set; }
+
+        // --- Смена пароля ---
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Текущий пароль")]
+        public string? CurrentPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Новый пароль")]
+        [MinLength(6, ErrorMessage = "Пароль должен быть больше 6 символов")]
+        public string? NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Подтверждение пароля")]
+        [Compare("NewPassword", ErrorMessage = "Пароли не совпадают")]
+        public string? ConfirmNewPassword { get; set; }
     }
 }

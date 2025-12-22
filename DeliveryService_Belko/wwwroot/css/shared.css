@@ -912,3 +912,62 @@ body {
 [data-theme="dark"] .icon {
     color: #f3f4f6 !important;
 }
+/* 1. Переопределяем белый фон карточки */
+[data-theme="dark"] .card-body.bg-white {
+    background-color: var(--bg-white) !important;
+    color: var(--text-dark);
+}
+
+/* 2. Блоки с классом bg-light (поля ввода, иконки, блок с паролем) */
+[data-theme="dark"] .bg-light {
+    background-color: var(--bg-input) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--accent-border) !important;
+}
+
+/* 3. Инпуты и группы ввода (чтобы иконка и поле сливались) */
+[data-theme="dark"] .input-group-text.bg-light,
+[data-theme="dark"] .form-control.bg-light {
+    background-color: var(--bg-input) !important;
+    border-color: var(--accent-border) !important;
+    color: var(--text-dark) !important;
+}
+
+/* Цвет плейсхолдера (текст подсказки) */
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--text-grey);
+}
+
+/* Фокус на инпутах */
+[data-theme="dark"] .form-control:focus {
+    background-color: var(--bg-white) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-dark) !important;
+}
+
+/* 4. Кнопки (например, кнопка "Отмена" и загрузки фото) */
+[data-theme="dark"] .btn-light {
+    background-color: var(--bg-input);
+    border-color: var(--accent-border);
+    color: var(--text-dark);
+}
+
+    [data-theme="dark"] .btn-light:hover {
+        background-color: var(--accent-bg-light);
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+/* 5. Второстепенный текст (label text-muted) */
+[data-theme="dark"] .text-muted {
+    color: var(--text-grey) !important;
+}
+
+/* 6. Обводка аватарки в шапке профиля */
+[data-theme="dark"] .rounded-circle.border-white {
+    border-color: var(--bg-white) !important; /* Цвет фона карточки вместо чисто белого */
+    background-color: var(--bg-white) !important;
+}
+form h5 + .row.bg-light {
+    margin-top: 30px !important;
+}

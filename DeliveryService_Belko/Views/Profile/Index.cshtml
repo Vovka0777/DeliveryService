@@ -18,7 +18,8 @@
                              style="width: 140px; height: 140px; object-fit: cover; background-color: #fff;">
 
                         <label for="avatarUpload" class="btn btn-light btn-sm rounded-circle position-absolute bottom-0 end-0 shadow-sm p-2"
-                               style="width: 40px; height: 40px; cursor: pointer;" title="Сменить фото">
+                               style="width: 40px; height: 40px; cursor: pointer;"
+                               title="Сменить фото">
                             <i class="bi bi-camera-fill text-primary"></i>
                         </label>
                     </div>
@@ -29,8 +30,10 @@
 
                 <div class="card-body p-5 bg-white">
                     <form asp-action="Save" asp-controller="Profile" method="post" enctype="multipart/form-data">
+
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
                         <input asp-for="Id" type="hidden" />
-                        <input asp-for="Login" type="hidden" />
 
                         <input asp-for="AvatarFile" type="file" id="avatarUpload" class="d-none" accept="image/*" onchange="previewImage(this)">
 
@@ -40,11 +43,21 @@
 
                         <div class="row g-4">
                             <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small">Логин</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person"></i></span>
+                                    <input asp-for="Login" class="form-control bg-light border-start-0 ps-0" placeholder="Ваш логин">
+                                </div>
+                                <span asp-validation-for="Login" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
                                 <label class="form-label fw-bold text-muted small">Email адрес</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope"></i></span>
                                     <input asp-for="Email" class="form-control bg-light border-start-0 ps-0" placeholder="name@example.com">
                                 </div>
+                                <span asp-validation-for="Email" class="text-danger small"></span>
                             </div>
 
                             <div class="col-md-6">
@@ -61,6 +74,33 @@
                                     <span class="input-group-text bg-light border-end-0"><i class="bi bi-geo-alt"></i></span>
                                     <input asp-for="Address" class="form-control bg-light border-start-0 ps-0" placeholder="Город, улица, дом, квартира">
                                 </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-5 opacity-25">
+
+                        <h5 class="fw-bold mb-4 text-primary text-uppercase letter-spacing-1">
+                            <i class="bi bi-lock-fill me-2"></i> Безопасность
+                        </h5>
+
+                        <div class="row g-4 bg-light p-4 rounded-3 border-start border-4 border-primary">
+                            <div class="col-12">
+                                <label class="form-label fw-bold text-muted small">Текущий пароль</label>
+                                <input asp-for="CurrentPassword" class="form-control" type="password" placeholder="Введите текущий пароль для изменений">
+                                <span asp-validation-for="CurrentPassword" class="text-danger small"></span>
+                                <div class="form-text text-muted small">Обязательно, если хотите сменить пароль.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small">Новый пароль</label>
+                                <input asp-for="NewPassword" class="form-control" type="password" placeholder="Новый пароль">
+                                <span asp-validation-for="NewPassword" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small">Повторите пароль</label>
+                                <input asp-for="ConfirmNewPassword" class="form-control" type="password" placeholder="Повторите новый пароль">
+                                <span asp-validation-for="ConfirmNewPassword" class="text-danger small"></span>
                             </div>
                         </div>
 

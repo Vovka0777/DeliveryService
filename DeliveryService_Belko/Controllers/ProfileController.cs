@@ -1,7 +1,7 @@
 ﻿using DeliveryService.Domain.ViewModels.Profile;
 using DeliveryService.Service.Interfaces;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -26,7 +26,8 @@ namespace DeliveryService_Belko.Controllers
             {
                 return View(response.Data);
             }
-            return RedirectToAction("Index", "Home");
+            // Исправлен редирект (был Index, стало SiteInformation)
+            return RedirectToAction("SiteInformation", "Home");
         }
 
         [HttpPost]
@@ -37,25 +38,37 @@ namespace DeliveryService_Belko.Controllers
                 var response = await _profileService.UpdateProfile(model);
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    // --- НАЧАЛО: Обновление аватарки в шапке ---
+                    // --- ОБНОВЛЕНИЕ КУКИ (LOGIN + AVATAR) ---
                     if (User.Identity is ClaimsIdentity currentIdentity)
                     {
-                        // Удаляем старый путь
+                        // 1. Обновляем путь к аватарке
                         var avatarClaim = currentIdentity.FindFirst("AvatarPath");
                         if (avatarClaim != null) currentIdentity.RemoveClaim(avatarClaim);
-
-                        // Добавляем новый путь (берем из response.Data, который мы исправили в Шаге 1)
                         currentIdentity.AddClaim(new Claim("AvatarPath", response.Data.AvatarPath ?? "/images/user.png"));
+
+                        // 2. Обновляем Логин (если он изменился)
+                        if (response.Data.Login != currentIdentity.Name)
+                        {
+                            var nameClaim = currentIdentity.FindFirst(ClaimTypes.Name);
+                            if (nameClaim != null) currentIdentity.RemoveClaim(nameClaim);
+                            currentIdentity.AddClaim(new Claim(ClaimTypes.Name, response.Data.Login));
+                        }
 
                         // Перезаписываем куки
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(currentIdentity));
                     }
-                    // --- КОНЕЦ ---
+                    // ----------------------------------------
 
-                    return RedirectToAction("SiteInformation", "Home");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    // Если ошибка (например, пароль неверный), показываем её на странице
+                    ModelState.AddModelError("", response.Description);
                 }
             }
-            return RedirectToAction("SiteInformation", "Home");
+            // Если валидация не прошла, возвращаем View с ошибками
+            return View("Index", model);
         }
     }
 }

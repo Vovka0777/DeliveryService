@@ -1,5 +1,6 @@
 ﻿using DeliveryService.DAL;
 using DeliveryService.Domain.Enum;
+using DeliveryService.Domain.Helpers;
 using DeliveryService.Domain.Response;
 using DeliveryService.Domain.ViewModels.Profile;
 using DeliveryService.Service.Interfaces;
@@ -34,7 +35,6 @@ namespace DeliveryService.Service.Realizations
                     Email = user.Email,
                     Phone = user.Phone,
                     Address = user.Address,
-                    // Если картинки нет, ставим заглушку
                     AvatarPath = string.IsNullOrEmpty(user.PathImage) ? "/images/user.png" : user.PathImage
                 };
 
@@ -54,48 +54,75 @@ namespace DeliveryService.Service.Realizations
                 if (user == null)
                     return new BaseResponse<ProfileViewModel>() { Description = "Пользователь не найден", StatusCode = StatusCode.NotFound };
 
-                // 1. Обновляем текстовые данные
+                // 1. Смена ЛОГИНА (с проверкой на занятость)
+                if (user.Login != model.Login)
+                {
+                    if (await _db.Users.AnyAsync(x => x.Login == model.Login))
+                    {
+                        return new BaseResponse<ProfileViewModel>() { Description = "Этот логин уже занят", StatusCode = StatusCode.InternalServerError };
+                    }
+                    user.Login = model.Login;
+                }
+
+                // 2. Смена ПАРОЛЯ
+                if (!string.IsNullOrWhiteSpace(model.NewPassword))
+                {
+                    if (string.IsNullOrWhiteSpace(model.CurrentPassword))
+                    {
+                        return new BaseResponse<ProfileViewModel>() { Description = "Введите текущий пароль для подтверждения смены", StatusCode = StatusCode.InternalServerError };
+                    }
+
+                    // Проверяем старый пароль (Внимание: проверь название метода HashPassowrd или HashPassword в своем хелпере)
+                    if (user.Password != HashPasswordHelper.HashPassword(model.CurrentPassword))
+                    {
+                        return new BaseResponse<ProfileViewModel>() { Description = "Неверный текущий пароль", StatusCode = StatusCode.InternalServerError };
+                    }
+
+                    // Ставим новый пароль
+                    user.Password = HashPasswordHelper.HashPassword(model.NewPassword);
+                }
+
+                // 3. Обновление остальных данных
                 user.Email = model.Email;
                 user.Phone = model.Phone;
                 user.Address = model.Address;
 
-                // 2. Логика сохранения картинки (С ЗАЩИТОЙ ОТ ВЫЛЕТА)
+                // 4. Сохранение КАРТИНКИ
                 if (model.AvatarFile != null)
                 {
                     string wwwRootPath = _appEnvironment.WebRootPath;
-
                     string folderName = "ImageUser";
                     string pathFolder = Path.Combine(wwwRootPath, folderName);
 
-
-                    // ВАЖНО: Если папки нет, создаем её
                     if (!Directory.Exists(pathFolder))
                     {
                         Directory.CreateDirectory(pathFolder);
                     }
 
-                    string fileName = $"{user.Login}_{Guid.NewGuid().ToString().Substring(0, 8)}{Path.GetExtension(model.AvatarFile.FileName)}";
+                    // Добавляем Guid, чтобы имя файла было уникальным и браузер обновлял картинку
+                    string extension = Path.GetExtension(model.AvatarFile.FileName);
+                    string fileName = $"{user.Login}_{Guid.NewGuid().ToString().Substring(0, 8)}{extension}";
+
                     string fullPath = Path.Combine(pathFolder, fileName);
 
-                    // Сохраняем файл
                     using (var fileStream = new FileStream(fullPath, FileMode.Create))
                     {
                         await model.AvatarFile.CopyToAsync(fileStream);
                     }
 
-                    // Сохраняем путь для базы данных (путь относительно корня сайта)
                     user.PathImage = $"/{folderName}/{fileName}";
                 }
 
                 _db.Users.Update(user);
                 await _db.SaveChangesAsync();
+
+                // Важно вернуть обновленный путь и логин в модель
                 model.AvatarPath = user.PathImage;
 
                 return new BaseResponse<ProfileViewModel>() { Data = model, StatusCode = StatusCode.OK, Description = "Профиль успешно обновлен" };
             }
             catch (Exception ex)
             {
-                // Логируем ошибку, чтобы сайт не падал
                 return new BaseResponse<ProfileViewModel>() { Description = $"[UpdateProfile] : {ex.Message}", StatusCode = StatusCode.InternalServerError };
             }
         }
