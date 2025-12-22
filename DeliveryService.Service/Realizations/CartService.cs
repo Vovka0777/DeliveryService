@@ -109,5 +109,25 @@ namespace DeliveryService.Service.Realizations
             // Реализация аналогична RemoveItem, только удаляем всё
             return new BaseResponse<bool>() { Data = true, StatusCode = StatusCode.OK };
         }
+        public async Task<IBaseResponse<bool>> DeleteItem(Guid id)
+        {
+            try
+            {
+                var item = await _db.BasketItems.FirstOrDefaultAsync(x => x.Id == id);
+                if (item == null)
+                {
+                    return new BaseResponse<bool>() { Description = "Товар не найден", StatusCode = StatusCode.NotFound };
+                }
+
+                _db.BasketItems.Remove(item);
+                await _db.SaveChangesAsync();
+
+                return new BaseResponse<bool>() { Data = true, StatusCode = StatusCode.OK, Description = "Товар удален" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>() { Description = ex.Message, StatusCode = StatusCode.InternalServerError };
+            }
+        }
     }
 }

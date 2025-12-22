@@ -30,10 +30,11 @@ namespace DeliveryService_Belko.Controllers
             return RedirectToAction("Index", "Catalog");
         }
 
+        [HttpGet]
         public async Task<IActionResult> Remove(Guid id)
         {
-            await _cartService.RemoveItem(User.Identity.Name, id);
-            return RedirectToAction("Index");
+            await _cartService.DeleteItem(id);
+            return RedirectToAction("Index"); // Перезагружаем страницу корзины
         }
     }
 }

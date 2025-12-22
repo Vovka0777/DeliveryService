@@ -9,5 +9,6 @@ namespace DeliveryService.Service.Interfaces
         Task<IBaseResponse<Basket>> AddItem(string userName, Guid itemId);
         Task<IBaseResponse<bool>> RemoveItem(string userName, Guid itemId);
         Task<IBaseResponse<bool>> ClearBasket(string userName);
+        Task<IBaseResponse<bool>> DeleteItem(Guid id);
     }
 }
