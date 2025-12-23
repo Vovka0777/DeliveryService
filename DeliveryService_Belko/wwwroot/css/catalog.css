@@ -1,7 +1,4 @@
-﻿/* wwwroot/css/catalog.css */
-
-/* Общая анимация для появления каталога */
-@keyframes slideUpFade {
+﻿@keyframes slideUpFade {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -22,7 +19,6 @@
     animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Боковая панель фильтров */
 .filters-sidebar {
     flex: 0 0 280px;
     padding: 25px;
@@ -51,12 +47,10 @@
         color: var(--text-dark);
     }
 
-/* Основная область с товарами */
 .products-content {
     flex: 1;
 }
 
-/* Панель сортировки */
 .sort-bar {
     display: flex;
     justify-content: flex-end;
@@ -64,14 +58,12 @@
     margin-bottom: 20px;
 }
 
-/* Сетка товаров (Grid) */
 .catalog-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-/* Карточка товара */
 .product-card {
     background-color: var(--bg-white);
     border: 1px solid var(--accent-border);
@@ -91,7 +83,6 @@
         border-color: var(--primary-color);
     }
 
-/* Контейнер изображения */
 .card-img-container {
     height: 240px;
     background: var(--bg-gradient-card);
@@ -115,7 +106,6 @@
     transform: scale(1.15) rotate(2deg);
 }
 
-/* Тело карточки */
 .card-body {
     padding: 25px;
     display: flex;
@@ -145,14 +135,14 @@
     line-height: 1.6;
 }
 
-/* Футер карточки (цена и кнопка) */
 .card-footer-custom {
-    margin-top: auto;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 8px;
     padding-top: 15px;
-    border-top: 1px dashed var(--accent-border);
+    margin-top: auto;
 }
 
 .price-tag {
@@ -162,22 +152,40 @@
 }
 
 .card-footer-custom .btn, .product-card .button {
-    background: var(--primary-color);
-    color: white;
     padding: 8px 16px;
     border-radius: 10px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
     .card-footer-custom .btn:hover {
         background: var(--primary-hover);
     }
 
+.btn-primary, .btn-danger, .btn-success {
+    color: white !important;
+}
 
-/* Поиск */
+.btn-warning {
+    color: #212529 !important;
+}
+
+.btn-outline-success {
+    color: var(--primary-color) !important;
+    background-color: transparent;
+    border-color: var(--primary-color);
+}
+
+    .btn-outline-success:hover {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+    }
+
 .search-box {
     position: relative;
     margin: 0;
@@ -218,7 +226,6 @@
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Детальная страница товара */
 .product-detail-img-container {
     width: 100%;
     height: 500px;
@@ -254,14 +261,111 @@
     transition: all 0.3s ease;
 }
 
-/* --- Адаптивность для мобильных (Исправлено) --- */
+.filters-sidebar .form-check {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    margin-bottom: 12px;
+    min-height: 24px;
+}
+
+.filters-sidebar .form-check-input {
+    float: none;
+    margin: 0 12px 0 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--accent-border);
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    top: 0;
+    transition: all 0.2s ease;
+}
+
+    .filters-sidebar .form-check-input:checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    }
+
+.filters-sidebar .form-check-label {
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding-top: 2px;
+    color: var(--text-dark);
+    user-select: none;
+}
+
+.filters-sidebar .filter-group label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.filters-sidebar .form-range {
+    height: 4px;
+    padding: 0;
+    margin-top: 5px;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+    .filters-sidebar .form-range::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background-color: var(--accent-border);
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .filters-sidebar .form-range::-moz-range-track {
+        width: 100%;
+        height: 4px;
+        background-color: var(--accent-border);
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .filters-sidebar .form-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        margin-top: -8px;
+        cursor: pointer;
+        transition: transform 0.1s;
+    }
+
+        .filters-sidebar .form-range::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+    .filters-sidebar .form-range::-moz-range-thumb {
+        height: 20px;
+        width: 20px;
+        border: none;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: transform 0.1s;
+    }
+
 @media (max-width: 768px) {
-    /* Вертикальное расположение блоков */
     .catalog-wrapper {
         flex-direction: column;
     }
 
-    /* Исправление панели фильтров (убран sticky и фикс высоты, поднят z-index) */
     .filters-sidebar {
         width: 100%;
         position: relative;
@@ -271,13 +375,11 @@
         z-index: 5;
     }
 
-    /* Сетка товаров: 2 колонки */
     .catalog-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
-    /* Компактные стили карточек */
     .card-img-container {
         height: 150px;
         padding: 10px;
@@ -308,124 +410,32 @@
     .card-footer-custom {
         padding-top: 10px;
         flex-direction: column;
+        align-items: stretch;
         gap: 8px;
-        align-items: flex-start;
     }
+
+        .card-footer-custom .d-flex {
+            flex-direction: column;
+            width: 100% !important;
+            gap: 8px;
+        }
 
     .price-tag {
         font-size: 1.1rem;
+        margin-bottom: 5px;
+        align-self: flex-start;
     }
 
     .card-footer-custom .btn {
         width: 100%;
-        text-align: center;
-        padding: 6px 0;
-        font-size: 0.9rem;
+        margin: 0;
+        flex: none;
+        height: auto;
     }
 }
 
-/* --- Исправление неровностей в фильтрах --- */
-
-/* 1. Блок категорий (Чекбоксы) */
-.filters-sidebar .form-check {
-    display: flex; /* Включаем гибкий контейнер */
-    align-items: center; /* Центрируем строго по вертикали */
-    padding-left: 0; /* Убираем стандартный отступ Bootstrap */
-    margin-bottom: 12px;
-    min-height: 24px;
-}
-
-.filters-sidebar .form-check-input {
-    float: none;
-    margin: 0 12px 0 0; /* Отступ только справа */
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--accent-border);
-    border-radius: 4px;
-    background-color: transparent;
-    cursor: pointer;
-    flex-shrink: 0;
-    position: relative;
-    top: 0;
-    transition: all 0.2s ease;
-}
-
-    .filters-sidebar .form-check-input:checked {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+@media (max-width: 576px) {
+    .catalog-container {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-.filters-sidebar .form-check-label {
-    cursor: pointer;
-    font-size: 0.95rem;
-    line-height: 1;
-    padding-top: 2px; /* Оптическая коррекция */
-    color: var(--text-dark);
-    user-select: none;
 }
-
-/* 2. Ползунок цены (Range) */
-.filters-sidebar .filter-group label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-}
-
-.filters-sidebar .form-range {
-    height: 4px;
-    padding: 0;
-    margin-top: 5px;
-    background-color: transparent;
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-}
-
-    /* Дорожка (Track) */
-    .filters-sidebar .form-range::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 4px;
-        background-color: var(--accent-border);
-        border-radius: 2px;
-        cursor: pointer;
-    }
-
-    .filters-sidebar .form-range::-moz-range-track {
-        width: 100%;
-        height: 4px;
-        background-color: var(--accent-border);
-        border-radius: 2px;
-        cursor: pointer;
-    }
-
-    /* Бегунок (Thumb) */
-    .filters-sidebar .form-range::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: var(--primary-color);
-        border: 3px solid white;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        margin-top: -8px; /* Центрирование */
-        cursor: pointer;
-        transition: transform 0.1s;
-    }
-
-        .filters-sidebar .form-range::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
-
-    .filters-sidebar .form-range::-moz-range-thumb {
-        height: 20px;
-        width: 20px;
-        border: none;
-        border-radius: 50%;
-        background: var(--primary-color);
-        border: 3px solid white;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        cursor: pointer;
-        transition: transform 0.1s;
-    }

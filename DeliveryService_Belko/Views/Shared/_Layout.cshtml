@@ -95,6 +95,11 @@
                 {
                     <li><a asp-controller="Cart" asp-action="Index"><i class="bi bi-cart"></i> Корзина</a></li>
                     <li><a asp-controller="Profile" asp-action="Index"><i class="bi bi-person-badge"></i> Профиль</a></li>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li><a asp-controller="Admin" asp-action="Index"><i class="bi bi-speedometer2"></i> Админ панель</a></li>
+                    }
                 }
                 <li><a href="/#services"><i class="bi bi-lightning"></i> Услуги</a></li>
                 <li><a href="/#contacts"><i class="bi bi-telephone"></i> Контакты</a></li>

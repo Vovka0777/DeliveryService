@@ -7,7 +7,7 @@
     --text-dark: #1f2937;
     --text-grey: #6b7280;
     --text-light: #9ca3af;
-    /* Фоны */
+    /* Фоны сайта */
     --bg-body: #f3f4f6;
     --bg-white: #ffffff;
     --bg-glass: rgba(255, 255, 255, 0.7);
@@ -26,6 +26,19 @@
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-full: 9999px;
+    /* --- ADMIN VARIABLES (LIGHT) --- */
+    /* Теперь админка в светлой теме будет белой и чистой */
+    --admin-bg-page: #f3f4f6;
+    --admin-card-bg: #ffffff;
+    --admin-card-gradient: linear-gradient(145deg, #ffffff, #f9fafb);
+    --admin-text-main: #1f2937;
+    --admin-text-muted: #6b7280;
+    --admin-border: #e5e7eb;
+    --admin-input-bg: #f9fafb;
+    --admin-accent: #3b82f6;
+    --admin-danger: #ef4444;
+    --admin-success: #22c55e;
+    --admin-hover-bg: #f3f4f6;
 }
 
 /* --- DARK THEME OVERRIDES --- */
@@ -47,8 +60,20 @@
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    /* --- ADMIN VARIABLES (DARK OVERRIDES) --- */
+    /* Переопределяем цвета админки для темной темы */
+    --admin-bg-page: #181825;
+    --admin-card-bg: #1e1e2e;
+    --admin-card-gradient: linear-gradient(145deg, #252539, #1e1e2e);
+    --admin-text-main: #cdd6f4;
+    --admin-text-muted: #a6adc8;
+    --admin-border: rgba(255, 255, 255, 0.1);
+    --admin-input-bg: rgba(255, 255, 255, 0.05);
+    --admin-accent: #89b4fa;
+    --admin-danger: #f38ba8;
+    --admin-success: #a6e3a1;
+    --admin-hover-bg: rgba(255, 255, 255, 0.05);
 }
-
 html {
     box-sizing: border-box;
     font-family: "Poppins", "Montserrat", system-ui, -apple-system, sans-serif;
@@ -265,7 +290,6 @@ body {
     border-radius: var(--radius-lg);
     padding: 60px;
     box-shadow: var(--shadow-md);
-    margin-top: -60px;
     position: relative;
     z-index: 10;
     animation: fadeInUp 1s ease-out 0.3s backwards;
@@ -1068,4 +1092,242 @@ form h5 + .row.bg-light {
 [data-theme="dark"] .dropdown-item.text-danger:hover {
     background-color: rgba(220, 38, 38, 0.1); /* Легкий красный фон */
     color: #ef4444 !important;
+}
+/* ====== ADMIN PANEL STYLES ====== */
+
+.admin-panel-container {
+    color: var(--admin-text-main);
+    min-height: 100vh;
+    padding-top: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Карточки статистики */
+.stats-card {
+    background: var(--admin-card-gradient);
+    border: 1px solid var(--admin-border);
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+    .stats-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--admin-accent);
+        box-shadow: var(--shadow-lg);
+    }
+
+.stats-icon {
+    background: var(--accent-bg-light); /* Используем общую переменную для фона иконки */
+    color: var(--admin-accent);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-radius: 18px;
+    border: 1px solid var(--admin-border);
+}
+
+/* 2. КОНТЕЙНЕР ТАБЛИЦЫ (Без скролла) */
+.admin-table-container {
+    background: var(--admin-card-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: 24px;
+    padding: 20px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    overflow: hidden; /* Скрываем всё, что торчит, скролла не будет */
+}
+
+.custom-table {
+    margin-bottom: 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    .custom-table thead th {
+        color: var(--admin-text-muted);
+        border-bottom: 1px solid var(--admin-border);
+        padding: 20px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .custom-table tbody tr {
+        transition: background 0.2s;
+    }
+
+        .custom-table tbody tr:not(:last-child) {
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+    /* Линия разделителя для строк */
+    .custom-table td {
+        border-bottom: 1px solid var(--admin-border);
+        color: var(--admin-text-main);
+        vertical-align: middle;
+    }
+
+    .custom-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .custom-table tbody tr:hover {
+        background: var(--admin-hover-bg);
+    }
+
+/* Аватарки и бэйджи */
+.table-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    border: 2px solid var(--admin-border);
+    object-fit: cover;
+}
+
+.badge-admin {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--admin-danger);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-user {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--admin-success);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Мобильные карточки */
+.user-mobile-card {
+    background: var(--admin-card-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+}
+
+.user-value {
+    color: var(--admin-text-main);
+    font-weight: 500;
+}
+
+/* Кнопки действий */
+.btn-action {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--admin-input-bg);
+    color: var(--admin-text-muted);
+    transition: all 0.2s;
+    border: 1px solid var(--admin-border);
+    text-decoration: none;
+}
+
+    .btn-action:hover {
+        background: var(--admin-accent);
+        color: #fff;
+        border-color: var(--admin-accent);
+    }
+
+.btn-delete:hover {
+    background: var(--admin-danger);
+    color: #fff;
+    border-color: var(--admin-danger);
+}
+
+/* --- Стили для Форм Админки (Admin Forms) --- */
+
+/* Контейнер формы (карточка по центру) */
+.admin-form-card {
+    background: var(--admin-card-gradient);
+    border: 1px solid var(--admin-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Заголовки полей */
+.admin-label {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Поля ввода (Input, Select, Textarea) */
+/* Убраны !important, чтобы работало переключение тем */
+.admin-input {
+    background-color: var(--admin-input-bg);
+    border: 1px solid var(--admin-border);
+    color: var(--admin-text-main);
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+    /* Эффект при клике на поле */
+    .admin-input:focus {
+        background-color: var(--bg-white); /* Светлее при фокусе */
+        border-color: var(--admin-accent);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        color: var(--admin-text-main);
+        outline: none;
+    }
+
+    .admin-input option {
+        background-color: var(--bg-white);
+        color: var(--text-dark);
+    }
+
+/* Загрузка файла */
+.admin-file-input {
+    background-color: var(--admin-input-bg);
+    border: 1px dashed var(--admin-border);
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .admin-file-input:hover {
+        background-color: var(--accent-bg-light);
+        border-color: var(--admin-accent);
+        color: var(--admin-accent);
+    }
+
+/* Текущая картинка */
+.current-img-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 2px solid var(--admin-border);
+    margin-top: 10px;
+    background-color: var(--bg-white);
 }

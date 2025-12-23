@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DeliveryService.Domain.Models;
-using DeliveryService.Domain.ModelsDb; // Добавил namespace, так как UserDb скорее всего там
+using DeliveryService.Domain.ModelsDb;
 
 namespace DeliveryService.DAL
 {
@@ -14,7 +14,6 @@ namespace DeliveryService.DAL
         public DbSet<OrderHistory> OrderHistories { get; set; } = null!;
         public DbSet<Item> Items { get; set; } = null!;
 
-        // --- НОВЫЕ ТАБЛИЦЫ ДЛЯ КОРЗИНЫ ---
         public DbSet<Basket> Baskets { get; set; } = null!;
         public DbSet<BasketItem> BasketItems { get; set; } = null!;
     }

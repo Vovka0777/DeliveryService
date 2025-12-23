@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using DeliveryService.Domain.Enum;
 using DeliveryService.Domain.Models;
 using DeliveryService.Domain.ModelsDb;
-using DeliveryService.Domain.ViewModels.Catalog; 
-using DeliveryService.Domain.ViewModels.Item;  
+using DeliveryService.Domain.ViewModels.Catalog;
+using DeliveryService.Domain.ViewModels.Item;
 using DeliveryService.Domain.ViewModels.LoginAndRegistration;
+using DeliveryService.Domain.ViewModels.Profile; 
 
 namespace DeliveryService.Service
 {
@@ -11,33 +13,25 @@ namespace DeliveryService.Service
     {
         public AppMappingProfile()
         {
-            // 1. Маппинг БД <-> Доменная модель
-            CreateMap<ItemDb, Item>().ReverseMap();
+            CreateMap<ItemDb, Item>()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => (ItemType)src.Category))
+                .ReverseMap()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => (int)src.Category));
+
             CreateMap<UserDb, User>().ReverseMap();
 
-            // 2. ИСПРАВЛЕНО: Маппинг Item -> ItemViewModel (а не CatalogViewModel)
             CreateMap<Item, ItemViewModel>()
-                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => GetCategoryName(src.Category)));
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category));
 
-            // 3. Остальные маппинги
+            CreateMap<ItemViewModel, Item>()
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category));
+
             CreateMap<LoginViewModel, User>();
             CreateMap<RegisterViewModel, User>();
 
             CreateMap<UserDb, User>()
-            .ForMember(dest => dest.Basket, opt => opt.MapFrom(src => src.Basket))
-            .MaxDepth(1); // <--- ЭТО ВАЖНО
-        }
-
-        private string GetCategoryName(int categoryId)
-        {
-            return categoryId switch
-            {
-                0 => "Еда",
-                1 => "Канцелярия",
-                2 => "Стройматериалы",
-                3 => "Одежда",
-                _ => "Разное"
-            };
+               .ForMember(dest => dest.Basket, opt => opt.MapFrom(src => src.Basket))
+               .MaxDepth(1);
         }
     }
 }

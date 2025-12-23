@@ -242,7 +242,6 @@
     });
 });
 
-// Добавляем CSS анимацию "тряски" программно
 const styleSheet = document.createElement("style");
 styleSheet.innerText = `
 @keyframes shake {

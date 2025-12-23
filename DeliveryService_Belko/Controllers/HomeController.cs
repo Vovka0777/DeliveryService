@@ -98,7 +98,7 @@ namespace DeliveryService_Belko.Controllers
                     Email = model.Email,
                     Password = model.Password,
                     Login = model.Login,
-                    Role = (int)DeliveryService.Domain.Models.Role.Client
+                    Role = (int)Role.User
                 };
 
                 var response = await _accountService.ConfirmEmail(user, model.Code, model.ConfirmCode);
@@ -157,7 +157,6 @@ namespace DeliveryService_Belko.Controllers
         {
             try
             {
-                // ИСПРАВЛЕНИЕ: Читаем данные из схемы Google, а не из Куки
                 var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
 
                 if (result?.Succeeded == true)
@@ -166,23 +165,20 @@ namespace DeliveryService_Belko.Controllers
                     {
                         Login = result.Principal.FindFirst(ClaimTypes.Name)?.Value ?? result.Principal.FindFirst(ClaimTypes.Email)?.Value,
                         Email = result.Principal.FindFirst(ClaimTypes.Email)?.Value,
-                        // Добавляем сохранение картинки
                         PathImage = "/" + await SaveImageInImageUser(result.Principal.FindFirst("picture")?.Value, result)
                     };
 
-                    // Если сохранение картинки вернуло пустую строку или null, ставим дефолт (немного поправил логику объединения путей)
                     if (string.IsNullOrEmpty(model.PathImage) || model.PathImage == "/")
                     {
                         model.PathImage = "/images/user.png";
                     }
 
-                    model.Role = (int)DeliveryService.Domain.Models.Role.Client;
+                    model.Role = (int)Role.User;
 
                     var response = await _accountService.IsCreatedAccount(model);
 
                     if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                     {
-                        // А вот здесь мы уже создаем НАШУ куку, чтобы пользователь был залогинен на сайте
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                             new ClaimsPrincipal(response.Data));
 

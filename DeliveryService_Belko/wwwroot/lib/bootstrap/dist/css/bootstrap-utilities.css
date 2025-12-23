@@ -428,7 +428,8 @@
 }
 
 .border-0 {
-  border: 0 !important;
+    border: 0 !important;
+    border-radius: 25px !important;
 }
 
 .border-top {

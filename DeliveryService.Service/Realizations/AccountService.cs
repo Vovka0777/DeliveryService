@@ -1,4 +1,4 @@
-﻿    using AutoMapper;
+﻿using AutoMapper;
 using DeliveryService.DAL;
 using DeliveryService.Domain.Models;
 using DeliveryService.Domain.ModelsDb;
@@ -13,7 +13,7 @@ using DeliveryService.Domain.Enum;
 using MimeKit;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Hosting; 
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Linq;
 
@@ -24,14 +24,14 @@ namespace DeliveryService.Service.Realizations
         private readonly IBaseStorage<UserDb> _userStorage;
         private readonly IMapper _mapper;
         private readonly UserValidator _validationRules;
-        private readonly IWebHostEnvironment _appEnvironment; // Добавлено
+        private readonly IWebHostEnvironment _appEnvironment;
 
-        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper, UserValidator validationRules, IWebHostEnvironment appEnvironment) // Добавлено IWebHostEnvironment
+        public AccountService(IBaseStorage<UserDb> userStorage, IMapper mapper, UserValidator validationRules, IWebHostEnvironment appEnvironment)
         {
             _userStorage = userStorage;
             _mapper = mapper;
             _validationRules = validationRules;
-            _appEnvironment = appEnvironment; // Инициализация
+            _appEnvironment = appEnvironment;
         }
 
         public async Task<BaseResponse<ClaimsIdentity>> Login(User model)
@@ -172,6 +172,7 @@ namespace DeliveryService.Service.Realizations
                 await client.DisconnectAsync(true);
             }
         }
+
         public async Task<BaseResponse<ClaimsIdentity>> ConfirmEmail(User model, string code, string confirmCode)
         {
             try
@@ -191,7 +192,9 @@ namespace DeliveryService.Service.Realizations
                 model.CreatedAt = DateTime.UtcNow;
 
                 model.PathImage = "/images/user.png";
-                model.Role = (int)Role.Client;
+
+                model.Role = Role.User;
+
                 model.ProfileImg = 1;
 
                 model.Password = HashPasswordHelper.HashPassword(model.Password);
@@ -242,14 +245,11 @@ namespace DeliveryService.Service.Realizations
 
                 if (existingUser == null)
                 {
-
                     model.Id = Guid.NewGuid();
-
                     model.Password = "google";
-
                     model.CreatedAt = DateTime.UtcNow;
 
-                    model.Role = (int)Role.Client;
+                    model.Role = Role.User;
 
                     model.ProfileImg = 1;
 

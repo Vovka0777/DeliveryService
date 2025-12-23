@@ -9,57 +9,45 @@
     <div class="text-center mb-5" style="animation: fadeInUp 0.8s ease;">
         <h1 class="display-4 fw-bold">Наш каталог</h1>
         <p class="text-muted lead">Выберите лучшие товары по отличным ценам</p>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="mt-3">
+                <a asp-controller="Catalog" asp-action="Save" asp-route-id="@Guid.Empty" class="btn btn-success rounded-pill px-4">
+                    <i class="bi bi-plus-lg"></i> Добавить товар
+                </a>
+            </div>
+        }
     </div>
 
-    <div class="search-box mb-5 mx-auto" style="max-width: 700px; animation: fadeInUp 0.8s ease 0.1s backwards;">
+    <div class="search-box mb-5 mx-auto" style="max-width: 700px;">
         <input type="text" id="elasticSearch" class="search-input" placeholder="Я ищу...">
         <i class="bi bi-search search-icon"></i>
         <span class="clear-search" id="clearSearch" style="display:none; position:absolute; right: 55px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:1.5rem;">&times;</span>
     </div>
 
     <div class="catalog-wrapper">
-
         <aside class="filters-sidebar">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="m-0 fw-bold">Фильтры</h4>
                 <i class="bi bi-sliders text-primary"></i>
             </div>
-
             <hr class="mb-4 text-muted">
-
             <div class="filter-group">
                 <span>Цена до: <span class="text-primary" id="priceValue">5000</span> ₽</span>
                 <input type="range" class="form-range" min="0" max="10000" step="100" value="5000" id="priceRange">
             </div>
-
             <div class="filter-group mt-4">
                 <h5 class="mb-3 fw-semibold fs-6 text-uppercase text-muted">Категории</h5>
-
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" value="0" id="catFood">
-                    <label class="form-check-label" for="catFood">Еда</label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" value="1" id="catStationery">
-                    <label class="form-check-label" for="catStationery">Канцелярия</label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" value="2" id="catBuild">
-                    <label class="form-check-label" for="catBuild">Стройматериалы</label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" value="3" id="catClothes">
-                    <label class="form-check-label" for="catClothes">Одежда</label>
-                </div>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" value="0" id="catFood"><label class="form-check-label" for="catFood">Еда</label></div>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" value="1" id="catStationery"><label class="form-check-label" for="catStationery">Канцелярия</label></div>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" value="2" id="catBuild"><label class="form-check-label" for="catBuild">Стройматериалы</label></div>
+                <div class="form-check mb-2"><input class="form-check-input" type="checkbox" value="3" id="catClothes"><label class="form-check-label" for="catClothes">Одежда</label></div>
             </div>
-
-            <button id="applyFilters" class="btn btn-primary w-100 mt-4 rounded-pill py-2 fw-bold shadow-sm">
-                Применить
-            </button>
+            <button id="applyFilters" class="btn btn-primary w-100 mt-4 rounded-pill py-2 fw-bold shadow-sm">Применить</button>
         </aside>
 
         <section class="products-content">
-
             <div class="sort-bar">
                 <div class="d-flex align-items-center">
                     <label for="sortOrder" class="me-2 text-muted small text-uppercase fw-bold mb-0">Сортировка:</label>
@@ -88,26 +76,21 @@
                             <div class="card-img-container">
                                 <img src="@item.PathImg" alt="@item.Name" class="product-img" loading="lazy" />
                             </div>
-
                             <div class="card-body">
                                 <h3 class="card-title">@item.Name</h3>
                                 <p class="card-text">@item.Description</p>
-
                                 <div class="card-footer-custom d-flex justify-content-between align-items-center">
                                     <span class="price-tag">@item.Price ₽</span>
-
-                                    <div class="d-flex align-items-center">
-                                        <a asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">
-                                            Подробнее
-                                        </a>
-
+                                    <div class="d-flex align-items-center gap-1">
+                                        <a asp-action="GetItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm rounded-pill px-3">Подробнее</a>
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id"
-                                               class="btn btn-outline-success btn-sm rounded-pill px-3 ms-2"
-                                               title="Добавить в корзину">
-                                                <i class="bi bi-cart-plus"></i>
-                                            </a>
+                                            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm rounded-pill px-3" title="В корзину"><i class="bi bi-cart-plus"></i></a>
+                                        }
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a asp-controller="Catalog" asp-action="Save" asp-route-id="@item.Id" class="btn btn-warning btn-sm rounded-pill px-2" title="Редактировать"><i class="bi bi-pencil"></i></a>
+                                            <a asp-controller="Catalog" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm rounded-pill px-2" title="Удалить" onclick="return confirm('Удалить товар?');"><i class="bi bi-trash"></i></a>
                                         }
                                     </div>
                                 </div>
@@ -119,3 +102,10 @@
         </section>
     </div>
 </div>
+@section Scripts {
+    <script src="~/js/catalog.js"></script>
+    <script>
+        const isAdmin = @User.IsInRole("Admin").ToString().ToLower();
+        const isAuthenticated = @User.Identity.IsAuthenticated.ToString().ToLower();
+    </script>
+}

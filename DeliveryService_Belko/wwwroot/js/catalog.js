@@ -14,7 +14,7 @@
         });
     }
 
-    // Обработчики событий
+    // Кнопка "Применить"
     if (applyFiltersBtn) {
         applyFiltersBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -22,11 +22,12 @@
         });
     }
 
+    // Сортировка
     if (sortOrderSelect) {
         sortOrderSelect.addEventListener('change', () => filterItems());
     }
 
-    // Живой поиск с debounce
+    // Поиск
     let debounceTimer;
     if (searchInput) {
         searchInput.addEventListener('input', function () {
@@ -40,6 +41,7 @@
         });
     }
 
+    // Очистка поиска
     if (clearBtn) {
         clearBtn.addEventListener('click', function () {
             if (searchInput) searchInput.value = '';
@@ -48,9 +50,9 @@
         });
     }
 
+    // Фильтрация
     function filterItems() {
         const productsContainer = document.getElementById('productsList');
-        // Добавляем эффект загрузки (прозрачность)
         productsContainer.style.opacity = '0.5';
 
         const maxPrice = priceRange ? priceRange.value : 100000;
@@ -89,11 +91,11 @@
                 productsContainer.innerHTML = '<p class="text-center">Ошибка соединения.</p>';
             })
             .finally(() => {
-                // Возвращаем непрозрачность
                 productsContainer.style.opacity = '1';
             });
     }
 
+    // Отрисовка
     function renderCatalog(items) {
         const container = document.getElementById('productsList');
         container.innerHTML = '';
@@ -107,25 +109,36 @@
             return;
         }
 
-        // Считываем статус авторизации из атрибута data-is-auth
-        // Убедись, что в Index.cshtml у div#productsList есть атрибут data-is-auth="@User.Identity.IsAuthenticated..."
-        const isAuth = container.getAttribute('data-is-auth') === 'true';
+        // Права доступа
+        const userIsAdmin = (typeof isAdmin !== 'undefined') ? isAdmin : false;
+        const userIsAuth = (typeof isAuthenticated !== 'undefined') ? isAuthenticated : false;
 
         items.forEach((item, index) => {
             const wrapper = document.createElement('div');
 
-            // Формируем HTML кнопки корзины (только если юзер авторизован)
-            let cartButtonHtml = '';
-            if (isAuth) {
-                cartButtonHtml = `
-                    <a href="/Cart/Add/${item.id}" 
-                       class="btn btn-outline-success btn-sm rounded-pill px-3" 
-                       title="Добавить в корзину">
+            let cartButton = '';
+            if (userIsAuth) {
+                cartButton = `
+                    <a href="/Cart/Add?id=${item.id}" 
+                       class="btn btn-outline-success btn-sm rounded-pill" 
+                       title="В корзину">
                         <i class="bi bi-cart-plus"></i>
                     </a>`;
             }
 
-            // Генерируем карточку
+            let adminButtons = '';
+            if (userIsAdmin) {
+                adminButtons = `
+                    <a href="/Catalog/Save?id=${item.id}" class="btn btn-warning btn-sm rounded-pill" title="Редактировать">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a href="/Catalog/Delete?id=${item.id}" class="btn btn-danger btn-sm rounded-pill" onclick="return confirm('Удалить?')" title="Удалить">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                `;
+            }
+
+            // ЧИСТАЯ СТРУКТУРА HTML (без лишних d-flex классов Bootstrap)
             const cardHtml = `
             <div class="product-card" style="animation: fadeInUp 0.5s ease forwards; animation-delay: ${index * 0.05}s; opacity: 0; transform: translateY(20px);">
                 <div class="card-img-container">
@@ -135,19 +148,20 @@
                     <h3 class="card-title">${item.name}</h3>
                     <p class="card-text">${item.description}</p>
                     
-                    <div class="card-footer-custom d-flex justify-content-between align-items-center">
+                    <div class="card-footer-custom">
                         <span class="price-tag">${item.price} ₽</span>
                         
-                        <div class="d-flex align-items-center gap-2">
-                            <a href="/Catalog/GetItem/${item.id}" class="btn btn-primary btn-sm rounded-pill px-3">
+                        <div class="footer-buttons">
+                            <a href="/Catalog/GetItem?id=${item.id}" class="btn btn-primary btn-sm rounded-pill">
                                 Подробнее
                             </a>
-                            ${cartButtonHtml}
+                            ${cartButton}
+                            ${adminButtons}
                         </div>
                     </div>
                 </div>
             </div>
-        `;
+            `;
 
             wrapper.innerHTML = cardHtml;
             container.appendChild(wrapper.firstElementChild);

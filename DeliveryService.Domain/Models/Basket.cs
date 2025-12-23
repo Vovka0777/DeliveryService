@@ -1,4 +1,4 @@
-﻿using DeliveryService.Domain.ModelsDb; // Добавь этот using
+﻿using DeliveryService.Domain.ModelsDb;
 
 namespace DeliveryService.Domain.Models
 {

@@ -17,18 +17,14 @@ namespace DeliveryService.Domain.ModelsDb // Обрати внимание на 
         public int Role { get; set; }
         public int? ProfileImg { get; set; }
 
-        // --- НОВЫЕ ПОЛЯ (ОБЯЗАТЕЛЬНО ДОБАВИТЬ) ---
         public string? PathImage { get; set; } = string.Empty;
         public string? Address { get; set; }
         public string? Phone { get; set; }
-        // -----------------------------------------
 
         [Column("CreatedAt", TypeName = "timestamp")]
         public DateTime CreatedAt { get; set; }
 
-        // --- СВЯЗЬ С КОРЗИНОЙ ---
         public Basket? Basket { get; set; }
-        // ------------------------
 
         [InverseProperty("Client")]
         public ICollection<Order> ClientOrders { get; set; } = new List<Order>();

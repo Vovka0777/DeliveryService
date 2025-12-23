@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Корзина";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    // Исправлено: Amount -> Quantity
     decimal totalSum = Model != null ? Model.Sum(x => x.Item.Price * x.Quantity) : 0;
 }
 

@@ -1,0 +1,55 @@
+﻿@model DeliveryService.Domain.Models.User
+@using DeliveryService.Domain.Enum
+
+@{
+    ViewData["Title"] = "Редактирование пользователя";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="admin-panel-container d-flex align-items-center justify-content-center" style="min-height: 85vh;">
+    <div class="container" style="max-width: 550px;">
+
+        <div class="admin-form-card fade-in-up">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-1">Редактирование</h2>
+                <p class="text-muted small">Изменение данных аккаунта</p>
+            </div>
+
+            <div class="text-center mb-4 p-3 rounded-4" style="background: rgba(255,255,255,0.03);">
+                <img src="@(string.IsNullOrEmpty(Model.PathImage) ? "/images/user.png" : Model.PathImage)"
+                     class="rounded-circle shadow-sm mb-2"
+                     style="width: 80px; height: 80px; object-fit: cover; border: 3px solid var(--admin-accent);">
+                <div class="small text-muted">ID: @Model.Id</div>
+            </div>
+
+            <form asp-action="EditUser" method="post">
+                <input asp-for="Id" hidden />
+
+                <div class="mb-3">
+                    <label asp-for="Login" class="admin-label">Логин</label>
+                    <input asp-for="Login" class="form-control admin-input" placeholder="Введите логин" required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="admin-label">Email адрес</label>
+                    <input asp-for="Email" class="form-control admin-input" type="email" placeholder="name@example.com" required />
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Role" class="admin-label">Роль в системе</label>
+                    <select asp-for="Role" class="form-select admin-input" asp-items="Html.GetEnumSelectList<Role>()"></select>
+                </div>
+
+                <div class="d-grid gap-3">
+                    <a asp-action="Index" class="btn btn-outline-light rounded-pill py-3 fw-bold" style="border-color: var(--admin-border); color: var(--admin-text-muted);">
+                        Отмена
+                    </a>
+                    <button class="btn btn-primary rounded-pill py-3 fw-bold shadow-lg" type="submit">
+                        <i class="bi bi-save me-2"></i> Сохранить
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

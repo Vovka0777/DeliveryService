@@ -9,7 +9,7 @@ namespace DeliveryService.Domain.Helpers
     {
         public static ClaimsIdentity Authenticate(User user)
         {
-            var claims = new List<Claim>
+            var claims = new List<Claim> 
     {
         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
         
@@ -17,7 +17,8 @@ namespace DeliveryService.Domain.Helpers
         new Claim(ClaimTypes.Name, user.Login!),
         new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString()),
 
-        new Claim("AvatarPath", user.PathImage)
+        new Claim("AvatarPath", user.PathImage),
+        new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
     };
 
             return new ClaimsIdentity(

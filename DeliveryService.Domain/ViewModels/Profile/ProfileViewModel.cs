@@ -29,8 +29,6 @@ namespace DeliveryService.Domain.ViewModels.Profile
         [Display(Name = "Загрузить фото")]
         public IFormFile? AvatarFile { get; set; }
 
-        // --- Смена пароля ---
-
         [DataType(DataType.Password)]
         [Display(Name = "Текущий пароль")]
         public string? CurrentPassword { get; set; }

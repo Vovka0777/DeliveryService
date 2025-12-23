@@ -26,7 +26,6 @@ namespace DeliveryService_Belko.Controllers
             {
                 return View(response.Data);
             }
-            // Исправлен редирект (был Index, стало SiteInformation)
             return RedirectToAction("SiteInformation", "Home");
         }
 
@@ -38,7 +37,6 @@ namespace DeliveryService_Belko.Controllers
                 var response = await _profileService.UpdateProfile(model);
                 if (response.StatusCode == DeliveryService.Domain.Enum.StatusCode.OK)
                 {
-                    // --- ОБНОВЛЕНИЕ КУКИ (LOGIN + AVATAR) ---
                     if (User.Identity is ClaimsIdentity currentIdentity)
                     {
                         // 1. Обновляем путь к аватарке
@@ -57,7 +55,6 @@ namespace DeliveryService_Belko.Controllers
                         // Перезаписываем куки
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(currentIdentity));
                     }
-                    // ----------------------------------------
 
                     return RedirectToAction("Index");
                 }

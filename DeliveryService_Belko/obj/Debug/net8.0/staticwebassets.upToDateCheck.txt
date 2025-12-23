@@ -19,6 +19,16 @@ wwwroot\images\salat.png
 wwwroot\images\stepler.png
 wwwroot\images\sushi.png
 wwwroot\images\user.png
+wwwroot\images\Снимок экрана 2024-10-12 140115.png
+wwwroot\images\Снимок экрана 2024-10-13 160557.png
+wwwroot\images\Снимок экрана 2024-10-13 215921.png
+wwwroot\images\Снимок экрана 2024-10-20 010811.png
+wwwroot\images\Снимок экрана 2024-10-27 190428.png
+wwwroot\images\Снимок экрана 2024-10-31 020138.png
+wwwroot\images\Снимок экрана 2024-10-31 024049.png
+wwwroot\images\Снимок экрана 2024-11-08 215638.png
+wwwroot\images\Снимок экрана 2024-11-09 204938.png
+wwwroot\ImageUser\aaaaasssssss_69a4ce89.jpg
 wwwroot\ImageUser\aabobovic59@gmail.com-avatar.jpg
 wwwroot\ImageUser\asdfg_25535825.png
 wwwroot\ImageUser\asdfg_4334d689.jpg

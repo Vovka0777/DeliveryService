@@ -1,0 +1,145 @@
+﻿@using DeliveryService.Domain.Enum
+@model List<DeliveryService.Domain.Models.User>
+
+@{
+    ViewData["Title"] = "Админ Панель";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var total = Model.Count;
+    var admins = Model.Count(u => u.Role == Role.Admin);
+}
+
+<div class="admin-panel-container">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h6 class="text-uppercase fw-bold text-primary mb-1" style="letter-spacing: 2px;">Система</h6>
+                <h1 class="fw-bold m-0">Управление пользователями</h1>
+            </div>
+            <a asp-action="CatalogManager" class="btn btn-primary px-4 py-2 rounded-pill shadow-lg">
+                <i class="bi bi-grid-1x2-fill me-2"></i> Каталог
+            </a>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stats-icon mb-3"><i class="bi bi-person-fill"></i></div>
+                            <h3 class="fw-bold m-0">@total</h3>
+                            <span class="text-muted small">Всего аккаунтов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stats-icon mb-3" style="color: #f38ba8; background: rgba(243, 139, 168, 0.1);"><i class="bi bi-shield-lock-fill"></i></div>
+                            <h3 class="fw-bold m-0">@admins</h3>
+                            <span class="text-muted small">Администраторы</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stats-icon mb-3" style="color: #a6e3a1; background: rgba(166, 227, 161, 0.1);"><i class="bi bi-patch-check-fill"></i></div>
+                            <h3 class="fw-bold m-0">Active</h3>
+                            <span class="text-muted small">Статус сервера</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-none d-lg-block">
+            <div class="admin-table-container shadow-lg">
+                <table class="table custom-table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Пользователь</th>
+                            <th>Статус</th>
+                            <th>Контактные данные</th>
+                            <th class="text-end">Управление</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="@(string.IsNullOrEmpty(user.PathImage) ? "/images/user.png" : user.PathImage)" class="table-avatar me-3 shadow-sm">
+                                        <div>
+                                            <div class="fw-bold">@user.Login</div>
+                                            <div class="text-muted x-small">ID: @user.Id.ToString().Substring(0, 8)</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @if (user.Role == Role.Admin)
+                                    {
+                                        <span class="badge badge-admin rounded-pill px-3">Admin</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-user rounded-pill px-3">User</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="small"><i class="bi bi-envelope-at me-2 opacity-50"></i>@user.Email</div>
+                                    @if (!string.IsNullOrEmpty(user.Phone))
+                                    {
+                                        <div class="small mt-1"><i class="bi bi-phone me-2 opacity-50"></i>@user.Phone</div>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    <a asp-action="EditUser" asp-route-id="@user.Id" class="btn-action">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn-action btn-delete" onclick="return confirm('Удалить пользователя?')">
+                                            <i class="bi bi-trash3-fill"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="d-lg-none">
+            @foreach (var user in Model)
+            {
+                <div class="user-mobile-card shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center">
+                            <img src="@(string.IsNullOrEmpty(user.PathImage) ? "/images/user.png" : user.PathImage)" class="table-avatar me-3">
+                            <div>
+                                <div class="fw-bold">@user.Login</div>
+                                <div class="text-muted small">@user.Email</div>
+                            </div>
+                        </div>
+                        @if (user.Role == Role.Admin)
+                        {
+                            <span class="badge badge-admin rounded-pill">Admin</span>
+                        }
+                    </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-outline-light btn-sm rounded-pill flex-grow-1">Изменить</a>
+                        <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" class="flex-grow-1">
+                            <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill w-100">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

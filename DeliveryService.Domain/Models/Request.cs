@@ -1,4 +1,4 @@
-﻿using static DeliveryService.Domain.Enum.Enum;
+﻿using DeliveryService.Domain.Enum;
 
 namespace DeliveryService.Domain.Models
 {

@@ -7,14 +7,14 @@ a.navbar-brand {
 
 /* Обновленные ссылки */
 a {
-    color: #3b82f6; /* Новый primary-color */
+    color: #3b82f6;
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
 }
 
     a:hover {
-        color: #2563eb; /* Новый primary-hover */
+        color: #2563eb;
     }
 
 /* Кнопки */

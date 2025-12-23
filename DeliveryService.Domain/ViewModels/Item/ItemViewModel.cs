@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using DeliveryService.Domain.Enum;
 
 namespace DeliveryService.Domain.ViewModels.Item
 {
@@ -13,14 +14,16 @@ namespace DeliveryService.Domain.ViewModels.Item
         [Display(Name = "Описание")]
         public string Description { get; set; }
 
+        [Range(0.01, 1000000, ErrorMessage = "Цена должна быть больше 0")]
         [Display(Name = "Стоимость")]
         public decimal Price { get; set; }
 
         [Display(Name = "Категория")]
-        public string Category { get; set; } // Можно выводить строковое название
+        public ItemType Category { get; set; } 
 
-        public string PathImg { get; set; } // Путь к изображению
+        public string PathImg { get; set; }
 
-        public IFormFile? Avatar { get; set; } // Для загрузки (если понадобится позже)
+        public IFormFile? Avatar { get; set; }
+
     }
 }

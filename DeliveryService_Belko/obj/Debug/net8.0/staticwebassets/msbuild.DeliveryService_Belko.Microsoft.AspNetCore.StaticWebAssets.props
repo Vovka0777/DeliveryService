@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ay7ie5ec1a</Fingerprint>
-      <Integrity>wtpfA5vjD8Z4z4bs4+FlemJjdG3qzKoKwJawhgnVttc=</Integrity>
+      <Fingerprint>rl1tdry2gd</Fingerprint>
+      <Integrity>oTnuP5uczdq5SwgWzp0m5zBKspzHA+ZyodClUjpDlQg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\catalog.css'))</OriginalItemSpec>
@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>v8z5dukays</Fingerprint>
-      <Integrity>r2YejULLPBYtRSXaTJJd6lmYtVNBZz7ZXix3Og17RO0=</Integrity>
+      <Fingerprint>ds4s56guan</Fingerprint>
+      <Integrity>w3tJq4q9mtus6qbMUm80od+EKzcHvija/bIJWbhXLQk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\media_style.css'))</OriginalItemSpec>
@@ -66,29 +66,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>t9a1hd2ifp</Fingerprint>
-      <Integrity>QY8gSwToEKZP0NXtFIdnjfSBCV1eOx/+dRF2NjM3A5s=</Integrity>
+      <Fingerprint>6s4c81n389</Fingerprint>
+      <Integrity>Nn8BpqwRBARDaMmSSm3woh1+HGfUO+I9jFwsHVJTVyk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\shared.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.qn15hc5gpt.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.dxlk8ncp1e.bundle.scp.css'))">
       <SourceType>Package</SourceType>
       <SourceId>DeliveryService_Belko</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DeliveryService_Belko</BasePath>
-      <RelativePath>DeliveryService_Belko.qn15hc5gpt.bundle.scp.css</RelativePath>
+      <RelativePath>DeliveryService_Belko.dxlk8ncp1e.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>qn15hc5gpt</Fingerprint>
-      <Integrity>pkiDJ1IFqc5caJ5N2AV8KlHaZBtbO+NapkTLS/17uZo=</Integrity>
+      <Fingerprint>dxlk8ncp1e</Fingerprint>
+      <Integrity>/4+9V8wJ7lG9FulUDoq3VUsO+Ekq4WDyqTZ2K5SdGJQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.qn15hc5gpt.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DeliveryService_Belko.dxlk8ncp1e.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\brushes.png'))">
       <SourceType>Package</SourceType>
@@ -396,6 +396,186 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\user.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-12 140115.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-12 140115.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0w8enpzf7j</Fingerprint>
+      <Integrity>gI8pwm2z4fkHGANtLfV6u2YZNqL/kZoy+cuJ9NNhpD8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-12 140115.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-13 160557.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-13 160557.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6utya064rr</Fingerprint>
+      <Integrity>jnWDCFjHv5hqkplkFeiYpCyuKAEaRgpZ7TFeGmqQmuA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-13 160557.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-13 215921.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-13 215921.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dxrkh54yg7</Fingerprint>
+      <Integrity>YW+0FIc9FZ1ByrSYpgIMxuOkGOJc+cLABl9kBtCbRBQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-13 215921.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-20 010811.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-20 010811.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0ub8oladdn</Fingerprint>
+      <Integrity>GKaKLWYHuVuJz8wiDHBWpiIgaNIR6FObHRY11GiE00I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-20 010811.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-27 190428.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-27 190428.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cqlil6d9k0</Fingerprint>
+      <Integrity>hFu/fr9JNaR9dk59VOdeFRYdA/SWAJLx3YgQhGt+94E=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-27 190428.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-31 020138.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-31 020138.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>j6b73l12ql</Fingerprint>
+      <Integrity>peTEdk7ukOWhZy3sfoVq3X4C7vxv23PwqLvlBzlLaLI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-31 020138.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-31 024049.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-10-31 024049.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>hdehg17ezj</Fingerprint>
+      <Integrity>+/heFAFrjgbD/vHuDNUM4v7nV/dknPqwDKU/WRBqgdQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-10-31 024049.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-11-08 215638.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-11-08 215638.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>rdhe0b2ixj</Fingerprint>
+      <Integrity>gQSVs0mXyW7uzrknsPmC2+gb1aXypX9Xxwp8rUpvcTk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-11-08 215638.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-11-09 204938.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>images/Снимок экрана 2024-11-09 204938.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>qk795mzkw1</Fingerprint>
+      <Integrity>ZgQ/afogBju/DyxTdpKQYqwd0GwJxiNjf1vrNl81diU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Снимок экрана 2024-11-09 204938.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ImageUser\aaaaasssssss_69a4ce89.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DeliveryService_Belko</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DeliveryService_Belko</BasePath>
+      <RelativePath>ImageUser/aaaaasssssss_69a4ce89.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>hvb2n4q787</Fingerprint>
+      <Integrity>Y/AWXPX5mTvfP4tnct2PlI9nl8BQXFrew9hdlbBDcMc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ImageUser\aaaaasssssss_69a4ce89.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ImageUser\aabobovic59@gmail.com-avatar.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>DeliveryService_Belko</SourceId>
@@ -588,8 +768,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>pge0hj7umu</Fingerprint>
-      <Integrity>ORYhHfJbfg50Epp9UUyBmgHw2JHmdJ3XCuG0kcQTjQ0=</Integrity>
+      <Fingerprint>71fys12l8h</Fingerprint>
+      <Integrity>myB2ULuVqUwWj7+MTPAsd7GV4VN/yWeiT7IKoITuXXs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\catalog.js'))</OriginalItemSpec>
@@ -606,8 +786,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1jjak1d6sq</Fingerprint>
-      <Integrity>XQkgw3Gi9sFNtxKFR5/xMm+q8Qy5wxL31YxIptzwFgM=</Integrity>
+      <Fingerprint>j2r9okuiup</Fingerprint>
+      <Integrity>tcZmH8NP0lO+pja+917SWG7pUXzZQLWOnTwc+lGn8/A=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\login_and_registration_script.js'))</OriginalItemSpec>
@@ -948,8 +1128,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>z9shlbduue</Fingerprint>
-      <Integrity>mcVOHRq7FsWaycSfboGsTpzuQZ3cIOR/GDHYxL6q2Yg=</Integrity>
+      <Fingerprint>keia46gg1y</Fingerprint>
+      <Integrity>VChUYkBkHAvS0cf+D8U5BnFRYOZx9oGjM3MSY+grG6k=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-utilities.css'))</OriginalItemSpec>

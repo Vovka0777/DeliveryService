@@ -48,7 +48,6 @@ namespace DeliveryService.Service.Realizations
             }
         }
 
-        // Метод для фильтрации и сортировки
         public async Task<BaseResponse<List<ItemViewModel>>> GetItemsByFilter(ItemFilter filter)
         {
             try
@@ -62,7 +61,7 @@ namespace DeliveryService.Service.Realizations
 
                 if (filter.Categories != null && filter.Categories.Any())
                 {
-                    items = items.Where(x => filter.Categories.Contains((int)x.Category)).ToList();
+                    items = items.Where(x => filter.Categories.Contains(x.Category)).ToList();
                 }
 
                 if (!string.IsNullOrEmpty(filter.Name))
@@ -107,7 +106,6 @@ namespace DeliveryService.Service.Realizations
             }
         }
 
-        // Метод для получения одного товара по ID
         public async Task<BaseResponse<ItemViewModel>> GetItem(Guid id)
         {
             try
@@ -138,6 +136,79 @@ namespace DeliveryService.Service.Realizations
                     Description = $"[GetItem] : {ex.Message}",
                     StatusCode = StatusCode.InternalServerError
                 };
+            }
+        }
+
+        public async Task<BaseResponse<ItemViewModel>> Create(ItemViewModel model)
+        {
+            try
+            {
+                var item = new Item
+                {
+                    Name = model.Name,
+                    Description = model.Description,
+                    Price = model.Price,
+                    Category = (int)model.Category,
+                    PathImg = model.PathImg ?? "/images/brushes.png",
+                    CreatedAt = DateTime.Now
+                };
+
+                await _itemStorage.Add(item);
+
+                return new BaseResponse<ItemViewModel> { Data = model, StatusCode = StatusCode.OK };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<ItemViewModel> { Description = ex.Message, StatusCode = StatusCode.InternalServerError };
+            }
+        }
+
+        public async Task<BaseResponse<ItemViewModel>> Edit(Guid id, ItemViewModel model)
+        {
+            try
+            {
+                var item = await _itemStorage.Get(id);
+                if (item == null)
+                {
+                    return new BaseResponse<ItemViewModel> { Description = "Товар не найден", StatusCode = StatusCode.NotFound };
+                }
+
+                item.Name = model.Name;
+                item.Description = model.Description;
+                item.Price = model.Price;
+                // Приводим Enum к int
+                item.Category = (int)model.Category;
+
+                if (!string.IsNullOrEmpty(model.PathImg))
+                {
+                    item.PathImg = model.PathImg;
+                }
+
+                await _itemStorage.Update(item);
+                return new BaseResponse<ItemViewModel> { Data = model, StatusCode = StatusCode.OK };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<ItemViewModel> { Description = ex.Message, StatusCode = StatusCode.InternalServerError };
+            }
+        }
+
+        public async Task<BaseResponse<bool>> Delete(Guid id)
+        {
+            try
+            {
+                var item = await _itemStorage.Get(id);
+                if (item == null)
+                {
+                    return new BaseResponse<bool> { Description = "Товар не найден", StatusCode = StatusCode.NotFound, Data = false };
+                }
+
+                await _itemStorage.Delete(item);
+                return new BaseResponse<bool> { Data = true, StatusCode = StatusCode.OK };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Description = ex.Message, StatusCode = StatusCode.InternalServerError, Data = false };
             }
         }
     }
